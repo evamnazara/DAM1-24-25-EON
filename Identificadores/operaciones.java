@@ -5,7 +5,7 @@
     operadores lógicos:
     && AND - verdadero si ambos se complen
     || OR - verdadero si alguno se cumple
-    ! NOT - invierte el valor pasado
+    ! NOT - invierte el valor dado
 
     incrementacion: 
     + - ++ -- ~ !
@@ -15,12 +15,23 @@
 
 package Identificadores;
 
+import java.math.*; /* para potencias y raices */
+
 public class operaciones {
     public static void main(String[] args) {
-        int a = 5;
-        double b = 2.0; /* si no se pone el .0, java lo interpreta como entero */
+        int a = 18;
+        double b = 21; /* si no se pone el .0, java lo interpreta como entero (5/2 = 2) */
 
-        System.out.println(a / b);
+        System.out.println(a % b);
     }
     
 }
+
+
+/* a=8, b=3, c=-5
+(3 * a – 2 * b) % (2 * a – c)
+(3 * 8 – 2 * 3) % (2 * 8 – -5)
+(24 – 6) % (16 + 5)
+18 % 21
+18
+ */
