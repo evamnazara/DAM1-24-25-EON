@@ -24,6 +24,3 @@ public class operadores {
     }
     
 }
-a=8, b=3, c=-5
-(3 * 8 – 2 * 3) % (2 * 8 – 5)
-18 / 21
