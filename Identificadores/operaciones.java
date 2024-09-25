@@ -15,7 +15,7 @@
 
 package Identificadores;
 
-import java.math.*; /* para potencias y raices */
+/* import java.math.*;  para potencias y raices */
 
 public class operaciones {
     public static void main(String[] args) {

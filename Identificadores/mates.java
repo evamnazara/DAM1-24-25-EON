@@ -16,11 +16,11 @@ public class mates {
 
         /**
 
-    operadores lógicos:
-    && AND - verdadero si ambos se complen
-    || OR - verdadero si alguno se cumple
-    ! NOT - invierte el valor dado
-*/
+        operadores lógicos:
+        && AND - verdadero si ambos se complen
+        || OR - verdadero si alguno se cumple
+        ! NOT - invierte el valor dado
+        */
 
         boolean resultado2 = (8 * 2 + 1) >= (5 + 10 / 2) && 7 % 2 == 1;
         System.out.println(resultado2);
