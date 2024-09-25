@@ -22,8 +22,8 @@ public class mates {
         ! NOT - invierte el valor dado
         */
 
-        boolean resultado2 = (8 * 2 + 1) >= (5 + 10 / 2) && 7 % 2 == 1;
-        System.out.println(resultado2);
+        /** boolean resultado2 = (8 * 2 + 1) >= (5 + 10 / 2) && 7 % 2 == 1;
+        System.out.println(resultado2); */
 
         boolean a = true, b = false, c = true;
         boolean resultado3 = !a || (b && c) || (a && !b);
@@ -48,17 +48,6 @@ public class mates {
 
         int resultado9 = (3 + 5 * (2 + 1)) - ((8 / 2) * (3 + 1));
         System.out.println(resultado9);
-
-
-
-
-
-
-
-     
-        
-
-
     }
     
 
