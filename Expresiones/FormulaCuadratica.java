@@ -9,6 +9,7 @@ public class FormulaCuadratica {
         double b = sc.nextDouble();
         double c = sc.nextDouble();
         double discriminante = Math.pow(b, 2) -4 * a * c;
-
+        
+        System.out.println(discriminante);
     }
 }
