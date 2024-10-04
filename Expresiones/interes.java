@@ -1,7 +1,6 @@
 package Expresiones;
 
 import java.util.*;
-import java.math.*;
 
 /**
  * Solicita datos por teclado y calcula la formula de interes compuesto.
@@ -36,6 +35,7 @@ public class interes {
 
         System.out.println("El interes compuesto es8" + importeFinal);
         //se pueden montar variables auxiliares
+        sc.close();
 
     }
     
