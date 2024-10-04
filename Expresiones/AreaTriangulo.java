@@ -11,6 +11,7 @@ public class AreaTriangulo {
 
         double area = b * h / 2;
         System.out.println(area);
+        sc.close();
     }
     
 }

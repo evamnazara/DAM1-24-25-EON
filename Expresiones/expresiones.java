@@ -1,7 +1,7 @@
 package Expresiones;
 
-import java.math.*;
-import java.util.Scanner;
+//import java.math.*;
+//import java.util.Scanner;
 
 public class expresiones {
     public static void main(String[] args) {

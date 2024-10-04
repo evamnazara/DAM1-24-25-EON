@@ -21,6 +21,7 @@ public class ApiScanner {
 
         System.out.println("Naciste en el anho " + anhoNacimiento + " , así que tienes " + edad + " anhos" );
 
+        sc.close();
     }
     
 }

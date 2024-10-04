@@ -11,5 +11,6 @@ public class FormulaCuadratica {
         double discriminante = Math.pow(b, 2) -4 * a * c;
         
         System.out.println(discriminante);
+        sc.close();
     }
 }
