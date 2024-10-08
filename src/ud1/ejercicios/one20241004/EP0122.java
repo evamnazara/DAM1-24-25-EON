@@ -13,11 +13,12 @@ public class EP0122 {
         
         System.out.println("Introduce los grados Farenheit que quieras convertir:");
         double gradosFarenheit = sc.nextDouble();
+        sc.close(); //mejor cerrar nada mas acabar 
 
         double gradosCelsius = 5.0 / 9.0 * (gradosFarenheit - 32);
 
         System.out.println(gradosFarenheit + " grados Farenheit son equivalentes a " + gradosCelsius + " grados Celsius");
 
-        sc.close();
+        
     }
 }

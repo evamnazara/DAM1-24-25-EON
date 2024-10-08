@@ -18,6 +18,11 @@ public class EP0123 {
         System.out.println("Ahora, introduce la unidad de medida [kilogramos (1) o libras (2)]");
         int unidad = sc.nextInt();
 
+        double resultado = unidad == 1 ? cantidad * 2.20462 : cantidad / 2.20462;
+        int conversion = unidad == 1 ? 2 : 1;
+
+        System.out.println(cantidad + (unidad == 1 ? "kg" : "lb") + " equivalen a " + resultado + " " + (conversion == 1 ? "kg" : "lb"));
+
         sc.close();
 
     }
