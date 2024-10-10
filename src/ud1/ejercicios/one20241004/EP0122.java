@@ -19,6 +19,5 @@ public class EP0122 {
 
         System.out.println(gradosFarenheit + " grados Farenheit son equivalentes a " + gradosCelsius + " grados Celsius");
 
-        
     }
 }

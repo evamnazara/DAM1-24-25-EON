@@ -23,8 +23,8 @@ public class EP0123 {
         double resultado = unidadMedida == 1 ? masaOrigen * 1000 / GRAMOS_LIBRA : masaOrigen * GRAMOS_LIBRA / 1000; //si unidad es 1 es kg y multiplica, si no el contrario
         int conversion = unidadMedida == 1 ? 2 : 1;
 
-       System.out.println(masaOrigen + (unidadMedida == 1 ? "kg" : "lb") + " equivalen a " + resultado + " " + (conversion == 1 ? "kg" : "lb"));
-       //System.out.println("El resultado es %.3f %s " + conversion);
+      //System.out.println(masaOrigen + (unidadMedida == 1 ? "kg" : "lb") + " equivalen a " + resultado + " " + (conversion == 1 ? "kg" : "lb"));
+       System.out.println("El resultado es %.3f %d" + conversion);
 
         sc.close();
 
