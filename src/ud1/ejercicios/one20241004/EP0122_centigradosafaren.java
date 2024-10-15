@@ -5,7 +5,7 @@ a grados Celsius o centígrados, mostrando el resultado por pantalla.
 */
 import java.util.*;
 
-public class EP0122 {
+public class EP0122_centigradosafaren {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

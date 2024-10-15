@@ -7,7 +7,7 @@ El programa deberá manejar las conversiones automáticamente y mostrar el resul
  */
 import java.util.*;
 
-public class EP0123 {
+public class EP0123_conversionmasa {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in); 
 
