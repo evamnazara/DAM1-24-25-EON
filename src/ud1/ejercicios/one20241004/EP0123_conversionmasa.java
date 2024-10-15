@@ -24,7 +24,7 @@ public class EP0123_conversionmasa {
         int conversion = unidadMedida == 1 ? 2 : 1;
 
       //System.out.println(masaOrigen + (unidadMedida == 1 ? "kg" : "lb") + " equivalen a " + resultado + " " + (conversion == 1 ? "kg" : "lb"));
-       System.out.println("El resultado es %.3f %d" + conversion);
+       System.out.printf("El resultado es %.3f %d" + resultado);
 
         sc.close();
 
