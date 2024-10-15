@@ -20,7 +20,10 @@ public class EJ3_numerosOrdenados {
         System.out.println("Introduce el tercer numero");
         int num3 = sc.nextInt();
 
-        String resultado = num1 > num2 && num2 > num3 ? "Está ordenado de mayor a menor" : num1 < num2 && num2 < num3 ? "Esta ordenado de menor a mayor" : "Están desordenados";
+        String resultado = 
+                        num1 > num2 && num2 > num3 ? "Está ordenado de mayor a menor" : 
+                        num1 < num2 && num2 < num3 ? "Esta ordenado de menor a mayor" : 
+                        "Están desordenados";
 
         System.out.println(resultado);
         sc.close();

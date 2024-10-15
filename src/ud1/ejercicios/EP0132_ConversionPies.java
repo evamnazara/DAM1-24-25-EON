@@ -22,9 +22,6 @@ public class EP0132_ConversionPies {
         System.out.println("Dime la medida de destino");
         int unidadDestino = sc.nextInt();
 
-
-
-
     }
     
 }
