@@ -28,7 +28,7 @@ public class EP029 {
             System.out.println("El número ya es múltipo de 7");
         
         } else {
-            System.out.println("Para que " + numeroInicial + " sea múltiplo de 7, debes sumarle " + numeroAAnadir ); 
+            System.out.println("Para que " + numeroInicial + " sea múltiplo de 7, debes sumarle " + numeroAAnadir  ); 
         }
  
         
