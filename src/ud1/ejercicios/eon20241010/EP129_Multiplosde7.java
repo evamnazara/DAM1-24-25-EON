@@ -16,7 +16,7 @@ public class EP129_Multiplosde7 {
         System.out.println("Resto de num % 7:" + (num % 7)); //imprime el resto
         System.out.println("Para el siguiente múltiplo de 7, hay que sumar " + (7 - num % 7) );
         String salida = num % 7 == 0 ? "El número ya es múltiplo de 7, no hay que sumar nada" : "Para el siguiente múltiplo de 7, sumo " + (7 - num % 7) ;  
-        
+        System.out.println(salida);
         //es el num mult de 7 ? (<- SI) > ya lo es : (<- si no?) "otra opcion > cadena"
 
     

@@ -38,7 +38,10 @@ public class EP0133_ConversionAlmacenamientoDatos {
 
         // Salida
         System.out.printf("La cantidad resultante es de %.2f ", cantidadDestino);
-        String medida = udMedidaDestino == 'b' ? "bytes" : udMedidaDestino == 'k' ? "kilobytes" : udMedidaDestino == 'm' ? "megabytes" : "gigabytes";
+        String medida = udMedidaDestino == 'b' ? "bytes" : 
+                        udMedidaDestino == 'k' ? "kilobytes" : 
+                        udMedidaDestino == 'm' ? "megabytes" : 
+                        "gigabytes";
         System.out.println(medida);
         
     }
