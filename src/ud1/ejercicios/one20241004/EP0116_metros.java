@@ -11,7 +11,7 @@ centimetros).
 
 import java.util.*;
 
-public class EP0116 {
+public class EP0116_metros {
     public static void main(String[] args) {
         System.out.println("Este programa solicitará 3 distancias en diferentes unidades.");
         

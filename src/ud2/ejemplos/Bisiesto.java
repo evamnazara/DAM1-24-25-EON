@@ -20,6 +20,7 @@ public class Bisiesto {
         boolean div4 = anho % 4 == 0;
         boolean div100 = anho % 100 == 0;
         boolean div400 = anho % 400 == 0;
+        // esBisiesto = div400 || div100 && div4;
 
         if (div4) { 
             if (div100) {
