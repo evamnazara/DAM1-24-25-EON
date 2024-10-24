@@ -18,8 +18,7 @@ public class E02014 {
         int anho = sc.nextInt();
         sc.close();
         
+        System.out.println(dia + mes + anho);
     }
 
 }
-    
-
