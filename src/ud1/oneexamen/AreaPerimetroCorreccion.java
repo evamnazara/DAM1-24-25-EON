@@ -1,3 +1,4 @@
+//corregir xd 
 package ud1.oneexamen;
 
 import java.util.Scanner;
@@ -21,7 +22,7 @@ public class AreaPerimetroCorreccion {
         double radioCirculo = ancho / 2;
         double areaCirculo = Math.PI * radioCirculo * radioCirculo;
         double perimetroCirculo = 2 * Math.PI * radioCirculo;
-
+        // double longitudRectangulo = largo - radioCirculo;
         double areaRectangulo = ancho * (largo - perimetroCirculo);
 
         double areaTotal = areaCirculo + areaRectangulo;
@@ -33,7 +34,7 @@ public class AreaPerimetroCorreccion {
 
         double vueltas = CARRERA / areaTotal;
         double restoVueltas = CARRERA % areaTotal;
-
+            //math.ceil
         System.out.println("Para una media maratón en este terreno, los participantes darán " + (int)vueltas + " vueltas y tendrán que hacer " + (int)restoVueltas + " metros a mayores. ");
 
      }
