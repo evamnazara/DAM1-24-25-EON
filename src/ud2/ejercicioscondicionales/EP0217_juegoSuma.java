@@ -13,8 +13,13 @@ public class EP0217_juegoSuma {
 
        Math.random();
        double num1 = Math.random() * MAX;
-       int num2 = (int) (Math.random()*MAX);
-       
+       int num2 = (int)(Math.random())* (MAX - MIN + 1) + MIN;
+
+       for (int i = 0; i < 1000 ; i++ ) {
+            //if (num > MAX)
+            //System.out.println("Numero demasiado alto: ");
+       }
+
     }
     
 }
