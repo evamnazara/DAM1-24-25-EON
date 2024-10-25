@@ -6,7 +6,7 @@ package ud2.ejercicios;
 
 import java.util.Scanner;
 
-public class E0213 {
+public class E0213_IncrementarHora {
     public static void main(String[] args) {
                 Scanner sc = new Scanner(System.in);
         System.out.println("Introduce el segundo: ");
@@ -19,11 +19,20 @@ public class E0213 {
         int hora = sc.nextInt();
         sc.close();
 
-        if (segundo > 0 && segundo < 60) {
-            segundo++;
-            if (segundo > 59) {
-                minuto++;
-                segundo = 0;
+        segundo++;
+        if (segundo == 60) {
+            segundo = 0;
+            minuto++;
+
+            if (minuto == 60) {
+                minuto = 0;
+                hora++;
+
+                if (hora == 24) {
+                    hora = 0;
+                    
+                }
+
             }
 
         }
