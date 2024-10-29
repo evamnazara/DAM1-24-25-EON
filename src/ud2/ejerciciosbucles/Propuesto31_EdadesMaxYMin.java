@@ -14,9 +14,12 @@ public class Propuesto31_EdadesMaxYMin {
         edad = sc.nextInt();
 
         while (edad != contador) {
-            
-            
+            System.out.println("Introduce la edad: ");
+            contador ++;
+
+            edad = sc.nextInt();
         }
+
 
         sc.close();
 
