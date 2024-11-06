@@ -11,7 +11,7 @@ retirarán 75 € en los billetes que corresponda y que 3 € no se pueden retir
 billetes tan pequeños. 
 
 */
-package examenesanteriores;
+package ud1.examenesanteriores;
 
 import java.util.*;
 

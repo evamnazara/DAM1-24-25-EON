@@ -3,7 +3,7 @@ Diseña un programa que lea una medida de peso en kilogramos y la devuelva en li
 libra equivale a 0.453592 kilogramos.
 */
 
-package examenesanteriores;
+package ud1.examenesanteriores;
 import java.util.*;
 
 public class EJ1_kgalibras {

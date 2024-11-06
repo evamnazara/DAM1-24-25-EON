@@ -6,7 +6,7 @@ que se presentará con hasta 2 decimales.
  */
 
 
-package examenesanteriores;
+package ud1.examenesanteriores;
 import java.util.*;
 
 public class EJ2_comidaengrupo {

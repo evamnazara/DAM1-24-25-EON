@@ -4,7 +4,7 @@ NumerosOrdenados.java
 Escribe un programa que lea 3 números por teclado e indique si están ordenados o no, de
 menor a mayor, y de mayor a menor. 
  */
-package examenesanteriores;
+package ud1.examenesanteriores;
 import java.util.*;
 
 public class EJ3_numerosOrdenados {
