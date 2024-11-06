@@ -1,4 +1,4 @@
-package Identificadores;
+package ud1.Identificadores;
 
 public class tiposPrimitivos {
     public static void main(String[] args) {

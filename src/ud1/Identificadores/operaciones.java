@@ -13,7 +13,7 @@
     tiene que coincidir el tipo de dato
 */
 
-package Identificadores;
+package ud1.Identificadores;
 
 /* import java.math.*;  para potencias y raices */
 

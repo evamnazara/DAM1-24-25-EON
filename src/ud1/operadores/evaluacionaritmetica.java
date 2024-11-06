@@ -1,6 +1,6 @@
 /* Si a, b y c son enteros con valor 8,3 y  */
 
-package operadores;
+package ud1.operadores;
 public class evaluacionaritmetica {
     public static void main(String[] args) {
         int a = 8;

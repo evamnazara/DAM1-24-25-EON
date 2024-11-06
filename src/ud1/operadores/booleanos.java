@@ -1,7 +1,8 @@
-package operadores;
+package ud1.operadores;
 
-public class velocidad {
+public class booleanos {
     public static void main(String[] args) {
         
     }
+    
 }

@@ -1,6 +1,6 @@
 // conversion de expresiones algebraicas a algoritmicas
 
-package operadores;
+package ud1.operadores;
 
 public class algebra {
     public static void main(String[] args) {
