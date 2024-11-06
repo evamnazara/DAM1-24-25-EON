@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "E0315_Cuadrado",
+            "request": "launch",
+            "mainClass": "ud2.ejerciciosbucles.E0315_Cuadrado",
+            "projectName": "DAM1-24-25-EON_b792dbae"
+        },
+        {
+            "type": "java",
             "name": "E0310_SumaImpar",
             "request": "launch",
             "mainClass": "ud2.ejerciciosbucles.E0310_SumaImpar",
