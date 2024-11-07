@@ -72,6 +72,33 @@ public class Util {
         return notaEnTexto;
     }
 
+    public static void cajaTexto(String str,char a){
+        int n = str.length(); //longitud del String
+        /*for (int i = 1; i <= n + 4; i++){ //borde de arriba
+             System.out.print("#"); 
+        }*/
+        imprimirLinea(n, a);
+        
+        //System.out.println();
+
+        System.out.println("# " + str + " #"); //cadena con un borde en cada lado              
+
+        /*  for (int i = 1; i <= n + 4; i++){ //borde de abajo
+             System.out.print("#"); 
+        }
+        */
+        imprimirLinea(n, a);
+
+        System.out.println();
+    }
+
+    public static void imprimirLinea(int n, char a) {
+        for (int i = 1; i <= n + 4; i++) {
+            System.out.println(a);
+        }
+        System.out.println();
+    }
+    
     /*
      * static double casiCero (double num) {
      * if ( num != 0 && num > -1 && num < 1) {

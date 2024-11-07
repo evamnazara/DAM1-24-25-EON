@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MetodoVoid",
+            "request": "launch",
+            "mainClass": "ud2.funciones.MetodoVoid",
+            "projectName": "DAM1-24-25-EON_b792dbae"
+        },
+        {
+            "type": "java",
             "name": "Util",
             "request": "launch",
             "mainClass": "ud2.Util",

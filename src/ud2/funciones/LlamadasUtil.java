@@ -1,7 +1,6 @@
 package ud2.funciones;
 
 import java.util.Scanner;
-
 import ud2.Util;
 
 public class LlamadasUtil {
@@ -17,6 +16,13 @@ public class LlamadasUtil {
             System.out.println("Es par.");
         else
             System.out.println("Es impar.");
+
+        if (Util.esPar(n))
+            System.out.println("Es bisiesto.");
+        else
+        
+        System.out.println("No es bisiesto.");
+            
     }
 
 }
