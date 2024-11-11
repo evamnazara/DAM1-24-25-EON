@@ -27,11 +27,20 @@
 			color: #333;
 			background-color: #778899;
 			text-align: justify;
+			display: flex;
+			flex-direction: column;
 			}
 		
 		header {
 			background-color: #FAEBD7;
 			}
+			
+		img {
+			height: 25px;
+			width: 25px;
+			float: right;
+		
+		}
 		
 		/*FALTA SOMBRA */
 		h2 {
@@ -40,8 +49,9 @@
 			}
 		
 		nav {
+			padding: 2%;
 			background-color: #323232 ;
-		
+			justify-content: space-between;
 			}
 		nav a {
 			color: white;
@@ -51,11 +61,14 @@
 			color: #D2D3D4;
 			text-shadow: 2px 2px 3px #000;
 		}
+		
 		/*FALTA CENTRAR */
 		
 		main {
 			background-color: #FFFFE0;
 			width: 950px;
+			
+			
 			}
 		
 		footer {
@@ -63,11 +76,6 @@
 			font-style: italic;
 			color: #efefef;
 		}
-	
-	
-		
-	
-	
 	</style> 
 </head>
 
@@ -82,9 +90,9 @@
 
 
 	<nav> 
-		<a href="quien"> Quién es </a>
-		<a href="libros"> Libros </a>
-		<a href="frases"> Frases </a>
+		<a href="#quien"> Quién es </a>
+		<a href="#libros"> Libros </a>
+		<a href="#frases"> Frases </a>
 	</nav>
 	
 	<main> 
@@ -136,7 +144,7 @@
 	
 
 	
-	<h2> Frases </h2>
+	<h2 id="frases"> Frases </h2>
 
 	<ol> 
 		 <li> Cuando creíamos que teníamos todas las respuestas, de pronto, cambiaron todas las preguntas  </li> 
