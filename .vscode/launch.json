@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "E0411_mcd",
+            "request": "launch",
+            "mainClass": "ud2.funciones.E0411_mcd",
+            "projectName": "DAM1-24-25-EON_b792dbae"
+        },
+        {
+            "type": "java",
             "name": "MetodoVoid",
             "request": "launch",
             "mainClass": "ud2.funciones.MetodoVoid",
