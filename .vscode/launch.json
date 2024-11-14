@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EP0413_muestraPares",
+            "request": "launch",
+            "mainClass": "ud2.funciones.ejerciciosfunciones.EP0413_muestraPares",
+            "projectName": "DAM1-24-25-EON_b792dbae"
+        },
+        {
+            "type": "java",
+            "name": "EP0411_FuncionSuperficie",
+            "request": "launch",
+            "mainClass": "ud2.funciones.ejerciciosfunciones.EP0411_FuncionSuperficie",
+            "projectName": "DAM1-24-25-EON_b792dbae"
+        },
+        {
+            "type": "java",
+            "name": "RestriccionEdad",
+            "request": "launch",
+            "mainClass": "ud2.excepciones.RestriccionEdad",
+            "projectName": "DAM1-24-25-EON_b792dbae"
+        },
+        {
+            "type": "java",
+            "name": "DeclararExcepcion",
+            "request": "launch",
+            "mainClass": "ud2.excepciones.DeclararExcepcion",
+            "projectName": "DAM1-24-25-EON_b792dbae"
+        },
+        {
+            "type": "java",
+            "name": "DivisionPorCero",
+            "request": "launch",
+            "mainClass": "ud2.excepciones.DivisionPorCero",
+            "projectName": "DAM1-24-25-EON_b792dbae"
+        },
+        {
+            "type": "java",
             "name": "E0411_mcd",
             "request": "launch",
             "mainClass": "ud2.funciones.E0411_mcd",
