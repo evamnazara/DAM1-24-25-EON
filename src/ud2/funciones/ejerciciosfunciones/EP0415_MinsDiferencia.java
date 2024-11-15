@@ -5,14 +5,14 @@ instantes utilizados. */
 
 package ud2.funciones.ejerciciosfunciones;
 
-public class ACABAREP0415_MinsDiferencia {
+public class EP0415_MinsDiferencia {
 
     public static void main(String[] args) {
 
-        int hora1; 
+        /*int hora1; 
         int minuto1;
         int hora2;
-        int minuto2;
+        int minuto2;*/
         
     }
 
