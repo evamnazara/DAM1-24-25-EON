@@ -43,27 +43,126 @@ c. etc. */
 
 package ud2.practicas;
 
-//import java.math.*;
-//import java.util.*;
-
+import java.util.Random;
+import java.util.Scanner;
 
 public class CalculadoraHumana {
 
+    // Constantes del juego
+    private static final int NUMERO_OPERACIONES = 7;
+    private static final int MAX_FALLOS_PERMITIDOS = 5;
+    private static final int VALOR_MAXIMO = 200;
+
     public static void main(String[] args) {
-        System.out.println("JUEGO CALCULADORA HUMANA: ");
+        System.out.println("=== JUEGO: CALCULADORA HUMANA ===");
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
 
-       /*  int n1 = (int)Math.random();
-        int n2 = (int)Math.random();
+        int aciertos = 0;
+        int fallos = 0;
+        int operando1 = generarNumeroAleatorio(random);
 
-        int suma = n1 + n2;
-        int resta = n1 - n2;
-        int multiplicacion = n1 * n2;
-        int division = n1 / n2; */
+        while (aciertos < NUMERO_OPERACIONES && fallos < MAX_FALLOS_PERMITIDOS) {
+            // Generar operación aleatoria
+            char operador = generarOperadorAleatorio(random);
+            int operando2 = generarOperando2(operador, operando1, random);
 
-        //int operacion = (suma,resta,multiplicacion,division);
+            // Asegurarnos que la operación es válida
+            if (operando2 == -1) continue;
 
-        //for(){}
+            // Mostrar operación y pedir respuesta
+            System.out.printf("Operación: %d %c %d = ?%n", operando1, operador, operando2);
+            int resultadoCorrecto = calcularResultado(operador, operando1, operando2);
+            int respuestaUsuario = solicitarEntero(scanner, "Tu respuesta: ");
 
+            // Verificar la respuesta
+            if (respuestaUsuario == resultadoCorrecto) {
+                System.out.println("¡Correcto!");
+                aciertos++;
+                operando1 = resultadoCorrecto; // El resultado se convierte en el nuevo operando1
+            } else {
+                System.out.printf("Incorrecto. La respuesta correcta era: %d%n", resultadoCorrecto);
+                fallos++;
+            }
+
+            System.out.printf("Aciertos: %d | Fallos: %d%n%n", aciertos, fallos);
+        }
+
+        // Mensaje final
+        if (aciertos == NUMERO_OPERACIONES) {
+            System.out.println("¡Felicidades! Has resuelto todas las operaciones correctamente.");
+        } else {
+            System.out.println("Has alcanzado el límite de fallos. ¡Suerte la próxima vez!");
+        }
+
+        scanner.close();
     }
-    
+
+    // Genera un número aleatorio entre 1 y VALOR_MAXIMO
+    private static int generarNumeroAleatorio(Random random) {
+        return random.nextInt(VALOR_MAXIMO) + 1;
+    }
+
+    // Genera un operador aleatorio (+, -, *, /)
+    private static char generarOperadorAleatorio(Random random) {
+        char[] operadores = {'+', '-', '*', '/'};
+        return operadores[random.nextInt(operadores.length)];
+    }
+
+    // Genera el segundo operando asegurando que la operación es válida
+    private static int generarOperando2(char operador, int operando1, Random random) {
+        switch (operador) {
+            case '+':
+                return generarNumeroAleatorio(random);
+            case '-':
+                return random.nextInt(operando1 + 1); // Garantiza que operando2 <= operando1
+            case '*':
+                return generarNumeroAleatorio(random);
+            case '/':
+                return obtenerOperando2Division(operando1, random);
+            default:
+                return -1;
+        }
+    }
+
+    // Asegura que el segundo operando para una división produce un entero
+    private static int obtenerOperando2Division(int operando1, Random random) {
+        if (operando1 <= 1) return -1; // No es posible dividir un número <= 1
+
+        for (int i = 2; i <= operando1; i++) {
+            if (operando1 % i == 0) {
+                return i; // Devuelve un divisor válido
+            }
+        }
+
+        return -1; // Si no hay divisores (número primo)
+    }
+
+    // Calcula el resultado de una operación
+    private static int calcularResultado(char operador, int operando1, int operando2) {
+        switch (operador) {
+            case '+':
+                return operando1 + operando2;
+            case '-':
+                return operando1 - operando2;
+            case '*':
+                return operando1 * operando2;
+            case '/':
+                return operando1 / operando2;
+            default:
+                throw new IllegalArgumentException("Operador desconocido: " + operador);
+        }
+    }
+
+    // Solicita un número entero al usuario con validación
+    private static int solicitarEntero(Scanner scanner, String mensaje) {
+        while (true) {
+            try {
+                System.out.print(mensaje);
+                return Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida. Por favor, introduce un número entero.");
+            }
+        }
+    }
 }

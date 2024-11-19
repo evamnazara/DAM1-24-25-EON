@@ -24,59 +24,115 @@ en subproblemas más sencillos implementados con funciones. */
 
 package ud2.practicas;
 
-//import java.util.*;
-
+import java.util.Scanner;
 
 public class Supermercado {
+
     public static void main(String[] args) {
-         /* Scanner sc = new Scanner(System.in);
-        double precioUnidad;
-        int cantidad;
-        double precioTotalUnidad;
-        double precioTotal;
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("CAJA DE COBRO: ");
+        do {
+            double totalCompra = procesarCompra(scanner);
+            procesarPago(scanner, totalCompra);
 
-        System.out.println("Precio del producto: ");
-        precioUnidad = sc.nextDouble();
+            System.out.println("\n¿Desea atender a un nuevo cliente? (s/n): ");
+        } while (scanner.nextLine().equalsIgnoreCase("s"));
 
-        do {    
-            System.out.println("Introduce el precio del producto: ");
-            precioTotalUnidad = sc.nextDouble();
+        System.out.println("¡Gracias por usar el sistema de cobro!");
+        scanner.close();
+    }
 
-            System.out.println("Unidades del producto: ");
-            cantidad = sc.nextInt();
+    // Función para procesar la compra del cliente
+    private static double procesarCompra(Scanner scanner) {
+        double totalCompra = 0.0;
 
-           precioTotalUnidad = precioUnidad * cantidad;
-        //falta precio total
-        } while (cantidad != 0);
+        System.out.println("=== INICIO DE COMPRA ===");
 
-        System.out.println("El importe total son " + precioTotal);
+        while (true) {
+            double precio = solicitarDouble(scanner, "Introduce el precio del producto (0 para finalizar): ");
+            if (precio <= 0) break;
 
-        System.out.println("MODALIDAD DE PAGO: ");
-        System.out.println("Pago con tarjeta [1]");
-        System.out.println("Pago en efectivo [2]");
-        int pago = sc.nextInt();
-
-        if (pago == 2) {
-
-            System.out.println("Importe pagado: ");
-            double ImportePagado = sc.nextDouble();
-            
-            System.out.println("Cambio a devolver: ");
-
-
-            double cambioADevolver = ImportePagado;
-
-            System.out.println("El importe a devolver es " + cambioADevolver + "€");
-            
-            
-        } else {
-            System.out.println("¡Gracias por su compra!");
+            int cantidad = solicitarEntero(scanner, "Introduce la cantidad del producto: ");
+            totalCompra += precio * cantidad;
         }
 
-
-        sc.close(); */
+        System.out.printf("El importe total de la compra es: %.2f€%n", totalCompra);
+        return totalCompra;
     }
-    
+
+    // Función para procesar el pago
+    private static void procesarPago(Scanner scanner, double totalCompra) {
+        System.out.println("=== MÉTODO DE PAGO ===");
+        System.out.println("1. Pago con tarjeta");
+        System.out.println("2. Pago en efectivo");
+
+        int metodoPago = solicitarEntero(scanner, "Elige el método de pago (1 o 2): ");
+
+        if (metodoPago == 1) {
+            System.out.println("Pago realizado con tarjeta. ¡Gracias por su compra!");
+        } else if (metodoPago == 2) {
+            double efectivo = solicitarDouble(scanner, "Introduce el importe pagado: ");
+            while (efectivo < totalCompra) {
+                System.out.println("El importe es insuficiente. Por favor, introduce un valor mayor o igual al total.");
+                efectivo = solicitarDouble(scanner, "Introduce el importe pagado: ");
+            }
+
+            double cambio = efectivo - totalCompra;
+            System.out.printf("El cambio a devolver es: %.2f€%n", cambio);
+            desglosarCambio(cambio);
+        } else {
+            System.out.println("Método de pago no válido. Volviendo al menú.");
+        }
+    }
+
+    // Función para desglosar el cambio en billetes y monedas
+    private static void desglosarCambio(double cambio) {
+        int[] billetes = {50, 20, 10, 5};
+        int[] monedas = {2, 1, 50, 20, 10, 5, 2, 1}; // En céntimos: desde 50 céntimos hasta 1 céntimo
+
+        System.out.println("Desglose del cambio:");
+        cambio = Math.round(cambio * 100); // Convertimos a céntimos para facilitar el cálculo
+
+        // Desglose de billetes
+        for (int billete : billetes) {
+            int cantidad = (int) (cambio / (billete * 100));
+            if (cantidad > 0) {
+                System.out.printf("   %d billete(s) de %d€%n", cantidad, billete);
+                cambio %= billete * 100;
+            }
+        }
+
+        // Desglose de monedas
+        for (int moneda : monedas) {
+            int cantidad = (int) (cambio / moneda);
+            if (cantidad > 0) {
+                System.out.printf("   %d moneda(s) de %.2f€%n", cantidad, moneda / 100.0);
+                cambio %= moneda;
+            }
+        }
+    }
+
+    // Función para solicitar un número decimal con validación
+    private static double solicitarDouble(Scanner scanner, String mensaje) {
+        while (true) {
+            try {
+                System.out.print(mensaje);
+                return Double.parseDouble(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida. Por favor, introduce un número válido.");
+            }
+        }
+    }
+
+    // Función para solicitar un número entero con validación
+    private static int solicitarEntero(Scanner scanner, String mensaje) {
+        while (true) {
+            try {
+                System.out.print(mensaje);
+                return Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida. Por favor, introduce un número entero válido.");
+            }
+        }
+    }
 }
