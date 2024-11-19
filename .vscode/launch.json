@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "E0302_EdadesAlumnos",
+            "request": "launch",
+            "mainClass": "ud2.exercicios.eon202411.ejerciciosbucles.E0302_EdadesAlumnos",
+            "projectName": "DAM1-24-25-EON_b792dbae"
+        },
+        {
+            "type": "java",
             "name": "EP0413_muestraPares",
             "request": "launch",
             "mainClass": "ud2.funciones.ejerciciosfunciones.EP0413_muestraPares",

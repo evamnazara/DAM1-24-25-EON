@@ -1,4 +1,4 @@
-//E0310. Diseñar un programa que muestre la suma de los 10 primeros números impares.
+// E0310. Diseñar un programa que muestre la suma de los 10 primeros números impares.
 
 package ud2.exercicios.eon202411.ejerciciosbucles;
 
