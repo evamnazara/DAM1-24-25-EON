@@ -88,6 +88,7 @@ public class EP0212_DNI {
                 letra = 'E';
                 break;
         }
+        
         System.out.printf("\nDNI: %d%c", dni, letra);
     }
 }

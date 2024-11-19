@@ -7,11 +7,11 @@ a si b = 0
 b si a = 0 
 */
 
-package ud2.funciones;
+package ud2.exercicios.eon202411.ejerciciosfunciones;
 
 import java.util.*;
 
-public class E0411_mcd {
+public class mcd {
 public static void main(String[] args) {
     
     Scanner sc = new Scanner(System.in); 

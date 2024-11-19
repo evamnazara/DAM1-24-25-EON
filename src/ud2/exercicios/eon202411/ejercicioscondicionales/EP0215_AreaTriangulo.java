@@ -27,6 +27,15 @@ public class EP0215_AreaTriangulo {
 
         double area = base * altura / 2;
 
-        System.out.printf("Área del triángulo: %.2f", area);
+
+        if (base < 1 && altura < 1){
+            System.out.println("Los números introducidos tienen que ser mayores que 0. ");
+        }
+        else{
+            System.out.printf("Área del triángulo: %.2f", area);
+        }
+
+
+        
     }
 }

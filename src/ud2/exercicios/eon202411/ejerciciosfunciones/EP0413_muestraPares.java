@@ -2,23 +2,26 @@
 
 package ud2.exercicios.eon202411.ejerciciosfunciones;
 
+import java.util.Scanner;
 
-//spoiler no funciona
 public class EP0413_muestraPares {
 
-    public static int muestraPares (int n) {
-        for (int i = 1; i < n; i++ ) {
-            while ( i % 2 == 0 ) {
-                System.out.println(i);
-            }
+    public static void muestraPares(int n) {
+        for (int i = 2; i <= n * 2; i += 2) {
+            System.out.println(i); 
         }
-        return n;
     }
+
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); 
+        int n;
 
-        int n = 6;
+        System.out.println("Introduce el número: ");
+        n = sc.nextInt();
 
-        System.out.println(muestraPares(n));
-        
+        sc.close();
+
+        muestraPares(n);
     }
 }
+

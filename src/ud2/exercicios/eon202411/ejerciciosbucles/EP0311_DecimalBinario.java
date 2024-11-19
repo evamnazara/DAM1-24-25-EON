@@ -1,12 +1,11 @@
-/* Realiza un programa que convierta un número entero decimal en su representación 
-binaria. Hay que tener en cuenta que desconocemos cuántas cifras tiene el número que introduce 
-el usuario.
+/* 
+Realiza un programa que convierta un número entero decimal en su representación binaria.  
+Hay que tener en cuenta que desconocemos cuántas cifras tiene el número que introduce el usuario.
 Por simplicidad, iremos mostrando el número binario con un digito por línea.
 */
+
 package ud2.exercicios.eon202411.ejerciciosbucles;
-
 import java.util.*;
-
 public class EP0311_DecimalBinario {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);

@@ -10,6 +10,12 @@ public class E0308_Media {
 
         System.out.println("Introduce los 10 numeros: ");
         
+        int contador = 0;
+
+        while (contador < 10) {
+            
+        }
+
         n1 = sc.nextInt();
         n2 = sc.nextInt();
         n3 = sc.nextInt();

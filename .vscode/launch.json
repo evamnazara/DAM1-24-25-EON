@@ -1,644 +1,665 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "java",
-            "name": "E0302_EdadesAlumnos",
-            "request": "launch",
-            "mainClass": "ud2.exercicios.eon202411.ejerciciosbucles.E0302_EdadesAlumnos",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP0413_muestraPares",
-            "request": "launch",
-            "mainClass": "ud2.funciones.ejerciciosfunciones.EP0413_muestraPares",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP0411_FuncionSuperficie",
-            "request": "launch",
-            "mainClass": "ud2.funciones.ejerciciosfunciones.EP0411_FuncionSuperficie",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "RestriccionEdad",
-            "request": "launch",
-            "mainClass": "ud2.excepciones.RestriccionEdad",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "DeclararExcepcion",
-            "request": "launch",
-            "mainClass": "ud2.excepciones.DeclararExcepcion",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "DivisionPorCero",
-            "request": "launch",
-            "mainClass": "ud2.excepciones.DivisionPorCero",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "E0411_mcd",
-            "request": "launch",
-            "mainClass": "ud2.funciones.E0411_mcd",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "MetodoVoid",
-            "request": "launch",
-            "mainClass": "ud2.funciones.MetodoVoid",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "Util",
-            "request": "launch",
-            "mainClass": "ud2.Util",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "E0315_Cuadrado",
-            "request": "launch",
-            "mainClass": "ud2.ejerciciosbucles.E0315_Cuadrado",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "E0310_SumaImpar",
-            "request": "launch",
-            "mainClass": "ud2.ejerciciosbucles.E0310_SumaImpar",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "E0307_Multiplos7",
-            "request": "launch",
-            "mainClass": "ud2.ejerciciosbucles.E0307_Multiplos7",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "E0306_AprenderAContar",
-            "request": "launch",
-            "mainClass": "ud2.ejerciciosbucles.E0306_AprenderAContar",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "Ejemplo3BuclesAnidados",
-            "request": "launch",
-            "mainClass": "ud2.ejemplos.Ejemplo3BuclesAnidados",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "Ejemplo2BuclesAnidados",
-            "request": "launch",
-            "mainClass": "ud2.ejemplos.Ejemplo2BuclesAnidados",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "Current File",
-            "request": "launch",
-            "mainClass": "${file}"
-        },
-        {
-            "type": "java",
-            "name": "App",
-            "request": "launch",
-            "mainClass": "App",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "holamundo",
-            "request": "launch",
-            "mainClass": "Contornos.holamundo",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "holamundo2",
-            "request": "launch",
-            "mainClass": "Contornos.holamundo2",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "nombrej",
-            "request": "launch",
-            "mainClass": "Contornos.nombrej",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "AreaTriangulo",
-            "request": "launch",
-            "mainClass": "Expresiones.AreaTriangulo",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "FormulaCuadratica",
-            "request": "launch",
-            "mainClass": "Expresiones.FormulaCuadratica",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "conversiones",
-            "request": "launch",
-            "mainClass": "Expresiones.conversiones",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "expresiones",
-            "request": "launch",
-            "mainClass": "Expresiones.expresiones",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "interes",
-            "request": "launch",
-            "mainClass": "Expresiones.interes",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "ApiScanner",
-            "request": "launch",
-            "mainClass": "Identificadores.ApiScanner",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "Identificadores",
-            "request": "launch",
-            "mainClass": "Identificadores.Identificadores",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "api",
-            "request": "launch",
-            "mainClass": "Identificadores.api",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "constantes",
-            "request": "launch",
-            "mainClass": "Identificadores.constantes",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "mates",
-            "request": "launch",
-            "mainClass": "Identificadores.mates",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "operaciones",
-            "request": "launch",
-            "mainClass": "Identificadores.operaciones",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "operadores",
-            "request": "launch",
-            "mainClass": "Identificadores.operadores",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "tiposPrimitivos",
-            "request": "launch",
-            "mainClass": "Identificadores.tiposPrimitivos",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "aver",
-            "request": "launch",
-            "mainClass": "aver",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EJ1_kgalibras",
-            "request": "launch",
-            "mainClass": "examenesanteriores.EJ1_kgalibras",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EJ2_comidaengrupo",
-            "request": "launch",
-            "mainClass": "examenesanteriores.EJ2_comidaengrupo",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EJ3_numerosOrdenados",
-            "request": "launch",
-            "mainClass": "examenesanteriores.EJ3_numerosOrdenados",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EJ4_cajeroAutomatico",
-            "request": "launch",
-            "mainClass": "examenesanteriores.EJ4_cajeroAutomatico",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "algebra",
-            "request": "launch",
-            "mainClass": "operadores.algebra",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "booleanos",
-            "request": "launch",
-            "mainClass": "operadores.booleanos",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "evaluacionaritmetica",
-            "request": "launch",
-            "mainClass": "operadores.evaluacionaritmetica",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "velocidad",
-            "request": "launch",
-            "mainClass": "operadores.velocidad",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP0111",
-            "request": "launch",
-            "mainClass": "ud1.ejercicios.EP0111",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP0112",
-            "request": "launch",
-            "mainClass": "ud1.ejercicios.EP0112",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP0113",
-            "request": "launch",
-            "mainClass": "ud1.ejercicios.EP0113",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP0114",
-            "request": "launch",
-            "mainClass": "ud1.ejercicios.EP0114",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP0132_ConversionPies",
-            "request": "launch",
-            "mainClass": "ud1.ejercicios.EP0132_ConversionPies",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP0135_ConversionPresion",
-            "request": "launch",
-            "mainClass": "ud1.ejercicios.EP0135_ConversionPresion",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP0133_ConversionAlmacenamientoDatos",
-            "request": "launch",
-            "mainClass": "ud1.ejercicios.eon20241010.EP0133_ConversionAlmacenamientoDatos",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP129",
-            "request": "launch",
-            "mainClass": "ud1.ejercicios.eon20241010.EP129",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP129_Multiplosde7",
-            "request": "launch",
-            "mainClass": "ud1.ejercicios.eon20241010.EP129_Multiplosde7",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP0116_metros",
-            "request": "launch",
-            "mainClass": "ud1.ejercicios.one20241004.EP0116_metros",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP0122_centigradosafaren",
-            "request": "launch",
-            "mainClass": "ud1.ejercicios.one20241004.EP0122_centigradosafaren",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP0123_conversionmasa",
-            "request": "launch",
-            "mainClass": "ud1.ejercicios.one20241004.EP0123_conversionmasa",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "recetaCompotaParejas",
-            "request": "launch",
-            "mainClass": "ud1.ejercicios.parejas.recetaCompotaParejas",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "unidadesMedidas",
-            "request": "launch",
-            "mainClass": "ud1.ejercicios.parejas.unidadesMedidas",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "AreaPerimetro",
-            "request": "launch",
-            "mainClass": "ud1.oneexamen.AreaPerimetro",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "AreaPerimetroCorreccion",
-            "request": "launch",
-            "mainClass": "ud1.oneexamen.AreaPerimetroCorreccion",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "CompraConjunta",
-            "request": "launch",
-            "mainClass": "ud1.oneexamen.CompraConjunta",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "CompraConjuntaCorregido",
-            "request": "launch",
-            "mainClass": "ud1.oneexamen.CompraConjuntaCorregido",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "CondicionalSimple",
-            "request": "launch",
-            "mainClass": "ud2.ejemplos.CondicionalSimple",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "CondicionalSimple2",
-            "request": "launch",
-            "mainClass": "ud2.ejemplos.CondicionalSimple2",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "CondicionalSimple3",
-            "request": "launch",
-            "mainClass": "ud2.ejemplos.CondicionalSimple3",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "E0204_CasiCeros",
-            "request": "launch",
-            "mainClass": "ud2.ejemplos.E0204_CasiCeros",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "Ejemplo1BuclesAnidados",
-            "request": "launch",
-            "mainClass": "ud2.ejemplos.Ejemplo1BuclesAnidados",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "Ejemplo1For",
-            "request": "launch",
-            "mainClass": "ud2.ejemplos.Ejemplo1For",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "Ejemplo1While",
-            "request": "launch",
-            "mainClass": "ud2.ejemplos.Ejemplo1While",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "Ejemplo2While",
-            "request": "launch",
-            "mainClass": "ud2.ejemplos.Ejemplo2While",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "Ejemplo3Switch",
-            "request": "launch",
-            "mainClass": "ud2.ejemplos.Ejemplo3Switch",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "Ejemplo3While",
-            "request": "launch",
-            "mainClass": "ud2.ejemplos.Ejemplo3While",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "Ejemplo4For",
-            "request": "launch",
-            "mainClass": "ud2.ejemplos.Ejemplo4For",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "Ejemplo5Switch",
-            "request": "launch",
-            "mainClass": "ud2.ejemplos.Ejemplo5Switch",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EjemploIfAnidados",
-            "request": "launch",
-            "mainClass": "ud2.ejemplos.EjemploIfAnidados",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EjemploIfAnidados2",
-            "request": "launch",
-            "mainClass": "ud2.ejemplos.EjemploIfAnidados2",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EjemploSwitch",
-            "request": "launch",
-            "mainClass": "ud2.ejemplos.EjemploSwitch",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "SwitchCaseMultiple",
-            "request": "launch",
-            "mainClass": "ud2.ejemplos.SwitchCaseMultiple",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "Bisiesto",
-            "request": "launch",
-            "mainClass": "ud2.ejercicios.Bisiesto",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "E02014",
-            "request": "launch",
-            "mainClass": "ud2.ejercicios.E02014",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "E0207_NumerosOrdenados",
-            "request": "launch",
-            "mainClass": "ud2.ejercicios.E0207_NumerosOrdenados",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "E0212",
-            "request": "launch",
-            "mainClass": "ud2.ejercicios.E0212",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "E0213_IncrementarHora",
-            "request": "launch",
-            "mainClass": "ud2.ejercicios.E0213_IncrementarHora",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "Factura",
-            "request": "launch",
-            "mainClass": "ud2.ejercicios.Factura",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "E0301_ParPositivoCuadrado",
-            "request": "launch",
-            "mainClass": "ud2.ejerciciosbucles.E0301_ParPositivoCuadrado",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "E0302_EdadesAlumnos",
-            "request": "launch",
-            "mainClass": "ud2.ejerciciosbucles.E0302_EdadesAlumnos",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "Propuesto31_EdadesMaxYMin",
-            "request": "launch",
-            "mainClass": "ud2.ejerciciosbucles.Propuesto31_EdadesMaxYMin",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP0211_NumCapicua",
-            "request": "launch",
-            "mainClass": "ud2.ejercicioscondicionales.EP0211_NumCapicua",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP0212_DNI",
-            "request": "launch",
-            "mainClass": "ud2.ejercicioscondicionales.EP0212_DNI",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP0213_AnimalesGranja",
-            "request": "launch",
-            "mainClass": "ud2.ejercicioscondicionales.EP0213_AnimalesGranja",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP0214_NumerosALetras",
-            "request": "launch",
-            "mainClass": "ud2.ejercicioscondicionales.EP0214_NumerosALetras",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP0215_AreaTriangulo",
-            "request": "launch",
-            "mainClass": "ud2.ejercicioscondicionales.EP0215_AreaTriangulo",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        },
-        {
-            "type": "java",
-            "name": "EP0217_juegoSuma",
-            "request": "launch",
-            "mainClass": "ud2.ejercicioscondicionales.EP0217_juegoSuma",
-            "projectName": "DAM1-24-25-EON_b792dbae"
-        }
-    ]
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "EP019_GradosAngulo",
+      "request": "launch",
+      "mainClass": "ud2.exercicios.eon202411.ejercicioscondicionales.EP019_GradosAngulo",
+      "projectName": "DAM1-24-25-EON_deafa41c"
+    },
+    {
+      "type": "java",
+      "name": "EP0213_AnimalesGranja",
+      "request": "launch",
+      "mainClass": "ud2.exercicios.eon202411.ejercicioscondicionales.EP0213_AnimalesGranja",
+      "projectName": "DAM1-24-25-EON_deafa41c"
+    },
+    {
+      "type": "java",
+      "name": "EP0311_DecimalBinario",
+      "request": "launch",
+      "mainClass": "ud2.exercicios.eon202411.ejerciciosbucles.EP0311_DecimalBinario",
+      "projectName": "DAM1-24-25-EON_deafa41c"
+    },
+    {
+      "type": "java",
+      "name": "E0302_EdadesAlumnos",
+      "request": "launch",
+      "mainClass": "ud2.exercicios.eon202411.ejerciciosbucles.E0302_EdadesAlumnos",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP0413_muestraPares",
+      "request": "launch",
+      "mainClass": "ud2.funciones.ejerciciosfunciones.EP0413_muestraPares",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP0411_FuncionSuperficie",
+      "request": "launch",
+      "mainClass": "ud2.funciones.ejerciciosfunciones.EP0411_FuncionSuperficie",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "RestriccionEdad",
+      "request": "launch",
+      "mainClass": "ud2.excepciones.RestriccionEdad",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "DeclararExcepcion",
+      "request": "launch",
+      "mainClass": "ud2.excepciones.DeclararExcepcion",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "DivisionPorCero",
+      "request": "launch",
+      "mainClass": "ud2.excepciones.DivisionPorCero",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "E0411_mcd",
+      "request": "launch",
+      "mainClass": "ud2.funciones.E0411_mcd",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "MetodoVoid",
+      "request": "launch",
+      "mainClass": "ud2.funciones.MetodoVoid",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "Util",
+      "request": "launch",
+      "mainClass": "ud2.Util",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "E0315_Cuadrado",
+      "request": "launch",
+      "mainClass": "ud2.ejerciciosbucles.E0315_Cuadrado",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "E0310_SumaImpar",
+      "request": "launch",
+      "mainClass": "ud2.ejerciciosbucles.E0310_SumaImpar",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "E0307_Multiplos7",
+      "request": "launch",
+      "mainClass": "ud2.ejerciciosbucles.E0307_Multiplos7",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "E0306_AprenderAContar",
+      "request": "launch",
+      "mainClass": "ud2.ejerciciosbucles.E0306_AprenderAContar",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "Ejemplo3BuclesAnidados",
+      "request": "launch",
+      "mainClass": "ud2.ejemplos.Ejemplo3BuclesAnidados",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "Ejemplo2BuclesAnidados",
+      "request": "launch",
+      "mainClass": "ud2.ejemplos.Ejemplo2BuclesAnidados",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "App",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "holamundo",
+      "request": "launch",
+      "mainClass": "Contornos.holamundo",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "holamundo2",
+      "request": "launch",
+      "mainClass": "Contornos.holamundo2",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "nombrej",
+      "request": "launch",
+      "mainClass": "Contornos.nombrej",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "AreaTriangulo",
+      "request": "launch",
+      "mainClass": "Expresiones.AreaTriangulo",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "FormulaCuadratica",
+      "request": "launch",
+      "mainClass": "Expresiones.FormulaCuadratica",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "conversiones",
+      "request": "launch",
+      "mainClass": "Expresiones.conversiones",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "expresiones",
+      "request": "launch",
+      "mainClass": "Expresiones.expresiones",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "interes",
+      "request": "launch",
+      "mainClass": "Expresiones.interes",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "ApiScanner",
+      "request": "launch",
+      "mainClass": "Identificadores.ApiScanner",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "Identificadores",
+      "request": "launch",
+      "mainClass": "Identificadores.Identificadores",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "api",
+      "request": "launch",
+      "mainClass": "Identificadores.api",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "constantes",
+      "request": "launch",
+      "mainClass": "Identificadores.constantes",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "mates",
+      "request": "launch",
+      "mainClass": "Identificadores.mates",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "operaciones",
+      "request": "launch",
+      "mainClass": "Identificadores.operaciones",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "operadores",
+      "request": "launch",
+      "mainClass": "Identificadores.operadores",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "tiposPrimitivos",
+      "request": "launch",
+      "mainClass": "Identificadores.tiposPrimitivos",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "aver",
+      "request": "launch",
+      "mainClass": "aver",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EJ1_kgalibras",
+      "request": "launch",
+      "mainClass": "examenesanteriores.EJ1_kgalibras",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EJ2_comidaengrupo",
+      "request": "launch",
+      "mainClass": "examenesanteriores.EJ2_comidaengrupo",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EJ3_numerosOrdenados",
+      "request": "launch",
+      "mainClass": "examenesanteriores.EJ3_numerosOrdenados",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EJ4_cajeroAutomatico",
+      "request": "launch",
+      "mainClass": "examenesanteriores.EJ4_cajeroAutomatico",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "algebra",
+      "request": "launch",
+      "mainClass": "operadores.algebra",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "booleanos",
+      "request": "launch",
+      "mainClass": "operadores.booleanos",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "evaluacionaritmetica",
+      "request": "launch",
+      "mainClass": "operadores.evaluacionaritmetica",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "velocidad",
+      "request": "launch",
+      "mainClass": "operadores.velocidad",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP0111",
+      "request": "launch",
+      "mainClass": "ud1.ejercicios.EP0111",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP0112",
+      "request": "launch",
+      "mainClass": "ud1.ejercicios.EP0112",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP0113",
+      "request": "launch",
+      "mainClass": "ud1.ejercicios.EP0113",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP0114",
+      "request": "launch",
+      "mainClass": "ud1.ejercicios.EP0114",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP0132_ConversionPies",
+      "request": "launch",
+      "mainClass": "ud1.ejercicios.EP0132_ConversionPies",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP0135_ConversionPresion",
+      "request": "launch",
+      "mainClass": "ud1.ejercicios.EP0135_ConversionPresion",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP0133_ConversionAlmacenamientoDatos",
+      "request": "launch",
+      "mainClass": "ud1.ejercicios.eon20241010.EP0133_ConversionAlmacenamientoDatos",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP129",
+      "request": "launch",
+      "mainClass": "ud1.ejercicios.eon20241010.EP129",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP129_Multiplosde7",
+      "request": "launch",
+      "mainClass": "ud1.ejercicios.eon20241010.EP129_Multiplosde7",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP0116_metros",
+      "request": "launch",
+      "mainClass": "ud1.ejercicios.one20241004.EP0116_metros",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP0122_centigradosafaren",
+      "request": "launch",
+      "mainClass": "ud1.ejercicios.one20241004.EP0122_centigradosafaren",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP0123_conversionmasa",
+      "request": "launch",
+      "mainClass": "ud1.ejercicios.one20241004.EP0123_conversionmasa",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "recetaCompotaParejas",
+      "request": "launch",
+      "mainClass": "ud1.ejercicios.parejas.recetaCompotaParejas",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "unidadesMedidas",
+      "request": "launch",
+      "mainClass": "ud1.ejercicios.parejas.unidadesMedidas",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "AreaPerimetro",
+      "request": "launch",
+      "mainClass": "ud1.oneexamen.AreaPerimetro",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "AreaPerimetroCorreccion",
+      "request": "launch",
+      "mainClass": "ud1.oneexamen.AreaPerimetroCorreccion",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "CompraConjunta",
+      "request": "launch",
+      "mainClass": "ud1.oneexamen.CompraConjunta",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "CompraConjuntaCorregido",
+      "request": "launch",
+      "mainClass": "ud1.oneexamen.CompraConjuntaCorregido",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "CondicionalSimple",
+      "request": "launch",
+      "mainClass": "ud2.ejemplos.CondicionalSimple",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "CondicionalSimple2",
+      "request": "launch",
+      "mainClass": "ud2.ejemplos.CondicionalSimple2",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "CondicionalSimple3",
+      "request": "launch",
+      "mainClass": "ud2.ejemplos.CondicionalSimple3",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "E0204_CasiCeros",
+      "request": "launch",
+      "mainClass": "ud2.ejemplos.E0204_CasiCeros",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "Ejemplo1BuclesAnidados",
+      "request": "launch",
+      "mainClass": "ud2.ejemplos.Ejemplo1BuclesAnidados",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "Ejemplo1For",
+      "request": "launch",
+      "mainClass": "ud2.ejemplos.Ejemplo1For",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "Ejemplo1While",
+      "request": "launch",
+      "mainClass": "ud2.ejemplos.Ejemplo1While",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "Ejemplo2While",
+      "request": "launch",
+      "mainClass": "ud2.ejemplos.Ejemplo2While",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "Ejemplo3Switch",
+      "request": "launch",
+      "mainClass": "ud2.ejemplos.Ejemplo3Switch",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "Ejemplo3While",
+      "request": "launch",
+      "mainClass": "ud2.ejemplos.Ejemplo3While",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "Ejemplo4For",
+      "request": "launch",
+      "mainClass": "ud2.ejemplos.Ejemplo4For",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "Ejemplo5Switch",
+      "request": "launch",
+      "mainClass": "ud2.ejemplos.Ejemplo5Switch",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EjemploIfAnidados",
+      "request": "launch",
+      "mainClass": "ud2.ejemplos.EjemploIfAnidados",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EjemploIfAnidados2",
+      "request": "launch",
+      "mainClass": "ud2.ejemplos.EjemploIfAnidados2",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EjemploSwitch",
+      "request": "launch",
+      "mainClass": "ud2.ejemplos.EjemploSwitch",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "SwitchCaseMultiple",
+      "request": "launch",
+      "mainClass": "ud2.ejemplos.SwitchCaseMultiple",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "Bisiesto",
+      "request": "launch",
+      "mainClass": "ud2.ejercicios.Bisiesto",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "E02014",
+      "request": "launch",
+      "mainClass": "ud2.ejercicios.E02014",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "E0207_NumerosOrdenados",
+      "request": "launch",
+      "mainClass": "ud2.ejercicios.E0207_NumerosOrdenados",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "E0212",
+      "request": "launch",
+      "mainClass": "ud2.ejercicios.E0212",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "E0213_IncrementarHora",
+      "request": "launch",
+      "mainClass": "ud2.ejercicios.E0213_IncrementarHora",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "Factura",
+      "request": "launch",
+      "mainClass": "ud2.ejercicios.Factura",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "E0301_ParPositivoCuadrado",
+      "request": "launch",
+      "mainClass": "ud2.ejerciciosbucles.E0301_ParPositivoCuadrado",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "E0302_EdadesAlumnos",
+      "request": "launch",
+      "mainClass": "ud2.ejerciciosbucles.E0302_EdadesAlumnos",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "Propuesto31_EdadesMaxYMin",
+      "request": "launch",
+      "mainClass": "ud2.ejerciciosbucles.Propuesto31_EdadesMaxYMin",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP0211_NumCapicua",
+      "request": "launch",
+      "mainClass": "ud2.ejercicioscondicionales.EP0211_NumCapicua",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP0212_DNI",
+      "request": "launch",
+      "mainClass": "ud2.ejercicioscondicionales.EP0212_DNI",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP0213_AnimalesGranja",
+      "request": "launch",
+      "mainClass": "ud2.ejercicioscondicionales.EP0213_AnimalesGranja",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP0214_NumerosALetras",
+      "request": "launch",
+      "mainClass": "ud2.ejercicioscondicionales.EP0214_NumerosALetras",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP0215_AreaTriangulo",
+      "request": "launch",
+      "mainClass": "ud2.ejercicioscondicionales.EP0215_AreaTriangulo",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EP0217_juegoSuma",
+      "request": "launch",
+      "mainClass": "ud2.ejercicioscondicionales.EP0217_juegoSuma",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    }
+  ]
 }

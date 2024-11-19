@@ -3,22 +3,28 @@ aleatorios (comprendidos entre 1 y 99) que el usuario tiene que sumar. La aplica
 indicar si el resultado de la operación es correcto o incorrecto. */
 package ud2.exercicios.eon202411.ejercicioscondicionales;
 
-//import java.util.Scanner;
+import java.util.Scanner;
 //import java.math.*;
 public class EP0217_juegoSuma {
     public static void main(String[] args) {
-     /*  //generacion de numero entero 1 a 99 
+      Scanner sc = new Scanner(System.in);
+
        int MAX = 99;
        int MIN = 1;
 
-       Math.random();
-       double num1 = Math.random() * MAX;
-       //int num2 = (int)(Math.random())* (MAX - MIN + 1) + MIN;
+       int num1 = (int) (Math.random() * (MAX - MIN + 1)) + MIN;
+       int num2 = (int) (Math.random() * (MAX - MIN + 1)) + MIN;
 
-       for (int i = 0; i < 1000 ; i++ ) {
-            //if (num > MAX)
-            //System.out.println("Numero demasiado alto: ");
-       } */ 
+       System.out.printf("Escribe el resultado de sumar %d y %d: ", num1, num2);
+       int sumaUsuario = sc.nextInt();
+       sc.close();
+
+        if (sumaUsuario == num1 + num2) {
+            System.out.println("Resultado correcto");
+        } else {
+            System.out.printf("¡Has fallado! El resultado correcto es %d%n", num1 + num2);
+        }
+        
 
     }
     

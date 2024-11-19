@@ -14,7 +14,9 @@ public class E0302_EdadesAlumnos {
         System.out.print("Introduce la edad de un alumno: ");
         int edad = sc.nextInt();
 
-        int contador=0, numeroAlumnos=0, numeroAdultos=0;
+        sc.close(); 
+        
+        int contador = 0, numeroAlumnos = 0, numeroAdultos = 0;
 
         while (edad > 0) {
 
@@ -33,6 +35,6 @@ public class E0302_EdadesAlumnos {
             System.out.print("\n\nIntroduce la edad de un alumno: ");
             edad = sc.nextInt();
         }
-        sc.close(); 
+       
     }
 }

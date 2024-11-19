@@ -6,11 +6,25 @@ fibonacci(1) = 1
 fibonacci(0) = 1 */
 
 package ud2.funciones;
+import java.util.Scanner;
 
 public class E0412_fibonacci {
     public static void main(String[] args) {
-        
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Introduce el número:");
+        int num = sc.nextInt();
+
+        sc.close();
+        System.out.println(fibonacci(num));
     }
 
-    //public static fibonacci() {
+    static int fibonacci(int n){
+
+        if (n < 2){
+            return 1;
+        }
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
 }

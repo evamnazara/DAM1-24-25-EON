@@ -43,8 +43,8 @@ c. etc. */
 
 package ud2.practicas;
 
-import java.math.*;
-import java.util.*;
+//import java.math.*;
+//import java.util.*;
 
 
 public class CalculadoraHumana {
@@ -52,13 +52,13 @@ public class CalculadoraHumana {
     public static void main(String[] args) {
         System.out.println("JUEGO CALCULADORA HUMANA: ");
 
-        int n1 = (int)Math.random();
+       /*  int n1 = (int)Math.random();
         int n2 = (int)Math.random();
 
         int suma = n1 + n2;
         int resta = n1 - n2;
         int multiplicacion = n1 * n2;
-        int division = n1 / n2;
+        int division = n1 / n2; */
 
         //int operacion = (suma,resta,multiplicacion,division);
 
