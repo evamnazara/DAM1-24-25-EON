@@ -3,9 +3,9 @@ alumnos de un centro educativo. Se introducirán datos hasta que uno de ellos se
 negativo, y se mostrará: la suma de todas las edades introducidas, la media, el número
 de alumnos y cuántos son mayores de edad. */
 
-package ud2.ejerciciosbucles;
+package ud2.exercicios.eon202411.ejerciciosbucles;
 
-public class E0302_EdadesAlumnos {
+public class EHACER0302_EdadesAlumnos {
     public static void main(String[] args) {
         
     }

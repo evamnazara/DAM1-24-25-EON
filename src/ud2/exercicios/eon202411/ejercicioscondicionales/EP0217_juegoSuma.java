@@ -1,7 +1,7 @@
 /*EP0217. Realiza el “juego de la suma”, que consiste en que aparezcan dos números
 aleatorios (comprendidos entre 1 y 99) que el usuario tiene que sumar. La aplicación debe
 indicar si el resultado de la operación es correcto o incorrecto. */
-package ud2.ejercicioscondicionales;
+package ud2.exercicios.eon202411.ejercicioscondicionales;
 
 //import java.util.Scanner;
 //import java.math.*;

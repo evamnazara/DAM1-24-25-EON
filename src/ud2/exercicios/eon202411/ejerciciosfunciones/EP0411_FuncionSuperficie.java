@@ -1,6 +1,6 @@
 //EP0411. Diseña una función que calcule y muestre la superficie y el volumen de una esfera.
 
-package ud2.funciones.ejerciciosfunciones;
+package ud2.exercicios.eon202411.ejerciciosfunciones;
 
 public class EP0411_FuncionSuperficie {
 

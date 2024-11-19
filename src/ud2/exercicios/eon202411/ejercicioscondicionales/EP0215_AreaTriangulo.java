@@ -2,7 +2,7 @@
 corresponden a la base y la altura de un triángulo. Deberá mostrarse su área, comprobando
 que los números introducidos por el usuario no son negativos, algo que no tendría sentido. */
 
-package ud2.ejercicioscondicionales;
+package ud2.exercicios.eon202411.ejercicioscondicionales;
 
 import java.util.Scanner;
 

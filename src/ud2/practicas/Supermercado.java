@@ -24,7 +24,7 @@ en subproblemas más sencillos implementados con funciones. */
 
 package ud2.practicas;
 
-import java.util.*;
+//import java.util.*;
 
 
 public class Supermercado {

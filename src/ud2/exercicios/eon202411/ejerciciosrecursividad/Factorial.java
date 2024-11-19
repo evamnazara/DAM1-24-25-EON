@@ -1,6 +1,6 @@
 /* Factorial. Escribe un programa que calcule el factorial de un número utilizando recursividad. */
 
-package ud2.ejerciciosrecursividad;
+package ud2.exercicios.eon202411.ejerciciosrecursividad;
 
 import java.util.*;
 

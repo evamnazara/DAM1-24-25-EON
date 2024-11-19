@@ -1,6 +1,6 @@
 //EP0413. Crea la función muestraPares(int n) que muestre por consola los primeros n números pares.
 
-package ud2.funciones.ejerciciosfunciones;
+package ud2.exercicios.eon202411.ejerciciosfunciones;
 
 
 //spoiler no funciona

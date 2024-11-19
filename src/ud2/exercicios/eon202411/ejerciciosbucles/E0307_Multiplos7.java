@@ -1,4 +1,4 @@
-package ud2.ejerciciosbucles;
+package ud2.exercicios.eon202411.ejerciciosbucles;
 
 public class E0307_Multiplos7 {
     public static void main(String[] args) {

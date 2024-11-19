@@ -1,7 +1,7 @@
 /* EP0211. Escribe una aplicación que solicite al usuario un número comprendido entre 0 y
 9999. La aplicación tendrá que indicar si el número introducido es capicúa. */
 
-package ud2.ejercicioscondicionales;
+package ud2.exercicios.eon202411.ejercicioscondicionales;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package ud2.funciones.ejerciciosfunciones;
+package ud2.exercicios.eon202411.ejerciciosfunciones;
 
 public class EP0412_DistanciaEuclidea {
 

@@ -1,6 +1,6 @@
 /* E0306. Escribir una aplicación para aprender a contar, que pedirá un número n y mostrará
 todos los números del 1 al n. */
-package ud2.ejerciciosbucles;
+package ud2.exercicios.eon202411.ejerciciosbucles;
 import java.util.*;
 
 public class E0306_AprenderAContar {

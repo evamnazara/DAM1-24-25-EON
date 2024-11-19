@@ -1,7 +1,7 @@
 /* Aplicacion que muestre la edad maxima y minima de un grupo de alumnos. 
  El usuario introduce las edades y terminará escribiendo un -1.
  */
-package ud2.ejerciciosbucles;
+package ud2.exercicios.eon202411.ejerciciosbucles;
 
 import java.util.*;
 

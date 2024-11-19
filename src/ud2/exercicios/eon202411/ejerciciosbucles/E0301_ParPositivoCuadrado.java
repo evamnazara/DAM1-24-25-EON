@@ -2,7 +2,7 @@
 si es par, si es positivo y su cuadrado. El proceso se repetirá hasta que el número
 introducido sea 0. */
 
-package ud2.ejerciciosbucles;
+package ud2.exercicios.eon202411.ejerciciosbucles;
 import java.util.*;
 
 public class E0301_ParPositivoCuadrado {

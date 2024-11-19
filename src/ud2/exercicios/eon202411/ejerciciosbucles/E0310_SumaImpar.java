@@ -1,6 +1,6 @@
 //E0310. Diseñar un programa que muestre la suma de los 10 primeros números impares.
 
-package ud2.ejerciciosbucles;
+package ud2.exercicios.eon202411.ejerciciosbucles;
 
 public class E0310_SumaImpar {
     public static void main(String[] args) {

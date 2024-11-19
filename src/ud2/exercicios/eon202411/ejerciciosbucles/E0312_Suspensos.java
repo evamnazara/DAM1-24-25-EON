@@ -1,5 +1,5 @@
 /* E0312. Pedir 5 calificaciones de alumnos y decir al final si hay algún suspenso. */
-package ud2.ejerciciosbucles;
+package ud2.exercicios.eon202411.ejerciciosbucles;
 
 import java.util.*;
 

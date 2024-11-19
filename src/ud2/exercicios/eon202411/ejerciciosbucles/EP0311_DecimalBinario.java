@@ -3,7 +3,7 @@ binaria. Hay que tener en cuenta que desconocemos cuántas cifras tiene el núme
 el usuario.
 Por simplicidad, iremos mostrando el número binario con un digito por línea.
 */
-package ud2.ejerciciosbucles;
+package ud2.exercicios.eon202411.ejerciciosbucles;
 
 import java.util.*;
 

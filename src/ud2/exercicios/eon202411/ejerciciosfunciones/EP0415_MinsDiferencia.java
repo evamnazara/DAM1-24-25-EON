@@ -3,7 +3,7 @@ tiempo, con el siguiente prototipo:
 static int diferenciaMin (int hora1, int minuto1, int hora2, int minuto2)La función devolverá la cantidad de minutos que existen de diferencia entre los dos
 instantes utilizados. */
 
-package ud2.funciones.ejerciciosfunciones;
+package ud2.exercicios.eon202411.ejerciciosfunciones;
 
 public class EP0415_MinsDiferencia {
 

@@ -3,7 +3,7 @@ partir del número de la siguiente forma:
 letra = número DNI módulo 23
 Basándote en esta información, elige la letra a partir de la numeración de la siguiente tabla: */
 
-package ud2.ejercicioscondicionales;
+package ud2.exercicios.eon202411.ejercicioscondicionales;
 
 
 import java.util.Scanner;
