@@ -1,4 +1,4 @@
-Condicionales (UD2.1.Apuntes.Condicion…)​(UD02.Ejercicios Propues…)
+Condicionales (UD2.1.Apuntes.Condicion…)​(UD02.Ejercicios Propuestos)
 
 EP0211: Determina si un número es capicúa.
 EP0212: Calcula la letra del DNI a partir de un número.
@@ -14,7 +14,7 @@ EP0221_JuegoCuantoTiempo: Juego de estimación de tiempo transcurrido.
 EP0222_Ahorcado: Dibuja un ahorcado según el número de fallos.
 
 
-Bucles (UD2.2.Apuntes.Bucles (1))​(UD02.Ejercicios Propues…)
+Bucles (UD2.2.Apuntes.Bucles (1))​(UD02.Ejercicios Propuestos)
 
 E0301: Identifica si un número es par, positivo y su cuadrado.
 E0302: Estadísticas de edades de alumnos.
