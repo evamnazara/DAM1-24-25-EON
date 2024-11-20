@@ -6,6 +6,41 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ChiclesRegalo",
+      "request": "launch",
+      "mainClass": "ud2.oneexamen.ChiclesRegalo",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "ComprobacionDouble",
+      "request": "launch",
+      "mainClass": "ud2.usb.ComprobacionDouble",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "ComprobacionInt",
+      "request": "launch",
+      "mainClass": "ud2.usb.ComprobacionInt",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "MenuFiguras",
+      "request": "launch",
+      "mainClass": "ud2.oneexamen.MenuFiguras",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "DuraciónBombillas",
+      "request": "launch",
+      "mainClass": "ud2.oneexamen.DuraciónBombillas",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
       "name": "EP019_GradosAngulo",
       "request": "launch",
       "mainClass": "ud2.exercicios.eon202411.ejercicioscondicionales.EP019_GradosAngulo",
