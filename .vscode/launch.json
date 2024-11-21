@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Bombillas",
+      "request": "launch",
+      "mainClass": "ud2.examencorr.Bombillas",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
       "name": "ChiclesRegalo",
       "request": "launch",
       "mainClass": "ud2.oneexamen.ChiclesRegalo",
