@@ -23,7 +23,7 @@ public static void main(String[] args) {
     System.out.println("Introduce tu segundo número:");
     n2 = sc.nextInt();
 
-    int mcd1 = mcd(n1,n2);
+    int mcd1 = maxcomundivisor(n1,n2);
     
     sc.close();
 
@@ -32,7 +32,7 @@ public static void main(String[] args) {
     }
 
         
-public static int mcd (int a, int b) {
+public static int maxcomundivisor (int a, int b) {
 
     int mcd = 0;
 
@@ -41,9 +41,9 @@ public static int mcd (int a, int b) {
         } else if (a == 0) {
             mcd = b; 
         } else if (a >= b) {
-         mcd = mcd(a - b, b);
+         mcd = maxcomundivisor(a - b, b);
         } if (b > a) {
-        mcd = mcd(a, b - a);
+        mcd = maxcomundivisor(a, b - a);
         } 
         return mcd;
     }
