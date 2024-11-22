@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "EjemploPoo",
+      "request": "launch",
+      "mainClass": "ud3.apuntes.EjemploPoo",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
       "name": "Bombillas",
       "request": "launch",
       "mainClass": "ud2.examencorr.Bombillas",
