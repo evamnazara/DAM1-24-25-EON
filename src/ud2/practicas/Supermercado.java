@@ -42,7 +42,6 @@ public class Supermercado {
         scanner.close();
     }
 
-    // Función para procesar la compra del cliente
     private static double procesarCompra(Scanner scanner) {
         double totalCompra = 0.0;
 
@@ -60,7 +59,6 @@ public class Supermercado {
         return totalCompra;
     }
 
-    // Función para procesar el pago
     private static void procesarPago(Scanner scanner, double totalCompra) {
         System.out.println("=== MÉTODO DE PAGO ===");
         System.out.println("1. Pago con tarjeta");

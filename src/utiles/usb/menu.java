@@ -1,4 +1,4 @@
-package ud2.usb;
+package utiles.usb;
 /* 
 public class menu {
         BufferedReader bufEntrada = new BufferedReader(new InputStreamReader(System.in));

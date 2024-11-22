@@ -52,66 +52,109 @@ b. “Infracción por exceso de velocidade!!  */
 package ud2.practicas;
 
 import java.util.Scanner;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Radar {
 
-    // Constantes
-    private static final double DISTANCIA_KM = 10.0; // Distancia en kilómetros
-    private static final int LIMITE_VELOCIDAD_KMH = 120; // Límite de velocidad en km/h
+    
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("=== RADAR DE TRAMO ===");
-        System.out.print("Introduce el tiempo en segundos que tardó el vehículo en recorrer el tramo: ");
-        int tiempoSegundos = scanner.nextInt();
+        final double DISTANCIA_KM = 10.0;
+        final int LIMITE_VELOCIDAD_KMH = 120; 
 
-        // Calcular el exceso de velocidad
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("RADAR:");
+        System.out.print("Introduce en segundos el tiempo tardado en recorrer el tramo: ");
+        int tiempoSegundos = sc.nextInt();
+
         int excesoVelocidad = excesoVelocidad(DISTANCIA_KM, tiempoSegundos, LIMITE_VELOCIDAD_KMH);
 
         if (excesoVelocidad == 0) {
-            System.out.println("Velocidad dentro del límite.");
+            System.out.println("Velocidad dentro del límite establecido.");
         } else {
-            System.out.println("¡Infracción por exceso de velocidad!");
-            System.out.printf("Exceso de velocidad: %d km/h%n", excesoVelocidad);
+            System.out.printf("Se ha cometido una infracción por exceso de velocidad: %d km/h%n", excesoVelocidad);
 
-            // Calcular la multa correspondiente
             int importeMulta = multaInfraccion(LIMITE_VELOCIDAD_KMH, excesoVelocidad);
+            System.out.println("Debe abonar una multa.");
             System.out.printf("Importe de la multa: %d €%n", importeMulta);
         }
 
-        scanner.close();
+        sc.close();
     }
 
-    // Función para calcular el exceso de velocidad
     public static int excesoVelocidad(double distancia, int tiempo, int limite) {
-        double tiempoHoras = tiempo / 3600.0; // Convertir el tiempo a horas
-        double velocidadMedia = distancia / tiempoHoras; // Velocidad media en km/h
+        
+        double tiempoHoras = tiempo / 3600.0;
+        double velocidadMedia = distancia / tiempoHoras; 
 
         if (velocidadMedia > limite) {
             return (int) (velocidadMedia - limite);
         }
-        return 0; // No hay exceso
+
+        return 0; 
     }
 
-    // Función para calcular el importe de la multa según el exceso de velocidad
-    public static int multaInfraccion(int limite, double excesoVelocidad) {
+    public static int multaInfraccion(int limiteVelocidad, int excesoVelocidad) {
+        
         if (excesoVelocidad == 0) {
-            return 0; // No hay multa
+            return 0; 
         }
 
-        if (limite <= 50) {
-            if (excesoVelocidad <= 20) return 100;
-            if (excesoVelocidad <= 30) return 300;
-            if (excesoVelocidad <= 40) return 400;
-            if (excesoVelocidad <= 50) return 500;
-            return 600; // Más de 50 km/h de exceso
+        if (limiteVelocidad <= 50) {
+            if (excesoVelocidad <= 20) 
+                return 100;
+            if (excesoVelocidad <= 30) 
+                return 300;
+            if (excesoVelocidad <= 40) 
+                return 400;
+            if (excesoVelocidad <= 50) 
+                return 500;
+
+            return 600;
+
         } else {
-            if (excesoVelocidad <= 30) return 100;
-            if (excesoVelocidad <= 50) return 300;
-            if (excesoVelocidad <= 60) return 400;
-            if (excesoVelocidad <= 70) return 500;
-            return 600; // Más de 70 km/h de exceso
+            if (excesoVelocidad <= 30) 
+                return 100;
+            if (excesoVelocidad <= 50) 
+                return 300;
+            if (excesoVelocidad <= 60) 
+                return 400;
+            if (excesoVelocidad <= 70) 
+                return 500;
+
+            return 600; 
         }
     }
+
+    @Test
+    public void testExcesoVelocidad() {
+        assertEquals(0, Radar.excesoVelocidad(10.0, 600, 60)); 
+        assertEquals(10, Radar.excesoVelocidad(10.0, 600, 50));
+        assertEquals(30, Radar.excesoVelocidad(10.0, 600, 30)); 
+        assertEquals(60, Radar.excesoVelocidad(15.0, 300, 120)); 
+        assertEquals(90, Radar.excesoVelocidad(15.0, 300, 90)); 
+        assertEquals(0, Radar.excesoVelocidad(10.0, 300, 120)); 
+        assertEquals(30, Radar.excesoVelocidad(10.0, 300, 90)); 
+    }
+
+    @Test
+    public void testMultaInfraccion() {
+        assertEquals(0, Radar.multaInfraccion(20, 0));
+        assertEquals(100, Radar.multaInfraccion(20, 15));
+        assertEquals(300, Radar.multaInfraccion(30, 21));
+        assertEquals(400, Radar.multaInfraccion(40, 31)); 
+        assertEquals(500, Radar.multaInfraccion(50, 50));
+        assertEquals(600, Radar.multaInfraccion(50, 51));
+        assertEquals(0, Radar.multaInfraccion(60, 0)); 
+        assertEquals(100, Radar.multaInfraccion(70, 30));
+        assertEquals(300, Radar.multaInfraccion(80, 31)); 
+        assertEquals(400, Radar.multaInfraccion(90, 51)); 
+        assertEquals(500, Radar.multaInfraccion(100, 61)); 
+        assertEquals(600, Radar.multaInfraccion(110, 71));
+        assertEquals(100, Radar.multaInfraccion(120, 1));
+    }
+
 }

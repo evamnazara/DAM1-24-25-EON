@@ -1,6 +1,6 @@
 //Echo por André Pazo y Arón Satome con la ayuda de David Besada para: (Función para desglosar el cambio)
 
-package ud2.usb.practicas;
+package utiles.usb.practicas;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
