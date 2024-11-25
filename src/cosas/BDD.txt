@@ -9,4 +9,6 @@ MODELO RELACIONAL:
 
 Las relaciones 1:N se pasa la clave del 1 al de la N 
     se propaga la clave del 1 al N 
-Si son 2N se pasan 2 veces y forman parte de la clave primaria
+Si son 2N se pasan 2 veces y forman parte de la clave
+
+
