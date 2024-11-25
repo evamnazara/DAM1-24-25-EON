@@ -1,4 +1,4 @@
-package ud2.usb;
+package utiles.usb;
 
 import java.util.Scanner;
 import java.util.InputMismatchException;

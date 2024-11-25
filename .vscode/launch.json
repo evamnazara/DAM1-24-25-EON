@@ -6,10 +6,17 @@
   "configurations": [
     {
       "type": "java",
-      "name": "EjemploPoo",
+      "name": "IMC",
       "request": "launch",
-      "mainClass": "ud3.apuntes.EjemploPoo",
-      "projectName": "DAM1-24-25-EON_b792dbae"
+      "mainClass": "ud2.practicas.IMC",
+      "projectName": "DAM1-24-25-EON_deafa41c"
+    },
+    {
+      "type": "java",
+      "name": "Dado",
+      "request": "launch",
+      "mainClass": "ud2.practicas.Dado",
+      "projectName": "DAM1-24-25-EON_deafa41c"
     },
     {
       "type": "java",
