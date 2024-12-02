@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ChiclesCorregido",
+      "request": "launch",
+      "mainClass": "ud2.oneexamen.ChiclesCorregido",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
       "name": "IMC",
       "request": "launch",
       "mainClass": "ud2.practicas.IMC",

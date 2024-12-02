@@ -12,8 +12,8 @@ public class Persona {
             // hasta que se inicialice y se le ponga otro valor.
             
 
-        private double estatura = 1.80;
-        private final String DNI = null;
+       // private double estatura = 1.80;
+       // private final String DNI = null;
 
         public static int contadorPersonas;
         //Métodos
@@ -22,6 +22,7 @@ public class Persona {
                apellido1 = a1;
                apellido2 = a2;
                edad = e;
+               
         }
     
         public String nombreCompleto() {

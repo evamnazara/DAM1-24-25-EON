@@ -1,6 +1,6 @@
 package ud3.apuntes;
 
-import java.nio.channels.Pipe.SourceChannel;
+//import java.nio.channels.Pipe.SourceChannel;
 
 public class EjemploPoo {
     public static void main(String[] args) {

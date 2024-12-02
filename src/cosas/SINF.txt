@@ -3,4 +3,4 @@ APUNTES U2.
 proxy: dar o no salida // registros de acceso
 
 nomenclatura máquinas: SIS-W11-01 // SIS-W2K6-02
-
+user: USER-EON
