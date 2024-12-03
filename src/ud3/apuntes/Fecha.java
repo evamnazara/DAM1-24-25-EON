@@ -3,10 +3,10 @@ package ud3.apuntes;
 public class Fecha {
     private int dia;
     private int mes;
-    private int anho;
+    private int año;
 
     private boolean esBisiesto() {
-        return ((anho % 4 == 0) && (anho % 100 != 0) || (anho % 400 == 0));
+        return ((año % 4 == 0) && (año % 100 != 0) || (año % 400 == 0));                                          
     }
 
     public void setDia(int d) {
@@ -17,14 +17,14 @@ public class Fecha {
         mes = m;
     }
 
-    public void setAnho(int a) {
-        anho = a;
+    public void setAño(int a) {
+        año = a;
     }
 
     public void asignarFecha(int d, int m, int a) {
         setDia(d);
         setMes(m);
-        setAnho(a);
+        setAño(a);
     }
 
     public int getDia() {
@@ -35,15 +35,14 @@ public class Fecha {
         return mes;
     }
 
-    public int getAnho() {
-        return anho;
+    public int getAño() {
+        return año;
     }
 
     public boolean fechaCorrecta() {
         boolean diaCorrecto, mesCorrecto, anyoCorrecto;
-        anyoCorrecto = (anho > 0);
+        anyoCorrecto = (año > 0);
         mesCorrecto = (mes >= 1) && (mes <= 12);
-        
         switch (mes) {
             case 2:
                 if (esBisiesto()) {
@@ -61,7 +60,6 @@ public class Fecha {
             default:
                 diaCorrecto = (dia >= 1 && dia <= 31);
         }
-
         return diaCorrecto && mesCorrecto && anyoCorrecto;
     }
 }
