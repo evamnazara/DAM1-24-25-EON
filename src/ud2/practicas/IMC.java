@@ -37,6 +37,7 @@ public class IMC {
 
     public static double leerPeso() {
         Scanner sc = new Scanner(System.in);
+        sc.close();
         double peso = -1;
         while (peso < 20 || peso > 300) {
             System.out.print("Introduce tu peso en kg [de 20 a 300]: ");
@@ -55,6 +56,7 @@ public class IMC {
 
     public static int lecturaAltura() {
         Scanner sc = new Scanner(System.in);
+        sc.close();
         int altura = -1;
         while (altura < 50 || altura > 250) {
             System.out.print("Introduce tu altura en centímetros [de 50 a 250 cm]: ");
