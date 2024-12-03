@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "E0708",
+      "request": "launch",
+      "mainClass": "ud3.ejerciciosclase.E0708",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
       "name": "ChiclesCorregido",
       "request": "launch",
       "mainClass": "ud2.oneexamen.ChiclesCorregido",
