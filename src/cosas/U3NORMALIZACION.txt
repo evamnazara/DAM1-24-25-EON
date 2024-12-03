@@ -32,12 +32,12 @@ dependencia transitiva
 ======================================
 ATRIBUTOS:
 
-atributos primos: atributos que pertenecen a claves candidatas, primarias y candidatas. NO FORÁNEAS
+    atributos primos: atributos que pertenecen a claves candidatas, primarias y candidatas. NO FORÁNEAS
 
-atributos no primos: los que no pertenecen a ninguna clave candidata
+    atributos no primos: los que no pertenecen a ninguna clave candidata
 _____
 
-atributos atómicos: cada atributo solo puede tener UN valor
+    atributos atómicos: cada atributo solo puede tener UN valor
 
 
 =====================================
