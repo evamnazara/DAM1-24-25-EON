@@ -28,18 +28,7 @@ public class Calendario {
             throw new IllegalArgumentException("La fecha no es correcta");
         } 
     }
-//?
-    public int getAnho() {
-        return anho;
-    }
 
-    public int getMes() {
-        return mes;
-    }
-
-    public int getDia() {
-        return dia;
-    }
 
     public void incrementarDia() {
         dia++; 
@@ -100,7 +89,20 @@ public class Calendario {
         }
 
     }
+                            //representa el objeto que se le pase al calendario
+    public boolean iguales(Calendario otraFecha) {
+        //return dia== otraFecha.dia && mes == otraFecha.mes && anho == otraFecha.anho;
+        boolean iguales = true;
+            if (dia != otraFecha.dia)
+                //si hay getter otraFecha.Getdia()
+                iguales = false;
+            else if ( mes != otraFecha.mes) {
+                iguales = false;
+            } else if (anho != otraFecha.anho)
+                iguales = false;
 
+                return iguales;
+        }
     public void mostrar() {
         System.out.println(dia + "/" + mes + "/"+ anho);
     }
