@@ -17,13 +17,12 @@ package ud3.ejerciciosclase;
 
 public class Bombilla {
     //atributos principales
-    private int b1, b2, b3; 
+    //private int b1, b2, b3; 
     //atributo de instancia del estado de cada bombilla  
     private boolean interruptorEncendido; 
 
     //
     private static boolean interruptorGeneral;
-
 
 
     public static void encencerInterruptorGeneral() {
