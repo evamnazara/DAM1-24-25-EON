@@ -28,6 +28,18 @@ public class Calendario {
             throw new IllegalArgumentException("La fecha no es correcta");
         } 
     }
+//?
+    public int getAnho() {
+        return anho;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public int getDia() {
+        return dia;
+    }
 
     public void incrementarDia() {
         dia++; 
@@ -53,11 +65,12 @@ public class Calendario {
 
             if (mes > 12) {
                 mes = 1;
-                anho++;
+                //incrementar en uno PERO pasand por la funcion
+                incrementarAnho(1);
             }
     }
 
-    void incrementarAño (int cantidad){
+    public void incrementarAnho (int cantidad){
         //incrementas el año con cualquier valor que te den 
         anho += cantidad;
 
@@ -93,11 +106,11 @@ public class Calendario {
     }
 
 
-    private boolean esBisiesto(int anho) {
+    public boolean esBisiesto(int anho) {
         return ((anho % 4 == 0) && (anho % 100 != 0) || (anho % 400 == 0));                                          
     }
 
-    private boolean fechaCorrecta (int anho, int mes, int dia) {
+    public boolean fechaCorrecta (int anho, int mes, int dia) {
        boolean diaCorrecto, mesCorrecto, anhoCorrecto;
         anhoCorrecto = (anho != 0); 
         mesCorrecto = (mes >= 1 ) && (mes <= mes);
