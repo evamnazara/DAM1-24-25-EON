@@ -152,13 +152,13 @@ public class Sintonizador {
             this.frecuencia = frecuencia;
 
         /* ==== IMPLEMENTACION ORIGINAL ====
-        if (frecuencia < 80)
-            this.frecuencia = 80;
-        else if (frecuencia > 108) 
-            this.frecuencia = 108;
-        else
-            this.frecuencia = frecuencia;
-            */
+                if (frecuencia < 80)
+                    this.frecuencia = 80;
+                else if (frecuencia > 108) 
+                    this.frecuencia = 108;
+                else
+                    this.frecuencia = frecuencia;
+                    */
     }
 
     

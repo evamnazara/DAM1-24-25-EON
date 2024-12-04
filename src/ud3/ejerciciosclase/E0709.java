@@ -12,5 +12,24 @@ activado y además hay luz general. */
 package ud3.ejerciciosclase;
 
 public class E0709 {
+    public static void main(String[] args) {
+        //con 3 bombillas
+        Bombilla b1 = new Bombilla();
+        Bombilla b2 = new Bombilla();
+        Bombilla b3 = new Bombilla();
+
+        b1.encenderBombilla();
+        b3.encenderBombilla();
+
+        Bombilla.encencerInterruptorGeneral();
+        System.out.println(b1.estado() +  " " + b2.estado() + " " + b3.estado());
+
+        b2.encenderBombilla();
+        System.out.println(b1.estado() +  " " + b2.estado() + " " + b3.estado());
+
+        Bombilla.apagarInterruptorGeneral();
+        System.out.println(b1.estado() +  " " + b2.estado() + " " + b3.estado());
+        System.out.println(Bombilla.estado(b2));
+    }
     
 }
