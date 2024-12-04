@@ -81,6 +81,8 @@ public class Sintonizador {
         setFrecuencia(frecuencia);
         //corrige el error por defecto
     }
+
+
     public Sintonizador(double frecuencia){
         //que es el this :()
         if (frecuencia < 80)
@@ -97,18 +99,18 @@ public class Sintonizador {
 
     // ========== INTERFACES 
     public void up() {
-        if (frecuencia == 108)
+        frecuencia += 0.5;
+        if (frecuencia > 108)
             frecuencia = 80;
-        else
-            frecuencia += 0.5;
     }
 
     public void down() {
-        if (frecuencia == 80) 
+        frecuencia -= 0.5;
+        //  frecuencia = frecuencia - 0.5.
+
+        if (frecuencia < 80) //si dejasemos el == o <= da fallo al sintonizar por encima o por debajo
             frecuencia = 108;
 
-            frecuencia -= 0.5;
-        //  frecuencia = frecuencia - 0.5.
 
     }
 
@@ -140,15 +142,23 @@ public class Sintonizador {
         return frecuencia;
     }
 
-    public void setFrecuencia(double frecuencia) {
+    public void setFrecuencia(double frecuencia) throws IllegalArgumentException {
         if (frecuencia < 80)
-            this.frecuencia = 80;
-
+            //EXCEPCION 
+            throw new IllegalArgumentException("La frecuencia no puede ser inferior a 80Mhz");
         else if (frecuencia > 108) 
-            this.frecuencia = 108;
-
+            throw new IllegalArgumentException("La frecuencia no puede ser inferior a 80Mhz");
         else
             this.frecuencia = frecuencia;
+
+        /* ==== IMPLEMENTACION ORIGINAL ====
+        if (frecuencia < 80)
+            this.frecuencia = 80;
+        else if (frecuencia > 108) 
+            this.frecuencia = 108;
+        else
+            this.frecuencia = frecuencia;
+            */
     }
 
     

@@ -11,6 +11,6 @@ activado y además hay luz general. */
 
 package ud3.ejerciciosclase;
 
-public class E0709_Bombilla {
+public class E0709 {
     
 }

@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "E0715",
+      "request": "launch",
+      "mainClass": "ud3.ejerciciosclase.E0715",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
       "name": "E0708",
       "request": "launch",
       "mainClass": "ud3.ejerciciosclase.E0708",

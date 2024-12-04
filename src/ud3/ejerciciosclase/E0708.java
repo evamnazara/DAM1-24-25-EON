@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class E0708 {
     public static void main(String[] args) {
-        Sintonizador miRadio = new Sintonizador();
+        Sintonizador miRadio = new Sintonizador(80);
         miRadio.display();
         miRadio.up();
         miRadio.upThin();
@@ -16,6 +16,8 @@ public class E0708 {
         miRadio.display();
         miRadio.setMemoria2(0);
         miRadio.display();
+
+        //Sintonizador miRadioError = new Sintonizador(200);
     }
 
     //TEST DE PRUEBA
