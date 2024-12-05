@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ClasesEnvolventes",
+      "request": "launch",
+      "mainClass": "ud3.ejerciciosapi.ClasesEnvolventes",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
       "name": "E0709",
       "request": "launch",
       "mainClass": "ud3.ejerciciosclase.E0709",

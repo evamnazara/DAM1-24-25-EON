@@ -1,3 +1,5 @@
+//4 diciembre
+
 /*E0709. Bombilla. 
 Modelar una casa con muchas bombillas, de forma que cada bombilla se 
 pueda encender o apagar individualmente. 
