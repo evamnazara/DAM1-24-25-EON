@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "repaso",
+      "request": "launch",
+      "mainClass": "ud2.repaso",
+      "projectName": "DAM1-24-25-EON_deafa41c"
+    },
+    {
+      "type": "java",
       "name": "ClasesEnvolventes",
       "request": "launch",
       "mainClass": "ud3.ejerciciosapi.ClasesEnvolventes",
