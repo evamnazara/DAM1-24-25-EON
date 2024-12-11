@@ -104,7 +104,8 @@ PC4-25600
     Vel. De transferencia:  25600 MB/s
     Frecuencia: 3200 Mhz
 
-
 ================================= 
+
+
 
 
