@@ -60,7 +60,7 @@ public class ventas {
         }
         media /= 6; //reescribe media como el real
 
-        System.out.println(diaSemana(diaMax) + " " + diaSemana(diaMin) + " " + recaudacion > media ? "SI" : "NO");
+       /*System.out.println(diaSemana(diaMax) + " " + diaSemana(diaMin) + " " + recaudacion > media ? "SI" : "NO");
 
 
         private static String diaSemana (int dia) {
@@ -74,7 +74,7 @@ public class ventas {
                 default yield "ERROR"
             }
 
-        }
+        }*/
 
     }
 }
