@@ -92,8 +92,6 @@ public class Sintonizador {
         else
             this.frecuencia = frecuencia;
 
-
-
     }
 
 

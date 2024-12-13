@@ -1,3 +1,20 @@
+/*E0701. Diseñar la clase CuentaCorriente, que almacena los datos: DNI y nombre del titular, asi como el saldo. Las operaciones típicas con una cuenta corriente son:
+
+Crear una cuenta: se necesita el DNI y nombre del titular. El saldo inicial será 0.
+Sacar dinero: el método debe indicar si ha sido posible llevar a cabo la operación, si existe saldo suficiente.
+Ingresar dinero: se incrementa el saldo.
+Mostrar información: muestra la información disponible de la cuenta corriente.
+
+Prueba la clase y sus métodos cun un pequeño programa.
+
+E0702. En la clase CuentaCorriente sobrecarga los constructores para poder crear objetos:
+con el DNI del titular y un saldo inicial
+Con el DNI, nombre y saldo inicial.
+
+Utiliza el método this() para evitar duplicar código. Escribe un programa que compruebe el funcionamiento.
+
+ */
+
 package ud3.apuntes;
 
 public class CuentaCorriente {

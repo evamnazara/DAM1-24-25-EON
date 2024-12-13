@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CocheCarreras",
+      "request": "launch",
+      "mainClass": "ud3.oneexamen.CocheCarreras",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
       "name": "Galibo",
       "request": "launch",
       "mainClass": "ud2.eonexamenrec.Galibo",
