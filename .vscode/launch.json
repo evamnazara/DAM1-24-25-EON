@@ -6,6 +6,27 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Galibo",
+      "request": "launch",
+      "mainClass": "ud2.eonexamenrec.Galibo",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EstadisticaEstaturas",
+      "request": "launch",
+      "mainClass": "ud2.eonexamenrec.EstadisticaEstaturas",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
+      "name": "EstadisticaEstaturas",
+      "request": "launch",
+      "mainClass": "ud2.EONexamenrec.EstadisticaEstaturas",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
       "name": "ClasesEnvolventes",
       "request": "launch",
       "mainClass": "ud3.ejerciciosapi.ClasesEnvolventes",
