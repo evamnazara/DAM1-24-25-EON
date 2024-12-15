@@ -1,4 +1,4 @@
-package Contornos;
+package Contornos.programas;
 /**
  * el nombre de la public class siempre tiene que ser igual al del documento -- preferiblemente lowerCamelCase
  */
