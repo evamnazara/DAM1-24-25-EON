@@ -5,48 +5,57 @@ apuntes u1
 1. software 
 software: conjunto de programas informáticos que ejecutan tareas en un PC con los datos necesarios.
 programa informático: conjunto ordenado de instrucciones en un lenguaje de programación que realiza una tarea particular. Secuencia de órdenes que le indican a una computadora qué hacer.
+
 1.1. Tipos de software 
-1.1.1. Segundo a tarefa que realiza
-software de sistema, de aplicación y de desarrollo. 
-Software de sistema: hace que el hardware funcione → programas que administran la parte física e interactúan con el usuario. sistemas operativos, controladores de dispositivos, herramientas de diagnóstico, etc.
-Software de aplicación: realizan tareas específicas → ofimáticos, médicos 
-Software de desarrollo: herramientas necesarias para escribir programas informáticos (IDE). 
 
-1.1.2. Segundo o método de distribución
-Shareware: se paga y después se descarga de internet. 
-Freeware: descarga gratis pero se mantienen los derechos de autor.
-Adware: publicidad incrustada incluso en su instalación. 
+    1.1.1. Segundo a tarefa que realiza
+    software de sistema, de aplicación y de desarrollo. 
+    Software de sistema: hace que el hardware funcione → programas que administran la parte física e interactúan con el usuario. sistemas operativos, controladores de dispositivos, herramientas de diagnóstico, etc.
+    Software de aplicación: realizan tareas específicas → ofimáticos, médicos 
+    Software de desarrollo: herramientas necesarias para escribir programas informáticos (IDE). 
 
-1.1.3. Según la licencia 
-Una licencia es un contrato entre un software y un usuario que especifica los derechos y deberes de ambas partes.
-propietario: pertenece a una persona/empresa y su código fuente solo lo puede ver y modificar el dueño.
-libre: el autor da libertad para usar, adaptar, mejorar y compartir el CF.
-público: no tiene licencia.
+    1.1.2. Segundo o método de distribución
+    Shareware: se paga y después se descarga de internet. 
+    Freeware: descarga gratis pero se mantienen los derechos de autor.
+    Adware: publicidad incrustada incluso en su instalación. 
+
+    1.1.3. Según la licencia 
+    Una licencia es un contrato entre un software y un usuario que especifica los derechos y deberes de ambas partes.
+    propietario: pertenece a una persona/empresa y su código fuente solo lo puede ver y modificar el dueño.
+    libre: el autor da libertad para usar, adaptar, mejorar y compartir el CF.
+    público: no tiene licencia.
 
 
-Licencia GPL: de GNU,  Free Software Foundation. Garantiza que cualquier persona pueda usar, distribuir y modificar el software siempre que todas las modificaciones se mantengan bajo la misma licencia. (núcleo linux, gimp, wordpress)
-código abierto: código fuente abierto. promueve la colaboración comunitaria y la transparencia. (firefox, libreoffice, apache)
+    - Licencia GPL: de GNU,  Free Software Foundation. Garantiza que cualquier persona pueda usar, distribuir y modificar el software siempre que todas las modificaciones se mantengan bajo la misma licencia. (núcleo linux, gimp, wordpress)
+    
+    - código abierto: código fuente abierto. promueve la colaboración comunitaria y la transparencia. (firefox, libreoffice, apache)
+
 1.2. lenguajes de programación
 Notación para escribir programas para comunicarse con el hardware y llevar a cabo una tarea. Se clasifican por nivel de abstracción, forma de ejecución y paradigma de programación. 
 
-1.2.1. Segundo o nivel de abstracción 
-Nivel de abstracción: distancia entre el código máquina y los lenguajes modernos.
-lenguaje máquina: lo entiende directamente el ordenador → alfabeto binario (0,1)
-bajo nivel: más fáciles pero dependen mucho de la máquina → ensamblador
-alto nivel: independientes de la máquina, utilizables en cualquier ordenador, requieren un compilador que traduzca a un lenguaje inferior. 
+    1.2.1. Segundo o nivel de abstracción 
+        - Nivel de abstracción: distancia entre el código máquina y los lenguajes modernos.
+        - lenguaje máquina: lo entiende directamente el ordenador → alfabeto binario (0,1)
+    
+    bajo nivel: más fáciles pero dependen mucho de la máquina → ensamblador
+    alto nivel: independientes de la máquina, utilizables en cualquier ordenador, requieren un compilador que traduzca a un lenguaje inferior. 
 
-1.2.2. Segundo a forma de execución
-Lenguajes compilados: 
-Linguaxes compiladas: Ao programar no alto nivel hai que traducir esa linguaxe a linguaxe máquina a través de compiladores. Os compiladores traducen desde un linguaxe fonte a unha linguaxe destino. Devolverá erros se o linguaxe fonte está mal escrito e executarao se a linguaxe destino é executable pola máquina. Exemplo: C, C++, C.
-Linguaxes interpretadas: Son outra variante para traducir programas de alto nivel. Cando executamos unha instrución, débese interpretar e traducir ao linguaxe máquina. Exemplos: PHP, JavaScript, Python. A linguaxe Java usa tanto a compilación como a interpretación. Un programa fonte en Java hai que compilalo primeiro a un formato intermedio, chamado bytecodes, para que logo unha máquina virtual o interprete.
+    1.2.2. Segundo a forma de execución
+        - Lenguajes compilados: son los que necesitan un ompilaor para que la máquina lo entienda. (C, C+, C++)
+        - Lenguajes interpretadas: otra variante de traducir programas de alto nivel. Se interpreta y traduce el lenguaje máquina. (PHP, JavaScript, Python)
+     Java usa ambos. Se compila primeiro a un formato intermedio, chamado bytecodes, para que una máquina virtual lo interprete.
 
 
-Máquina virtual: é unha aplicación que executa os programas como si fose unha máquina real. Poden ser sistema (emulan un ordenador) ou de proceso (executan un proceso concreto dentro do SO). JVM é a máquina empregada por Java, que permite que un programa previamente compilado poda ser executado en calquera plataforma.
+    - Máquina virtual: aplicación que ejecuta los programas como si fuesen una máquina real.
+        pueden ser de sistema (emulan un ordenador) o de proceso. 
+        JVM es la máquina de Java, permite que un programa compilado se ejecte en cualquier plataforma.
 
-Linguaxes visuais: son un tipo de linguaxe que utiliza compoñentes gráficos como iconas, botóns e símbolos en forma de codificación, tamén permite aos usuarios utilizar simplemente unha interface de arrastrar e soltar. Unha vantaxe é que en moitos casos pódese realizar directamente en plataformas web, sen ter que instalar ningún entorno de desenvolvemento. Pola contra, en aplicacións de certa complexidade e nivel pode resultar complexo e difícil de manter. 
+    Linguaxes visuais: utiliza compoñentes gráficos como iconas, botóns e símbolos en forma de codificación, permite aos usuarios utilizar unha interface de arrastrar e soltar. 
+    vantaxe: pódese realizar directamente en plataformas web, sen ter que instalar ningún ide. 
+    desvantaxe: aplicacións complexidade pode resultar complexo e difícil de manter. 
 
-1.2.3. Segundo o seu paradigma de programación.
-Imperativas: céntranse en describir como un programa debe lograr un resultado específico. Neste paradigma, o código componse duna serie de instrucións que se executan de xeito secuencial. (Java, Php, Ada, C).
+1.2.3. Segun paradigma de programación.
+    - Imperativas: describir como un programa debe lograr un resultado específico. o código componse de instrucións que se executan de xeito secuencial. (Java, Php, Ada, C).
 Programación Estruturada: busca escribir código de xeito organizado e fácil de entender mediante a división dun programa en estruturas de control claras e lexibles. Combina o uso da secuencialidade, estruturas de control e a modularidade. (Pascal, Fortran, C).
 Programación Orientada a Obxectos (POO): basease no concepto de "obxectos" e céntrase na organización de datos e funcións en unidades chamadas obxectos. (Java, Python, C++, Perl). Algúns conceptos da programación orientada a obxectos son:
 Obxectos: conteñen datos e funcións que operan neses datos. Os obxectos poden representar entidades do mundo real ou conceptos abstractos. 

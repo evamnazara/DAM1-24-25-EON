@@ -1,0 +1,77 @@
+Funcion mostrarMenuUsuario
+	Escribir "1. Mis viajes"
+	Escribir "2. Crear Viaje"
+	Escribir "3. Cerrar sesión"
+	Escribir "0. SALIR"
+Fin Funcion
+
+Funcion opcionSalida <- menuUsuario
+	Escribir "Menú de Usuario"
+	Repetir
+		mostrarMenuUsuario
+		Escribir "Opción: "
+		Leer opcionUsuario
+		Segun opcionUsuario Hacer
+			1:
+				Escribir "Mis viajes"
+				Escribir "Estos son tus viajes publicados, etc."
+			2:
+				Escribir "Crear Viaje"
+				Escribir "Introduce los datos del viaje que quieres publicar, etc."
+			3:
+				Escribir "Cerrando sesión de usuario"
+			0:
+				Escribir "Hasta Pronto"
+			De Otro Modo:
+				Escribir "Opción incorrecta"
+		Fin Segun
+	Hasta Que opcionUsuario = 0 o opcionUsuario = 3
+	opcionSalida = opcionUsuario
+Fin Funcion
+
+
+Funcion usuario <- iniciarSesion
+	Escribir "Inicio de sesión"
+	Escribir "Nombre de usuario: "
+	Leer usuario
+	Escribir "Contraseña: "
+	Leer password
+	Si (usuario = "admin" y password = "abc123.,")
+		usuario = "admin"
+	SiNo
+		usuario = ""
+	FinSi
+Fin Funcion
+
+Funcion mostrarMenu
+	Escribir "1. Iniciar sesión"
+	Escribir "2. Listar viajes"
+	Escribir "0. SALIR"
+Fin Funcion
+
+
+Algoritmo E20_Menu_SubMenu
+	Repetir
+		mostrarMenu
+		Escribir "Opción: "
+		Leer opcionUsuario
+		Segun opcionUsuario Hacer
+			1:
+				usuario = iniciarSesion
+				Si (usuario <> "") 
+					opcionUsuario = menuUsuario
+				SiNo
+					Escribir "Inicio de sesión incorrecto"
+				FinSi
+			2:
+				Escribir "Listado de Viajes"
+				Escribir "Etc..."
+			0:
+				Escribir "Hasta pronto..."
+			De Otro Modo:
+				Escribir "Opción incorrecta"
+		Fin Segun
+	Hasta Que opcionUsuario = 0
+	
+FinAlgoritmo
+
