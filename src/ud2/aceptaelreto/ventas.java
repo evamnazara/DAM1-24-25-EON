@@ -18,7 +18,7 @@ import java.util.*;
 
 //SIMPLIFICADO PARA UNA SEMANA
 //calculo maximo minimo y media
-public class ventas {
+/* public class ventas {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
@@ -60,7 +60,7 @@ public class ventas {
         }
         media /= 6; //reescribe media como el real
 
-       /* System.out.println(diaSemana(diaMax) + " " + diaSemana(diaMin) + " " + recaudacion > media ? "SI" : "NO");
+        System.out.println(diaSemana(diaMax) + " " + diaSemana(diaMin) + " " + recaudacion > media ? "SI" : "NO");
 
 
              private static String diaSemana (int dia) {
@@ -73,8 +73,4 @@ public class ventas {
                 case 5: yield "DOMINGO";
                 default yield "ERROR"
             }*/
-
-        }
-
-    }
 

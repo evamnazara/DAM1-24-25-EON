@@ -22,4 +22,5 @@ nombreZona: superficie, habitat, clima
 
 nomEjemplar + DNI: fecha y hora 
 
-EJEMPLAR // FAMILIA // ESPECIE //
+EJEMPLAR // FAMILIA // ESPECIE // 
+

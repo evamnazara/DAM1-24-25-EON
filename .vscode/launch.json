@@ -6,6 +6,7 @@
   "configurations": [
     {
       "type": "java",
+<<<<<<< HEAD
       "name": "CocheCarreras",
       "request": "launch",
       "mainClass": "ud3.oneexamen.CocheCarreras",
@@ -31,6 +32,12 @@
       "request": "launch",
       "mainClass": "ud2.EONexamenrec.EstadisticaEstaturas",
       "projectName": "DAM1-24-25-EON_b792dbae"
+=======
+      "name": "repaso",
+      "request": "launch",
+      "mainClass": "ud2.repaso",
+      "projectName": "DAM1-24-25-EON_deafa41c"
+>>>>>>> 11f33b5900b8545f1409aceacbf34e615a070d41
     },
     {
       "type": "java",
