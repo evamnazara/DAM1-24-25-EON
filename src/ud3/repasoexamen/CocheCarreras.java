@@ -12,8 +12,10 @@ public class CocheCarreras {
     private int distanciaRecorrida;
 
     // CONSTRUCTORES
+    
     public CocheCarreras(String nombre, int velocidadMaxima, int maxTurbos, int maxAutonomia) {
-        this.nombre = nombre;
+        //el this se genera para que no se repitan los nombres de parámetro
+        this.nombre = nombre; 
         if (velocidadMaxima < 1 || velocidadMaxima > 100)
             throw new IllegalArgumentException("La Velocidad Máxima debe estar entre 1 y 100");
         else
@@ -67,7 +69,7 @@ public class CocheCarreras {
         if (turbosRestantes > 0) {
             turbosRestantes--;
             metros = (int)(velocidadMaxima * 1.5);
-            // TODO -> Implementar un método privado para evitar repetir el siguiente código
+            // TO DO -> Implementar un método privado para evitar repetir el siguiente código
             metros = Math.min(metros, autonomiaRestante);
             autonomiaRestante -= metros;
             distanciaRecorrida += metros;    
