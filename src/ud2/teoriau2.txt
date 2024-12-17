@@ -1,0 +1,16 @@
+UD2.1 CONDICIONALES
+
+Estructuras de control: definen el orden de ejecución de las instrucciones de un
+programa. Los programas realizados hasta ahora utilizaban la estructura secuencial, es
+decir, sus instrucciones se ejecutaban una detrás de otra, secuencialmente.
+Con otras estructuras de control podemos conseguir que el flujo de ejecución de las
+instrucciones varíe en función de si se cumple o no una condición, que se ejecute un bloque
+de instrucciones u otro, o que un bloque de instrucciones se repita dependiendo de que una
+condición se cumpla o no.
+Las estructuras de control tienen las siguientes características:
+● Tienen un único punto de entrada y un único punto de salida.
+● Están compuestas por instrucciones o por otras estructuras de control.
+====================
+
+método: conjunto  de  instrucciones dentro  de  una  clase,  que  realizan  una  determinada
+tarea y a las que podemos invocar mediante un nombre. ( Math.sqrt(),System.out.println(); )
