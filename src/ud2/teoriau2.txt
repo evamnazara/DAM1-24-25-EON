@@ -1,11 +1,11 @@
 
-prieba
 método: conjunto  de  instrucciones dentro  de  una  clase,  que  realizan  una  determinada
 tarea y a las que podemos invocar mediante un nombre. ( Math.sqrt(),System.out.println(); )
 
 
 UD2.1 CONDICIONALES
 Estructuras de control
+
 Estructuras de control: definen el orden de ejecución de las instrucciones de un
 programa. Consiguen que el flujo de instrucciones varíe si se cumple o no una condición, que se ejecute o repita un bloque de instrucciones u otro.
     características: 
@@ -28,8 +28,8 @@ if
 bloque de instrucciones: conjunto de sentencias delimitadas por llaves ({ }). Dentro de un bloque de instrucciones es posible utilizar cualquier número de sentencias,  definir otros bloques de instrucciones y declarar variables dentro de un bloque. 
 
 ámbito de variable: bloque donde se puede utilizar la variable. 
-variables locales: declarada en main > se puede utilizar en todo el programa principal. 
-variables de bloque: sólo podrán ser usadas dentro del bloque en que se declaran. 
+	variables locales: declarada en main > se puede utilizar en todo el programa principal. 
+	variables de bloque: sólo podrán ser usadas dentro del bloque en que se declaran. 
 if-else 
 if (condicion1) {
 pasa esto
@@ -58,10 +58,14 @@ switch (nota) {
 switch con yield: 
 	case 1,3,5 -> { 
 yield 31; }
+==========
+early return: reduce la cantidad de niveles de anidacion y mejora legibilidad 
+  
+guard clauses: manejo de causas especiales al principio de una funcion 
 
-
-
+==========
 evaluación en cortocircuito
+
 evaluación en cortocircuito: técnica de optimización para evitar evaluaciones innecesarias en expresiones booleanas compuestas. Se basa en las propiedades del álgebra booleana, mejora el rendimiento y evita posibles errores.
 
 Funcionamiento
@@ -70,10 +74,8 @@ operador OR (||): si el 1 operando es verdadero, el resultado será verdadero in
 
 Operador AND (&&)
 if (x != 0 && 10/x > 1) {
-    // si x es 0, la segunda parte de la expresión (10/x > 1) no se evalúa, evitando así una división por cero.
+    // si x es 0, la segunda parte de la expresión no se evalúa > evita división por cero.
 }
-
-
 
 Operador OR (||)
 if (nombre == null || nombre.length() == 0) {
@@ -82,88 +84,57 @@ if (nombre == null || nombre.length() == 0) {
 }
 
 
-
 Ventajas
-Eficiencia: Evita cálculos innecesarios
-Prevención de errores: Permite escribir código que evita errores de ejecución, como divisiones por cero o accesos a objetos nulos.
-Código más limpio: Permite escribir condiciones más concisas y legibles.
+	Eficiencia: Evita cálculos innecesarios
+	Prevención de errores: avoid divisiones por cero o acceso a nulos.
+	Código más limpio
 
+======
 buenas prácticas con condicionales
-nombres claros, utilizar ternarios  
-Evitar expresiones redundantes como if (x == true) o if (x == false). Usa if (x) o if (!x) 
+	nombres claros, utilizar ternarios  
+	evitar expresiones redundantes  if (x == true) o if (x == false). Usa if (x) o if (!x) 
 
+	Aplicar evaluación en cortocircuito para optimización (&& y ||)
+	las condiciones mas probables y sencillas van antes
+	excepciones > condicionales para errores 
 
-Aplica evaluación en cortocircuito para optimización:
-Utiliza operadores lógicos con cortocircuito (&& y ||) para evitar evaluar condiciones innecesarias y optimizar el rendimiento.
-Coloca las condiciones más probables o menos costosas primero en expresiones lógicas compuestas
-Evita los "magic numbers":
-Minimiza el uso de condicionales anidados:
-Usa else if en lugar de múltiples if cuando corresponda:
-Maneja siempre el caso else (o documenta su ausencia):
-Utiliza switch para múltiples casos discretos:
-Aplica el principio de "early return":
-  Usa retornos tempranos en funciones o métodos para reducir la cantidad de niveles de anidación y mejorar la legibilidad.
-Considera el uso de "guard clauses":
-Guard Clauses. Que son y que beneficios tienen. 
-If-statements design: guard clauses may be all you need | by Serż Kwiatkowski | Medium 
-En lugar de múltiples niveles de anidación, utiliza "guard clauses" para manejar casos especiales al inicio de la función, simplificando el flujo.
-Maneja las excepciones en lugar de condicionales para errores críticos:
-En lugar de usar condicionales para verificar estados que deberían ser excepcionales (como un valor nulo en ciertos contextos), considera usar excepciones cuando corresponda.
+===========
 
 2. BUCLES.
-Estructura Repetitiva o Iterativa
-Esta estructura permite repetir la ejecución de una instrucción o bloque de instrucciones en función del valor de una expresión lógica que ha de evaluarse. Estas estructuras también se conocen como bucles o ciclos, y las instrucciones que se reptiten se conocen como cuerpo del bucle. Cada ejecución o repetición del bucle también se denomina iteración. La expresión lógica que determina si se ejecuta o no el bucle también se denomina condición de salida.
+Estructura Repetitiva o Iterativa: repite la ejecucion de una o varios bloques de instrucciones según el valor de una expresion lógica (BUCLE) 
+
+iteracion: cada vez que se ejecuta el cuerpo 
+condicion de salida: expresion que determina cuando se detiene la wjecucion 
 
 bucles de Java: while, do .. while, for
 
-Los bucles de los dos primeros tipos se denominan también bucles controlados por condición y los del tercero bucles controlado por contador.
+	controlados por condición: while(0), do while (1)
+	controlado por contador: for (0)
 
-Un error habitual en bucles consiste en no implementar adecuadamente la condición de salida de modo que el bucle se repita para siempre, lo que se conoce como bucle infinito.
-Bucle while
+bucle infinito: cuando la condicion de salida esta mal planteada y el bucle no acaba nunca 
 
-Las instrucciones se ejecutan mientras la condición sea cierta.
-La condición se evalúa al inicio.
-El cuerpo del bucle se ejecuta cero o más veces.
+=========
+WHILE: ejecuta 0 o más veces. 
 
-
-Técnica de lectura adelantada o anticipada.
-
-Se utiliza cuando no sabemos a priori cuántas veces se repetirán las instrucciones.
-lectura. Por ejemplo, cuando leemos números de teclado hasta que el usuario introduzca un número negativo.
-
-Ejemplo: Programa que sume números hasta introducir uno negativo, que no se sumará.
-int num;      
-int suma = 0;  // acumulador números                                       
-
-// Lectura adelantada
-System.out.print("Número ( < 0 para finalizar): ");
-num = sc.nextInt(); 
-
-while (num >= 0){ //inicio del bucle while                          
-        suma += num; 
-
-        //lectura del siguiente número
-        System.out.print("Número ( < 0 para finalizar): ");                                  
-        num = sc.nextInt();
-}
+	- ejecuta mientras la condición sea cierta.
+	- La condición se evalúa al inicio.
 
 
-Bucle controlado por contador
-En ocasiones utilizamos una variable, denominada contador o variable de control, para controlar el número de repeticiones de un bucle.
-
-Ejemplo: Un bucle que se repite n veces
-int n = 10
-int contador = 0; 
-
-while (contador < n){ 
-        System.out.print(contador);
-        contador++;
-}  
-
-// Imprime los números de 0 a 9
+LECTURA ADELANTADA: 
+cuando no se sabe en principio cuantas veces se repite el bucle. 
+	(si queremos q lea hasta negativo:
+		int num;
+		int suma = 0; //contador 
+		.... while num>0 ... suma+=num 
 
 
+BUCLE CONTROLADO POR CONTADOR:
+	variable contador para controlar las repeticiones 
 
+	(bucle que se repite n veces
+		int n = 10 int contador = 0; 
+		while (contador < n){ contador++; }  
+		// Imprime de 0 a 9
 
 
 Bucle do-while
