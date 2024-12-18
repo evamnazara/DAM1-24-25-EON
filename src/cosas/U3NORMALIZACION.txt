@@ -39,7 +39,6 @@ _____
 
     atributos atómicos: cada atributo solo puede tener UN valor
 
-
 =====================================
 PASOS PARA CADA TABLA:  
 
@@ -52,5 +51,12 @@ PASOS PARA CADA TABLA:
 5. 2FN - todos los tributos no primos tienen que tener dependencia completa 
 6. 3FN - no puede haber dependencia funcional entre atributos NO primos (no dependencias transitivas)
 
+
+FNBC: -> sus!! cuando hay 2 claves y hay en el medio claves alternativas
+
+
+toda dependencia funcional tiene que ser parte de la clave. 
+      X       →          Y 
+determinante		implicante
 
 

@@ -25,13 +25,14 @@ bloque de instrucciones: conjunto de sentencias delimitadas por llaves ({ }). De
 ámbito de variable: bloque donde se puede utilizar la variable. 
 	variables locales: declarada en main > se puede utilizar en todo el programa principal. 
 	variables de bloque: sólo podrán ser usadas dentro del bloque en que se declaran. 
+
 if-else 
-if (condicion1) {
-pasa esto
-} else if (condicion2) {
-pasa esto otro
-} else {
-si no, pasa esto }
+    if (condicion1) {
+    pasa esto
+    } else if (condicion2) {
+    pasa esto otro
+    } else {
+    si no, pasa esto }
 
 switch
 clásico:
@@ -135,7 +136,7 @@ incremento/decremento: modifica las variables de control del bucle > ejecuta al 
 =========
 LECTURA ADELANTADA: 
 cuando no se sabe en principio cuantas veces se repite el bucle. 
-	(si queremos q lea hasta negativo:
+	si queremos q lea hasta negativo:
 		int num;
 		int suma = 0; //contador 
 		.... while num>0 ... suma+=num 
@@ -144,7 +145,7 @@ cuando no se sabe en principio cuantas veces se repite el bucle.
 BUCLE CONTROLADO POR CONTADOR:
 	variable contador para controlar las repeticiones 
 
-	(bucle que se repite n veces
+	bucle que se repite n veces
 		int n = 10 int contador = 0; 
 		while (contador < n){ contador++; }  
 		// Imprime de 0 a 9
@@ -179,9 +180,7 @@ USOS JUSTIFICADOS:
 
 ==============
 
-2.3. FUNCIOM 
-
-
+2.3. FUNCIONES
 
 función: conjunto de instrucciones que realiza una tarea específica, se identifica por nombre unico y opcionalmente devuelve un valor
 
@@ -192,8 +191,8 @@ Estructura general de una función
 public static void FuncionEjemplo (parametros)
 { return valorRetorno; }
 
-	- modificadores: Indican nivel de acceso y  características (e.g., static). // public / private static
-	- tipo: el tipo de dato que devuelve. ( void si no devuelve nada)
+	- modificadores: indican nivel de acceso y  características // public / private static
+	- tipo: tipo de dato que devuelve. ( void si no devuelve nada)
 	- nombre: camelCase
 	- parametros: valores necesarios para que la función funcione
 	- return: devuelve un valor a donde se llamo 
@@ -208,7 +207,8 @@ PARAMETROS:
 Parámetros: valores que una función necesita para realizar su tarea.
 		- parametros actuales: se pasan en la llamada
 		- parametros formales: los q recibe la variable en la definicion 
-tienen que coincidir en numero, orden y tipo 
+            tienen que coincidir en numero, orden y tipo 
+
 =========
 
 AMBITO DE VARIABLES: 
@@ -226,146 +226,86 @@ Paso de parámetros: pasar valores a una función.
 
 
 Valor devuelto (return)
-	- si la función tiene un tipo de retorno, es obligatorio usar return.
-Si el tipo es void, no es necesario usar return, aunque puede utilizarse para finalizar anticipadamente.
-Buenas prácticas:
-Reducir el número de sentencias return en una función para aumentar la claridad.
-Sobrecarga de funciones
-Definición:
-Es la capacidad de definir varias funciones con el mismo nombre, siempre que difieran en el número o tipo de parámetros.
-Ejemplo:
+	- si la función tiene un tipo de retorno, es obligatorio usar return. 
+    - no abusar de ellos
+    - si es void, no es necesario pero puede usarse
 
-public int suma(int a, int b) {
-    return a + b;
-}
-public double suma(double a, double b) {
-    return a + b;
-}
-Recursividad
-Definición:
-Técnica en la que una función se llama a sí misma para resolver un problema.
-Se basa en dos elementos clave:
-Caso base: Condición que detiene las llamadas recursivas.
-Llamada recursiva: Invocación de la función dentro de sí misma.
-Ventajas:
-Útil para problemas con estructuras repetitivas, como el cálculo de factoriales o el recorrido de árboles.
-Desventajas:
-Consume más memoria y puede ser menos eficiente que la iteración.
-Ejemplo: Factorial
-java
-Copiar código
-public static long factorial(int n) {
-    if (n == 0) return 1;
-    return n * factorial(n - 1);
-}
-Buenas prácticas
-Definición clara: Describir lo que la función debe hacer.
-Entradas y salidas:
-Identificar los datos que necesita y devolverá.
-Tamaño reducido:
-Limitar el cuerpo de una función a aproximadamente 10 líneas.
-Pruebas:
-Diseñar casos de prueba para verificar su funcionalidad.
-Nombres descriptivos:
-Usar nombres que reflejen su propósito.
-Optimización:
-Evitar funciones redundantes o demasiado complejas.
 
-2.4.  Excepciones.
-Conceptos básicos
+SOBRECARGA DE FUNCIONES: 
+  definición de varias funciones con el mismo nombre, con diferente número o tipo de parámetros.
+
+RECURSIVIDAD: 
+    función QUE se llama a sí misma para resolver un problema.
+
+    elementos:
+        llamada recursiva: invocación de la función dentro de sí misma.
+        caso base: condición que detiene las llamadas recursivas.
+
+    ventajas:
+        problemas con estructuras repetitivas, (factoriales)
+    desventajas:
+        consume más memoria > menos eficiente que la iteración.
+
+buenas prácticas:
+    definición clara
+    entradas y salidas claras
+    tamaño reducido
+    pruebas
+
+==================================
+
+2.4.  EXCEPCIONES
 excepciones: posibles errores durante la ejecución de un programa.
 
 Provocadas por: 
-
-
-leer por teclado un dato distinto al esperado
-división por cero
-acceso a array o String fuera de rango
-error al abrir un fichero/ BD
-memoria disponiblen´t
-problemas de Hardware
-
+    - leer por teclado un dato distinto al esperado
+    - división por cero
+    - acceso a array o String fuera de rango
+    - error al abrir un fichero/ BD
+    - memoria disponiblen´t
+    - problemas de Hardware
 
 
 control de excepciones: try-catch-finally
 permite al programador interceptarlas, controlando la ejecución del programa para evitar que este falle. 
 try{
-     //Instrucciones si se produce una                                                       excepción
-}
-catch(tipoExcepcion e){
+     //Instrucciones si se produce una excepción
+} catch(tipoExcepcion e){
      //Instrucciones para tratar esta excepción
-}
-catch(otroTipoExcepcion e){
-     //Instrucciones para tratar esta excepción
-}
-     //tantos catch como sean necesarios
-finally{
+} finally{
      // instrucciones que se ejecutarán siempre                                          
      // se haya producido o no una excepción
 }
 
 
-Tipos de excepciones
+TIPOS DE EXCEPCIONES:
+
 existen muchos tipos de excepciones y podemos crear las nuestras propias
 
-excepciones marcadas o comprobadas (checked) : Java revisa en tiempo de compilación  > nos obliga a capturar para poder ejecutar
+    - excepciones marcadas o comprobadas (checked) : Java revisa en tiempo de compilación  > nos obliga a capturar para poder ejecutar
+    - excepciones no marcadas (unchecked): no son comprobadas por Java > opcionales y para dar robustez
 
-excepciones no marcadas (unchecked): no son comprobadas por Java > opcionales y para dar robustez
-Declarar Excepciones
-Podemos declarar las excepciones que puede lanzar un método escribiendo en el prototipo del método la palabra throws seguida del nombre de las excepciones separadas por comas. 
+declarar excepciones: 
+    en el prototipo del método > throws + nombre de las excepciones separadas por comas. 
 
-Ejemplo:
+System.in.read() puede arrojar una excepción comprobada de tipo IOException. 
+    En lugar de un try...catch > declarar en el prototipo del método con throws.
 
-import java.io.IOException;
-
-public class DeclararExcepcion {
-    public static void main(String[] args) throws IOException {
-        char car;
-        System.out.println("Introduce un carácter");
-        car = (char) System.in.read();
-        
-        System.out.println(car);
-    }
-}
+la declaración permite escribir métodos que no capturan las excepciones. 
+La idea es que estas excepciones así declaradas sean tratadas en el código desde el que se invocó a este método o desde algún otro método de la pila de llamadas.
 
 
-El método System.in.read() puede arrojar una excepción comprobada de tipo IOException. En lugar de controlar esa posible excepción con un try...catch podemos declararla en el prototipo del método con throws.
+LANZAR EXCEPCION: throw - palabra reservada .
+    throw objetoExcepcion;
 
-Esta declaración nos permite escribir métodos que no capturan las excepciones marcadas que se puedan producir. La idea es que estas excepciones así declaradas sean tratadas en el código desde el que se invocó a este método o desde algún otro método de la pila de llamadas.
-Lanzar una excepción
-Java permite al programador lanzar excepciones mediante la palabra reservada throw.
+La excepción que se lanza es un objeto > hay que crearlo con new.
 
-throw objetoExcepcion;
+si se lanza una excepción comprobada > declararla en el prototipo con throws
 
-
-La excepción que se lanza es un objeto, por lo que hay que crearlo como cualquier otro objeto mediante new.
-
-Si se lanza una excepción comprobada habrá que declararla en el prototipo del método con la cláusula throws.
-
-Ejemplos:
-
-public class ThrowExample {
-    public static void main(String[] args) {
-        try {
-            checkAge(15);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    static void checkAge(int age) throws Exception {
-        if (age < 18) {
-            throw new Exception("Age must be 18 or older.");
-        }
-    }
-}
-
-
-
-Anexo. Buenas Prácticas
-mensajes significativos y descriptivos al lanzar excepciones > facilitar depuración.
-utilizar excepciones comprobadas para condiciones recuperables y excepciones no comprobadas (en tiempo de ejecución) para errores de programación.
-excepciones personalizadas > condiciones de error específicas en tu aplicación > código sea más legible y fácil de mantener.
-Evita el uso excesivo
-Documentar >  @throws Javadoc.
+buenas prácticas
+    - mensajes significativos y descriptivos al lanzar excepciones > facilitar depuración.
+    - utilizar excepciones comprobadas para condiciones recuperables y excepciones no comprobadas (en tiempo de ejecución) para errores de programación.
+    - excepciones personalizadas > condiciones de error específicas en tu aplicación > código sea más legible y fácil de mantener.
+    - Evita el uso excesivo
+    - documentar >  @throws Javadoc.
 
