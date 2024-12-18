@@ -119,7 +119,25 @@ WHILE: ejecuta 0 o más veces.
 	- ejecuta mientras la condición sea cierta.
 	- La condición se evalúa al inicio.
 
+DO-WHILE: ejecuta al menos 1+ veces.
+	
+	- es el unico q acaba en ; 
+	- ejecutan mientras la condición sea cierta.
+	- condición evalúa al final.
 
+FOR: ejecuta 0+ veces 
+
+	- diseñado para bucles controlados por contador 
+	- inicializacion / condicion / incremento 
+	- las 3 zonas son opcionales pero se debe poner ; ; igual 
+
+inicializacion: las variables toman valor inicial (1 o varias separadas x coma) > se hace 1 vez
+
+condicion: exp booleana que determina si se ejecuta o no > evalua despues de la inicializacion pero puese no llegar a ejecutarse 
+
+incremento/decremento: modifica las variables de control del bucle > ejecuta al final de cada iteracion > puede haber más de una expresión para modificar las variables (separadas x comas)
+
+=========
 LECTURA ADELANTADA: 
 cuando no se sabe en principio cuantas veces se repite el bucle. 
 	(si queremos q lea hasta negativo:
@@ -136,97 +154,37 @@ BUCLE CONTROLADO POR CONTADOR:
 		while (contador < n){ contador++; }  
 		// Imprime de 0 a 9
 
+BUCLES ANIDADOS
+	estructuras que incluyen un bucle dentro de otro. 
 
-Bucle do-while
-
-Las instrucciones se ejecutan mientras la condición sea cierta.
-La condición se evalúa al final.
-El cuerpo del bucle se ejecuta al menos una vez, es decir, una o más veces.
-
-El bucle do-while es el único cuya sintaxis en Java termina en punto y coma (;). 
-
-La principal diferencia entre el bucle while y el do-while es que éste último se ejecuta, al menos, una vez. Además, en cuanto a la sintaxis, es el único que termina en punto y coma (;).
+	- pueden ser iguales o diferentes 
+	- anidamiento de 2+ niveles
+	- se multiplican las veces q se ejecutan las instrucciones
 
 
-Bucle for
-Este bucle está especialmente diseñado para resolver problemas de bucles controlados por contador.
+bucles anidados independientes: condiciones de salida que no están relacionadas. 
 
+bucles anidados dependientes: si el número de iteraciones de los bucles internos depende de los externos y sus variables de control.
 
-Inicialización es la parte en la que la variable o variables de control del bucle toman su valor inicial. Puede haber una o más instrucciones en la zona de inicialización. Si hay varias instrucciones deben estar separadas por comas. La inicialización se realiza solo una vez.
-Condición es una expresión booleana que determina si la sentencia o bloque de sentencias se ejecutan o no. Las instrucciones contenidas dentro del bucle for se ejecutan mientras que la condición sea cierta. Se evalúa por primera vez después de ejecutar la inicialización y antes de la primera ejecución del cuerpo del bucle, que podría no llegar a ejecutarse.
-Incremento/decremento es una expresión que modifica la variable o variables de control del bucle. Se ejecuta al final de cada iteración, después del cuerpo del bucle. En esta zona puede haber más de una expresión para modificar las variables. Si hay varias expresiones deben estar separadas por comas.
+======
+INSTRUCCIONES DE SALTO: break / continue 
 
-Las tres zonas son opcionales. Si en alguna ocasión no fuese necesario escribir alguna de estas zonas se pueden dejar en blanco, pero los punto y coma deben aparecer.
+permiten terminar un bucle / iteración antes de que lo determine su condición de salida. 
+rompen la secuencia natural / pueden dificultar la legibilidad
+uso desaconsejado 
 
-Igual que el bucle while, un bucle for se puede ejecutar 0 ó más veces.
+	- break: interrumpe la ejecución del bucle y continúa en la siguiente instrucción. 
+		si es un b. anidado, sólo interrumpe el bucle actual, no necesariamente los externos.
 
+		- continue: interrumpe la iteración actual del bucle y e inicia una nueva ejecución del cuerpo. si es un for, la ejecución salta a ejecutar la zona de incremento.
 
+USOS JUSTIFICADOS: 
+	- salir completamente para evitar iteraciones innecesarias 
+	- omitir  valores y cálculos innecesarios.
 
-E0306. Escribir una aplicación para aprender a contar, que pedirá un número n y mostrará todos los números del 1 al n.
+==============
 
-E0307. Escribir todos los múltiplos de 7 menores que 100.
-
-E0308. Pedir diez números enteros por teclado y mostrar la media.
-
-Amplía codificando el número de números como una constante.
-
-E0309. Implementar una aplicación que pida al usuario un número comprendido entre 1 y 10. Hay que mostrar la tabla de multiplicar de dicho número, asegurándose de que el número introducido se encuentra en el rango establecido. 
-
-E0310. Diseñar un programa que muestre la suma de los 10 primeros números impares.
-
-E0311_Factorial. Pedir un número y calcular su factorial. Por ejemplo el factorial de 5 se denota 5! y es igual a 5 x 4 x 3 x 2 x 1 = 120.
-
-E0312. Pedir 5 calificaciones de alumnos y decir al final si hay algún suspenso.
-
-E0313. Dadas 6 notas, escribir la cantidad de alumnos aprobados, condicionados (nota igual a 4) y suspensos.
-
-
-
-
-Bucles anidados
-Llamamos bucles anidados a las estructuras de programas que incluyen un bucle dentro de otro. 
-
-
-Al anidar bucles se multiplica el número de veces que se ejecutan las instrucciones de los bucles internos.
-Los bucles anidados pueden ser del mismo o distinto tipo. 
-El anidamiento puede ser de dos o más niveles.
-
-Se llaman bucles anidados independientes aquellos cuyas condiciones de salida no están relacionadas. 
-
-Se llaman bucles anidados dependientes aquellos en los que el número de iteraciones de los bucles internos depende de los bucles externos y sus variables de control.
-
-Instrucciones de salto: break y continue
-Las instrucciones de salto permiten terminar un bucle, o una iteración del mismo antes de que lo determine su condición de salida.
-
-break (además de su uso en la sentencia switch) interrumpe la ejecución del bucle y continúa la ejecución en la siguiente instrucción. Si se trata de un bucle anidado, sólo interrumpe el bucle actual y no necesariamente los externos.
-
-continue interrumpe la iteración actual del bucle y e inicia una nueva ejecución del cuerpo del bucle. Si el bucle interrumpido es un for la ejecución salta a ejecutar la zona de incremento/decremento.
-
-Estas sentencias rompen la secuencia natural de las instrucciones y pueden dificultar la legibilidad del código. 
-
-Podría considerarse su uso en casos particulares como, por ejemplo:
-para salir completamente del bucle en el momento en que se cumple una condición y evitar iteraciones innecesarias.
-for (int i = 0; i < array.length; i++) {
-    if (array[i] == valorBuscado) {
-        System.out.println("Valor encontrado en la posición: " + i);
-        break;  // Sale del bucle una vez que encuentra el valor
-    }
-}
-
-
-para omitir ciertos valores y evitar cálculos innecesarios.
-for (int i = 0; i < 10; i++) {
-    if (i % 2 == 0) {
-        continue;  // Salta a la siguiente iteración si `i` es par
-    }
-    System.out.println(i);  // Imprime solo números impares
-}
-
-
-Sin embargo, cualquier programa se puede implementar sin utilizar break y continue, basta revisar o repensar la lógica del programa. La mayoría fuentes y materiales didácticos se desaconseja completamente el uso de estas instrucciones. 
-
-
-2.3. Funciones.
+2.3. FUNCIOM 
 método: conjunto  de  instrucciones dentro  de  una  clase,  que  realizan  una  determinada tarea y a las que podemos invocar mediante un nombre. (Math.sqrt(),System.out.println(); )
 
 Conceptos básicos
