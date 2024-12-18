@@ -1,23 +1,463 @@
-UD2.1 CONDICIONALES
 
+
+método: conjunto  de  instrucciones dentro  de  una  clase,  que  realizan  una  determinada
+tarea y a las que podemos invocar mediante un nombre. ( Math.sqrt(),System.out.println(); )
+
+
+UD2.1 CONDICIONALES
+Estructuras de control
 Estructuras de control: definen el orden de ejecución de las instrucciones de un
 programa. Consiguen que el flujo de instrucciones varíe si se cumple o no una condición, que se ejecute o repita un bloque de instrucciones u otro.
-    características:    
-            1. único punto de entrada y salida.
-            2. compuestas de instrucciones / otras estructuras de control.
+    características: 
+único punto de entrada y salida.
+compuestas de instrucciones / otras estructuras de control.
 
 
-Estructura secuencial:
-    ejecutan en secuencia en el orden en que aparecen escritas en el programa.
+Estructura secuencial: ejecutadas en secuencia en el orden en que aparecen escritas en el programa.
         - se suelen agrupar en bloques definidos por llaves ({ }) para marcar inicio y final 
         - si el bloque tiene una única instrucción no es obligatorio el uso de las llaves
     
 Estructura condicional: determina si se ejecutan unas acciones u otras según se cumpla o no una  condición, una expresión lógica o booleana evaluable a true ó false.
-    -if, switch, operador ternario o condicional ? : 
+if, switch, operador ternario o condicional ? : 
+
+operador ternario
+variable = condición ? valor1 : valor2
+
+Recomendable utilizar ternario en vez de if-else por economía y legibilidad cuando sea posible. 
+if 
+bloque de instrucciones: conjunto de sentencias delimitadas por llaves ({ }). Dentro de un bloque de instrucciones es posible utilizar cualquier número de sentencias,  definir otros bloques de instrucciones y declarar variables dentro de un bloque. 
+
+ámbito de variable: bloque donde se puede utilizar la variable. 
+variables locales: declarada en main > se puede utilizar en todo el programa principal. 
+variables de bloque: sólo podrán ser usadas dentro del bloque en que se declaran. 
+if-else 
+if (condicion1) {
+pasa esto
+} else if (condicion2) {
+pasa esto otro
+} else {
+si no, pasa esto }
+
+switch
+clásico:
+switch (expression) { 
+    case value1:
+     		// secuencia de sentencias.
+     break;
+    default:
+     		// secuencia de sentencias.
+  }
+alternativo: 
+switch (nota) { 
+    case 1,2,3 -> {sout suspenso}
+
+    default:
+     		// Default secuencia de sentencias.
+  }
+
+switch con yield: 
+	case 1,3,5 -> { 
+yield 31; }
 
 
 
-====================
+evaluación en cortocircuito
+evaluación en cortocircuito: técnica de optimización para evitar evaluaciones innecesarias en expresiones booleanas compuestas. Se basa en las propiedades del álgebra booleana, mejora el rendimiento y evita posibles errores.
 
-método: conjunto  de  instrucciones dentro  de  una  clase,  que  realizan  una  determinada
-tarea y a las que podemos invocar mediante un nombre. ( Math.sqrt(),System.out.println(); )
+Funcionamiento
+operador AND (&&): Si el primer operando es falso, el resultado será falso independientemente del segundo operando, por lo que este último no se evalúa.
+operador OR (||): si el 1 operando es verdadero, el resultado será verdadero independientemente del segundo operando, por lo que este último no se evalúa.
+
+Operador AND (&&)
+if (x != 0 && 10/x > 1) {
+    // si x es 0, la segunda parte de la expresión (10/x > 1) no se evalúa, evitando así una división por cero.
+}
+
+
+
+Operador OR (||)
+if (nombre == null || nombre.length() == 0) {
+    //si nombre es null, la segunda parte (nombre.length() == 0) no se evalúa, evitando un NullPointerException3.
+
+}
+
+
+
+Ventajas
+Eficiencia: Evita cálculos innecesarios
+Prevención de errores: Permite escribir código que evita errores de ejecución, como divisiones por cero o accesos a objetos nulos.
+Código más limpio: Permite escribir condiciones más concisas y legibles.
+
+buenas prácticas con condicionales
+nombres claros, utilizar ternarios  
+Evitar expresiones redundantes como if (x == true) o if (x == false). Usa if (x) o if (!x) 
+
+
+Aplica evaluación en cortocircuito para optimización:
+Utiliza operadores lógicos con cortocircuito (&& y ||) para evitar evaluar condiciones innecesarias y optimizar el rendimiento.
+Coloca las condiciones más probables o menos costosas primero en expresiones lógicas compuestas
+Evita los "magic numbers":
+Minimiza el uso de condicionales anidados:
+Usa else if en lugar de múltiples if cuando corresponda:
+Maneja siempre el caso else (o documenta su ausencia):
+Utiliza switch para múltiples casos discretos:
+Aplica el principio de "early return":
+  Usa retornos tempranos en funciones o métodos para reducir la cantidad de niveles de anidación y mejorar la legibilidad.
+Considera el uso de "guard clauses":
+Guard Clauses. Que son y que beneficios tienen. 
+If-statements design: guard clauses may be all you need | by Serż Kwiatkowski | Medium 
+En lugar de múltiples niveles de anidación, utiliza "guard clauses" para manejar casos especiales al inicio de la función, simplificando el flujo.
+Maneja las excepciones en lugar de condicionales para errores críticos:
+En lugar de usar condicionales para verificar estados que deberían ser excepcionales (como un valor nulo en ciertos contextos), considera usar excepciones cuando corresponda.
+
+2. BUCLES.
+Estructura Repetitiva o Iterativa
+Esta estructura permite repetir la ejecución de una instrucción o bloque de instrucciones en función del valor de una expresión lógica que ha de evaluarse. Estas estructuras también se conocen como bucles o ciclos, y las instrucciones que se reptiten se conocen como cuerpo del bucle. Cada ejecución o repetición del bucle también se denomina iteración. La expresión lógica que determina si se ejecuta o no el bucle también se denomina condición de salida.
+
+bucles de Java: while, do .. while, for
+
+Los bucles de los dos primeros tipos se denominan también bucles controlados por condición y los del tercero bucles controlado por contador.
+
+Un error habitual en bucles consiste en no implementar adecuadamente la condición de salida de modo que el bucle se repita para siempre, lo que se conoce como bucle infinito.
+Bucle while
+
+Las instrucciones se ejecutan mientras la condición sea cierta.
+La condición se evalúa al inicio.
+El cuerpo del bucle se ejecuta cero o más veces.
+
+
+Técnica de lectura adelantada o anticipada.
+
+Se utiliza cuando no sabemos a priori cuántas veces se repetirán las instrucciones.
+lectura. Por ejemplo, cuando leemos números de teclado hasta que el usuario introduzca un número negativo.
+
+Ejemplo: Programa que sume números hasta introducir uno negativo, que no se sumará.
+int num;      
+int suma = 0;  // acumulador números                                       
+
+// Lectura adelantada
+System.out.print("Número ( < 0 para finalizar): ");
+num = sc.nextInt(); 
+
+while (num >= 0){ //inicio del bucle while                          
+        suma += num; 
+
+        //lectura del siguiente número
+        System.out.print("Número ( < 0 para finalizar): ");                                  
+        num = sc.nextInt();
+}
+
+
+Bucle controlado por contador
+En ocasiones utilizamos una variable, denominada contador o variable de control, para controlar el número de repeticiones de un bucle.
+
+Ejemplo: Un bucle que se repite n veces
+int n = 10
+int contador = 0; 
+
+while (contador < n){ 
+        System.out.print(contador);
+        contador++;
+}  
+
+// Imprime los números de 0 a 9
+
+
+
+
+
+Bucle do-while
+
+Las instrucciones se ejecutan mientras la condición sea cierta.
+La condición se evalúa al final.
+El cuerpo del bucle se ejecuta al menos una vez, es decir, una o más veces.
+
+El bucle do-while es el único cuya sintaxis en Java termina en punto y coma (;). 
+
+La principal diferencia entre el bucle while y el do-while es que éste último se ejecuta, al menos, una vez. Además, en cuanto a la sintaxis, es el único que termina en punto y coma (;).
+
+
+Bucle for
+Este bucle está especialmente diseñado para resolver problemas de bucles controlados por contador.
+
+
+Inicialización es la parte en la que la variable o variables de control del bucle toman su valor inicial. Puede haber una o más instrucciones en la zona de inicialización. Si hay varias instrucciones deben estar separadas por comas. La inicialización se realiza solo una vez.
+Condición es una expresión booleana que determina si la sentencia o bloque de sentencias se ejecutan o no. Las instrucciones contenidas dentro del bucle for se ejecutan mientras que la condición sea cierta. Se evalúa por primera vez después de ejecutar la inicialización y antes de la primera ejecución del cuerpo del bucle, que podría no llegar a ejecutarse.
+Incremento/decremento es una expresión que modifica la variable o variables de control del bucle. Se ejecuta al final de cada iteración, después del cuerpo del bucle. En esta zona puede haber más de una expresión para modificar las variables. Si hay varias expresiones deben estar separadas por comas.
+
+Las tres zonas son opcionales. Si en alguna ocasión no fuese necesario escribir alguna de estas zonas se pueden dejar en blanco, pero los punto y coma deben aparecer.
+
+Igual que el bucle while, un bucle for se puede ejecutar 0 ó más veces.
+
+
+
+E0306. Escribir una aplicación para aprender a contar, que pedirá un número n y mostrará todos los números del 1 al n.
+
+E0307. Escribir todos los múltiplos de 7 menores que 100.
+
+E0308. Pedir diez números enteros por teclado y mostrar la media.
+
+Amplía codificando el número de números como una constante.
+
+E0309. Implementar una aplicación que pida al usuario un número comprendido entre 1 y 10. Hay que mostrar la tabla de multiplicar de dicho número, asegurándose de que el número introducido se encuentra en el rango establecido. 
+
+E0310. Diseñar un programa que muestre la suma de los 10 primeros números impares.
+
+E0311_Factorial. Pedir un número y calcular su factorial. Por ejemplo el factorial de 5 se denota 5! y es igual a 5 x 4 x 3 x 2 x 1 = 120.
+
+E0312. Pedir 5 calificaciones de alumnos y decir al final si hay algún suspenso.
+
+E0313. Dadas 6 notas, escribir la cantidad de alumnos aprobados, condicionados (nota igual a 4) y suspensos.
+
+
+
+
+Bucles anidados
+Llamamos bucles anidados a las estructuras de programas que incluyen un bucle dentro de otro. 
+
+
+Al anidar bucles se multiplica el número de veces que se ejecutan las instrucciones de los bucles internos.
+Los bucles anidados pueden ser del mismo o distinto tipo. 
+El anidamiento puede ser de dos o más niveles.
+
+Se llaman bucles anidados independientes aquellos cuyas condiciones de salida no están relacionadas. 
+
+Se llaman bucles anidados dependientes aquellos en los que el número de iteraciones de los bucles internos depende de los bucles externos y sus variables de control.
+
+Instrucciones de salto: break y continue
+Las instrucciones de salto permiten terminar un bucle, o una iteración del mismo antes de que lo determine su condición de salida.
+
+break (además de su uso en la sentencia switch) interrumpe la ejecución del bucle y continúa la ejecución en la siguiente instrucción. Si se trata de un bucle anidado, sólo interrumpe el bucle actual y no necesariamente los externos.
+
+continue interrumpe la iteración actual del bucle y e inicia una nueva ejecución del cuerpo del bucle. Si el bucle interrumpido es un for la ejecución salta a ejecutar la zona de incremento/decremento.
+
+Estas sentencias rompen la secuencia natural de las instrucciones y pueden dificultar la legibilidad del código. 
+
+Podría considerarse su uso en casos particulares como, por ejemplo:
+para salir completamente del bucle en el momento en que se cumple una condición y evitar iteraciones innecesarias.
+for (int i = 0; i < array.length; i++) {
+    if (array[i] == valorBuscado) {
+        System.out.println("Valor encontrado en la posición: " + i);
+        break;  // Sale del bucle una vez que encuentra el valor
+    }
+}
+
+
+para omitir ciertos valores y evitar cálculos innecesarios.
+for (int i = 0; i < 10; i++) {
+    if (i % 2 == 0) {
+        continue;  // Salta a la siguiente iteración si `i` es par
+    }
+    System.out.println(i);  // Imprime solo números impares
+}
+
+
+Sin embargo, cualquier programa se puede implementar sin utilizar break y continue, basta revisar o repensar la lógica del programa. La mayoría fuentes y materiales didácticos se desaconseja completamente el uso de estas instrucciones. 
+
+
+2.3. Funciones.
+método: conjunto  de  instrucciones dentro  de  una  clase,  que  realizan  una  determinada tarea y a las que podemos invocar mediante un nombre. (Math.sqrt(),System.out.println(); )
+
+Conceptos básicos
+Definición:
+
+Una función es un conjunto de instrucciones que realiza una tarea específica, opcionalmente devuelve un valor y se identifica por un nombre único.
+Es un concepto clave en Programación Estructurada y Modular.
+En Programación Orientada a Objetos, las funciones se conocen como métodos.
+Estructura general de una función en Java:
+
+java
+Copiar código
+[modificadores] tipo nombreFunción([lista parámetros]) [throws listaExcepciones]
+{
+    // cuerpo de la función
+    [return valorRetorno;]
+}
+Modificadores: Indican el nivel de acceso (e.g., public, private) y otras características (e.g., static).
+Tipo: Especifica el tipo de dato que devolverá la función. Si no devuelve nada, se usa void.
+Nombre: Se debe escribir en camelCase, comenzando con minúscula.
+Parámetros: Son los valores necesarios para que la función realice su tarea.
+Return: Utilizado para devolver un valor al punto donde se llamó la función.
+Términos importantes:
+
+Prototipo: Línea inicial que especifica nombre, tipo, parámetros, y modificadores. Permite conocer cómo usar la función sin saber su implementación.
+Definición: Incluye el prototipo y el cuerpo de la función.
+Llamada: Es el uso de la función dentro del programa mediante su nombre y parámetros requeridos.
+Parámetros y ámbito de variables
+Parámetros:
+
+Son valores que una función necesita para realizar su tarea.
+Tipos:
+Parámetros actuales: Argumentos que se pasan en la llamada de la función.
+Parámetros formales: Variables que reciben los valores en la definición de la función.
+Ambos tipos deben coincidir en:
+Número: Mismo número de argumentos y parámetros.
+Orden: Los valores deben pasarse en el mismo orden que en el prototipo.
+Tipo: Compatible entre los actuales y formales.
+Ámbito de variables:
+
+Se refiere al rango de accesibilidad de una variable.
+Tipos de variables según su ámbito:
+De clase: Declaradas fuera de métodos, accesibles en toda la clase.
+Locales: Declaradas dentro de un método, accesibles solo en dicho método.
+De bloque: Declaradas dentro de un bloque {}, accesibles solo dentro de este.
+Paso de parámetros
+Definición:
+Es el mecanismo mediante el cual se pasan valores a una función.
+En programación existen dos formas principales:
+Por valor:
+Se pasa una copia del valor.
+Las modificaciones dentro de la función no afectan al valor original.
+Es el único método que utiliza Java.
+Por referencia:
+Se pasa la dirección de memoria del valor.
+Las modificaciones dentro de la función afectan al valor original.
+Java solo permite modificar objetos referenciados (e.g., arrays), no las referencias mismas.
+Valor devuelto por una función (return)
+Definición:
+Una función puede devolver un valor utilizando la sentencia return.
+Esto permite transferir el resultado de la ejecución al lugar donde se llamó la función.
+Reglas:
+Si una función tiene un tipo de retorno, es obligatorio usar return.
+Si el tipo es void, no es necesario usar return, aunque puede utilizarse para finalizar anticipadamente.
+Buenas prácticas:
+Reducir el número de sentencias return en una función para aumentar la claridad.
+Sobrecarga de funciones
+Definición:
+Es la capacidad de definir varias funciones con el mismo nombre, siempre que difieran en el número o tipo de parámetros.
+Ejemplo:
+
+public int suma(int a, int b) {
+    return a + b;
+}
+public double suma(double a, double b) {
+    return a + b;
+}
+Recursividad
+Definición:
+Técnica en la que una función se llama a sí misma para resolver un problema.
+Se basa en dos elementos clave:
+Caso base: Condición que detiene las llamadas recursivas.
+Llamada recursiva: Invocación de la función dentro de sí misma.
+Ventajas:
+Útil para problemas con estructuras repetitivas, como el cálculo de factoriales o el recorrido de árboles.
+Desventajas:
+Consume más memoria y puede ser menos eficiente que la iteración.
+Ejemplo: Factorial
+java
+Copiar código
+public static long factorial(int n) {
+    if (n == 0) return 1;
+    return n * factorial(n - 1);
+}
+Buenas prácticas
+Definición clara: Describir lo que la función debe hacer.
+Entradas y salidas:
+Identificar los datos que necesita y devolverá.
+Tamaño reducido:
+Limitar el cuerpo de una función a aproximadamente 10 líneas.
+Pruebas:
+Diseñar casos de prueba para verificar su funcionalidad.
+Nombres descriptivos:
+Usar nombres que reflejen su propósito.
+Optimización:
+Evitar funciones redundantes o demasiado complejas.
+
+2.4.  Excepciones.
+Conceptos básicos
+excepciones: posibles errores durante la ejecución de un programa.
+
+Provocadas por: 
+
+
+leer por teclado un dato distinto al esperado
+división por cero
+acceso a array o String fuera de rango
+error al abrir un fichero/ BD
+memoria disponiblen´t
+problemas de Hardware
+
+
+
+control de excepciones: try-catch-finally
+permite al programador interceptarlas, controlando la ejecución del programa para evitar que este falle. 
+try{
+     //Instrucciones si se produce una                                                       excepción
+}
+catch(tipoExcepcion e){
+     //Instrucciones para tratar esta excepción
+}
+catch(otroTipoExcepcion e){
+     //Instrucciones para tratar esta excepción
+}
+     //tantos catch como sean necesarios
+finally{
+     // instrucciones que se ejecutarán siempre                                          
+     // se haya producido o no una excepción
+}
+
+
+Tipos de excepciones
+existen muchos tipos de excepciones y podemos crear las nuestras propias
+
+excepciones marcadas o comprobadas (checked) : Java revisa en tiempo de compilación  > nos obliga a capturar para poder ejecutar
+
+excepciones no marcadas (unchecked): no son comprobadas por Java > opcionales y para dar robustez
+Declarar Excepciones
+Podemos declarar las excepciones que puede lanzar un método escribiendo en el prototipo del método la palabra throws seguida del nombre de las excepciones separadas por comas. 
+
+Ejemplo:
+
+import java.io.IOException;
+
+public class DeclararExcepcion {
+    public static void main(String[] args) throws IOException {
+        char car;
+        System.out.println("Introduce un carácter");
+        car = (char) System.in.read();
+        
+        System.out.println(car);
+    }
+}
+
+
+El método System.in.read() puede arrojar una excepción comprobada de tipo IOException. En lugar de controlar esa posible excepción con un try...catch podemos declararla en el prototipo del método con throws.
+
+Esta declaración nos permite escribir métodos que no capturan las excepciones marcadas que se puedan producir. La idea es que estas excepciones así declaradas sean tratadas en el código desde el que se invocó a este método o desde algún otro método de la pila de llamadas.
+Lanzar una excepción
+Java permite al programador lanzar excepciones mediante la palabra reservada throw.
+
+throw objetoExcepcion;
+
+
+La excepción que se lanza es un objeto, por lo que hay que crearlo como cualquier otro objeto mediante new.
+
+Si se lanza una excepción comprobada habrá que declararla en el prototipo del método con la cláusula throws.
+
+Ejemplos:
+
+public class ThrowExample {
+    public static void main(String[] args) {
+        try {
+            checkAge(15);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    static void checkAge(int age) throws Exception {
+        if (age < 18) {
+            throw new Exception("Age must be 18 or older.");
+        }
+    }
+}
+
+
+
+Anexo. Buenas Prácticas
+mensajes significativos y descriptivos al lanzar excepciones > facilitar depuración.
+utilizar excepciones comprobadas para condiciones recuperables y excepciones no comprobadas (en tiempo de ejecución) para errores de programación.
+excepciones personalizadas > condiciones de error específicas en tu aplicación > código sea más legible y fácil de mantener.
+Evita el uso excesivo
+Documentar >  @throws Javadoc.
+

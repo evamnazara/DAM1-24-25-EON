@@ -5,6 +5,7 @@ Funcion mostrarMenuUsuario
 	Escribir "0. SALIR"
 Fin Funcion
 
+
 Funcion opcionSalida <- menuUsuario
 	Escribir "Menú de Usuario"
 	Repetir
