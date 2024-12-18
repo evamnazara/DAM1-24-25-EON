@@ -1,5 +1,5 @@
 
-
+prieba
 método: conjunto  de  instrucciones dentro  de  una  clase,  que  realizan  una  determinada
 tarea y a las que podemos invocar mediante un nombre. ( Math.sqrt(),System.out.println(); )
 
