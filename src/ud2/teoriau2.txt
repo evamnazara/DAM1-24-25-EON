@@ -46,14 +46,12 @@ switch (expression) {
 alternativo: 
 switch (nota) { 
     case 1,2,3 -> {sout suspenso}
-
-    default:
-     		// Default secuencia de sentencias.
+    case 8,9,11 -> {sout aprobao}
+    default -> {sout deja el ciclo}
   }
 
 switch con yield: 
-	case 1,3,5 -> { 
-yield 31; }
+	case 1,3,5 -> { yield 31; }
 ==========
 early return: reduce la cantidad de niveles de anidacion y mejora legibilidad 
   
