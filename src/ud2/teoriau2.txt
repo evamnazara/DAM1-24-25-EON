@@ -1,8 +1,3 @@
-
-método: conjunto  de  instrucciones dentro  de  una  clase,  que  realizan  una  determinada
-tarea y a las que podemos invocar mediante un nombre. ( Math.sqrt(),System.out.println(); )
-
-
 UD2.1 CONDICIONALES
 Estructuras de control
 
@@ -185,69 +180,53 @@ USOS JUSTIFICADOS:
 ==============
 
 2.3. FUNCIOM 
-método: conjunto  de  instrucciones dentro  de  una  clase,  que  realizan  una  determinada tarea y a las que podemos invocar mediante un nombre. (Math.sqrt(),System.out.println(); )
 
-Conceptos básicos
-Definición:
 
-Una función es un conjunto de instrucciones que realiza una tarea específica, opcionalmente devuelve un valor y se identifica por un nombre único.
-Es un concepto clave en Programación Estructurada y Modular.
-En Programación Orientada a Objetos, las funciones se conocen como métodos.
-Estructura general de una función en Java:
 
-java
-Copiar código
-[modificadores] tipo nombreFunción([lista parámetros]) [throws listaExcepciones]
-{
-    // cuerpo de la función
-    [return valorRetorno;]
-}
-Modificadores: Indican el nivel de acceso (e.g., public, private) y otras características (e.g., static).
-Tipo: Especifica el tipo de dato que devolverá la función. Si no devuelve nada, se usa void.
-Nombre: Se debe escribir en camelCase, comenzando con minúscula.
-Parámetros: Son los valores necesarios para que la función realice su tarea.
-Return: Utilizado para devolver un valor al punto donde se llamó la función.
-Términos importantes:
+función: conjunto de instrucciones que realiza una tarea específica, se identifica por nombre unico y opcionalmente devuelve un valor
 
-Prototipo: Línea inicial que especifica nombre, tipo, parámetros, y modificadores. Permite conocer cómo usar la función sin saber su implementación.
-Definición: Incluye el prototipo y el cuerpo de la función.
-Llamada: Es el uso de la función dentro del programa mediante su nombre y parámetros requeridos.
-Parámetros y ámbito de variables
-Parámetros:
+método: igual en POO - conjunto  de  instrucciones dentro  de  una  clase,  que  realizan  una  determinada tarea y a las que podemos invocar mediante un nombre. (Math.sqrt(),System.out.println(); )
 
-Son valores que una función necesita para realizar su tarea.
-Tipos:
-Parámetros actuales: Argumentos que se pasan en la llamada de la función.
-Parámetros formales: Variables que reciben los valores en la definición de la función.
-Ambos tipos deben coincidir en:
-Número: Mismo número de argumentos y parámetros.
-Orden: Los valores deben pasarse en el mismo orden que en el prototipo.
-Tipo: Compatible entre los actuales y formales.
-Ámbito de variables:
 
-Se refiere al rango de accesibilidad de una variable.
-Tipos de variables según su ámbito:
-De clase: Declaradas fuera de métodos, accesibles en toda la clase.
-Locales: Declaradas dentro de un método, accesibles solo en dicho método.
-De bloque: Declaradas dentro de un bloque {}, accesibles solo dentro de este.
-Paso de parámetros
-Definición:
-Es el mecanismo mediante el cual se pasan valores a una función.
-En programación existen dos formas principales:
-Por valor:
-Se pasa una copia del valor.
-Las modificaciones dentro de la función no afectan al valor original.
-Es el único método que utiliza Java.
-Por referencia:
-Se pasa la dirección de memoria del valor.
-Las modificaciones dentro de la función afectan al valor original.
-Java solo permite modificar objetos referenciados (e.g., arrays), no las referencias mismas.
-Valor devuelto por una función (return)
-Definición:
-Una función puede devolver un valor utilizando la sentencia return.
-Esto permite transferir el resultado de la ejecución al lugar donde se llamó la función.
-Reglas:
-Si una función tiene un tipo de retorno, es obligatorio usar return.
+Estructura general de una función
+public static void FuncionEjemplo (parametros)
+{ return valorRetorno; }
+
+	- modificadores: Indican nivel de acceso y  características (e.g., static). // public / private static
+	- tipo: el tipo de dato que devuelve. ( void si no devuelve nada)
+	- nombre: camelCase
+	- parametros: valores necesarios para que la función funcione
+	- return: devuelve un valor a donde se llamo 
+
+DEFINICIONES: 
+	- Prototipo: linea inicial que especifica nombre, tipo, parámetros, y modificadores > conocer cómo usar la función sin saber su implementación.
+	- Definición: prototipo y  cuerpo de la función.
+	- Llamada: uso dentro de programa (nombre+param) ===========
+
+PARAMETROS: 
+
+Parámetros: valores que una función necesita para realizar su tarea.
+		- parametros actuales: se pasan en la llamada
+		- parametros formales: los q recibe la variable en la definicion 
+tienen que coincidir en numero, orden y tipo 
+=========
+
+AMBITO DE VARIABLES: 
+	rango de accesibilidad de una variable.
+
+Tipos de variables según su ámbito de declaracion:
+	de clase: fuera, accesibles para toda la clase 
+	locales: dentro de metodo, acessibles por el 
+	de bloque: dentro de bloque, accesible dentro 
+
+Paso de parámetros: pasar valores a una función.
+	formas principales:
+		- por valor (JAVA): se pasa una copia del valor y las modificaciones en la funcion no afectan al valor original 
+		- por referencia: se pasa la dir. de memoria y las modificaciones si afectan al valor original
+
+
+Valor devuelto (return)
+	- si la función tiene un tipo de retorno, es obligatorio usar return.
 Si el tipo es void, no es necesario usar return, aunque puede utilizarse para finalizar anticipadamente.
 Buenas prácticas:
 Reducir el número de sentencias return en una función para aumentar la claridad.
