@@ -5,17 +5,15 @@ package ud4;
 
 public class Arrays {
     public static void main(String[] args) {
-        //o tablaInt[] = {valor1,2,3...}
+        //o tablaInt[] = {valor1,2,3...}        
 
-        int tablaInt[] = new int[5];
+        int[] tablaInt = {18, 24, 37, 27}; 
+        double[] tablaDouble = {4.53, 1.25, 7.00, 4.77};
+        boolean [] tablaBoolean = {true, false, false, true};
+
+        System.out.println(tablaInt);
+        System.out.println(tablaDouble);
+        System.out.println(tablaBoolean);
         
-        tablaInt[0] = 4;
-        tablaInt[1] = 9;
-        tablaInt[2] = 7;
-        tablaInt[3] = 3;
-        tablaInt[4] = 1;
-
-        System.out.println(tablaInt[0]);
-
     }
 }
