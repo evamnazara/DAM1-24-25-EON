@@ -15,5 +15,7 @@ Crea un pequeño programa principal con ejemplos de uso de la clase Jugador.
 package ud3.eon18122024;
 
 public class ejercicio2 {
-    
+    public static void main(String[] args) {
+        
+    }
 }

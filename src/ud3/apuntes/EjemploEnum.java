@@ -2,7 +2,7 @@ package ud3.apuntes;
 
 import java.util.Scanner;
 
-import ud3.apuntes.Persona.Sexo;
+//import ud3.apuntes.Persona.Sexo;
 
 public class EjemploEnum {
     public static void main(String[] args) {
@@ -17,10 +17,12 @@ public class EjemploEnum {
         }
 
 
-        Persona p = new Persona("Pepe", Sexo.HOMBRE);
+       /*  Persona p = new Persona("Pepe", Sexo.HOMBRE);
         Persona pp = new Persona("Marta", "MUJER");
-
+        */
+        
         System.out.println("FIN");
+        sc.close();
 
     }
 }

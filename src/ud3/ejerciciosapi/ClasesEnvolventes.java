@@ -8,6 +8,7 @@ public class ClasesEnvolventes {
 
         Integer num = k;
             //convierte a objeto, inicializa e integra en la misma sentencia
+            System.out.println(num);
         
         String s = "4.56";
         Float ft = Float.valueOf(s);

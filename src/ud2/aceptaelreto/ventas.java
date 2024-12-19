@@ -14,7 +14,7 @@ Para cada caso de prueba, el programa escribirá una línea conteniendo dos día
 Si hay empate en alguno de los valores de ventas mínimo y máximo, se especificará EMPATE. */
 
 package ud2.aceptaelreto;
-import java.util.*;
+//import java.util.*;
 
 //SIMPLIFICADO PARA UNA SEMANA
 //calculo maximo minimo y media

@@ -6,8 +6,10 @@ public class EjemploClasesVecinas {
         CuentaCorriente cc = new CuentaCorriente("55555555Z", -45);
         Fecha f = new Fecha();
 
-        /*
-        System.out.println(cc.dni);
+        System.out.println(p);
+        System.out.println(f);
+        System.out.println(cc);
+        /* System.out.println(cc.dni);
         System.out.println(cc.nombre);
         System.out.println(cc.saldo);
          */

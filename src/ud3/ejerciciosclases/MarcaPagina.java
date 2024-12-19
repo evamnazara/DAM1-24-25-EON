@@ -28,7 +28,7 @@ public class MarcaPagina {
     public static void main(String[] args) {
         // Crea  marcapáginas
         MarcaPagina mp = new MarcaPagina();
-        MarcaPagina mp2 = new MarcaPagina();
+        //MarcaPagina mp2 = new MarcaPagina();
 
         // Imprime la página actual (página inicial)
         System.out.println(mp.getPagina());
