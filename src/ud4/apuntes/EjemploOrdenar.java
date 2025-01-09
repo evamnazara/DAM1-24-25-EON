@@ -1,12 +1,10 @@
+//burbuja 
 package ud4.apuntes;
 
 import java.util.Arrays;
-
 import ud4.ArraysUtil;
 
 public class EjemploOrdenar {
-    //array 50 26 7 9 15 27 
-
     public static void burbuja(int[] A) {
         int i, j, aux;
         for (i = 0; i < A.length - 1; i++) {
