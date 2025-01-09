@@ -33,7 +33,7 @@ public class EjemploOrdenar5 {
      }
 
      public static void main(String[] args) {
-         int [] t = ArraysUtil.arrayAleatorio(10000, 1, 10);
+        int [] t = ArraysUtil.arrayAleatorio(10000, 1, 10);
         System.out.println(Arrays.toString(t)); // impresion del string a pelo 
 
         mergesort(t,0,t.length -1); // funcion con el array
