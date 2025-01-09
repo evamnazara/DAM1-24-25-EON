@@ -12,7 +12,6 @@ public class EjArrays01 {
 
         System.out.println("Programa de cálculo de medias numéricas.");
         System.out.println("Introduce números enteros positivos:");
-        System.out.println("Introduce un número negativo.");
 
         int [] enteros;
         int n = sc.nextInt();
