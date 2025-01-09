@@ -12,14 +12,10 @@ public class EjArrays072 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Solicitar al usuario la cantidad de alturas a introducir
-        System.out.print("¿Cuántas alturas vas a introducir?: ");
+        System.out.println("Introduce el número de alturas: ");
         int n = sc.nextInt();
-
-        // Declarar el array para almacenar las alturas
         int[] alturas = new int[n];
 
-        // Solicitar las alturas al usuario
         System.out.println("Introduce " + n + " alturas en centímetros:");
         leerAlturas(alturas, sc);
 
