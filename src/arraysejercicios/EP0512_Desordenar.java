@@ -10,7 +10,7 @@ package arraysejercicios;
 import java.util.Arrays;
 import java.util.Random;
 
-public class EP0512 {
+public class EP0512_Desordenar {
     public static void main(String[] args) {
         int[] numerosDesordenados = {2, 3, 4, 5, 6, 7}; //generar array 
 

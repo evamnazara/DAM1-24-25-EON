@@ -15,7 +15,7 @@ package arraysejercicios;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class EP0514 {
+public class EP0514_Sueldos {
 
     public static void main(String[] args) {
 
