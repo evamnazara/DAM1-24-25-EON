@@ -28,7 +28,6 @@ public class EjArrays072 {
         }
         double mediaAlturas = (double) sumaAlturas / n; // Calcular la media como un valor decimal
 
-        // Contar cuántas alturas son superiores o inferiores a la media
         int altSuperiorMedia = 0;
         int altInferiorMedia = 0;
 
@@ -40,15 +39,12 @@ public class EjArrays072 {
             }
         }
 
-        // Mostrar los resultados
         System.out.println("La media de las alturas introducidas es de " + mediaAlturas + " centímetros.");
         System.out.println("Hay un total de " + altInferiorMedia + " alturas inferiores a la media, y " + altSuperiorMedia + " superiores a ella.");
 
-        // Cerrar el Scanner
         sc.close();
     }
 
-    // Método para leer las alturas
     private static void leerAlturas(int[] altura, Scanner sc) {
         for (int i = 0; i < altura.length; i++) {
             System.out.print("Altura " + (i + 1) + ": ");

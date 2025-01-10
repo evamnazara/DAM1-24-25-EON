@@ -29,8 +29,8 @@ public class ArraysUtil {
      * @param rndFin
      * @return
      */
-    public static int[] arrayAleatorio(int n, int rndInicio, int rndFin) {
-        int[] t = new int[n];
+    public static Integer[] arrayAleatorio(int n, int rndInicio, int rndFin) {
+        Integer[] t = new Integer[n];
         Random rnd = new Random();
 
         for(int i = 0; i < n; i++) {

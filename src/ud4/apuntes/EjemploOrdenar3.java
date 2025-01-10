@@ -6,7 +6,7 @@ import java.util.Arrays;
 import ud4.ArraysUtil;
 
 public class EjemploOrdenar3 {
-    public static void insercionDirecta(int A[]){                                            
+    public static void insercionDirecta(Integer A[]){                                            
         int p, j;
         int aux;
         for (p = 1; p < A.length; p++){ // desde el segundo elemento hasta
@@ -22,7 +22,7 @@ public class EjemploOrdenar3 {
     }
 
     public static void main(String[] args) {
-        int [] t = ArraysUtil.arrayAleatorio(10, 1, 10);
+        Integer [] t = ArraysUtil.arrayAleatorio(10, 1, 10);
         System.out.println(Arrays.toString(t)); // impresion del string a pelo 
 
         insercionDirecta(t); // funcion con el array

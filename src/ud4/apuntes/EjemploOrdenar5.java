@@ -5,18 +5,18 @@ import java.util.Arrays;
 import ud4.ArraysUtil;
 
 public class EjemploOrdenar5 {
-    public static void mergesort(int A[],int izq, int der){
-        if (izq < der){
-                int m=(izq+der)/2;
-                mergesort(A,izq, m);
-                mergesort(A,m+1, der);                                                                                
-                merge(A,izq, m, der);                                                                                 
+    public static void mergesort(Integer[] t,int izq, int der){
+            if (izq < der){
+                    int m=(izq+der)/2;
+                    mergesort(t,izq, m);
+                    mergesort(t,m+1, der);                                                                                
+                    merge(t,izq, m, der);                                                                                 
         }
     }
 
-    public static void merge(int A[],int izq, int m, int der){
-        int i, j, k;
-        int [] B = new int[A.length]; //array auxiliar
+    public static void merge(Integer A[],Integer izq, Integer m, Integer der){
+        Integer i, j, k;
+        Integer [] B = new Integer[A.length]; //array auxiliar
         for (i=izq; i<=der; i++)      //copia ambas mitades en el array auxiliar                                       
              B[i]=A[i];
      
@@ -33,7 +33,7 @@ public class EjemploOrdenar5 {
      }
 
      public static void main(String[] args) {
-        int [] t = ArraysUtil.arrayAleatorio(10000, 1, 10);
+        Integer [] t = ArraysUtil.arrayAleatorio(10000, 1, 10);
         System.out.println(Arrays.toString(t)); // impresion del string a pelo 
 
         mergesort(t,0,t.length -1); // funcion con el array

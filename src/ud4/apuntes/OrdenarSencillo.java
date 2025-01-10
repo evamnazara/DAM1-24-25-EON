@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class OrdenarSencillo {
     public static void main(String[] args) {
-        int [] t = ArraysUtil.arrayAleatorio(24, 1, 25);
+        Integer [] t = ArraysUtil.arrayAleatorio(24, 1, 25);
         System.out.println(Arrays.toString(t)); // impresion del string a pelo 
                     //(array, primer indice a ordenar, ultimo indice a ordenar)
         Arrays.sort(t,0,24);

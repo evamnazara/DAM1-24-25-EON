@@ -5,7 +5,7 @@ import java.util.Arrays;
 import ud4.ArraysUtil;
 
 public class EjemploOrdenar {
-    public static void burbuja(int[] A) {
+    public static void burbuja(Integer[] A) {
         int i, j, aux;
         for (i = 0; i < A.length - 1; i++) {
             for (j = 0; j < A.length - i - 1; j++) {                                                              
@@ -20,7 +20,7 @@ public class EjemploOrdenar {
     }
 
     public static void main(String[] args) {
-        int [] t = ArraysUtil.arrayAleatorio(10, 1, 10);
+        Integer [] t = ArraysUtil.arrayAleatorio(10, 1, 10);
         System.out.println(Arrays.toString(t)); // impresion del string a pelo 
 
         burbuja(t); // funcion con el array

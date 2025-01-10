@@ -5,7 +5,7 @@ import java.util.Arrays;
 import ud4.ArraysUtil;
 
 public class EjemploOrdenar4 {
-    public static void quicksort(int A[], int izq, int der) {
+    public static void quicksort(Integer A[], Integer izq, Integer der) {
 
         int pivote=A[izq]; // tomamos primer elemento como pivote
         int i=izq;         // i realiza la búsqueda de izquierda a derecha
@@ -33,7 +33,7 @@ public class EjemploOrdenar4 {
       }
 
     public static void main(String[] args) {
-        int [] t = ArraysUtil.arrayAleatorio(10000, 1, 10);
+        Integer [] t = ArraysUtil.arrayAleatorio(10000, 1, 10);
         System.out.println(Arrays.toString(t)); // impresion del string a pelo 
 
         quicksort(t,0,t.length -1); // funcion con el array

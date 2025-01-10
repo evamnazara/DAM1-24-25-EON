@@ -7,7 +7,7 @@ import ud4.ArraysUtil;
 
 public class EjemploOrdenar2 {
 
-    public static void seleccion(int A[]) {
+    public static void seleccion(Integer A[]) {
         int i, j, menor, pos, tmp;
         for (i = 0; i < A.length - 1; i++) {      // tomamos como menor el primero
               menor = A[i];                       // de los elementos que quedan por ordenar                    
@@ -27,7 +27,7 @@ public class EjemploOrdenar2 {
 }
 
     public static void main(String[] args) {
-        int [] t = ArraysUtil.arrayAleatorio(10, 1, 10);
+        Integer [] t = ArraysUtil.arrayAleatorio(10, 1, 10);
         System.out.println(Arrays.toString(t)); // impresion del string a pelo 
 
         seleccion(t); // funcion con el array
