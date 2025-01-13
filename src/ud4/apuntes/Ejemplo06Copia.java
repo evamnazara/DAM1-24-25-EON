@@ -19,5 +19,6 @@ public class Ejemplo06Copia {
 
         t2 = Arrays.copyOf(t1, t1.length);
         System.out.println("Fin");
+        System.out.println(Arrays.toString(t2));
     }
 }
