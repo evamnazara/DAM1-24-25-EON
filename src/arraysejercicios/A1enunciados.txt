@@ -21,29 +21,6 @@ MARCADO. EjArrays08. Leer el nombre y sueldo de 20 empleados y mostrar el nombre
 
 EjArrays09. Llenar un array con números aleatorios.
 
-public static void main(String[] args) {
-        int[] arrayOriginal = {2, 6, 5, 6}; //generar array 
-
-        Arrays.toString(arrayOriginal);
-
-        System.out.println("Array desordenado: " + desordenar(arrayOriginal));
-    }
-    
-    public static void desordenar(int arrayOriginal[]) {
-        Random rnd = new Random();
-        arrayDesordenado;
-
-        for (int i=0; i < a.lenght; i++){
-            int j = rnd.nextInt(arrayOriginal.length);
-
-            int auxiliar = arrayOriginal[i];
-            arrayOriginal[i] = arrayOriginal[j];
-            arrayOriginal[j] = auxiliar;
-        }
-
-        return arr
-
-    }
     ===== MATRICES ======
 
 EjArrays10. Escribe un programa en Java que lea una matriz de enteros de 3 filas y 3 columnas del usuario y luego calcule la suma de todos los elementos de la matriz.

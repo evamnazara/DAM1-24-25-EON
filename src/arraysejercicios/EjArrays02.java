@@ -1,7 +1,8 @@
 //autora: Eva María Otero Názara 
 
 /* EjArrays02. 
-Leer 10 números enteros por teclado y guardarlos en un array. Calcula y muestra la media de los números que estén en las posiciones pares del array.
+Leer 10 números enteros por teclado y guardarlos en un array. 
+Calcula y muestra la media de los números que estén en las posiciones pares del array.
  */
 package arraysejercicios;
 import java.util.*;

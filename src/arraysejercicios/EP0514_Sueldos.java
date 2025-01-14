@@ -18,40 +18,57 @@ import java.util.Scanner;
 public class EP0514_Sueldos {
 
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce el sueldo de cada persona encuestada.");
+        double sueldo = 0;
+        int numeroEncuestados = 0;
+        double [] encuesta = new double[0]; //array vacio
+
+        
         System.out.println("Para terminar, introduce -1");
         
-       
+        System.out.println("Introduce el sueldo:");
+        sueldo = sc.nextDouble();
 
-        int n = sc.nextInt();
-        int [] encuestaNivelAdquisitivo = new int[n];
+        while (sueldo != -1) {
+            encuesta = Arrays.copyOf(encuesta, encuesta.length + 1);
+            encuesta[encuesta.length - 1] = sueldo; //añade el sueldo mas
+            System.out.println("Introduce el sueldo:");
+            sueldo = sc.nextDouble();
+            numeroEncuestados++;
+        } 
 
-        int sueldo = 0;
-        int numeroEncuestados = 0;
+        sc.close();
+
+        double mediaSueldos = sueldo / numeroEncuestados;
+        System.out.println("" + numeroEncuestados + "" + mediaSueldos);
+        /*if (encuesta.length == 0) {
+            System.out.println("No has introducido ningún sueldo.");
+        } else {
+
+
+        }*/
+
+//        int supMedia; int infMedia; 
+
+
+
+        //superiores e inferiores 
+
+
+        /* int numeroEncuestados = 0;
+        
 
         int sueldoMinimo = 0; int sueldoMaximo = 0;
-
-       do {
-            for(int i = 0; i > 0; i++) {
-                sueldo =+ sueldo;
-                numeroEncuestados++;
-            }
-            
-        } while (n != 1);
-
         System.out.println("El número de encuenstados ha sido: "+ numeroEncuestados);
         
 
-        Arrays.sort(encuestaNivelAdquisitivo);
-        System.out.println("Sueldos totales ordenados: " + Arrays.toString(encuestaNivelAdquisitivo));
+        Arrays.sort(encuesta);
+        System.out.println("Sueldos totales ordenados: " + Arrays.toString(encuesta));
 
         System.out.println("Sueldo mínimo:" + sueldoMinimo);
         System.out.println("Sueldo máximo: " + sueldoMaximo);
-        System.out.println("Media de los sueldo: ");
+        System.out.println("Media de los sueldo: ");*/
 
-        sc.close();
-    }
+    } 
     
 }

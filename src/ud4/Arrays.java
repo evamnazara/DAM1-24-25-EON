@@ -1,5 +1,7 @@
 /* TresTablas. 
-Crea tres tablas de cinco elementos: la primera de números enteros, la segunda de double y la tercera de booleanos. Muestra las referencias en las que se encuentra almacenada cada una de las tablas. */
+Crea tres tablas de cinco elementos: la primera de números enteros, la segunda de double y la tercera de booleanos. 
+Muestra las referencias en las que se encuentra almacenada cada una de las tablas. 
+*/
 
 package ud4;
 
