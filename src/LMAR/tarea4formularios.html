@@ -1,0 +1,142 @@
+<!-- Diseña el siguiente formulario, teniendo en cuenta que:
+
+El formulario tiene un ancho de 350px. Su color de fondo es SlateGray y el del borde del formulario LightSteelBlue. El tamaño de letra es 14px.
+
+Utiliza el tipo más adecuado para cada dato.
+
+Los campos requeridos tendrán un borde rojo.
+
+La edad estará entre 18 y 100, teniendo como valor de partida el 18
+
+Introduce un mensaje para que se visualice cuando el valor introducido no cumple las reglas de validación. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EVA - Tarea 4 - Formularios</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+
+      form {
+        width: 350px;
+        background-color: SlateGray;
+        border: 2px solid LightSteelBlue;
+        padding: 20px;
+        border-radius: 5px;
+        color: white;
+        font-size: 14px;
+      }
+
+      form label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      form input,
+      form select {
+        width: calc(100% - 10px);
+        padding: 5px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+      fieldset {
+        border: none;
+      }
+
+      form input:required {
+        border: 1px solid red;
+      }
+
+      form input[type="number"] {
+        -moz-appearance: textfield; /* Ocultar flechas en Firefox */
+      }
+
+      form input[type="number"]::-webkit-inner-spin-button,
+      form input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none; /* Ocultar flechas en Chrome */
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="formulario">
+      <fieldset>
+        <legend>Datos personales</legend>
+        <label for="nombre">Nombre</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          placeholder="Escribe tu nombre completo"
+          required
+        />
+        <span class="error-message" id="error-nombre"></span>
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="correo@dominio.com"
+          required
+        />
+        <span class="error-message" id="error-email"></span>
+
+        <label for="telefono">Teléfono</label>
+        <input
+          type="tel"
+          id="telefono"
+          name="telefono"
+          placeholder="P.e. +444323244"
+          required
+        />
+        <span class="error-message" id="error-telefono"></span>
+
+        <label for="pais">País</label>
+        <input type="text" id="pais" name="pais" required />
+        <span class="error-message" id="error-pais"></span>
+
+        <label for="edad">Edad</label>
+        <input
+          type="number"
+          id="edad"
+          name="edad"
+          min="18"
+          max="100"
+          value="18"
+          required
+        />
+        <span class="error-message" id="error-edad"></span>
+      </fieldset>
+
+      <fieldset>
+        <legend>Datos de tarjeta de crédito</legend>
+        <label for="numero-tarjeta">Número</label>
+        <input type="text" id="numero-tarjeta" name="numero-tarjeta" required />
+        <span class="error-message" id="error-numero-tarjeta"></span>
+
+        <label for="nombre-tarjeta">Nombre</label>
+        <input
+          type="text"
+          id="nombre-tarjeta"
+          name="nombre-tarjeta"
+          placeholder="Nombre del propietario"
+          required
+        />
+        <span class="error-message" id="error-nombre-tarjeta"></span>
+      </fieldset>
+
+      <button type="submit">Realizar compra</button>
+    </form>
+  </body>
+</html>
