@@ -43,7 +43,7 @@ Introduce un mensaje para que se visualice cuando el valor introducido no cumple
 
       form input,
       form select {
-        width: calc(100% - 10px);
+        width: 90%;
         padding: 5px;
         margin-bottom: 15px;
         border: 1px solid #ccc;
@@ -55,16 +55,6 @@ Introduce un mensaje para que se visualice cuando el valor introducido no cumple
 
       form input:required {
         border: 1px solid red;
-      }
-
-      form input[type="number"] {
-        -moz-appearance: textfield; /* Ocultar flechas en Firefox */
-      }
-
-      form input[type="number"]::-webkit-inner-spin-button,
-      form input[type="number"]::-webkit-outer-spin-button {
-        -webkit-appearance: none; /* Ocultar flechas en Chrome */
-        margin: 0;
       }
     </style>
   </head>
