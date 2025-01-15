@@ -1,3 +1,5 @@
+System.arraycopy: buscar fórmula
+
 GENERACION: 
 
 

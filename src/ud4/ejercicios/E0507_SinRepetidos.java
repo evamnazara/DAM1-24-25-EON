@@ -8,37 +8,57 @@ int[] tablaRandom(int n)
 
 package ud4.ejercicios;
 
+
 import java.util.Arrays;
+import ud4.ArraysUtil;
 
 public class E0507_SinRepetidos {
+    static Integer[] sinRepetidos(Integer t[]) {
+        //CLAUSULA DE GUARDA : SALE SI EL VALOR ES NULO O INCORRECTO 
 
-    static int [] sinRepetidos(int t[]) {
-
-        int [] tOrdenado = t.clone(); 
-        Arrays.sort(tOrdenado);
+        if (t == null) {
+            return null;
+            
+        }
         
-        int[] sinRepetidos = new int [0]; //a priori no sabemos la longitud del array que nos pasan
-
-        for (int i = 0; i < t.length; i++) {
+        Integer[] sinRepetidos = new Integer[0]; //[0]a priori no sabemos la longitud del array que nos pasan
+        
+        for (int i = 0; i < t.length; i++) { //recorre array original
             boolean repetido = false;
-                for (int j =0; j < sinRepetidos.length; j++) {
-                    if (t[i] == sinRepetidos[j]) {
-                        repetido = true;
-                    }
-                    if (!repetido) {
-                        sinRepetidos = Arrays.copyOf(sinRepetidos, sinRepetidos.length + 1);
-                    }
+            int j = 0;
 
-                }
+            while (j < sinRepetidos.length && !repetido){//busqueda secuencial en el array
+                if (t[i] == sinRepetidos[j])
+                    repetido = true;
+                    j++; 
+                    //cambia la bandera y quita el numero, la siguiente vuelta del bucle recorre solo el array sin repetidos
+            }
+            
+           /*  
+           ALTERNATIVA CON FOR: 
+
+            for (int j = 0; j < sinRepetidos.length; j++){//busqueda secuencial en el array
+                if (t[i] == sinRepetidos[j])
+                    repetido = true; //cambia la bandera y quita el numero, la siguiente vuelta del bucle recorre solo el array sin repetidos
+                 }
+            */
+            if (!repetido) {
+                sinRepetidos = Arrays.copyOf(sinRepetidos, sinRepetidos.length + 1);
+                //machaca el valor que hubiera en el array 
+                sinRepetidos[sinRepetidos.length - 1] = t[i];
+            }
         }
 
-        return t;
-
+        return sinRepetidos;
     }
 
     public static void main(String[] args) {
+        Integer[] t = ArraysUtil.arrayAleatorio(20, 1, 10);
         
-    }
+        System.out.println(Arrays.toString(t));
 
-    
+        t = sinRepetidos(t);
+
+        System.out.println(Arrays.toString(t));        
+    }
 }
