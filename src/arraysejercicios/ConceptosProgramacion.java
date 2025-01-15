@@ -19,44 +19,35 @@ static String fraseAleatoria(String[] t)  */
 
 package arraysejercicios;
 
-import java.util.*;
+import java.util.Random;
 
 public class ConceptosProgramacion {
 
-    public static String[] conceptos = { 
-            "Algoritmo", 
-            "Lenguaje de programación", 
-            "Entorno de desarrollo", 
-            "Compilación", 
-            "Ejecución", 
-            "Código fuente", 
-            "Bytecode", 
-            "Código objeto" };
-    
-    public static void main(String[] args) {
-            desordenar(conceptos);
-            for (int i = 0; i < conceptos.length; i++) {
-                    System.out.println((i + 1) + ". " + conceptos[i]);
-                }
+    public static String[] conceptos = {
+        "Algoritmo",
+        "Lenguaje de programación",
+        "Entorno de desarrollo",
+        "Compilación",
+        "Ejecución",
+        "Código fuente",
+        "Bytecode",
+        "Código objeto"
+    };
 
-            System.out.println("Te ha " + conceptos[3]);
+    public static void main(String[] args) {
+
+
+        String conceptoAleatorio = fraseAleatoria(conceptos);
+
+        System.out.println("Define el siguiente concepto: " + conceptoAleatorio);
     }
 
-        
 
-    
-
-    static void desordenar(String t[]) {
-        Random rnd = new Random(10);
-            for (int i = 0; i < t.length; i++) {
-                int nuevaPosicion = rnd.nextInt(t.length);
-                if (i != nuevaPosicion) {
-                    String aux = t[i];
-                        t[i] = t[nuevaPosicion];
-                        t[nuevaPosicion] = aux;
-                    }
-                }
-            }
+    static String fraseAleatoria(String[] t) {
+        Random rnd = new Random(); 
+        int indiceAleatorio = rnd.nextInt(t.length); 
+        return t[indiceAleatorio]; 
+    }
 
 }
     

@@ -30,23 +30,69 @@ El bucle de entrada de letras terminará al introducir una letra que no se encue
 
 package arraysejercicios;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class BuscandoLetras {
+
+    public static String[] conceptos = {
+        "Algoritmo",
+        "Lenguaje de programación",
+        "Entorno de desarrollo",
+        "Compilación",
+        "Ejecución",
+        "Código fuente",
+        "Bytecode",
+        "Código objeto"
+    };
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Introduce una letra.");
-        char letra = sc.next().charAt(0); 
+        String conceptoAleatorio = fraseAleatoria(conceptos);
+        System.out.println("Concepto aleatorio seleccionado: " + conceptoAleatorio);
 
+        while (true) {
 
+            System.out.println("Introduce la letra que quieras buscar: ");
+            System.out.println("Para salir, utiliza una letra que no esté");
+            char letra = sc.next().charAt(0);
 
+            int[] posiciones = buscarLetra(conceptoAleatorio, letra);
+
+            if (posiciones.length == 0) {
+                System.out.println("No existe la letra " + letra + " en la palabra elegida. ");
+                 } else {
+                    System.out.println("La letra '" + letra + "' aparece en las posiciones: ");
+                         for (int pos : posiciones) {
+                            System.out.println(pos);
+                            }
+                System.out.println("Número total de veces que aparece: " + posiciones.length );
+            }
+        }
 
     }
-    static int[] buscarLetra(String cadena, char letra) {
 
-        return null;
+
+    static String fraseAleatoria(String[] t) {
+        Random rnd = new Random();
+        int indiceAleatorio = rnd.nextInt(t.length); 
+        return t[indiceAleatorio]; 
+    }
+
+
+    static int[] buscarLetra(String cadena, char letra) {
+        char[] caracteres = cadena.toCharArray();
+        
+        int[] tempPosiciones = new int[caracteres.length];
+        int contadorVeces = 0;
+
+        for (int i = 0; i < caracteres.length; i++) {
+            if (caracteres[i] == letra) {
+               i = tempPosiciones[contadorVeces++];
+            }
+        }
+
+        return Arrays.copyOf(tempPosiciones, contadorVeces);
     }
 
 }
