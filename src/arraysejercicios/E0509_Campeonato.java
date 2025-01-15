@@ -56,8 +56,6 @@ public class E0509_Campeonato {
 
 
             nota = sc.nextDouble(); //lee otra vez 
-
-
             
         }
         sc.close();
