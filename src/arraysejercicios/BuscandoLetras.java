@@ -49,12 +49,13 @@ public class BuscandoLetras {
         Scanner sc = new Scanner(System.in);
 
         String conceptoAleatorio = fraseAleatoria(conceptos);
-        System.out.println("Concepto aleatorio seleccionado: " + conceptoAleatorio);
+        System.out.println("Concepto aleatorio seleccionado: " );
+        System.out.println(conceptoAleatorio);
 
         while (true) {
 
             System.out.println("Introduce la letra que quieras buscar: ");
-            System.out.println("Para salir, utiliza una letra que no esté");
+            System.out.println("Salida: introduce una letra que no esté en la palabra.");
             char letra = sc.next().charAt(0);
 
             int[] posiciones = buscarLetra(conceptoAleatorio, letra);
@@ -82,7 +83,7 @@ public class BuscandoLetras {
 
     static int[] buscarLetra(String cadena, char letra) {
         char[] caracteres = cadena.toCharArray();
-        
+        //int[] tempPosiciones = new int[0]; //devuelve array vacío 
         int[] tempPosiciones = new int[caracteres.length];
         int contadorVeces = 0;
 

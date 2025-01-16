@@ -35,10 +35,7 @@ public class ConceptosProgramacion {
     };
 
     public static void main(String[] args) {
-
-
         String conceptoAleatorio = fraseAleatoria(conceptos);
-
         System.out.println("Define el siguiente concepto: " + conceptoAleatorio);
     }
 
@@ -46,7 +43,10 @@ public class ConceptosProgramacion {
     static String fraseAleatoria(String[] t) {
         Random rnd = new Random(); 
         int indiceAleatorio = rnd.nextInt(t.length); 
+        //ALTERNATIVA: indiceAleatorio = (int) (Math.random() * t.length);
+
         return t[indiceAleatorio]; 
+        //RESUMIDA: return t[(int) (Math.random() * t.length)];
     }
 
 }
