@@ -18,9 +18,7 @@ mismo puesto en la combinación secreta.
 
 package arraysejercicios.apuntes;
 
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class E0511_CamaraSecreta {
     public static void main(String[] args) {
