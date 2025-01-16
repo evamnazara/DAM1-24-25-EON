@@ -7,3 +7,10 @@ user: USER-EON
 
 
 permisos en gris: están heredados
+
+
+
+LINUX 
+tamaño swap : 
+        si < 4 GB, tamaño memoria ram x2 
+        si > 4 GB, tamaño memoria ram
