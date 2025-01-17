@@ -2,8 +2,6 @@ package ud4.matrices;
 
 import java.util.Arrays;
 
-import ud1.ejercicios.parejas.recetaCompotaParejas;
-
 public class Matrices1 {
     public static void main(String[] args) {
         //DECLARACION
