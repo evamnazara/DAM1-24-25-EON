@@ -4,6 +4,24 @@
 
 ===== CSS ========================================
     > centrar siempre (margin: 0 auto;)
+    > display flex 
+    > justify-content: center 
+
+    . grupocampo {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        }
+    .grupo-campo label {
+        flex: 1;
+        margin-right: 
+        margin-left:
+    }
+    .grupo-campo input {
+        flex: 2;
+        margin-right: ;
+        margin-left: ;
+    }
 
 ===== REGEX ======================================
     > el tipo teléfono no valida 
