@@ -1,0 +1,292 @@
+======= UTILES =========
+
+ACCESO A INDICES DE UN ARRAY
+
+acceso directo: 
+
+public class AccesoDirecto {
+    public static void main(String[] args) {
+        // Declarar un array
+        int[] numeros = {10, 20, 30, 40, 50};
+
+        // Acceso directo a los índices
+        System.out.println("El elemento en el índice 0 es: " + numeros[0]); // Imprime 10
+        System.out.println("El elemento en el índice 2 es: " + numeros[2]); // Imprime 30
+        System.out.println("El elemento en el índice 4 es: " + numeros[4]); // Imprime 50
+    }
+}
+
+acceso con bucle for-each:
+
+public class ForEach {
+    public static void main(String[] args) {
+        // Declarar un array
+        int[] numeros = {10, 20, 30, 40, 50};
+
+        // Usar un bucle for-each
+        System.out.println("Elementos del array:");
+        for (int numero : numeros) { // `numero` toma el valor de cada elemento
+            System.out.println(numero);
+        }
+    }
+}
+
+
+======MULTIPLICAR CADA ELEMENTO DE UN ARRAY =====
+
+public class ProcesarElementos {
+    public static void main(String[] args) {
+        // Declarar un array
+        int[] numeros = {10, 20, 30, 40, 50};
+
+        // Multiplicar cada elemento por 2 y mostrar el resultado
+        for (int i = 0; i < numeros.length; i++) {
+            int resultado = numeros[i] * 2;
+            System.out.println("Elemento en índice " + i + " multiplicado por 2: " + resultado);
+        }
+    }
+}
+
+==== SEPARAR ARRAYS DE UNA MATRIZ =====
+
+public class SepararMatriz {
+    public static void main(String[] args) {
+        // Declaramos una matriz 3x3
+        int[][] matriz = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        // Extraemos cada fila de la matriz y la mostramos como un array
+        for (int i = 0; i < matriz.length; i++) { // matriz.length = número de filas
+            int[] fila = matriz[i]; // Cada fila es un array unidimensional
+            System.out.print("Fila " + i + ": ");
+            
+            // Imprimir los elementos de la fila
+            for (int j = 0; j < fila.length; j++) {
+                System.out.print(fila[j] + " ");
+            }
+            System.out.println(); // Salto de línea
+        }
+    }
+}
+
+
+EJEMPLO 2
+
+public class SepararMatriz {
+    public static void main(String[] args) {
+        // Declaramos una matriz 3x3
+        int[][] matriz = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        // Crear arrays separados para almacenar las filas
+        int[] fila0 = matriz[0]; // Primera fila
+        int[] fila1 = matriz[1]; // Segunda fila
+        int[] fila2 = matriz[2]; // Tercera fila
+
+        // Mostrar cada array
+        System.out.print("Fila 0: ");
+        imprimirArray(fila0);
+
+        System.out.print("Fila 1: ");
+        imprimirArray(fila1);
+
+        System.out.print("Fila 2: ");
+        imprimirArray(fila2);
+    }
+
+    // Método auxiliar para imprimir un array
+    public static void imprimirArray(int[] array) {
+        for (int num : array) { // Recorre los elementos del array
+            System.out.print(num + " ");
+        }
+        System.out.println(); // Salto de línea
+    }
+}
+
+
+SEPARACION DE ELEMENTOS EN UNA MATRIZ
+Elemento en posicion (1,3)
+
+public class SepararMatrizElementos {
+    public static void main(String[] args) {
+        // Declarar una matriz 3x3
+        int[][] matriz = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        System.out.println("Separando los elementos de la matriz:");
+        for (int i = 0; i < matriz.length; i++) { // Recorrer las filas
+            for (int j = 0; j < matriz[i].length; j++) { // Recorrer los elementos de cada fila
+                System.out.println("Elemento en posición [" + i + "][" + j + "]: " + matriz[i][j]);
+            }
+        }
+    }
+}
+
+
+
+
+
+======= 10 SUMAR LOS ELEMENTOS DE UNA MATRIZ ====
+
+import java.util.Scanner;
+
+public class SumaMatriz {
+    public static void main(String[] args) {
+        // Crear una matriz de 3 filas y 3 columnas
+        int[][] matriz = new int[3][3];
+        int suma = 0; // Variable para almacenar la suma de los elementos
+
+        // Crear un Scanner para leer datos del usuario
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Introduce los valores para una matriz de 3x3:");
+
+        // Leer los valores de la matriz del usuario
+        for (int i = 0; i < 3; i++) { // Recorrer las filas
+            for (int j = 0; j < 3; j++) { // Recorrer las columnas
+                System.out.print("Elemento [" + i + "][" + j + "]: ");
+                matriz[i][j] = scanner.nextInt(); // Leer cada elemento
+                suma += matriz[i][j]; // Sumar el elemento a la variable 'suma'
+            }
+        }
+
+        // Mostrar la suma de los elementos
+        System.out.println("La suma de todos los elementos de la matriz es: " + suma);
+
+        scanner.close(); // Cerrar el Scanner
+    }
+}
+
+
+======= 11 TRES EN RAYA =========
+
+======
+/* EjArrays11. 
+Escribe un programa en Java que implemente 
+un juego de tres en raya. 
+El programa debe permitir a dos jugadores jugar
+ al juego turnándose para colocar fichas en un tablero de 3x3. 
+El juego termina cuando un jugador consigue tres fichas en línea (horizontal, vertical o diagonal)
+*\
+
+
+import java.util.Scanner;
+
+public class EjArrays11_TresEnRaya {
+    public static void main(String[] args) {
+        // Crear un tablero 3x3 representado como un arreglo bidimensional
+        char[][] tablero = new char[3][3];
+        // Inicializamos el tablero con valores vacíos ('-')
+        inicializarTablero(tablero);
+
+        boolean juegoTerminado = false; // Variable para controlar si el juego ha terminado
+        char jugadorActual = 'X'; // El primer jugador empieza con 'X'
+        Scanner scanner = new Scanner(System.in); // Para leer la entrada del usuario
+
+        // Bucle principal del juego
+        while (!juegoTerminado) {
+            // Mostrar el tablero actual
+            imprimirTablero(tablero);
+
+            // Indicar de quién es el turno
+            System.out.println("Turno del jugador " + jugadorActual);
+            // Pedir al usuario la fila y columna donde desea jugar
+            System.out.println("Ingresa fila (0, 1, 2): ");
+            int fila = scanner.nextInt();
+            System.out.println("Ingresa columna (0, 1, 2): ");
+            int columna = scanner.nextInt();
+
+            // Validar si la posición es válida y está disponible
+            if (fila >= 0 && fila < 3 && columna >= 0 && columna < 3 && tablero[fila][columna] == '-') {
+                // Colocar la ficha del jugador actual en el tablero
+                tablero[fila][columna] = jugadorActual;
+
+                // Verificar si el jugador actual ha ganado
+                if (verificarGanador(tablero, jugadorActual)) {
+                    imprimirTablero(tablero); // Mostrar el tablero final
+                    System.out.println("¡Jugador " + jugadorActual + " ha ganado!");
+                    juegoTerminado = true; // Terminar el juego
+                } 
+                // Verificar si el tablero está lleno y es un empate
+                else if (esEmpate(tablero)) {
+                    imprimirTablero(tablero); // Mostrar el tablero final
+                    System.out.println("¡Es un empate!");
+                    juegoTerminado = true; // Terminar el juego
+                } 
+                // Si nadie gana, cambiar el turno al otro jugador
+                else {
+                    jugadorActual = (jugadorActual == 'X') ? 'O' : 'X';
+                }
+            } else {
+                // Si la posición no es válida, mostrar un mensaje de error
+                System.out.println("Movimiento inválido. Intenta de nuevo.");
+            }
+        }
+
+        scanner.close(); // Cerrar el scanner
+    }
+
+    // Función para inicializar el tablero con valores vacíos ('-')
+    public static void inicializarTablero(char[][] tablero) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                tablero[i][j] = '-'; // Cada posición del tablero se llena con '-'
+            }
+        }
+    }
+
+    // Función para imprimir el tablero actual
+    public static void imprimirTablero(char[][] tablero) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(tablero[i][j] + " "); // Imprime cada casilla separada por un espacio
+            }
+            System.out.println(); // Nueva línea después de cada fila
+        }
+    }
+
+    // Función para verificar si un jugador ha ganado
+    public static boolean verificarGanador(char[][] tablero, char jugador) {
+        // Verificar todas las filas y columnas
+        for (int i = 0; i < 3; i++) {
+            // Si alguna fila tiene las 3 fichas del mismo jugador
+            if ((tablero[i][0] == jugador && tablero[i][1] == jugador && tablero[i][2] == jugador) || 
+                // Si alguna columna tiene las 3 fichas del mismo jugador
+                (tablero[0][i] == jugador && tablero[1][i] == jugador && tablero[2][i] == jugador)) {
+                return true; // Hay un ganador
+            }
+        }
+
+        // Verificar las diagonales
+        if ((tablero[0][0] == jugador && tablero[1][1] == jugador && tablero[2][2] == jugador) || 
+            (tablero[0][2] == jugador && tablero[1][1] == jugador && tablero[2][0] == jugador)) {
+            return true; // Hay un ganador
+        }
+
+        return false; // No hay ganador aún
+    }
+
+    // Función para verificar si el tablero está lleno (empate)
+    public static boolean esEmpate(char[][] tablero) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (tablero[i][j] == '-') {
+                    return false; // Si hay al menos una casilla vacía, no es empate
+                }
+            }
+        }
+        return true; // Si no hay casillas vacías, es un empate
+    }
+}
+
+
+========== JUEGO DE ROL ===========
