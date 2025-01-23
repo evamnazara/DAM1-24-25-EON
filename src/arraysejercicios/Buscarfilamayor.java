@@ -52,8 +52,7 @@ public class Buscarfilamayor {
 
          //EVALUACION POR CORTOCIRCUITO: 
             /*
-            if (m ==null ||m.length == 0)
-                return null;
+            
             */
 
             //recorrer la matriz fil a fila 
