@@ -16,20 +16,23 @@ public class E0605_InvertirCadena {
         System.out.println("Frase:");
         String frase = sc.nextLine();
         
-       // String fraseInvertida = invertirCadena(frase);
+        String fraseInvertida = invertirCadena(frase);
+        System.out.println(fraseInvertida);
 
 
     }
 
-   /* static String invertirCadena(String cad) {
-        String cadenaInvertida;
+   static String invertirCadena(String cad) {
+        String cadenaInvertida = "";
 
         //concatenar en una cadena vacía 
         //palabra palindromo 
 
-        for (int i = 0; i < cad.length(); i++ ){
+        for (int i = cad.length() -1; i >= 0; i-- ){
+            cadenaInvertida += cad.charAt(i); 
+            //recorre frase de principio a fin en una cadena nueva xd
         }
 
         return cadenaInvertida;
-    }*/ 
+    }
 }
