@@ -1,0 +1,73 @@
+============== 1. INTRODUCCION A DLL
+
+Los lenguajes de base de datos se clasifican:
+    ▪ Lenguaje de definición de datos (DDL) > definir los esquemas relacionales de la base
+    ▪ Lenguaje de manipulación de datos (DML) > Para manipular los datos de la base de datos
+    ▪ Lenguaje de control de datos (DCL) > administración de usuarios y seguridad 
+    ▪ Lenguaje de control de Transacciones (TCL). Permiten controlar y gestionar transacciones para mantener la integridad de los datos dentro de las sentencias SQL.
+
+
+Las sentencias de SQL son:
+▪ DDL: CREATE, ALTER, DROP y TRUNCATE.
+▪ LMD: SELECT, INSERT, UPDATE Y DELETE. 
+    también sentencias de control de transacción: COMMIT Y ROLLBACK.
+▪ DCL: GRANT y REVOKE
+▪ TCL: COMMIT, ROLLBACK, SAVEPOINT
+
+El lenguaje SQL en SQL SERVER se llama TRANSACT-SQL.
+
+verbo + acción + palabra reservada (WHERE, FROM, INTO…)
+
+============== 2. ARCHIVOS DE BASE =============
+
+Al menos, un archivo de datos y un archivo de registro de transacciones. 
+    
+    3 tipos:
+    ▪ Archivo de datos principales. HAY SÓLO UNO SIEMPRE. 
+            extension .mdf 
+            Contiene la información de inicio para la base > se utiliza para almacenar datos.
+    ▪ Archivos de datos secundarios: datos no incluidos en el archivo principal.
+            Es opcional. No se necesitan archivos secundarios si el principal puede contener todo.
+            extension .ndf
+    ▪ Archivos de registros/log: recuperacion de la base de datos en estado consistente. 
+        Al menos un archivo de registro, aunque puede haber varios. 
+        extensión: .ldf
+
+En bases grandes se pueden:
+    - necesitar varios archivos de datos secundarios
+    - utilizar archivos secundarios en unidades de disco distintas para distribuir los datos en varios discos. 
+
+    
+
+
+============== 3. GRUPOS =================
+
+//Base > Propiedades
+
+El archivo .mdf siempre tiene que estar el grupo de archvios PRIMARY.
+TIENE que haber al menos un .mdf y un .ldf 
+
+
+GRUPOS DE ARCHIVOS:
+    un archivo no puede estar solo
+    en primary tiene que haber obligatoriamente un .mdf 
+
+un grupo tiene que tener al menos un archivo
+un archivo no puede ser utilizado por varias bases de datos
+si tiene un grupo, tampoco se puede mover
+
+se pueden proteger todos los archivos menos el primario -- es de escritura obligatoria
+
+
+============== 4. CREACIÓN =================
+
+
+============== 5. PRUEBAS ===================
+
+ver los datos de una base por comando 
+    USE prueba
+    exec sp_helpdb 'prueba'
+
+si la ruta de cracion no existe no la crea, devuelve error
+
+
