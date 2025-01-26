@@ -1,6 +1,6 @@
 //autora: Eva María Otero Názara 
 
-package arraysejercicios;
+package arraysejercicios.arrays;
 
 public class EjArrays08 {
     

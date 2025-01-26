@@ -10,7 +10,7 @@ exhibición es introducir como puntuación un -1. Por último, la aplicación de
 puntos ordenados de todos los participantes. 
  */
 
-package arraysejercicios;
+package arraysejercicios.apuntes;
 
 import java.util.*;
 

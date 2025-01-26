@@ -3,7 +3,7 @@
 //TERMINADO 
 //EjArrays01. Calcular la media de una serie de números que se leen por teclado.
 
-package arraysejercicios;
+package arraysejercicios.arrays;
 
 import java.util.Arrays;
 import java.util.Scanner;

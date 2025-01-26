@@ -10,7 +10,7 @@
          
         static int[] tablaAleatoria(int numInicio, int numFin, int longitud);  */
 
-package arraysejercicios;
+package arraysejercicios.apuntes;
 
 import java.util.Arrays;
 

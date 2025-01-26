@@ -3,7 +3,7 @@
 /* EjArrays07. 
 Leer N alturas y calcular la altura media. Calcular cuántas hay superiores a la media y cuántas inferiores.
 */
-package arraysejercicios;
+package arraysejercicios.arrays;
 
 import java.util.Scanner;
 

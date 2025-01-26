@@ -82,8 +82,6 @@ public class ArraysEstadisticas {
         int maxRepeticiones = 1;
         int numeroActual = numeros[0];
 
-    
-
         for (int i = 1; i < numeros.length; i++) { //recorrer array ordenado
             //si el array tiene 1 elemento no va a entrar
 
