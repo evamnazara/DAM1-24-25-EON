@@ -4,7 +4,7 @@
 Leer 10 números enteros por teclado y guardarlos en un array. 
 Calcula y muestra la media de los números que estén en las posiciones pares del array.
  */
-package arraysejercicios;
+package arraysejercicios.arrays;
 import java.util.*;
 
 public class EjArrays02 {

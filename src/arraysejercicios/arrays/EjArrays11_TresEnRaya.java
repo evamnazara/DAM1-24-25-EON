@@ -6,7 +6,7 @@ El programa debe permitir a dos jugadores jugar
 El juego termina cuando un jugador consigue tres fichas en línea (horizontal, vertical o diagonal)
 */
 
-package arraysejercicios;
+package arraysejercicios.arrays;
 import java.util.Scanner;
 
 
