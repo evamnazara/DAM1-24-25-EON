@@ -19,7 +19,7 @@ public class E0605_InvertirCadena {
         String fraseInvertida = invertirCadena(frase);
         System.out.println(fraseInvertida);
 
-
+        sc.close();
     }
 
    static String invertirCadena(String cad) {

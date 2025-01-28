@@ -1,0 +1,14 @@
+=========== APUNTES / PARANINFO 
+
+=========== PRACTICAS 
+    Agenda
+    Buscaminas
+    Arrays y estadísticas
+    Conceptos de programación
+    Buscando letras
+    Registro de tiempos
+    Matrices triangulares
+    Abadías pirenaicas
+
+
+=========== ARRAYSEJERCICIOS
