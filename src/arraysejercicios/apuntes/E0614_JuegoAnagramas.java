@@ -29,7 +29,8 @@ public class E0614_JuegoAnagramas {
         char[] palabraDesordenada = desordenarPalabra(palabra);
 
         System.out.println(palabraDesordenada);
-        //char [] combinacionUsuario = leerPalabra(palabra);
+        
+        char [] propuestaUsuario = leerPalabra(palabra);
                 
                 
                 
@@ -39,8 +40,13 @@ public class E0614_JuegoAnagramas {
                 
         
     private static char[] leerPalabra(String palabra) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'leerPalabra'");
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Introduce tu propuesta de palabra:"); 
+
+
+        
+        return null; 
     }
         
         
