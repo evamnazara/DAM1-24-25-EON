@@ -45,6 +45,7 @@ public class E0511_CamaraSecreta {
 
         System.out.println("ENHORABUENA!");
 
+        sc.close();
     }
 
 
@@ -76,7 +77,6 @@ public class E0511_CamaraSecreta {
             }
 
         return combinacion; 
-
     }
 
     static void mostrarPistas(int [] tSecreto, int [] tUsuario ) {

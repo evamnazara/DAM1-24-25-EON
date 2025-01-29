@@ -69,7 +69,9 @@ public class BuscandoLetras {
                             }
                 System.out.println("Número total de veces que aparece: " + posiciones.length );
             }
+            sc.close();
         }
+
 
     }
 

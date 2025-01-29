@@ -59,7 +59,7 @@ public class MatricesTriangulares {
                 }
 
             }
-            return null;
+            return esTriangularInferior;
 
         } 
  

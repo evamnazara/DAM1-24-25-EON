@@ -10,6 +10,7 @@ public class E606_SinVocales {
         String nombre = sc.nextLine();
 
         System.out.println(sinVocales(nombre));
+        sc.close();
     }
     
     static String sinVocales(String cad) {

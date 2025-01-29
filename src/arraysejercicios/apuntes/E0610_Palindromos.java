@@ -47,7 +47,6 @@ public class E0610_Palindromos {
             }
 
             return fraseInvertida;
-
     }
 
     

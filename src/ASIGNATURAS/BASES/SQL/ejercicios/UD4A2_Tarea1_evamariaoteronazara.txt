@@ -1,0 +1,65 @@
+
+1. Indica los tipos de archivos de bases de datos de SQL Server con la extensión correspondiente.
+
+
+2. ¿Puede existir más de un archivo de datos principales? ¿y de archivos de datos secundarios?
+
+
+3. ¿Para qué se utiliza la base de datos model?
+
+
+4. ¿Cuál es la finalidad de la creación de grupos de archivos?
+
+
+5. ¿Puede un archivo pertenecer a más de una base de datos? ¿Y un grupo de archivos?
+
+
+6. ¿Puede un archivo pertenecer a más de un grupo de archivos?
+
+
+7. ¿Puede ubicarse un objeto, por ejemplo una tabla, en más de un archivo?
+
+
+8. ¿A qué grupo de archivos pertenecen los archivos de registro de transacciones?
+
+
+9. Si no hay creados grupos de archivos ¿dónde se incluyen todos los archivos?
+     Primary.
+
+10. ¿Qué es un grupo de archivos predeterminado?, ¿Cuál es, por defecto, el grupo de archivos predeterminado?
+     Primary
+
+
+
+11. En la siguiente instrucción CREATE DATABASE señala:
+    a) archivo primario
+    b) archivos secundarios
+    c) archivos de registro de transacción
+    d) grupos de archivos y archivos que forman parte de cada grupo de archivos
+    e) grupo de archivos predeterminado
+
+        CREATE DATABASE BDCreateDB1
+        ON PRIMARY
+        (NAME = BDCreateDB1_0,
+        FILENAME = 'C:\Archivos de programa\Microsoft SQL Server\MSSQL\Data\BDCreateDB1_0.mdf',
+        SIZE = 100,
+        MAXSIZE = 500,
+        FILEGROWTH = 25%),
+        FILEGROUP Grupo1
+        (NAME= BDCreateDB1_1,
+        FILENAME = 'C:\Archivos de programa\Microsoft SQL Server\MSSQL\Data\BDCreateDB1_1.ndf',
+        SIZE = 10,
+        MAXSIZE = 50,
+        FILEGROWTH = 5%),
+        (NAME = BDCreateDB1_2,
+        FILENAME = 'C:\Archivos de programa\Microsoft SQL Server\MSSQL\Data\BDCreateDB1_2.ndf',
+        SIZE =40,
+        MAXSIZE = 50,
+        FILEGROWTH = 10%)
+
+        LOG ON
+        (NAME= BDCreateDB1_Log,
+        FILENAME = 'C:\Archivos de programa\Microsoft SQL Server\MSSQL\Data\BDCreateDB1_Log.ldf',
+        SIZE = 10MB,
+        MAXSIZE = 25MB,
+        FILEGROWTH = 5MB)
