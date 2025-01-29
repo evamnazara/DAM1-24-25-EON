@@ -57,4 +57,5 @@ LOG ON (
     MAXSIZE = 25MB
     );
     
-    
+
+   -- EXEC sp_helpdb 'Ventas';  
