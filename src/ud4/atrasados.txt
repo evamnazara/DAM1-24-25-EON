@@ -92,3 +92,31 @@ SEPARACION DE ELEMENTOS EN UNA MATRIZ
 
 
 ========== JUEGO DE ROL ===========
+Aquí tienes un archivo JSON con 20 palabras de 5 caracteres para usar en el ejercicio.
+
+Contenido del archivo (palabras.json)
+
+[
+  {"texto": "JUGAR", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0},
+  {"texto": "FELIZ", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0},
+  {"texto": "NIEVE", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0},
+  {"texto": "TIGRE", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0},
+  {"texto": "LUZES", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0},
+  {"texto": "SILLA", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0},
+  {"texto": "MANGO", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0},
+  {"texto": "PLUMA", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0},
+  {"texto": "RAYOS", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0},
+  {"texto": "NUBES", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0},
+  {"texto": "QUESO", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0},
+  {"texto": "BEBER", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0},
+  {"texto": "VIDAS", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0},
+  {"texto": "ZORRO", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0},
+  {"texto": "BOLSA", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0},
+  {"texto": "LIMON", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0},
+  {"texto": "CIELO", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0},
+  {"texto": "FLORO", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0},
+  {"texto": "BOMBA", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0},
+  {"texto": "SALSA", "vecesOculta": 0, "vecesAdivinada": 0, "vecesIntentada": 0}
+]
+
+Voy a generarte el archivo para que puedas descargarlo.
