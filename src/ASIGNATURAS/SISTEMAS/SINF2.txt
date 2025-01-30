@@ -14,3 +14,7 @@ LINUX
 tamaño swap : 
         si < 4 GB, tamaño memoria ram x2 
         si > 4 GB, tamaño memoria ram
+
+
+.bashrc está en /user
+wget www.google.es

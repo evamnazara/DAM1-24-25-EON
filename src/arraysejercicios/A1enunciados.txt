@@ -2,6 +2,8 @@ INSTRUCCIONES:
     paquete: arraysejercicios
     autoria: en comentarios
 
+//A COMENTAR Y ACLARAR: 
+12 Y 12B -- COMENTAR 
 
 EjArrays01. Calcular la media de una serie de números que se leen por teclado.
 
@@ -41,11 +43,9 @@ EjArrays12b_MatrizIdentidad Escribe un programa en Java que reciba un número en
 y genere una matriz identidad de tamaño n x n. 
 
 EjArrays13. Una matriz diagonal es una matriz cuadrada cuyos elementos fuera de la diagonal principal son todos cero. 
-Crea una función que determine si una matriz dada es una matriz diagonal. La función devolverá true si la matriz de números enteros que se le pasa como parámetro es una matriz diagonal, y false en cualquier otro caso. Utiliza el siguiente prototipo para implementar la función:
+    Crea una función que determine si una matriz dada es una matriz diagonal. La función devolverá true si la matriz de números enteros que se le pasa como parámetro es una matriz diagonal, y false en cualquier otro caso. Utiliza el siguiente prototipo para implementar la función:
 
     boolean esDiagonal(int[][] t);
-
-
     Pruebas que deberá pasar la función:
 
 
