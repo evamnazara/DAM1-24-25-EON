@@ -12,56 +12,51 @@ E0615. Modificar la Actividad E0614 para que el programa indique al jugador 2 cu
 letras coinciden (son iguales y están en la misma posición) entre el texto introducido por 
 él y el original.  */
 
-
 package arraysejercicios.apuntes;
 import java.util.Random;
 import java.util.Scanner;
-
+    
 public class E0614_JuegoAnagramas {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
+    
         String palabra;
-        // Verificar que la palabra no esté vacía
+            
         do {
             System.out.println("Escribe tu palabra: ");
             palabra = sc.nextLine();
             if (palabra.isEmpty()) {
-                System.out.println("La palabra no puede estar vacía. Inténtalo de nuevo.");
+                 System.out.println("La palabra no puede estar vacía. Inténtalo de nuevo.");
             }
         } while (palabra.isEmpty());
-        
-        // Desordenar la palabra
-        char[] palabraDesordenada = desordenarPalabra(palabra);
-        String palabraDesordenadaString = new String(palabraDesordenada);  // Convertimos a String para mostrarlo
-        System.out.println("Anagrama: " + palabraDesordenadaString);
-        
-        // Leer propuesta del jugador 2
-        System.out.println("Introduce tu propuesta de palabra: ");
-        String propuestaUsuario = sc.nextLine();
+            
+            char[] palabraDesordenada = desordenarPalabra(palabra);
 
-        // Comprobar si la propuesta es correcta
-        if (propuestaUsuario.equals(palabra)) {
-            System.out.println("¡Acertaste!");
-        } else {
-            System.out.println("Has fallado! La palabra correcta era: " + palabra);
-        }
+            System.out.println(String.valueOf(palabraDesordenada));
+
+            System.out.println("Introduce tu propuesta de palabra: ");
+            String propuestaUsuario = sc.nextLine();
     
-        sc.close();
-    }
-       
-    // Método para desordenar la palabra
-    private static char[] desordenarPalabra(String palabra) {
-        Random rnd = new Random();
-        char[] palabraDesordenada = palabra.toCharArray();
-
-        for (int i = 0; i < palabraDesordenada.length; i++) {
-            int nuevaPosicion = rnd.nextInt(palabraDesordenada.length);            
-            // Intercambiar caracteres
-            char auxiliar = palabraDesordenada[i];
-            palabraDesordenada[i] = palabraDesordenada[nuevaPosicion];
-            palabraDesordenada[nuevaPosicion] = auxiliar;
+            if (propuestaUsuario.equals(palabra)) {
+                System.out.println("¡Acertaste!");
+            } else {
+                System.out.println("¡Has fallado! La palabra correcta era: " + palabra);
+            }
+        
+            sc.close();
         }
-        return palabraDesordenada;
+           
+        private static char[] desordenarPalabra(String palabra) {
+            Random rnd = new Random();
+            char[] palabraDesordenada = palabra.toCharArray();
+    
+            for (int i = 0; i < palabraDesordenada.length; i++) {
+                int nuevaPosicion = rnd.nextInt(palabraDesordenada.length);            
+                // Intercambia letras
+                char auxiliar = palabraDesordenada[i];
+                palabraDesordenada[i] = palabraDesordenada[nuevaPosicion];
+                palabraDesordenada[nuevaPosicion] = auxiliar;
+            }
+            return palabraDesordenada;
+        }
     }
-}

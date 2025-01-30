@@ -10,7 +10,7 @@ package arraysejercicios.apuntes;
 
 import java.util.Arrays;
 
-public class EP0511 {
+public class EP0511_buscarTodos {
     public static void main(String[] args) {
         int[] tablaBuscar = {1, 6, 3, 5, 6, 7, 1, 7, 0, 6, 0};
 
