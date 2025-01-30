@@ -1,7 +1,8 @@
 //autora: Eva María Otero Názara 
 
 /* EjArrays07. 
-Leer N alturas y calcular la altura media. Calcular cuántas hay superiores a la media y cuántas inferiores.
+Leer N alturas y calcular la altura media. 
+Calcular cuántas hay superiores a la media y cuántas inferiores.
 */
 package arraysejercicios.arrays;
 
@@ -10,15 +11,15 @@ import java.util.Scanner;
 public class EjArrays07 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
+        System.out.println("Introduce el número de alturas que vas a calcular: ");
         int n = sc.nextInt();
         int alturas[];
         alturas = new int [n];
 
-        System.out.println("Introduce" + n + "alturas en centímetros:");
+        System.out.println("Introduce las " + n + " alturas en centímetros:");
         leerAlturas(alturas);
 
-        System.out.println("Has introducido " + n + " alturas.");
+        System.out.println("Has introducido correctamente las " + n + " alturas.");
         
         //cálculo de media:
         int sumaAlturas = 0;
@@ -29,7 +30,8 @@ public class EjArrays07 {
         }
         mediaAlturas = sumaAlturas / n;
 
-        //
+        //superiores e inferiores 
+        //contadores
         int altSuperiorMedia = 0;
         int altInferiorMedia = 0;
 
@@ -41,8 +43,10 @@ public class EjArrays07 {
             }
         }
 
-        System.out.println("La media de las alturas introducidas es de " + mediaAlturas + " centímetros.");
-        System.out.println("Hay un total de " + altInferiorMedia + " alturas inferiores a la media, y " + altSuperiorMedia + " superiores a ella.");
+        System.out.println("Media de las alturas introducidas: " + mediaAlturas + " cm.");
+        System.out.println("Total de alturas inferiores a la media: " + altInferiorMedia ); 
+        System.out.println("Total de alturas superiores a la media: " + altSuperiorMedia );
+        
         sc.close();
     }
 
@@ -54,3 +58,4 @@ public class EjArrays07 {
         sc.close();
     }
 }
+
