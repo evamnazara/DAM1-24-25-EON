@@ -1,4 +1,4 @@
-Aquí tienes un código en Java basado en la descripción de la imagen. Implementa una versión de Wordle en consola con una lista de palabras almacenada en un archivo JSON.
+/*Aquí tienes un código en Java basado en la descripción de la imagen. Implementa una versión de Wordle en consola con una lista de palabras almacenada en un archivo JSON.
 
 Características:
 
@@ -209,4 +209,4 @@ Lo siento, la palabra era: XOGAR
 
 ---
 
-Este código implementa todas las funciones básicas del Wordle y almacena estadísticas de uso de cada palabra. ¡Pruébalo y dime si quieres agregar algo más!
+Este código implementa todas las funciones básicas del Wordle y almacena estadísticas de uso de cada palabra. ¡Pruébalo y dime si quieres agregar algo más! */
