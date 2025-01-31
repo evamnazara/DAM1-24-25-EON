@@ -74,8 +74,10 @@ public class Matriculas {
         for (int i = 0; i < numeros.length(); i++ ){
             if (! Character.isDigit(i)) { 
                     numValidados = true;      
+                    System.out.println("Los números son correctos.");
                 }
         }
+        
 
         //validacion letras
         boolean letrasValidadas = true;
@@ -84,11 +86,12 @@ public class Matriculas {
 
         if (letras.contains(letrasInvalidas)) {
             letrasValidadas = false;
+            System.out.println("Las letras son correctas.");
             }
 
 
         //comprobacion
-        if (matricula.length() == LONGITUD && numValidados == true &&           letrasValidadas == true) {
+        if (matricula.length() == LONGITUD && numValidados == true && letrasValidadas == true) {
             return true;
         } else {
             System.out.println("Matrícula inválida.");

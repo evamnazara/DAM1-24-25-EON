@@ -55,8 +55,6 @@ FILEGROUP Grupo2Ventas
 FILENAME = 'C:\ventas\ventasdat4.ndf',
 SIZE = 10,
 MAXSIZE = 50,
-Unidad 4 Actividad 2 : DDL Creación de base de datos
-María José Galán López Pág. 12 de 19
 FILEGROWTH = 5 ),
  ( NAME = 'ventas5_dat',
 FILENAME = 'C:\ventas\ventasdat5.ndf',

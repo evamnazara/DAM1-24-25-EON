@@ -71,3 +71,11 @@ ver los datos de una base por comando
 si la ruta de cracion no existe no la crea, devuelve error
 
 
+VISTA DE CATÁLOGO 
+
+- select: vista de catálogo (todo lo que empiee por sys )
+- funcion en sql es equivalente al helpdb_ //<- procedimiento almacenado
+- un procedimiento almacenado no puede ir dentro de una sentencia/condicional
+
+
+- si hay una conexión no se puede borrar una bd

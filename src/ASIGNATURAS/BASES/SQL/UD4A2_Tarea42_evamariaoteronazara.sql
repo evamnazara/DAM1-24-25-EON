@@ -13,11 +13,10 @@ WHERE database_id > 4;
 
 -- Visualiza informacion de los grupos que hay de 2 maneras
 
-SELECT * FROM sys.filegroups WHERE data_space_id > 0;  
+SELECT * FROM sys.filegroups WHERE data_space_id > 0;  -- 1 
 EXEC sp_helpfilegroup;  
 
 
 -- Visualiza informacion de la base de datos de 2 maneras
 SELECT * FROM sys.databases WHERE name = 'Ventas';  
-
 EXEC sp_helpdb 'Ventas';  
