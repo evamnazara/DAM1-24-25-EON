@@ -47,6 +47,8 @@ public class Matriculas {
         System.out.println("Introduce una matrícula: ");
         String matricula = sc.nextLine();
         System.out.println(esMatriculaValida(matricula));
+
+        System.out.println(siguienteMatricula(matricula));
         
         System.out.println("COMPARADOR DE MATRÍCULAS:");
         System.out.println("Introduce la matricula a comparar:");
@@ -56,6 +58,8 @@ public class Matriculas {
         } else {
             System.out.println("Introduce una matrícula correcta.");
         }
+
+        sc.close();
         
     }
 
@@ -74,7 +78,7 @@ public class Matriculas {
         for (int i = 0; i < numeros.length(); i++ ){
             if (! Character.isDigit(i)) { 
                     numValidados = true;      
-                    System.out.println("Los números son correctos.");
+                    //System.out.println("Los números son correctos.");
                 }
         }
         
@@ -101,16 +105,64 @@ public class Matriculas {
     }
 
     //Devuelve el valor de la matrícula siguiente a la que se le pasa como parámetro. 
+    /*
+    Cuando se llega al último valor (9999), se reinicia la cuenta (en 0000) y se incrementa la segunda parte, que contiene letras.  
+    */
+
     static String siguienteMatricula(String matricula) {
-        String e ="";
+        boolean meLlevoUno = false;
+        //letrasValidas = 
+        Integer nuevoNumero = Integer.valueOf(matricula.substring(0,4)) +1;
+            if (nuevoNumero == 10000) {
+                nuevoNumero= 0000;
+                meLlevoUno = true;                
+            }
+
+            String numeros = String.format("%04d",nuevoNumero);
 
 
-        return e;
+            //letras
+            char[] letras = matricula.substring(4, 7).toCharArray();
+
+            //BBZ de atrás
+
+            for (int i = 2; i <= 2; i--){
+                if (meLlevoUno) {
+                    String letrasValidas = "BCDFGHJKLMNPQRSTVXYZ";
+
+                    //letra++
+                    if (letras[i] == 'Z') {
+                        letras[i] = 'B';
+                        
+                    } else {
+                        letras[i] = letrasValidas.charAt(letrasValidas.indexOf(letras[i]) +1);
+                        meLlevoUno = false;
+                    }
+                }
+            }
+           System.out.println(numeros + String.copyValueOf(letras));
+            return numeros + String.copyValueOf(letras);
     }
 
     static int comparaMatriculas(String m1, String m2) {
-        //NO IMPLEMENTADA
+        String letrasValidas = "BCDFGHJKLMNPQRSTVXYZ";
 
+        if (m1.substring(4,7).compareTo(m2.substring(4,7)) < 0) {
+            return -1;
+            //m1 es mas antigua 
+        } else if (m1.substring(4,7).compareTo(m2.substring(4,7)) > 0) {
+                //m2 es mas antigua
+            return 1;
+        } else {
+                //comp numeros 
+
+                if (m1.substring(0,4).compareTo(m2.substring(0,4)) > 0) {
+                    
+                } else if (m1.substring(0,4).compareTo(m2.substring(0,4)) > 0) {
+
+                }
+
+            }
         return 2;
     }
 }
