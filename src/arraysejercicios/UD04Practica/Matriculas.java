@@ -146,6 +146,8 @@ public class Matriculas {
 
     static int comparaMatriculas(String m1, String m2) {
         String letrasValidas = "BCDFGHJKLMNPQRSTVXYZ";
+        m1 = m1.toUpperCase();
+        m2 = m2.toUpperCase();
 
         if (m1.substring(4,7).compareTo(m2.substring(4,7)) < 0) {
             return -1;
