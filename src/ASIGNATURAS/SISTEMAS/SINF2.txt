@@ -18,3 +18,7 @@ tamaño swap :
 
 .bashrc está en /user
 wget www.google.es
+
+vb: sis-w11-EON
+user: weoternaza
+nmaq: Weq-le14-17

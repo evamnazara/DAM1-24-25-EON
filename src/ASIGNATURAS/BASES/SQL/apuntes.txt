@@ -79,3 +79,15 @@ VISTA DE CATÁLOGO
 
 
 - si hay una conexión no se puede borrar una bd
+
+
+____________
+
+RESTRICCIONES:
+
+1. definir a nivel de tabla siempre
+    >> p.ej restriccion check que haga referencia a otro campo
+
+    el unico a mivel de columna es default 
+
+2. no tienen que llevar nombre
