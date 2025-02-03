@@ -1,0 +1,129 @@
+Explicación del funcionamiento de JavaScript en el proyecto “Atrapa a Miñoca”
+
+El proyecto consiste en un juego donde el jugador debe hacer clic sobre una imagen de “Miñoca” 10 veces lo más rápido posible. Cuando lo logra, es redirigido a una página de victoria que muestra el tiempo que tardó en completar el desafío.
+
+A continuación, explicaré cómo funciona la parte de JavaScript en cada uno de los documentos:
+
+Documento 1: Página del Juego (“atrapaminoca.html”)
+
+Este documento contiene la lógica principal del juego.
+
+Elementos clave del HTML
+	•	Un contador (<p id="contador">) que muestra los clics realizados y el tiempo transcurrido.
+	•	Una imagen (<img id="minoca">) que el jugador debe atrapar haciendo clic sobre ella.
+
+JavaScript en este documento
+	1.	Se seleccionan elementos del DOM:
+
+const gatito = document.getElementById("minoca");
+const contadorTexto = document.getElementById("contador");
+
+Aquí se guardan referencias a la imagen (gatito) y al contador (contadorTexto) para poder modificar sus valores más adelante.
+
+	2.	Se inicializan variables:
+
+let velocidad = 1000;
+let clicks = 0;
+let tiempoInicio = null;
+
+	•	velocidad: determina cada cuánto tiempo se mueve la imagen (inicialmente 1000ms = 1 segundo).
+	•	clicks: cuenta la cantidad de veces que el usuario ha hecho clic en la imagen.
+	•	tiempoInicio: registra el momento en que el jugador realiza el primer clic.
+
+	3.	Función para mover la imagen aleatoriamente:
+
+function moverGatito() {
+    const maxX = window.innerWidth - 100;
+    const maxY = window.innerHeight - 100;
+
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    gatito.style.left = `${randomX}px`;
+    gatito.style.top = `${randomY}px`;
+}
+
+	•	Calcula un nuevo valor aleatorio para la posición de la imagen dentro del área visible de la ventana.
+	•	Modifica la posición de la imagen usando style.left y style.top.
+
+	4.	Evento cuando el usuario hace clic en la imagen:
+
+gatito.addEventListener("click", () => {
+    if (clicks === 0) {
+        tiempoInicio = Date.now();
+    }
+    clicks++;
+    velocidad = Math.max(200, velocidad * 0.9);
+    moverGatito();
+
+	•	Si es el primer clic, registra la hora de inicio (tiempoInicio = Date.now();).
+	•	Aumenta el contador de clics (clicks++).
+	•	Reduce el tiempo de movimiento (velocidad * 0.9) hasta un mínimo de 200ms para hacer el juego más difícil.
+	•	Llama a moverGatito() para que la imagen cambie de posición.
+
+	5.	Se actualiza el contador en pantalla:
+
+let tiempoTranscurrido = ((Date.now() - tiempoInicio) / 1000).toFixed(1);
+contadorTexto.textContent = `Clicks: ${clicks} | Tiempo: ${tiempoTranscurrido}s`;
+
+	•	Calcula el tiempo transcurrido desde el primer clic.
+	•	Muestra los clics realizados y el tiempo en el párrafo con id="contador".
+
+	6.	Condición de victoria y redirección:
+
+if (clicks >= 10) {
+    const url = `victoria.html?tiempo=${tiempoTranscurrido}`;
+    window.location.href = url;
+}
+
+	•	Si el usuario ha hecho 10 clics, se construye una URL (victoria.html?tiempo=XX.X) con el tiempo que tardó.
+	•	Se redirige automáticamente a la página de victoria.
+
+	7.	Llamada inicial a moverGatito():
+
+moverGatito();
+
+	•	Mueve la imagen a una posición aleatoria cuando se carga la página.
+
+Documento 2: Página de Victoria (“victoria.html”)
+
+Este documento muestra el mensaje de victoria con el tiempo registrado.
+
+Elementos clave del HTML
+	•	Una imagen diferente (minoca2.png).
+	•	Un mensaje (<p id="mensaje">) donde se mostrará cuánto tiempo tardó el jugador.
+	•	Un enlace para volver a jugar (<a href="atrapaminoca.html">Volver a jugar</a>).
+
+JavaScript en este documento
+	1.	Se obtiene el tiempo desde la URL:
+
+const params = new URLSearchParams(window.location.search);
+const tiempo = params.get("tiempo");
+
+	•	new URLSearchParams(window.location.search) extrae los parámetros de la URL.
+	•	params.get("tiempo") obtiene el valor del tiempo que se envió desde el otro documento.
+
+	2.	Se actualiza el mensaje de victoria:
+
+document.getElementById("mensaje").textContent = 
+    `Has atrapado a Miñoca 10 veces en ${tiempo} segundos.`;
+
+	•	Se actualiza el texto del <p id="mensaje"> para mostrar el tiempo que el jugador tardó en completar el juego.
+
+Resumen del Funcionamiento
+	1.	Inicio del juego: La imagen aparece en una posición aleatoria.
+	2.	El usuario hace clic en la imagen:
+	•	Se mueve a otra posición.
+	•	Se reduce el tiempo de reacción.
+	•	Se actualiza el contador.
+	3.	Cuando alcanza 10 clics:
+	•	Se calcula el tiempo total.
+	•	Se redirige a la página de victoria.
+	4.	En la página de victoria:
+	•	Se obtiene el tiempo desde la URL.
+	•	Se muestra el mensaje con el tiempo total.
+	•	Se da la opción de volver a jugar.
+
+Conclusión
+
+El código usa eventos (click), manipulación del DOM y redirección con parámetros de URL. Además, implementa una mecánica sencilla pero efectiva para hacer que la imagen se mueva aleatoriamente y aumente la dificultad con cada clic.
