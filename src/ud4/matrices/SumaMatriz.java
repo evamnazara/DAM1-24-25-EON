@@ -7,7 +7,6 @@ public class SumaMatriz {
         int[][] matriz = new int[3][3];
         int suma = 0; 
 
-        // Crear un Scanner para leer datos del usuario
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Introduce los valores para una matriz de 3x3:");
