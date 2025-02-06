@@ -61,3 +61,17 @@ GO
 CREATE TYPE TipoNombreCorto from varchar (15)  
 Select * from sys.types where name='TipoNombreCorto'
 GO 
+
+--verificaciones
+
+SELECT * FROM sys.types WHERE is_user_defined = 1;
+GO
+
+SELECT * FROM information_schema.domains 
+GO
+
+EXEC sp_helpdb 'BD_TiposUsuario1';
+GO
+
+EXEC sp_help 'TipoCodigo';
+GO
