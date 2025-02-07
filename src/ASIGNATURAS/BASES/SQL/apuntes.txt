@@ -91,3 +91,14 @@ RESTRICCIONES:
     el unico a mivel de columna es default 
 
 2. no tienen que llevar nombre
+
+
+
+-- si se sabe la longitud fija es char y no varchar
+-- en regex no existen operadores + o similares
+-- (1,1) es valor inicial e incremento (podria ser (5,10) y empezaria en 5 e iria de 10 en 10
+-- la fk puede ir a nivel de columna si es un solo valor
+-- la check igual //COMPARAR FECHAS ES SIEMPRE TABLA 
+-- distinto <> o != 
+-- chuleta 
+-- create index // cluster o no cluster 
