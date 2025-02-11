@@ -46,7 +46,7 @@ NO
 SI Desconocido
 SI Inglaterra
 NO */
-package aceptaelreto;
+package strings;
 
 import java.util.Scanner;
 
@@ -61,25 +61,26 @@ public class CodigosDeBarras {
         //esEANvalido;
         if (codigoDeBarras.length() != 5 | codigoDeBarras.length() != 13 ) {
             System.out.println("El largo del de código es inválido"); //pasar a while 
-
         } else if (codigoDeBarras.length() != 5) {
             System.out.println(esEAN8valido(codigoDeBarras));
 
         } else { // no 13
             System.out.println(esEAN13valido(codigoDeBarras));
         }
+
+        sc.close();
     }
 
     static boolean esEAN8valido (String codigoEAN) {
         boolean resultado = false;
-
         //codigoEAN = 
         //partir en array 
         //
-        /* Empezando por la derecha (sin contar el dígito de control que se está calculando), se suman los dígitos individuales, multiplicados por un factor:
-Los dígitos en posiciones impares (empezando a contar por la derecha saltándonos el de control) se multiplican por 3.
-Los dígitos en posiciones pares se multiplican por 1.
-Por ejemplo, para el código EAN-8 de la figura la operación a realizar es: */
+        /* Empezando por la derecha (sin contar el dígito de control que se está calculando), 
+            se suman los dígitos individuales, multiplicados por un factor:
+            Los dígitos en posiciones impares (empezando a contar por la derecha saltándonos el de control) se multiplican por 3.
+            Los dígitos en posiciones pares se multiplican por 1.
+            Por ejemplo, para el código EAN-8 de la figura la operación a realizar es: */
 
         return false;
 
