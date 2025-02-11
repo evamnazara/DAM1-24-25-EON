@@ -3,7 +3,7 @@ package ud4.apuntes;
 
 import java.util.Arrays;
 
-import ud4.ArraysUtil;
+import ud4.utiles.ArraysUtil;
 
 public class EjemploOrdenar3 {
     public static void insercionDirecta(Integer A[]){                                            

@@ -14,7 +14,7 @@ package arraysejercicios.apuntes;
 
 import java.util.Arrays;
 
-import ud4.ArraysUtil;
+import ud4.utiles.ArraysUtil;
 
 public class E0506_Primitiva {
     public static void main(String[] args) {

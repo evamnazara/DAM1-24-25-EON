@@ -10,7 +10,8 @@ package ud4.ejercicios;
 
 
 import java.util.Arrays;
-import ud4.ArraysUtil;
+
+import ud4.utiles.ArraysUtil;
 
 public class E0507_SinRepetidos {
     static Integer[] sinRepetidos(Integer t[]) {

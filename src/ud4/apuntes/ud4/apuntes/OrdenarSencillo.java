@@ -1,8 +1,9 @@
 package ud4.apuntes;
 
-import ud4.ArraysUtil;
 import java.util.Arrays;
 //import java.util.Collections;
+
+import ud4.utiles.ArraysUtil;
 
 
 public class OrdenarSencillo {
