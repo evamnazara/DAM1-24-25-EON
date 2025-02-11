@@ -12,7 +12,7 @@ public class torresperezosas {
 
        char [][] tablero2 = {
         {'.','.','.'},
-        {'X','.','.'},
+        {'x','.','.'},
         {'.','.','.'}
         };
         char [][] tablero3 = {
