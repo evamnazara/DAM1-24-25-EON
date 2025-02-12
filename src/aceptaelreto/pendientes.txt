@@ -1,0 +1,669 @@
+ENCRIPTACION MENSAJES
+
+Encriptación de mensajes
+Tiempo máximo: 1,000 s Memoria máxima: 4096 KiB
+Uno de los métodos más antiguos para codificar mensajes es el conocido como cifrado Cesar. Su funcionamiento es simple: cada una de las letras del mensaje original es sustituida por otra letra que se encuentra un número fijo de posiciones más adelante en el alfabeto.
+
+Así, si utilizamos un desplazamiento de 2, las apariciones de la letra 'a' se sustituyen por la 'c', todas las apariciones de la 'b' por 'd', etc. El método tradicional comienza de nuevo al llegar al final del alfabeto, de forma que, con el desplazamiento de 2, la 'y' se sustituye por la 'a' y la 'z' se sustituye por la 'b'.
+
+Los desplazamientos también pueden ser negativos; si utilizamos un desplazamiento de -1, la 'E' se convertirá en 'D', mientras que la 'a' pasará a ser 'z'.
+
+Nuestro cifrado Cesar no codifica los caracteres que no sean letras anglosajonas. Así, por ejemplo, los espacios o los símbolos de puntuación no sufrirán cambio alguno.
+
+Entrada
+
+La entrada está formada por un número indeterminado de casos de prueba.
+
+Cada caso de prueba consiste en una única línea cuyo primer carácter es el código de la letra 'p', seguido de un mensaje codificado con el método Cesar descrito antes utilizando el desplazamiento adecuado para que la letra 'p' se codifique con ese primer carácter.
+
+Los casos de prueba terminan con un mensaje codificado que, una vez traducido, contiene exactamente la cadena "FIN". Cuando se lee este mensaje codificado el programa debe terminar sin generar ninguna otra salida más.
+
+Salida
+
+Para cada caso de prueba, el programa indicará el número de vocales no acentuadas que contiene el mensaje codificado.
+
+Entrada de ejemplo
+
+pEsta cadena esta sin codificar
+pfin
+qbfjpvBFJPV
+ozdhntZDHNT
+xXzwoziui-Um
+qGJO
+
+
+import java.util.Scanner;
+
+public class CifradoCesar {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            // Leer la línea completa
+            String linea = scanner.nextLine();
+
+            // El primer carácter indica cómo se ha cifrado la letra 'p'
+            char letraCodificada = linea.charAt(0);
+            String mensajeCifrado = linea.substring(1); // El resto es el mensaje cifrado
+
+            // Calcular el desplazamiento usado en el cifrado
+            int desplazamiento = calcularDesplazamiento(letraCodificada, 'p');
+
+            // Decodificar el mensaje
+            String mensajeOriginal = decodificarMensaje(mensajeCifrado, desplazamiento);
+
+            // Si el mensaje original es "FIN", terminamos el programa
+            if (mensajeOriginal.equals("FIN")) {
+                break;
+            }
+
+            // Contar el número de vocales en el mensaje cifrado
+            int cantidadVocales = contarVocales(mensajeCifrado);
+
+            // Imprimir el número de vocales
+            System.out.println(cantidadVocales);
+        }
+
+        scanner.close();
+    }
+
+    // Calcula el desplazamiento que se ha utilizado para cifrar
+    public static int calcularDesplazamiento(char letraCodificada, char letraOriginal) {
+        int codigoCodificado = letraCodificada;
+        int codigoOriginal = letraOriginal;
+        int desplazamiento = codigoCodificado - codigoOriginal;
+
+        return desplazamiento;
+    }
+
+    // Decodifica el mensaje aplicando el cifrado César en sentido inverso
+    public static String decodificarMensaje(String mensaje, int desplazamiento) {
+        String resultado = "";
+
+        for (int i = 0; i < mensaje.length(); i++) {
+            char caracter = mensaje.charAt(i);
+            char caracterDecodificado = descifrarCaracter(caracter, desplazamiento);
+            resultado += caracterDecodificado; // Concatenación en lugar de StringBuilder
+        }
+
+        return resultado;
+    }
+
+    // Desplaza un carácter en sentido inverso según el desplazamiento dado
+    public static char descifrarCaracter(char caracter, int desplazamiento) {
+        if (esLetra(caracter)) {
+            int base = (esMayuscula(caracter)) ? 'A' : 'a';
+            int posicionOriginal = (caracter - base - desplazamiento + 26) % 26;
+            return (char) (base + posicionOriginal);
+        }
+        return caracter; // No cambia si no es una letra
+    }
+
+    // Verifica si un carácter es una letra del alfabeto inglés
+    public static boolean esLetra(char c) {
+        return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
+    }
+
+    // Verifica si un carácter es una letra mayúscula
+    public static boolean esMayuscula(char c) {
+        return (c >= 'A' && c <= 'Z');
+    }
+
+    // Cuenta las vocales en un mensaje
+    public static int contarVocales(String mensaje) {
+        int contador = 0;
+        for (int i = 0; i < mensaje.length(); i++) {
+            char c = mensaje.charAt(i);
+            if (esVocal(c)) {
+                contador++;
+            }
+        }
+        return contador;
+    }
+
+    // Verifica si un carácter es una vocal (sin acentos)
+    public static boolean esVocal(char c) {
+        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ||
+               c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
+    }
+}
+
+===============
+
+LA FIESTA ABURRIDA 
+
+
+La fiesta aburrida
+Tiempo máximo: 1,000 s Memoria máxima: 2048 KiB
+Tinín es un tipo bastante peculiar. No le gustan nada las fiestas, ni las celebraciones, ni las cenas familiares o con amigos. Nada. Es sorprendente que, a pesar de sus pocas ganas de interactuar con gente, haya encontrado novia.
+
+Cuando ésta consigue sacarle de casa para llevarle a algún tipo de celebración y la gente le dice "Hombre, Tinín, ¡pero si has venido!" él siempre suelta su mítica frase "Yo soy más traído que venido.".
+
+Una de las cosas que más le molesta es tener que ir saludando a todos los presentes, sobre todo si no le conocen. Eso de que se le acerquen y le digan "Soy Lotario" y que él tenga que saludar no lo soporta. ¿Puedes ayudarle?
+
+Entrada
+
+La entrada comienza con un número que indica la cantidad de gente a la que Tinín no conoce en la fiesta en la que está. A continuación viene una línea por cada una de esas personas en la que se presenta indicando su nombre: "Soy Lotario". La línea siempre tendrá el mismo formato; una primera palabra "Soy" seguida del nombre de la persona que será simple (no será un nombre compuesto por varias palabras) y formado por como mucho 100 letras del alfabeto inglés.
+
+Salida
+
+Para cada persona que se le aproxima, se debe escribir la cadena "Hola, [nombre].".
+
+Entrada de ejemplo
+
+3
+Soy Lotario
+Soy Aldonza
+Soy Ender
+Salida de ejemplo
+
+Hola, Lotario.
+Hola, Aldonza.
+Hola, Ender.
+=======
+
+import java.util.Scanner;
+
+public class FiestaAburrida {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Leer el número de personas que Tinín no conoce
+        String primeraLinea = scanner.nextLine();
+        int cantidadPersonas = convertirAEntero(primeraLinea); 
+
+        // Procesar cada presentación
+        for (int i = 0; i < cantidadPersonas; i++) {
+            String linea = scanner.nextLine();  // Leer la línea con "Soy [nombre]"
+            String nombre = extraerNombre(linea);  // Extraer el nombre de la persona
+            System.out.println("Hola, " + nombre + ".");  // Imprimir saludo
+        }
+
+        scanner.close();
+    }
+
+    // Función para convertir un número en String a entero sin usar parseInt()
+    public static int convertirAEntero(String numero) {
+        int resultado = 0;
+        for (int i = 0; i < numero.length(); i++) {
+            char digito = numero.charAt(i);
+            resultado = resultado * 10 + (digito - '0');
+        }
+        return resultado;
+    }
+
+    // Función para extraer el nombre de la frase "Soy [nombre]"
+    public static String extraerNombre(String frase) {
+        return frase.substring(4);  // "Soy " tiene 4 caracteres, extraemos desde ahí
+    }
+}
+
+=====
+
+CADENAS ADN 
+
+Comparando cadenas de ADN
+Tiempo máximo: 3,000-4,000 s Memoria máxima: 196608 KiB
+El ADN (o en su nombre largo el ácido desoxirribonucleico) es apasionante. Es una molécula clave para los seres vivos que contiene la información para construir otros componentes celulares. Además es la responsable de la transmisión hereditaria y de que los hijos se parezcan a sus padres.
+
+Gracias a esa transmisión hereditaria, el análisis del ADN ha servido a los científicos para desentrañar muchos misterios. Por ejemplo, gracias a algunos proyectos científicos se han podido rastrear migraciones humanas de hace miles de años en base a las similitudes y diferencias entre el ADN encontrado en distintos yacimientos. Sin irnos tan lejos, 135 años después de que tuvieran lugar los crímenes del famoso Jack el Destripador a finales del siglo XIX, varios científicos aseguraron tener pruebas de ADN que podrían demostrar su identidad. Las pruebas se basaban en la comparación entre una muestra de ADN recogida de ropa conservada del asesino y el ADN de un descendiente de uno de los sospechosos que barajó en su momento Scotland Yard.
+
+El hecho de que el ADN de una persona sea único (exceptuando hermanos gemelos) hace que sirva también a la policía forense para esclarecer crímenes mucho más cercanos. Si se compara ADN encontrado en el lugar del crimen con el ADN de un sospechoso y resultan ser iguales, el sospechoso tendrá que dar muchas más explicaciones para salirse sin una sentencia en contra.
+
+No obstante, determinar si dos muestras de ADN son de la misma persona no es tarea fácil pues las muestras que se recogen no están siempre completas. Para entenderlo mejor diremos que una cadena de ADN está compuesta por cuatro tipos de nucleótidos: Adenina, Citosina, Guanina y Timina (A, C, G y T). En un mundo ideal, si nos dan dos cadenas de ADN con la lista ordenada de nucleótidos que tiene cada una, basta comparar si los caracteres coinciden. En la práctica no es tan fácil pues muchas veces algunos de los nucleótidos se han perdido (principalmente en las esquinas).
+
+Dada una serie de cadenas de ADN, para cada una de ellas ¿cuántas de las otras podrían pertenecer al mismo individuo?
+
+Entrada
+
+La entrada estará formada por distintos casos de prueba. Cada uno comienza con una línea que indica el número de cadenas de ADN que se darán (hasta 40.000). A continuación vendrá una línea con cada una de las cadenas, todas con la misma longitud (como mucho 50 caracteres).
+
+Cada cadena de ADN tendrá los caracteres A, C, G y T indicando el nucleótido colocado en esa posición o un guión (-) indicando un hueco (nucleótido desconocido) en la cadena. De haber huecos o guiónes estos estarán colocados principalmente en los laterales de la cadena; en la parte central nunca habrá más de 2.
+
+Dos cadenas pueden pertenecer al mismo individuo si en las posiciones en las que ambas tienen nucleótido conocido, este coincide.
+
+Salida
+
+Por cada caso de prueba se escribirá una línea con tantos números como cadenas de ADN se han dado. El número en la posición i indicará cuántas cadenas iguales a la cadena colocada en la posición i hay (sin contar a ella misma), teniendo en cuenta que los guiones se consideran igual a cualquier otro nucleótido (o a otro guión)
+
+Entrada de ejemplo
+
+3
+--AAA-
+------
+-TTT--
+4
+AAA
+-AA
+AA-
+---
+1
+ACGT
+
+=========
+
+import java.util.Scanner;
+
+public class ComparadorADN {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        while (scanner.hasNextLine()) {
+            // Leer el número de cadenas de ADN
+            String primeraLinea = scanner.nextLine();
+            int cantidadCadenas = convertirAEntero(primeraLinea);
+
+            if (cantidadCadenas == 0) {
+                break; // Caso base para terminar
+            }
+
+            // Leer las cadenas de ADN
+            String[] cadenasADN = new String[cantidadCadenas];
+            for (int i = 0; i < cantidadCadenas; i++) {
+                cadenasADN[i] = scanner.nextLine();
+            }
+
+            // Array para contar coincidencias
+            int[] conteo = new int[cantidadCadenas];
+
+            // Comparar cada cadena con las demás
+            for (int i = 0; i < cantidadCadenas; i++) {
+                for (int j = i + 1; j < cantidadCadenas; j++) {
+                    if (esPosibleCoincidencia(cadenasADN[i], cadenasADN[j])) {
+                        conteo[i]++;
+                        conteo[j]++;
+                    }
+                }
+            }
+
+            // Imprimir el resultado
+            for (int i = 0; i < cantidadCadenas; i++) {
+                if (i > 0) {
+                    System.out.print(" ");
+                }
+                System.out.print(conteo[i]);
+            }
+            System.out.println(); // Nueva línea al final de cada caso
+        }
+
+        scanner.close();
+    }
+
+    // Convierte un String numérico a entero sin usar parseInt()
+    public static int convertirAEntero(String numero) {
+        int resultado = 0;
+        for (int i = 0; i < numero.length(); i++) {
+            char digito = numero.charAt(i);
+            resultado = resultado * 10 + (digito - '0');
+        }
+        return resultado;
+    }
+
+    // Verifica si dos cadenas de ADN pueden pertenecer al mismo individuo
+    public static boolean esPosibleCoincidencia(String adn1, String adn2) {
+        int longitud = adn1.length();
+
+        for (int i = 0; i < longitud; i++) {
+            char nucleotido1 = adn1.charAt(i);
+            char nucleotido2 = adn2.charAt(i);
+
+            // Si ambos tienen nucleótido definido y son distintos, no son compatibles
+            if (nucleotido1 != '-' && nucleotido2 != '-' && nucleotido1 != nucleotido2) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+
+=======
+
+QUINTO MILENIO 
+
+Quinto milenio
+Tiempo máximo: 1,000-5,000 s Memoria máxima: 4096 KiB
+Túker Chiménez ve cosas escondidas en cualquier lado. Una mancha de humedad en la pared se le antoja la cara de la anterior propietaria de una casa; el sonido del viento le parece un susurro venido del más allá; una nube con forma peculiar le convence de la existencia de vida extraterrestre.
+
+Ahora le ha dado por ver mensajes ocultos en cualquier sitio. Por poner un ejemplo, si lee el siguiente titular: "El presidente del Gobierno se somete esta noche al escrutinio de varios periodistas en Televisión Española.", se las ingenia para leer un "te odio" oculto que le mantiene en vela toda la noche:
+
+El presidenTe dEl Gobierno se sOmete esta noche al escrutinio De varIos periOdistas en Televisión Española.
+
+Ahora quiere automatizar la tarea de la búsqueda de estos mensajes.
+
+Entrada
+
+La entrada comenzará con un entero que indica el número de casos de prueba. Cada uno de ellos está formado por dos líneas; la primera indica el titular donde buscar un mensaje oculto y la segunda indica el mensaje a buscar. La longitud de cada una de las cadenas no excederá los 2000 caracteres. Ten en cuenta que no hace falta distinguir entre mayúsculas y minúsculas y que los espacios del mensaje oculto no son relevantes, es decir, no hace falta que existan en el mensaje original, pero sí deben aparecer el resto de caracteres (signos de puntuación, comillas, etc.). Se garantiza que el mensaje oculto a buscar no empieza ni termina por espacios.
+
+La entrada contendrá únicamente letras del alfabeto inglés, por lo que no aparecerán vocales con tilde. Además, podrían aparecer múltiples espacios consecutivos.
+
+Salida
+
+Para cada caso de prueba el programa escribirá SI si el mensaje buscado aparece en el titular y NO en caso contrario.
+
+Entrada de ejemplo
+
+4
+...dente ...somete ... de varios periodistas ...
+te odio.
+Teo dijo "si".
+te odio.
+Y adios, que ya viene el alba.
+te odio.
+Teo    subio  al    podio.
+te          odio.
+
+====
+import java.util.Scanner;
+
+public class QuintoMilenio {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Leer el número de casos de prueba
+        String primeraLinea = scanner.nextLine();
+        int numeroCasos = convertirAEntero(primeraLinea);
+
+        // Procesar cada caso de prueba
+        for (int i = 0; i < numeroCasos; i++) {
+            String titular = scanner.nextLine();
+            String mensaje = scanner.nextLine();
+
+            // Convertir a minúsculas
+            titular = convertirAMinusculas(titular);
+            mensaje = convertirAMinusculas(mensaje);
+
+            // Eliminar espacios del mensaje oculto
+            String mensajeSinEspacios = eliminarEspacios(mensaje);
+
+            // Verificar si el mensaje oculto aparece en el titular en orden
+            boolean encontrado = buscarMensajeOculto(titular, mensajeSinEspacios);
+
+            // Imprimir el resultado
+            if (encontrado) {
+                System.out.println("SI");
+            } else {
+                System.out.println("NO");
+            }
+        }
+
+        scanner.close();
+    }
+
+    // Convierte un String numérico a entero sin usar parseInt()
+    public static int convertirAEntero(String numero) {
+        int resultado = 0;
+        for (int i = 0; i < numero.length(); i++) {
+            char digito = numero.charAt(i);
+            resultado = resultado * 10 + (digito - '0');
+        }
+        return resultado;
+    }
+
+    // Convierte una cadena a minúsculas sin usar toLowerCase()
+    public static String convertirAMinusculas(String texto) {
+        char[] caracteres = texto.toCharArray();
+        for (int i = 0; i < caracteres.length; i++) {
+            if (caracteres[i] >= 'A' && caracteres[i] <= 'Z') {
+                caracteres[i] = (char) (caracteres[i] + 32); // Convertir a minúscula
+            }
+        }
+        return new String(caracteres);
+    }
+
+    // Elimina espacios de una cadena sin usar replace()
+    public static String eliminarEspacios(String texto) {
+        char[] caracteres = texto.toCharArray();
+        String resultado = "";
+        for (char c : caracteres) {
+            if (c != ' ') {
+                resultado += c;
+            }
+        }
+        return resultado;
+    }
+
+    // Verifica si el mensaje oculto aparece en orden dentro del titular
+    public static boolean buscarMensajeOculto(String titular, String mensaje) {
+        int indiceMensaje = 0;
+        int longitudMensaje = mensaje.length();
+
+        // Recorrer el titular buscando el mensaje en orden
+        for (int i = 0; i < titular.length(); i++) {
+            if (titular.charAt(i) == mensaje.charAt(indiceMensaje)) {
+                indiceMensaje++;
+                if (indiceMensaje == longitudMensaje) {
+                    return true; // Se encontró todo el mensaje en orden
+                }
+            }
+        }
+        return false; // No se encontró el mensaje
+    }
+}
+
+=======
+
+CODIGO MORSE
+
+Aprendiendo el código Morse
+Tiempo máximo: 1,000 s Memoria máxima: 4096 KiB
+Todos hemos oído hablar del código o alfabeto Morse, que antiguamente servía para transmitir mensajes de telégrafo. El código consiste en la codificación de cada letra del abecedario con una sucesión de puntos y rayas que se traducen a señales auditivas cortas (puntos) o largas (rayas), siguiendo las transformaciones que se indican en la tabla.
+
+Letra	Código		Letra	Código
+A	.-		N	-.
+B	-...		O	---
+C	-.-.		P	.--.
+D	-..		Q	--.-
+E	.		R	.-.
+F	..-.		S	...
+G	--.		T	-
+H	....		U	..-
+I	..		V	...-
+J	.---		W	.--
+K	-.-		X	-..-
+L	.-..		Y	-.--
+M	--		Z	--..
+El código, no obstante, es bastante complicado de aprender y utilizar. Por una parte hay que aprenderse los códigos de cada letra. Por otra, hay que añadir pausas entre cada símbolo, al existir codificaciones de letras que son prefijos de otras, y pausas más largas entre cada palabra, pues el "espacio" no tiene ningún código asociado.
+
+Una guía de ayuda para aprenderse la tabla de codificación consiste en tener una palabra de referencia para cada letra. Así, por ejemplo, para la letra 'A' podemos memorizar Arco. La palabra elegida para cada letra debe comenzar por esa letra y ser tal que si cada vocal 'o' se sustituye por una raya, y el resto de vocales por un punto, el resultado final sea la codificación de la letra en cuestión.
+
+A continuación aparecen algunos ejemplos de palabras que pueden utilizarse como palabras de referencia:
+
+Letra	Palabra de referencia	Código
+A	Arco	.-
+B	Bogavante	-...
+C	Corazones	-.-.
+Ahora estamos haciendo una tabla nueva y tenemos que comprobar si, dada una palabra, podemos o no utilizarla como palabra de referencia.
+Entrada
+
+La entrada consiste en una serie de palabras de no más de 20 letras, cada una en una línea independiente. Cada palabra contendrá únicamente símbolos del alfabeto inglés ya sea en mayúscula o en minúscula. Las palabras no contendrán tildes (aunque eso implique no escribir correctamente la palabra).
+
+Salida
+
+Para cada palabra se mostrará en una línea independiente si puede ser utilizada como palabra de referencia según la descripción dada. En caso afirmativo se escribirá la palabra leída seguida de "OK". En caso negativo, tras la palabra se escribira "X".
+
+Entrada de ejemplo
+
+Arco
+Corazones
+ARBOLES
+Salida de ejemplo
+
+Arco OK
+Corazones OK
+ARBOLES X
+
+
+=====
+import java.util.Scanner;
+
+public class CodigoMorse {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Tabla de código Morse según la primera letra
+        String[] morseAlfabeto = {
+            ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---",
+            "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-",
+            "..-", "...-", ".--", "-..-", "-.--", "--.."
+        };
+
+        while (scanner.hasNextLine()) {
+            String palabra = scanner.nextLine();
+            if (palabra.isEmpty()) {
+                break;
+            }
+
+            // Convertimos la palabra a código Morse siguiendo las reglas
+            String codigoGenerado = generarCodigoMorse(palabra);
+
+            // Identificar el índice de la primera letra en el alfabeto (A-Z)
+            char primeraLetra = Character.toUpperCase(palabra.charAt(0));
+            int indice = primeraLetra - 'A';
+            String codigoEsperado = morseAlfabeto[indice];
+
+            // Comparar el código generado con el esperado
+            if (codigoGenerado.equals(codigoEsperado)) {
+                System.out.println(palabra + " OK");
+            } else {
+                System.out.println(palabra + " X");
+            }
+        }
+
+        scanner.close();
+    }
+
+    // Genera el código Morse según la palabra dada
+    public static String generarCodigoMorse(String palabra) {
+        String resultado = "";
+
+        for (int i = 0; i < palabra.length(); i++) {
+            char letra = Character.toLowerCase(palabra.charAt(i));
+            if (letra == 'o') {
+                resultado += "-";  // 'o' se convierte en raya
+            } else if (letra == 'a' || letra == 'e' || letra == 'i' || letra == 'u') {
+                resultado += ".";  // Otras vocales se convierten en punto
+            }
+        }
+
+        return resultado;
+    }
+}
+
+====
+
+ANELIDOS 
+
+
+Como si fueras un programador de java novato, resuelve el siguiente problema. Utiliza variables claras, explica cada paso que haces. Puedes utilizar funciones básicas de Strings, pero no utilices funciones de parseo ni StringBuilder.
+
+Anélidos
+Tiempo máximo: 2,000 s Memoria máxima: 8192 KiB
+Los anélidos son una variedad de lo que coloquialmente se conoce como gusanos. Su propiedad más característica (y que los diferencia del resto de variedades) es que sus cuerpos están compuestos por la repetición de "anillos" con la misma estructura, repitiéndose en cada anillo todos los órganos internos y externos. Seguramente los anélidos más conocidos sean las orugas.
+En algunos lugares de la selva tropical se da una variedad de oruga, llamada thuelis, que intriga desde hace muchos años a los biólogos. Cuando nacen, poseen únicamente un anillo (además de la cabeza), de color o bien amarillo, o bien negro. En cada fase de crecimiento todos sus anillos se replican, de forma que donde antes había un anillo ahora aparecen dos. En particular cada anillo da lugar, a su lado y más cerca que él de la cabeza, a un nuevo anillo del color contrario:
+Estas orugas crecen indefinidamente siguiendo ese patrón. Aunque no son venenosas, los colores que muestran son similares a los de otras especies que sí lo son, por lo que los depredadores suelen evitarlas. Se han llegado a encontrar ejemplares de casi dos metros.
+Para una distribución inicial de anillos, ¿eres capaz de decir qué colores tendrán después de varias fases de crecimiento?
+Entrada
+La entrada estará compuesta de varios casos de prueba. Cada uno empezará con un número entero no negativo que indicará cuantas fases de crecimiento hay que simular. Después vendrá una cadena indicando los colores de los anillos del ejemplar (A para amarillo y N para negro), acabando con la letra C que indica la posición de la cabeza.
+Ten en cuenta que, en muy raras ocasiones, el crecimiento no sigue el patrón habitual, por lo que las configuraciones iniciales de la entrada nonecesariamente serán alcanzables desde alguno de las dos variedades de nacimiento de los thuelis (un único anillo amarillo o negro).
+La entrada terminará cuando se reciba un thuelis sin anillos.
+Salida
+Para cada caso de prueba el programa deberá indicar, en una línea, la configuración de colores de los anillos tras el número solicitado de fases de crecimiento, asumiendo que todas siguen el patrón habitual descrito. Se usará, como en la entrada, Apara amarillo y N para negro, acabando con la C para la cabeza. No se añadirán espacios en ningún caso.
+====
+
+import java.util.Scanner;
+
+public class Anelidos {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        while (scanner.hasNextLine()) {
+            // Leer la línea de entrada
+            String linea = scanner.nextLine().trim();
+            
+            // Separar número de fases y cadena inicial de anillos
+            int espacio = encontrarEspacio(linea);
+            if (espacio == -1) {
+                break; // No hay un número de fases, fin de entrada
+            }
+
+            // Obtener número de fases sin usar parseo
+            int fases = convertirAEntero(linea.substring(0, espacio));
+            String anillos = linea.substring(espacio + 1); // Cadena de anillos con 'C' al final
+
+            // Si la cadena de anillos es solo "C", terminar
+            if (anillos.equals("C")) {
+                break;
+            }
+
+            // Simular el crecimiento
+            for (int i = 0; i < fases; i++) {
+                anillos = crecerAnelido(anillos);
+            }
+
+            // Imprimir el resultado
+            System.out.println(anillos);
+        }
+
+        scanner.close();
+    }
+
+    // Encuentra el primer espacio en la línea de entrada
+    public static int encontrarEspacio(String texto) {
+        for (int i = 0; i < texto.length(); i++) {
+            if (texto.charAt(i) == ' ') {
+                return i;
+            }
+        }
+        return -1; // No se encontró espacio
+    }
+
+    // Convierte un número en formato String a entero sin usar parseInt()
+    public static int convertirAEntero(String numero) {
+        int resultado = 0;
+        for (int i = 0; i < numero.length(); i++) {
+            char digito = numero.charAt(i);
+            resultado = resultado * 10 + (digito - '0'); // Convertir char a número
+        }
+        return resultado;
+    }
+
+    // Simula una fase de crecimiento del anélido
+    public static String crecerAnelido(String anillos) {
+        String nuevaCadena = "";
+
+        // Iterar sobre la cadena original sin incluir la 'C' final
+        for (int i = 0; i < anillos.length() - 1; i++) {
+            char anillo = anillos.charAt(i);
+            if (anillo == 'A') {
+                nuevaCadena += "NA"; // 'A' se convierte en "NA"
+            } else if (anillo == 'N') {
+                nuevaCadena += "AN"; // 'N' se convierte en "AN"
+            }
+        }
+
+        return nuevaCadena + "C"; // Añadir la cabeza al final
+    }
+}
+
+
+=====
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
