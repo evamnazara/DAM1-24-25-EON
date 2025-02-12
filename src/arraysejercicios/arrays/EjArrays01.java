@@ -1,6 +1,4 @@
-//autora: Eva María Otero Názara 
 
-//TERMINADO 
 //EjArrays01. Calcular la media de una serie de números que se leen por teclado.
 
 package arraysejercicios.arrays;
