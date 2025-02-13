@@ -31,7 +31,7 @@ public class BarJavier {
                     }
                 }
 
-                double mediaVentas = sumaVentas / numVentas;
+                //double mediaVentas = sumaVentas / numVentas;
 
                 // Obtener el máximo y el mínimo de las ventas
                 double maxVenta = -1;
@@ -69,6 +69,7 @@ public class BarJavier {
                 }
 
                 // Verificar si las ventas de COMIDAS super
+                scanner.close();
             }
         }
     }

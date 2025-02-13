@@ -59,27 +59,52 @@ public class torresperezosas {
     }
 
     private static int caminosDistintosRecursivo(char[][] t) {
-        int [][] tr = new int [t.length][t.length];
-        return calcularCasilla(t, 0, t.length -1);
+        return calcularCasilla(t, 0, t.length - 1);
     }
 
-    private static int calcularCasilla(char[][] t, int i, int j){
-        if(j == 0 && i == t.length -1) {
+    private static int calcularCasilla(char[][] t, int i, int j) {
+        if (j == 0 && i == t.length - 1)
             return 1;
-
-        } else if (t[i][j] != 'x') {
+        else if (t[i][j] == 'X')
             return 0;
-        } else if (j == 0) {
-            calcularCasilla(t, i, j);
-        } else if (i == t.length -1) {
-            return calcularCasilla(t, i, j - 1 );
-        }
-        return calcularCasilla(t, i, j - 1) + calcularCasilla(t, i, j);
-         
+        else if (j == 0)
+            return calcularCasilla(t, i + 1, j);
+        else if (i == t.length - 1)
+            return calcularCasilla(t, i, j - 1);
+        else
+            return calcularCasilla(t, i, j - 1) + calcularCasilla(t, i + 1, j);
     }
+
 
 
 }
+
+/*
+ * 
+ * 
+    // SOLUCIÓN ITERATIVA OSCAR
+    private static int caminosDistintos(char[][] t) {
+        int[][] tr = new int[t.length][t.length];
+
+        for (int j = 0; j < t.length; j++) {
+            for (int i = tr.length - 1; i >= 0; i--) {
+                // Inicializamos la casilla inferior izquierda
+                if (j == 0 && i == t.length - 1) {
+                    tr[i][j] = 1;
+                } else if (t[i][j] != 'X') {
+                    // sumar casillaizquierda + casillainferior
+                    if (j > 0)
+                        tr[i][j] = tr[i][j-1];
+                    if (i < t.length - 1)
+                        tr[i][j] += tr[i+1][j];
+                }
+            }
+        }
+        // El resultado está en la casilla superior derecha
+        return tr[0][tr.length - 1];
+    }
+
+ */
 
 /*
  * 

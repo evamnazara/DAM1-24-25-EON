@@ -37,12 +37,13 @@ import java.util.Scanner;
 
 public class tiempos {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+       /*  Scanner sc = new Scanner(System.in);
         
         LocalTime tiempoInicio = LocalTime.now();
         int [] tiempos = new int [0];
         String salida = "F";
-        salida.equalsIgnoreCase(salida);
+        salida.equalsIgnoreCase(salida); 
+        */
 
         //while (condition) {}
 

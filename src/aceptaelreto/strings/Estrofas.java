@@ -61,9 +61,10 @@ PAREADO
 DESCONOCIDO
 CUADERNA VIA
 TERCETO
-*/
 
+package strings;
 import java.util.Scanner;
+
 
 public class Estrofas {
 
@@ -183,3 +184,4 @@ public class Estrofas {
     // Extrae solo las vocal
 
 
+*/

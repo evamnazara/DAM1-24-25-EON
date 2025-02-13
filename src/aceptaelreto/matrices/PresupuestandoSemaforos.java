@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class PresupuestandoSemaforos {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         
         while (true) {
             // Leer el ancho y el alto del pueblo
-            int ancho = scanner.nextInt();
-            int alto = scanner.nextInt();
+            int ancho = sc.nextInt();
+            int alto = sc.nextInt();
             
             // Si ambos son 0, terminamos el programa
             if (ancho == 0 && alto == 0) {
@@ -19,10 +19,10 @@ public class PresupuestandoSemaforos {
             
             // Crear la cuadrícula para el plano del pueblo
             char[][] pueblo = new char[alto][ancho];
-            scanner.nextLine();  // Para leer la línea vacía que queda después de los dos enteros
+            sc.nextLine();  // Para leer la línea vacía que queda después de los dos enteros
             
             for (int i = 0; i < alto; i++) {
-                pueblo[i] = scanner.nextLine().toCharArray();
+                pueblo[i] = sc.nextLine().toCharArray();
             }
             
             // Contar los semáforos necesarios (intersecciones)
@@ -63,7 +63,7 @@ public class PresupuestandoSemaforos {
             System.out.println(semaforos);
         }
         
-        scanner.close();
+        sc.close();
     }
 }
 

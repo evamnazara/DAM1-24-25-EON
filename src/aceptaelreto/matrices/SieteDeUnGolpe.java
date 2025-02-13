@@ -89,22 +89,6 @@ Por cada caso de prueba se escribirá una línea con ocho números enteros; el p
 
 Ten en cuenta que el matamoscas siempre se coloca con la misma orientación y que debe entrar todo entero en la mesa. Además, podría haber posiciones en las que el número de moscas muertas sea superior a siete.
 
-Entrada de ejemplo
-
-3 3 2 2
-...
-.X.
-...
-4 3 4 2
-X.XX
-X.XX
-..XX
-4 3 3 3
-XXX.
-XXX.
-XXX.
-0 0 0 0
-Salida de ejemplo
 
 0 4 0 0 0 0 0 0
 0 0 0 0 0 1 1 0
@@ -146,22 +130,6 @@ Explicación del código:
 	•	Después de procesar todos los casos de prueba, imprimimos el array conteo, que contiene el número de posiciones para cada cantidad de moscas muertas, en orden desde 0 hasta 7 o más.
 
 Ejemplo de ejecución:
-
-Entrada:
-
-3 3 2 2
-...
-.X.
-...
-4 3 4 2
-X.XX
-X.XX
-..XX
-4 3 3 3
-XXX.
-XXX.
-XXX.
-0 0 0 0
 
 Salida:
 

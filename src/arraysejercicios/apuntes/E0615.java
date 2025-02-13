@@ -48,7 +48,6 @@ public class E0615 {
         sc.close();
 
         }
-           
         private static char[] desordenarPalabra(String palabra) {
             Random rnd = new Random();
             //Random rnd = new Random(0); 
