@@ -30,8 +30,6 @@ public class EjArrays07 {
         }
         mediaAlturas = sumaAlturas / n;
 
-        //superiores e inferiores 
-        //contadores
         int altSuperiorMedia = 0;
         int altInferiorMedia = 0;
 
