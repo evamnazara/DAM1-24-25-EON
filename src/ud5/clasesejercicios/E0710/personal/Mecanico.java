@@ -1,5 +1,9 @@
 package ud5.clasesejercicios.E0710.personal;
 
+import java.time.LocalDate;
+
+import ud5.clasesejercicios.E0710.maquinaria.Locomotora;
+
 public class Mecanico {
     String nombre;
     String telefono;
@@ -9,5 +13,16 @@ public class Mecanico {
         this.nombre = nombre;
         this.telefono = telefono;
         this.especialidad = especialidad;
+    }
+
+    @Override
+    public String toString() {
+        return "MECÁNICO: \\n [nombre=" + nombre + " \\n" + //
+                        "telefono=" + telefono + "\\n" + //
+                        "Especialidad=" + especialidad + "]";
+    }
+
+    public void revisar(Locomotora locomotora) {
+        System.out.println("Le mecanique " + nombre + "Se revisó al locomotora: " + locomotora + "especialidad: " + especialidad + "con fecha" + LocalDate.now());
     }
 }

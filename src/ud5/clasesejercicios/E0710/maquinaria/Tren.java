@@ -36,9 +36,33 @@ public class Tren {
         }
         Vagon vagon = new Vagon(id, cargaMaxima, cargaActual, tipoMercancia);
 
-        vagones = Arrays.copyOf(vagones, vagones.lenght + 1);
-        vagones[vagones.lenght - 1] = vagon;
+        vagones = Arrays.copyOf(vagones, vagones.length + 1);
+        vagones[vagones.length - 1] = vagon;
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Carga actual: " + getCargaActual() + " kilos.";
+    }
+
+    //metodos
+    public int getNumVagones() {
+        
+        return vagones.length;
+    }
+
+
+    public int getCargaActual() {
+        //recorrer vagones 
+        int cargaActual = 0;
+
+        for (Vagon vagon : vagones) {
+            cargaActual += vagon.cargaActual;
+        }
+
+        return cargaActual;
+    }
+    
 
 }

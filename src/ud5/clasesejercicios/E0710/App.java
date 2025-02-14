@@ -10,11 +10,9 @@ import ud5.clasesejercicios.E0710.personal.*;
 public class App {
     public static void main(String[] args) {
         Maquinista maquinista = new Maquinista("María", "555555555X", 40000, "A");
-        System.out.println(maquinista);
 
         Mecanico mecanicoPepe = new Mecanico("Pepe", "666666666", Especialidad.FRENOS);
-        Mecanico mecanico2 = new Mecanico("Juan", "666666666", Especialidad.valueOf("HIDRAULICA"));
-
+        //Mecanico mecanico2 = new Mecanico("Juan", "666666666", Especialidad.valueOf("HIDRAULICA"));
         JefeEstacion jefe = new JefeEstacion("Lola", "33333333Z", LocalDate.of(2023, 10, 1));
 
         // Vagon solo es visible por clases vecinas
@@ -22,8 +20,6 @@ public class App {
 
         Tren tren = new Tren(locomotora, maquinista);
         //EJEMPLOS DE INSTANCIA 
-
-
         /*
         Tren tren2 = new Tren(locomotora, maquinista, 5);
 
@@ -37,8 +33,11 @@ public class App {
         tren.addVagon(2, 11000, 5500, "HIERRO");
         tren.addVagon(3, 8000, 6000, "PASAJEROS");
         
-        
         System.out.println(tren.toString());
+        System.out.println();
+
+        System.out.println(jefe);
+        System.out.println(mecanicoPepe);
 
     }
 }

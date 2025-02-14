@@ -16,4 +16,12 @@ public class Maquinista {
         this.rango = rango;
     }
 
+    @Override
+    public String toString() {
+        return "MAQUINISTA: \n" + //
+                nombre + "\\n (DNI:" +dni +") \\n" + //
+                        "(Sueldo: " + sueldo + ")\\n" +
+                        "(rango: " + rango + ")\\n";
+    }
+
 }
