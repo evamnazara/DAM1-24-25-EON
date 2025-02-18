@@ -1,3 +1,4 @@
+/*
 package ud5.clasesejercicios.E0711;
 
 import java.util.Arrays;
@@ -22,7 +23,7 @@ public class Lista {
         String mostrarLista = "e"; 
         return mostrarLista;
     }
-    public int addElementoPrincipio(Lista lista){
+     public int addElementoPrincipio(Lista lista){
         System.out.println(Arrays.toString(lista));
         Lista[] listas = Arrays.copyOf(lista, lista.length + 1);
         listas[lista.length] = lista;
@@ -36,7 +37,9 @@ public class Lista {
 
     public int addElementoFinal(Lista []lista){}
 
+
 }
+    */
 
 /*
 Los números se guardarán en una tabla que se redimensionará con las inserciones y 
