@@ -44,7 +44,6 @@ public class BuscaTesouro {
 
                 if (fila == filaTesoro) {
                     pista = columna < columnaTesoro ? "Más al Este" : "Más al Oeste";
-
                 } else if (fila < filaTesoro) {
                     if (columna == columnaTesoro) {
                         pista = "Más al ";
@@ -56,7 +55,6 @@ public class BuscaTesouro {
                         pista = "Más al norte";
                     } else {
                         pista = columna < columnaTesoro ? "Sur" : "Norte";
-
                     }
                 }
             }
