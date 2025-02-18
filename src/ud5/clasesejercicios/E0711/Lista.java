@@ -1,3 +1,4 @@
+
 package ud5.clasesejercicios.E0711;
 
 import java.util.Arrays;
@@ -7,11 +8,11 @@ public class Lista {
     Lista[] lista;
     int numElementos;
 
-
     public Lista(Lista[] listaNumeros) {
         int[] lista = new int[0];
-    
+        this.numElementos = numElementos;
     }
+
 
     public int numeroElementos(Lista []lista) {
         return lista.length;
@@ -22,22 +23,20 @@ public class Lista {
         String mostrarLista = "e"; 
         return mostrarLista;
     }
-    public int addElementoPrincipio(Lista lista){
-        System.out.println(Arrays.toString(lista));
-        Lista[] listas = Arrays.copyOf(lista, lista.length + 1);
-        listas[lista.length] = lista;
-        return listas;
 
-        
-        listas[lista.length] = lista;
-        System.out.println(Arrays.toString(listas));
-        return listas;
+    public int addElementoPrincipio(int[] lista, int valor){
+        System.out.println(Arrays.toString(lista));
+        int[] listas = Arrays.copyOf(lista, lista.length + 1);
+        listas[lista.length] = valor;
+        return valor;
     }
 
-    public int addElementoFinal(Lista []lista){}
-
+    public int addElementoFinal(int[] lista, int valor) {
+        int elemento = 0;
+        return elemento;
+    }
 }
-
+    
 /*
 Los números se guardarán en una tabla que se redimensionará con las inserciones y 
 eliminaciones

@@ -1,7 +1,7 @@
 package ud5.clasesejercicios.E0711;
 
-import java.util.Arrays;
-import ud5.clasesejercicios.E0711.*; 
+/*import java.util.Arrays;
+import ud5.clasesejercicios.E0711.*; */
 
 
 public class Elementos {
