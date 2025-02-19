@@ -24,6 +24,5 @@ public class JefeEstacion {
     public String toString() {
         return "JefeEstacion: [nombre=" + nombre + "antiguedad: " + getAntiguedad() + "anños]";
     }
-    
-    
+
 }

@@ -92,6 +92,9 @@ RESTRICCIONES:
 
 2. no tienen que llevar nombre
 
+====================
+ CORRECCION DEBERES 
+====================
 
 
 -- si se sabe la longitud fija es char y no varchar
@@ -102,3 +105,33 @@ RESTRICCIONES:
 -- distinto <> o != 
 -- chuleta 
 -- create index // cluster o no cluster 
+
+=================
+    19.02.2024 
+=================
+
+
+
+schema es un equivalente a carpeta > defecto dbo 
+
+servidor.bd.esquema.objeto 
+    todos se pueden omitir menos el objeto 
+
+
+
+=======================
+  CORRECCION VIDEOCLUB
+=======================
+
+integridad referencial : tiene que ser el mismo tipo en un sitio y en otro 
+    [la referencia tiene que ser igual a donde se pone la foránea]
+
+on delete cascade: si borras el que referencia, se borra todo 
+
+    pelicula referencia ejemplar
+
+    si borras ejemplar no pasa nada, pero si borras pelicula borra ejemplar
+
+poner nombre a las constraints xd
+
+[PRIMARy] va entre corchetes si no es la tabla por defecto 
