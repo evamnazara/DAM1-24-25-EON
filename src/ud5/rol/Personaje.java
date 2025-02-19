@@ -41,12 +41,12 @@ public class Personaje {
     }
 
    
-
     // Indicando nombre, raza y características físicas. 
     public Personaje(String nombre, Raza raza) {
-        Random random = new Random();
+        Random rnd = new Random();
 
-         /*En este caso el nivel se inicializará a 1 y 
+         /*
+         En este caso el nivel se inicializará a 1 y 
          la experiencia a 0 y los puntos de vida al 50 más el 
          valor de constitución. */
         this.nivel = 1;
