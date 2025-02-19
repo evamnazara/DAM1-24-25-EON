@@ -16,7 +16,6 @@ public class Empleado extends Persona {
         //setNombre(nombre);
 
     Empleado(String nombre, int edad, double salario) {
-        //super tiene que ser el primero que se invoca 
         super(nombre,edad);
         this.nombre = nombre;
         this.salario = salario;
@@ -46,18 +45,33 @@ public class Empleado extends Persona {
     
     @Override 
     void mostrarDatos() {
+        System.out.println("EMPLEADO: ");
         super.mostrarDatos();
-
+        //System.out.println(getApellido2());
         System.out.println("Sueldo: " + salario + " euros mensuales.");
     }
 
     public static void main(String[] args) {
         Empleado maria = new Empleado("María",34, 3000);
-        Empleado pepe = new Empleado("Pepe", 25, "1.65",1500 );
+        Empleado pepe = new Empleado("Pepe", 25, "XL",1500 );
         
         maria.cumplirAnhos();
         pepe.saludar();
-        pepe.mostrarDatos();
+
+        Persona pepeRSONA = pepe; 
+        System.out.println(pepeRSONA.edad);
+            //pepe es una persona > apuntan al mismo sitio 
+            //pero solo tienes las funiones de persona 
+
+        //pepeRSONA.mostrarDatos();
+        
+        pepeRSONA.getClass();
+
+
+        //de vuelta hay que castearlo
+        Empleado pepeAgain = (Empleado) pepeRSONA;
+        System.out.println(pepeAgain.estatura);
+        //pepeAgain.mostrarDatos();
 
     }
 }

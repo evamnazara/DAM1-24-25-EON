@@ -1,5 +1,7 @@
 package ud5.apuntesherencia;
 
+import java.nio.channels.Pipe.SourceChannel;
+
 public class Persona {
     // Datos
     protected String nombre;
@@ -30,6 +32,7 @@ public class Persona {
     }
 
     void mostrarDatos() {
+        System.out.println("PERSONA: ");
         System.out.println(nombre); 
         System.out.println(edad); 
         System.out.println(estatura); 
