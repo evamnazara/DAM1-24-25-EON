@@ -65,6 +65,7 @@ public class E0511_CamaraSecreta {
     }
 
     static int[] leerCombinacion(int longitud) {
+        @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
 
 

@@ -1,8 +1,8 @@
-package ud3.apuntes;
+package ud5.apuntesherencia;
 
 public class Persona {
     // Datos
-    private String nombre;
+    protected String nombre;
     public String getNombre() {
         return nombre;
     }
@@ -14,12 +14,14 @@ public class Persona {
 
     private String apellido1;
     private String apellido2;
-    private int edad;
-    private double estatura = 1.80;
+    protected int edad;
+    protected double estatura = 1.80;
     //private final String dni = null;
     enum Sexo {HOMBRE, MUJER, NO_BINARIO}
-    //private Sexo sexo;
-    DiaDeLaSemana diaPreferido;
+    
+    @SuppressWarnings("unused")
+    private Sexo sexo;
+   // DiaDeLaSemana diaPreferido;
 
     public static int contadorPersonas;
 
@@ -27,8 +29,13 @@ public class Persona {
     public Persona() {
     }
 
+    void mostrarDatos() {
+        System.out.println(nombre); 
+        System.out.println(edad); 
+        System.out.println(estatura); 
+    }
     
-/* 
+
     public Persona(String nombre, Sexo sexo) {
         this.nombre = nombre;
         this.sexo = sexo;
@@ -37,7 +44,7 @@ public class Persona {
     public Persona(String nombre, String sexo) {
         this.nombre = nombre;
         this.sexo = Sexo.valueOf(sexo);
-    }*/
+    }
 
     public Persona(String nombre) {
         this(nombre, 0, 0.4);

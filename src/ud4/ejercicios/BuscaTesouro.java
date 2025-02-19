@@ -40,6 +40,7 @@ public class BuscaTesouro {
                     tesoroEncontrado = true;
             } else {
                 //`pista
+                @SuppressWarnings("unused")
                 String pista; 
 
                 if (fila == filaTesoro) {
@@ -72,6 +73,7 @@ public class BuscaTesouro {
 
     private static int leerEntero(int min, int max) {
         int num = -1;;
+        @SuppressWarnings("resource")
         Scanner sc = new Scanner(System.in);
         boolean numCorrecto = false;
 
