@@ -1,7 +1,5 @@
 package ud5.apuntesherencia;
 
-import java.nio.channels.Pipe.SourceChannel;
-
 public class Persona {
     // Datos
     protected String nombre;
