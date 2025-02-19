@@ -1,4 +1,4 @@
-package ASIGNATURAS.CONTORNOS.programas;
+package ud4.ejercicios;
 
 import java.util.Random;
 import java.util.Scanner;

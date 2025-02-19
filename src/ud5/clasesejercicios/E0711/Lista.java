@@ -2,15 +2,15 @@
 package ud5.clasesejercicios.E0711;
 
 import java.util.Arrays;
-import ud5.clasesejercicios.E0711.*;
+//import ud5.clasesejercicios.E0711.*;
 
 public class Lista {
     Lista[] lista;
     int numElementos;
 
     public Lista(Lista[] listaNumeros) {
-        int[] lista = new int[0];
-        this.numElementos = numElementos;
+        //int[] lista = new int[0];
+        //this.numElementos = numElementos;
     }
 
 

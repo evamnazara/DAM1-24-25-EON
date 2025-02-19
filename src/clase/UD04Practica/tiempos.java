@@ -32,8 +32,8 @@ Notas:
 
 package clase.UD04Practica;
 
-import java.time.LocalTime;
-import java.util.Scanner;
+//import java.time.LocalTime;
+//import java.util.Scanner;
 
 public class tiempos {
     public static void main(String[] args) {
