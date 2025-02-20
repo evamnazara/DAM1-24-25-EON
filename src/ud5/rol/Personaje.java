@@ -27,7 +27,7 @@ public class Personaje {
         this.constitucion = constitucion;
         this.nivel = nivel;
         this.experiencia = experiencia;
-        this.puntosDeVida = PUNTOS_VIDA_INICIALES + constitucion;
+        this.puntosDeVida = puntosDeVida;
 
         if (fuerza < 1 || agilidad < 1 || constitucion < 1) {
             throw new IllegalArgumentException("Atributos inválidos. ¡Tienen que ser todos mayores a 0!");
@@ -36,7 +36,15 @@ public class Personaje {
         //raza válida?
     }
 
-   
+    public Personaje(String nombre, Raza raza, int fuerza, int agilidad, int constitucion, int nivel, int experiencia) {
+        this.nombre = nombre;
+        this.raza = raza;
+        this.fuerza = fuerza;
+        this.agilidad = agilidad;
+        this.constitucion = constitucion;
+        this.nivel = nivel;
+        this.experiencia = experiencia;    
+    }
     // inicialización 2: nombre y raza > características físicas aleatorias 
     public Personaje(String nombre, Raza raza) {
         Random rnd = new Random();
@@ -70,6 +78,9 @@ public class Personaje {
         this.puntosDeVida = PUNTOS_VIDA_INICIALES + constitucion;
 
     }
+
+
+
 
     public int getPuntosdeVidaActuales() {
         // aun no tiene sentido?
@@ -107,10 +118,7 @@ public class Personaje {
 
     //ejercicio 2
 
-    /*  Si experiencia  supera un múltiplo de 1000 sube de nivel. 
-        Se pueden subir varios niveles de golpe. 
-        Devuelve el número de niveles que sube el personaje. 
-    */
+
     public byte sumarExperiencia(int puntos) {
 
         int experienciaOriginal = this.experiencia;
@@ -120,6 +128,11 @@ public class Personaje {
     
         if (nivelesSubidos > 0) {
             this.nivel += nivelesSubidos;
+            System.out.println("¡Has subido " + nivelesSubidos + " niveles!");
+            }
+        
+            for (int i = 0; i < nivelesSubidos; i++) {
+            subirNivel();
             }
     
         return (byte) nivelesSubidos;
@@ -127,31 +140,36 @@ public class Personaje {
     
     //nivel +1 y caracteristicas + 5% 
     public void subirNivel() {
-        this.nivel = nivel + 1;
+        this.nivel = nivel++;
 
         this.fuerza = fuerza + (fuerza * 5 / 100);
         this.agilidad = agilidad + (agilidad * 5 / 100);
         this.constitucion = constitucion + (constitucion * 5 / 100);
+        System.out.println("El nivel de " + nombre + " ahora es " + this.nivel);
     }
     
     
     //restaura puntos de vida a original menos si son más 
+    //pociones? 
     public void curar() {
-        if (puntosDeVida >= (PUNTOS_VIDA_INICIALES + constitucion)) {
-            System.out.println("No puedes curarte, tus puntos de vida son mayores a los iniciales.");
+        int vidaInicial = PUNTOS_VIDA_INICIALES + constitucion;
+        if (puntosDeVida >= vidaInicial) {
+            System.out.println("No puedes curarte, tus puntos de vida están al máximo.");
         } else {
-            puntosDeVida = PUNTOS_VIDA_INICIALES + constitucion;
+            puntosDeVida = vidaInicial;
             System.out.println("Te has curado. Tus puntos de vida vuelven a ser " + puntosDeVida);
         }
     }
 
     //bajan los puntos que toquen, si los puntos llegan o bajan de 0 el personaje muere
-    
     //completar ig
     public boolean perderVida(int puntos) {
         boolean perderVida = false;
+
             if (puntosDeVida <= 0) {
                 perderVida = true;
+                System.out.println("rip");
+                return perderVida;
             }
 
         return perderVida;
@@ -167,12 +185,40 @@ public class Personaje {
         return estaVivo;
     }
 
-    /* 
-    int atacar(Personaje enemigo): permite a un personaje atacar a otro con el siguiente algoritmo:
-    El personaje atacante utilizará una puntuación de ataque resultado de sumar un número aleatorio entre 1 y 100 al valor de su atributo de fuerza. 
-    El personaje atacado o enemigo utilizará una puntuación de defensa resultado de sumar un número aleatorio entre 1 y 100 al valor de su atributo de agilidad. 
-    La diferencia entre la puntuación de ataque y la de defensa, si es positiva, será el daño realizado y resultará en el número de puntos de vida que pierde el personaje atacado y en el número de puntos de experiencia que suman tanto el personaje atacante como el atacado. El daño no podrá ser negativo ni mayor que los puntos de vida restantes del defensor. El valor se ajustará a esos límites si es necesario.
-    Si la diferencia es cero o negativa se entiende que el personaje atacante falla o que el atacado esquiva o para el ataque.
-    El método devolverá los puntos de daño.
-    */
+    public int atacar(Personaje enemigo) {
+        Random rnd = new Random();
+
+        //random 1 a 100 + fuerza 
+        int ataque = this.fuerza + rnd.nextInt(100) + 1;
+        //random 1 a 100 + agilidad
+        int defensa = enemigo.agilidad + rnd.nextInt(100) + 1;
+
+        int danho = ataque - defensa;
+
+        //ajustes
+            if (danho < 0) {
+                danho = 0; 
+                }
+            
+            if (danho > enemigo.puntosDeVida) {
+                danho = enemigo.puntosDeVida;
+            }
+
+    
+            if (danho > 0) {
+                enemigo.perderVida(danho);
+
+                this.sumarExperiencia(danho);
+                enemigo.sumarExperiencia(danho);
+
+                System.out.println(enemigo.nombre + " ha sufrido " + danho + " puntos de daño.");
+
+            } else {
+
+                System.out.println(this.nombre + " ataca a " + enemigo.nombre + " pero falla el ataque.");
+            }
+
+        return danho;
+    }
 }
+    
