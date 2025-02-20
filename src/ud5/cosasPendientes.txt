@@ -1,3 +1,4 @@
 E0710. TRENES
     Revisar el formato de impresión. 
 
+añadir sobrecargas (clase Empleado)
