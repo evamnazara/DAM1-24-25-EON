@@ -1,6 +1,4 @@
---el authorization dbo es opcional pero weno 
-
-
+USE master;
 
 IF EXISTS (SELECT * FROM sys.databases WHERE name = 'CONFLICTOSBELICOS')
     BEGIN
@@ -30,8 +28,6 @@ FILEGROUP grupo_interviene (
     SIZE = 8MB, 
     FILEGROWTH = 5MB
 ),
-
-
 FILEGROUP grupo_traficantes (
     NAME = traficante_datos1, 
     FILENAME = 'C:\conflictosbelicos\traficante_datos1.ndf', 
@@ -39,11 +35,11 @@ FILEGROUP grupo_traficantes (
     FILEGROWTH = 3MB, 
     MAXSIZE = 12MB    
 ),
-
 FILEGROUP grupo_organizaciones (
     NAME = organizacion_data1, 
-    FILENAME = 'C:\conflictosbelicos\organizacion_data1.ndf', SIZE = 8MB, FILEGROWTH = 3MB
-
+    FILENAME = 'C:\conflictosbelicos\organizacion_data1.ndf', 
+    SIZE = 8MB, 
+    FILEGROWTH = 3MB
 ),
 (
     NAME = organizacion_data2, 
@@ -62,15 +58,72 @@ LOG ON (
     SIZE = 5MB, 
     FILEGROWTH = 3MB
 );
+EXEC sp_helpdb
+EXEC sp_helpfilegroup
+	select * from sys.filegroups
+	SELECT * from SYS.data_spaces
+	select * from sys.database_files
+GO
 
-CREATE SCHEMA CONFLICTOS;
-CREATE SCHEMA GRUPOS;
-CREATE SCHEMA TRAFICANTES;
-CREATE SCHEMA ORGANIZACIONES;
-CREATE SCHEMA ARMAS;
+USE CONFLICTOSBELICOS;
+
+GO
+
+IF EXISTS (SELECT * FROM SYS.schemas WHERE name='CONFLICTOS')
+	BEGIN
+		PRINT 'ya existe el esquema, se va a borrar'
+    	DROP schema CONFLICTOS
+    END 
+GO
+
+CREATE SCHEMA CONFLICTOS AUTHORIZATION dbo;
+GO
+
+IF EXISTS (SELECT * FROM SYS.schemas WHERE name='GRUPOS')
+	BEGIN
+		PRINT 'ya existe el esquema, se va a borrar'
+    	DROP schema GRUPOS
+    END 
+
+GO
+--no hace falta la autorizacion pero weno 
+CREATE SCHEMA GRUPOS AUTHORIZATION dbo;
+GO
+
+IF EXISTS (SELECT * FROM SYS.schemas WHERE name='TRAFICANTES')
+	BEGIN
+		PRINT 'ya existe el esquema, se va a borrar'
+    	DROP schema TRAFICANTES
+    END 
+
+GO
+CREATE SCHEMA TRAFICANTES AUTHORIZATION dbo;
+GO
 
 
-CREATE TYPE fecha_nula AS DATETIME NULL DEFAULT GETDATE();
+IF EXISTS (SELECT * FROM SYS.schemas WHERE name='ORGANIZACIONES')
+	BEGIN
+		PRINT 'ya existe el esquema, se va a borrar'
+    	DROP schema ORGANIZACIONES
+    END 
+go
+CREATE SCHEMA ORGANIZACIONES AUTHORIZATION dbo;
+GO
+
+
+IF EXISTS (SELECT * FROM SYS.schemas WHERE name='ARMAS')
+	BEGIN
+		PRINT 'ya existe el esquema, se va a borrar'
+    	DROP schema ARMAS
+    END 
+GO 
+CREATE SCHEMA ARMAS AUTHORIZATION dbo;
+GO
+
+--conprobacion de creación
+
+CREATE TYPE fecha FROM date NULL;
+go
 
 
 -- TABLA PAIS
@@ -86,7 +139,7 @@ CREATE TABLE CONFLICTOS.CONFLICTO (
     idConflicto INT,
     nombre VARCHAR(100) NOT NULL,
     causa VARCHAR(20),
-    fechaInicio fecha_nula,
+    fechaInicio fecha,
     fechaFin DATETIME NULL DEFAULT NULL,
     codigoPais INT,
 
