@@ -1,10 +1,44 @@
 package ud5.clasesejercicios.E0801;
 
 public class HoraExacta extends Hora {
+    int segundo;
 
-    public HoraExacta(int hora, int minuto) {
+    public HoraExacta(int hora, int minuto, int segundo) {
         super(hora, minuto);
-        //TODO Auto-generated constructor stub
+        this.segundo = segundo;
+
+        if (!setSegundo(segundo)){
+            throw new IllegalArgumentException("seg fuera de rango");
+        }
+        
     }
     
+    public boolean setSegundo(int valor) {
+        if (valor < 60 && valor == 0) {
+            minuto = valor;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void inc() {
+        this.minuto = minuto++;
+
+        if (minuto == 60) {
+            minuto = 0;
+            hora++;
+                if (hora == 60) {
+                    hora = 0;                    
+                }
+        }
+        super.inc();
+
+    }
+
+    
+
+    public static void main(String[] args) {
+        HoraExacta he1 = new HoraExacta(15,32,25);
+    }
 }

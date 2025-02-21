@@ -6,7 +6,7 @@ Verificar que los barcos detectados coincidan con los especificados.
 Confirmar que no hay barcos adyacentes (ni en diagonal).
 Imprimir "SI" si el tablero es correcto, o "NO" si no lo es.
 */
-package matrices;
+/*package matrices;
 
 import java.util.Arrays;
 import java.util.Scanner;
