@@ -1,21 +1,27 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE song [
 
-<!ELEMENT song (title. composers+,producers+,publisher,artists)>
+<!ELEMENT song (title. composers,producers,publisher,artists)>
 
 <!ATTLIST song
           lenght CDATA #IMPLIED
           anio CDATA #REQUIRED> 
 
+<!ELEMENT title >
+<!ELEMENT composers(composer+)>
+<!ELEMENT producers(producer+)>
+<!ELEMENT publisher (#PCDATA)>
+<!ELEMENT artists (artist+)>
+
 ]>
 
 
 <song>
-<title></title>
+<title>Cancion</title>
 <composers>
       <composer>
-            <nombre></nombre>
-            <apellidos></apellidos>
+            <nombre>Henry</nombre>
+            <apellidos>Beolo</apellidos>
       </composer>
 </composers>
 
