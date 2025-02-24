@@ -39,6 +39,6 @@ public class HoraExacta extends Hora {
     
 
     public static void main(String[] args) {
-        HoraExacta he1 = new HoraExacta(15,32,25);
+        //HoraExacta he1 = new HoraExacta(15,32,25);
     }
 }

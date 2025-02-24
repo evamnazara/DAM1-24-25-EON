@@ -1,4 +1,4 @@
-package strings;
+package aceptaelreto.strings;
 import java.util.Scanner;
 public class EncriptacionMensajes {
         public static void main(String[] args) {

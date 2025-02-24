@@ -13,7 +13,7 @@ programa mostrará el mensaje de error correspondiente.
  
 El programa finalizará cuando se introduzca la palabra “fin”.  */
 
-package strings;
+package aceptaelreto.strings;
 
 import java.util.Arrays;
 import java.util.Scanner;

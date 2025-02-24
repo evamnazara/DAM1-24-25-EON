@@ -1,5 +1,5 @@
 /* */
-package strings;
+package aceptaelreto.strings;
 
 import java.util.Scanner;
 

@@ -47,7 +47,7 @@ SI Desconocido
 SI Inglaterra
 NO */
 
-package strings;
+package aceptaelreto.strings;
 
 import java.util.HashMap;
 import java.util.Map;
