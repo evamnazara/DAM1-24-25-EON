@@ -76,6 +76,7 @@ create table provincia (
 	CONSTRAINT PK_PROVINCIA PRIMARY KEY (codProvincia),
 	CONSTRAINT U_NOMBREPROVINCIA UNIQUE (nombreProvincia),
 );
+
 create table localidad (
 	codLocalidad smallint IDENTITY (1,1),
 	nombreLocalidad varchar(40),
