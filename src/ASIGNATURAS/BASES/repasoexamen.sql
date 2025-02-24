@@ -21,3 +21,11 @@ exec sp_helpconstraint 'Conflictos.Racial'
 
 --tabla organizaciones.media 
     DEFAULT DATEADD(MM,2,GETDATE())
+
+-- CALCULO DE DIFERENCIAS
+DATEDIFF (YEAR, fechaNaciMiento, GETDATE())  >= 18 ANd
+		(MONTH (GETDATE()) > MONTH(fechaNaciMiento)  
+		OR 
+			MONTH (GETDATE() = MONTH(fechaNaciMiento) 
+			and DAY(GETDATE()) >= DAY(fechaNaciMiento))
+)

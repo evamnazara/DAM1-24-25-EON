@@ -115,3 +115,10 @@ create table sala (
 
 --cosas de fotógrafos y las fotografía en Primary
 -- resto de las tablas en Datos_fotografía
+
+DATEDIFF (YEAR, fechaNaciMiento, GETDATE())  >= 18 ANd
+		(MONTH (GETDATE()) > MONTH(fechaNaciMiento)  
+		OR 
+			MONTH (GETDATE() = MONTH(fechaNaciMiento) 
+			and DAY(GETDATE()) >= DAY(fechaNaciMiento))
+)
