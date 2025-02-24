@@ -30,7 +30,7 @@ public abstract class Instrumento {
 
 
     public void copiarMelodia(Instrumento instrumento){
-
+        melodia = Arrays.copyOf(instrumento.melodia, instrumento.melodia.length);
     }; 
 
     public static void main(String[] args) {
@@ -48,5 +48,10 @@ public abstract class Instrumento {
         Instrumento violin1 = new Violin();
 
         violin1.add(Nota.SOL);
+        violin1.add(Nota.LA);
+        violin1.interpretar();
+
+        piano1.copiarMelodia(violin1);
+
     }
 }
