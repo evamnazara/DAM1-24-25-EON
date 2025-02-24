@@ -20,7 +20,7 @@ Si hay empate a 8, sigue hasta que uno tenga 2 de ventaja.
 El que gana un set comienza sacando el siguiente.
 Cuando se lee F, imprimir el resultado final en el formato correcto. */
 
-package arrays;
+package aceptaelreto.arrays;
 
 import java.util.Scanner;
 

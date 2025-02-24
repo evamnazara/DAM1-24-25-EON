@@ -1,4 +1,4 @@
-package arrays;
+package aceptaelreto.arrays;
 import java.util.Scanner;
 
 public class ManiasTenemosTodos {

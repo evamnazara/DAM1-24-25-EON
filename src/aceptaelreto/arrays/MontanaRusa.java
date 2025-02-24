@@ -16,7 +16,7 @@ Ejemplos:
 ●  [4, 10, 10, 3, 2] => 0 picos 
  */
 
-package arrays;
+package aceptaelreto.arrays;
 
 import static org.junit.Assert.assertEquals;
 

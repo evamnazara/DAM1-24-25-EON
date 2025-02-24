@@ -1,4 +1,4 @@
-package matrices;
+package aceptaelreto.matrices;
 
 public class torresperezosas {
     public static void main(String[] args) {

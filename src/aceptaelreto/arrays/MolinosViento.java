@@ -6,7 +6,7 @@ Para cada consulta, sumar la energía de los molinos en el rango indicado.
 Imprimir el resultado de cada consulta.
 Finalizar cuando el número de molinos sea 0.
 */
-package arrays;
+package aceptaelreto.arrays;
 import java.util.Scanner;
 
 public class MolinosViento {

@@ -37,7 +37,7 @@ Salida de ejemplo
 1 1 0
 --- */
 
-package matrices;
+package aceptaelreto.matrices;
 
 import java.util.Scanner;
 

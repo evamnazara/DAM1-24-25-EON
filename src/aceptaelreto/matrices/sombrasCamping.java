@@ -1,4 +1,4 @@
-package matrices;
+package aceptaelreto.matrices;
 import java.util.Scanner;
 
 /*Se acerca el verano y los aficionados a la naturaleza pasarán buena parte de él en campings, disfrutando del aire libre.

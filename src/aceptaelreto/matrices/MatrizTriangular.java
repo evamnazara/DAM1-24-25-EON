@@ -12,7 +12,7 @@ Salida
 Para cada caso de prueba se indicará SI si la matriz es triangular y NO en caso contrario.
 
  */
-package matrices;
+package aceptaelreto.matrices;
 
 import java.util.Scanner;
 

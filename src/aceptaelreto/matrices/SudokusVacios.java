@@ -1,7 +1,7 @@
 /* No tiene más de 32 celdas llenas.
 Es simétrico rotacionalmente (tras girarlo 180 grados, las celdas ocupadas deben coincidir).
 */
-package matrices;
+package aceptaelreto.matrices;
 
 import java.util.Scanner;
 
