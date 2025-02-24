@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE song [
+
+<!ELEMENT song (title. composers+,producers+,publisher,artists)>
+
+<!ATTLIST song
+          lenght CDATA #IMPLIED
+          anio CDATA #REQUIRED> 
+
+]>
+
+
+<song>
+<title></title>
+<composers>
+      <composer>
+            <nombre></nombre>
+            <apellidos></apellidos>
+      </composer>
+</composers>
+
+<producers>
+    <producer>
+             <nombre>Jacques</nombre>
+            <apellidos>Morali</apellidos>
+    </producer>
+</producers>
+
+<publisher>
+          PoliGram
+</publisher>
+
+<artists>
+    <artist>  Village People </artist>
+</artists>
+</song>
