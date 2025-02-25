@@ -1,10 +1,17 @@
 package ud5.practicas.Inmobiliaria;
 
 public class Casa extends Inmueble {
-    public Casa(String string, int i, int j, int k, int l) {
-        //TODO Auto-generated constructor stub
-    }
-
     int metrosTerreno;
+    
+    public Casa(String direccion, int metrosCuadrados, int numHabitaciones, int numBanhos) {
+            super(direccion, metrosCuadrados, numHabitaciones, numBanhos);
+            //TODO Auto-generated constructor stub
+        }
+
+        
+
+
+    
+
 
 }
