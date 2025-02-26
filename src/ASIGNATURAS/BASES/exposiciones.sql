@@ -14,7 +14,8 @@ CREATE DATABASE BDFOTOGRAFIA
 ON PRIMARY (
 	NAME = ArchivoPrincipal,
     FILENAME = 'C:\ArquivosBD\BDFotografia\ArchivoPrincipal.mdf',
-    SIZE = 15 MB
+    SIZE = 15 MB,
+	FILEGROWTH = 0
 ),
 
 FILEGROUP Datos_Fotografía DEFAULT (
