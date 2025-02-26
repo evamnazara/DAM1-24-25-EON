@@ -1,4 +1,4 @@
-package ud5.clasesejercicios.abstractas.E0804;
+package ud5.apuntesherencia.abstractas.E0804;
 
 import java.util.Arrays;
 
