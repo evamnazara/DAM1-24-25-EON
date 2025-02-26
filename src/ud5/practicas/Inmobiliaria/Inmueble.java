@@ -13,8 +13,6 @@ public class Inmueble {
     
 
 
-
-
     public Inmueble(String direccion, int metrosCuadrados, int numHabitaciones, int numBanhos, int precioVenta,
             int precioAlquiler) {
         this.direccion = direccion;

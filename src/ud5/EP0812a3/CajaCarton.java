@@ -17,13 +17,8 @@ public class CajaCarton extends Caja {
         this.volumen = volumen * 0.8;
     }
 
-
-    public void setMedida(double medida, Caja caja) {
-        this.medida = medida;
-
-        /*if (caja.getUnidad() = 'M') {
-            medida * 100;
-        }*/
+    double getSuperficie() {
+        return 2 * alto * ancho + 2 * ancho * fondo + 2 * alto * fondo;
     }
     
 }

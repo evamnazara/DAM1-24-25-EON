@@ -11,24 +11,32 @@ destinatario, dirección, etc. Implementa la clase Caja con los siguientes méto
 la caja. 
 ●  String toString(): que devuelve una cadena con la representación de la caja.  */
 public class Caja {
-    int ancho;
-    int alto; 
-    int fondo;
-    public Unidad unidad;
+    //el enunciado dice q son inmutables
+    final int ancho;
+    final int alto; 
+    final int fondo;
 
-    //etiqueta
+    enum Unidad {CM, M};
+
+    String etiqueta;
     String destinatario;
     String direccion;
 
     public Caja(int ancho, int alto, int fondo, Unidad unidad) {
-        this.ancho = ancho;
-        this.alto = alto;
-        this.fondo = fondo;
-        this.unidad = unidad;
+        int multiplicador = switch (unidad) 
+            { 
+                case CM -> 1;
+                case M -> 100;
+                default -> 0;
+            };
+
+        this.ancho = ancho * multiplicador;
+        this.alto = alto * multiplicador;
+        this.fondo = fondo * multiplicador;
     }
 
     public double getVolumen(int an, int al, int fo) {
-        double volumen = an * al * fo;
+        double volumen = an * al * fo / 1000000.0;
         return volumen;
     }
 
@@ -48,20 +56,16 @@ public class Caja {
         return direccion;
     }
     
-    public Unidad getUnidad() {
-        return unidad;
-    }
 
-    public String setEtiqueta(String etiqueta){
-        String etiquetaS = "Destinario: " + getDestinatario() + "Direccion: " + getDireccion();
-        return etiquetaS;
+    public void setEtiqueta(String etiqueta){
+        if (etiqueta != null && etiqueta.length() <= 30)
+            this.etiqueta = etiqueta;
     }
 
     @Override
     //modificar despues
     public String toString() {
-        String caja = "Caja: [ancho=" + ancho + ", alto=" + alto + ", fondo=" + fondo + ", unidad=" + unidad + "]";
-        String etiqueta = setEtiqueta(caja);
+        String caja = "Caja: [ancho=" + ancho + ", alto=" + alto + ", fondo=" + fondo + "]";
         return caja + etiqueta;
     };
 
