@@ -26,6 +26,7 @@ public class Monstruo {
     }
 
     public void mostrar() {
+        System.out.println("MONSTRUO: ");
         System.out.println("Nombre: " + nombre);
         System.out.println("Ataque: " + ataque);
         System.out.println("Defensa: " + defensa);
@@ -33,6 +34,17 @@ public class Monstruo {
         System.out.println("Puntos de Vida: " + puntosdeVida);
     }
 
+    public boolean perderVida() {
+        boolean perderVida = false;
+
+        if (puntosdeVida <= 0) {
+            perderVida = true;
+            System.out.println("rip");
+            return perderVida;
+        }
+
+        return perderVida;
+    }
     @Override
     public String toString() {
         return "Monstruo: " + nombre + " (" + puntosdeVida + ") ";
