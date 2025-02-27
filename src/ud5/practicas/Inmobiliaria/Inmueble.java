@@ -1,16 +1,12 @@
 package ud5.practicas.Inmobiliaria;
 
-import java.util.Scanner;
-
-public class Inmueble {
+public abstract class Inmueble {
     String direccion;
     int metrosCuadrados;
     int numHabitaciones;
     int numBanhos;
     int precioVenta;
     int precioAlquiler;
-
-    
 
 
     public Inmueble(String direccion, int metrosCuadrados, int numHabitaciones, int numBanhos, int precioVenta,
@@ -29,22 +25,22 @@ public class Inmueble {
         this.numHabitaciones = numHabitaciones;
         this.numBanhos = numBanhos;
     }
+    
+    public void setPrecioAlquiler(int precioAlquiler) {
+        this.precioAlquiler = precioAlquiler;
+    }
+         
 
-
+    public void setPrecioVenta(int precioVenta) {
+        this.precioVenta = precioVenta;
+    }
 
     
-    public void setPrecioAlquiler(int i) {
-        Scanner sc = new Scanner(System.in);
-        precioAlquiler = sc.nextInt();
-        this.precioAlquiler = precioAlquiler;    
+    @Override
+    public String toString() {
+        return "Inmueble en direccion " + direccion + ", ("+ metrosCuadrados + " m2, " + numHabitaciones + " habitaciones";
     }
-    public void setPrecioVenta(int i) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setPrecioVenta'");
-    }
-    public char[] detalle() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'detalle'");
-    }
+
+    public abstract String detalle();
     
 }
