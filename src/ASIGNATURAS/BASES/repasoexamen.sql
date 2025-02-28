@@ -29,3 +29,5 @@ DATEDIFF (YEAR, fechaNaciMiento, GETDATE())  >= 18 ANd
 			MONTH (GETDATE() = MONTH(fechaNaciMiento) 
 			and DAY(GETDATE()) >= DAY(fechaNaciMiento))
 )
+
+datediff (YEAR, getdate(), fechaNacimiento / 365,25 >= 18);

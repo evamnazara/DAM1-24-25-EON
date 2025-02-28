@@ -285,7 +285,7 @@ CREATE TABLE FOTOGRAFO(
 	
 	CONSTRAINT PK_fotografo PRIMARY KEY (codFotografo),
 	
-	--fogorafo mayor de edad
+	--fotorafo mayor de edad
 	CONSTRAINT CK_EDAD_FOTOGRAFO CHECK (  
 		DATEDIFF(YEAR, fechaNacimiento, GETDATE()) > 18 
 			OR (
@@ -302,6 +302,7 @@ CREATE TABLE FOTOGRAFO(
         ON DELETE no action
         ON UPDATE no action
 );
+
 
 CREATE TABLE FOTOGRAFO_PREMIO (
 	codFotografo smallint not null,
