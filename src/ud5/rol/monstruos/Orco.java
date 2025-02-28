@@ -15,5 +15,13 @@ public class Orco extends Monstruo {
         this.puntosdeVida = rnd.nextInt(30,100) + 1;
     }
 
-    
+    public Orco (int ataque, int defensa, int velocidad, int puntosdeVida) {
+        super(ataque, defensa, velocidad, puntosdeVida);
+        Random rnd = new Random();
+
+        this.ataque = rnd.nextInt(30,80) + 1;
+        this.defensa = rnd.nextInt(30,50) + 1;
+        this.velocidad = rnd.nextInt(30,80) + 1;
+        this.puntosdeVida = rnd.nextInt(30,100) + 1;
+    }
 }
