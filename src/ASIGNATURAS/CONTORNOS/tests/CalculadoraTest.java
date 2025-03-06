@@ -14,8 +14,11 @@ public class CalculadoraTest {
         try {
             int resultado = calcu.divide();
             fail ("Debería das una excepción");
+            //sout solo para que no de error
+            System.out.println(resultado);
         } catch (Exception e) {
-            // TODO: handle exception
+            // para que no cante el to-do
+            System.out.println("para callar el TODO: handle exception");
             // Prueba OK
         }
     }
