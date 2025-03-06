@@ -1,4 +1,4 @@
-package ud5.interfaces;
+package ud5.interfaces.animales;
 
 public class Leon implements Sonido {
     String nombre; 

@@ -1,4 +1,4 @@
-package ud5.interfaces;
+package ud5.interfaces.animales;
 
 public interface Sonido {
 
