@@ -7,6 +7,7 @@ public class Personaje {
     final int PUNTOS_VIDA_INICIALES = 50;
     Raza raza;
     String nombre;
+
     int fuerza;
     int agilidad;
     int constitucion;
@@ -81,9 +82,19 @@ public class Personaje {
 
 
 
+    //constructor para personajeEx
+    public Personaje(String nombre, int constitucion) {
+        this.nombre = nombre;
+        this.constitucion = constitucion;
+    }
 
+    //getter de nombre 
+    public String getNombre() {
+        return nombre;
+    }
+
+    
     public int getPuntosdeVidaActuales() {
-        // aun no tiene sentido?
         int puntosdeVidaActuales = 0;
         return puntosdeVidaActuales;
 
