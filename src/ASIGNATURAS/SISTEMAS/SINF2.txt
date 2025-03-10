@@ -1,25 +1,48 @@
 APUNTES U2.
 
-proxy: dar o no salida // registros de acceso
+vb: sis-w11-EON
+user: weoternaza
+nmaq: Weq-le14-17
 
 nomenclatura máquinas: SIS-W11-01 // SIS-W2K6-02
-user: USER-EON
+user: USER-EON 
 
+=================================
+
+proxy: dar o no salida // registros de acceso
 
 permisos en gris: están heredados
+
 usuarios: administración de equipos > usarios y grupos locales 
 
 
 
-LINUX 
+LINUX: 
+
 tamaño swap : 
         si < 4 GB, tamaño memoria ram x2 
         si > 4 GB, tamaño memoria ram
 
-
 .bashrc está en /user
 wget www.google.es
 
-vb: sis-w11-EON
-user: weoternaza
-nmaq: Weq-le14-17
+
+REDES:
+
+        - tabla osi/tcp 
+
+tipo a 2 8 redes  // 2 24 hosts // 255.0.0.0
+tipo b 2 16 redes // 2 16 hosts // 255.255.0.0
+tipo c 2 14 redes // 2 8 hosts // 255.255.255.0
+
+
+mascara / hosts
+
+
+
+tarea 8 
+
+1. osi capas
+2. pila protocolos tcp/ip y correspondencia osi
+3. ips reservadas abc
+4. 
