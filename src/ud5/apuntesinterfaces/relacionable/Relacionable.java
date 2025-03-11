@@ -1,4 +1,4 @@
-package ud5.interfaces.relacionable;
+package ud5.apuntesinterfaces.relacionable;
 
 public interface Relacionable {                                                                             
     boolean esMayorQue(Relacionable a);
