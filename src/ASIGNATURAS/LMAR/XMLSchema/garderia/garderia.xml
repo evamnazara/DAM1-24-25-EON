@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<garderia xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="esquemaGarderia.xsd">
+  <neno  numeroExpedente="1">
+      <nome>Andrea</nome>
+      <dataNacemento>2022-01-30</dataNacemento>
+      <peso>10.2</peso>
+      <altura>35</altura>
+      <vacunas>true</vacunas>
+  </neno>
+</garderia>
