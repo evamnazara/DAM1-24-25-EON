@@ -1,14 +1,15 @@
 package ud5.apuntesinterfaces;
 
-import java.nio.channels.Pipe.SourceChannel;
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Socio implements Comparable { 
     int id; 
     String nombre;
     LocalDate fechaNacimiento;
- 
+
+
     public Socio(int id, String nombre) {
         this.id = id;
         this.nombre = nombre;
@@ -24,10 +25,10 @@ public class Socio implements Comparable {
     
     
     
-        @Override
-        public String toString() {
-            return "\nID: " + id + " | Nombre: " + nombre + " | Fecha: " + fechaNacimiento;
-        }
+     @Override
+     public String toString() {
+         return "\nID: " + id + " | Nombre: " + nombre + " | Fecha: " + fechaNacimiento;
+     }
     
     
     
@@ -64,12 +65,12 @@ public class Socio implements Comparable {
             //instancia objeto 
         comparaSociosFecha ordenFecha = new comparaSociosFecha();
 
-        System.out.println("COMPARATOR: orden natural ");
+        System.out.println("COMPARATOR por FECHA DE NACIMIENTO ");
         Arrays.sort(socios, ordenFecha);
         System.out.println(Arrays.toString(socios));
 
 
-        System.out.println("COMPARATOR: orden al reves");
+        System.out.println("COMPARATOR por FECHA DE NACIMIENTO al reves");
 
         Arrays.sort(socios,ordenFecha.reversed());
         System.out.println(Arrays.toString(socios));
@@ -81,9 +82,20 @@ public class Socio implements Comparable {
         Arrays.sort(socios,ordenNombre);
         System.out.println(Arrays.toString(socios));
 
-        System.out.println("nombres al reve");
+        System.out.println("nombres al reves");
         Arrays.sort(socios, ordenNombre.reversed());
         System.out.println(Arrays.toString(socios));
+
+        //sin implementr objetos 
+        //hay q importarlo para usarlo asi 
+        System.out.println("por id con otra implementacion ");
+        Arrays.sort(socios, new Comparator() {
+                @Override
+                public int compare (Object o1, Object o2) {
+                    return ((Socio) o1).id - ((Socio) o2).id;
+                }
+        });
+
     }
 
     /*@Override 
