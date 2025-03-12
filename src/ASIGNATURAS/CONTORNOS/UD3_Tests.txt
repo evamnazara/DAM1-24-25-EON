@@ -1,5 +1,9 @@
 EXAMEN MARTES 18 
 
+notas: 
+  ver tests corregidos -- estan mal todos 
+  como ver la cobertura en vscode  -- hay un desplegable que se llama test coverage 
+
 DOCUMENTOS: 
     1. UD3. 705 lineas original
     2. preguntas de practica
