@@ -1,4 +1,4 @@
-package ud5.EP0825;
+package ud5.clasesejercicios.EP0825;
 
 public class Suceso extends Punto3D{
     int tiempo;

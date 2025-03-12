@@ -1,4 +1,4 @@
-package ud5.mulleres;
+package ud5.practicas.mulleres;
 
 public class Artista extends MullerTraballadora {
     String estilo;

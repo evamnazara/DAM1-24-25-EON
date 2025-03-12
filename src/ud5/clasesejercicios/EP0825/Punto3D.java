@@ -1,4 +1,4 @@
-package ud5.EP0825;
+package ud5.clasesejercicios.EP0825;
 
 public class Punto3D extends Punto {
     int z;

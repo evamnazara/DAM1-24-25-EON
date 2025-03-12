@@ -1,4 +1,4 @@
-package ud5.EP0812a3;
+package ud5.clasesejercicios.EP0812a3;
 
 /*EP0812. Las empresas de transporte, para evitar daños en los paquetes, embalan todas 
 sus mercancías en cajas con el tamaño adecuado. Una caja se crea expresamente con un 

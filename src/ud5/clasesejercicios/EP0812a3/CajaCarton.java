@@ -1,4 +1,4 @@
-package ud5.EP0812a3;
+package ud5.clasesejercicios.EP0812a3;
 
 public class CajaCarton extends Caja {
     double volumen; //80% 

@@ -6,7 +6,7 @@ class MathUtilsTest {
     //TODAS LAS EXCEPCIONES SE PRUEBAN ASI 
     void factorialExcepcion() {
         try {
-            int resultado = MathUtils.factorial(-1);
+           // int resultado = MathUtils.factorial(-1);
             fail("FALLO: n < 0 deberia generar una excepcion");
         } catch (Exception e) {
         }

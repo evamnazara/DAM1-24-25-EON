@@ -1,4 +1,4 @@
-package ud5.mulleres;
+package ud5.practicas.mulleres;
 
 import java.util.Arrays;
 

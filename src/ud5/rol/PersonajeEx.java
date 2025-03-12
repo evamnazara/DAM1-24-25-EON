@@ -11,6 +11,7 @@ Modifica la visibilidad de los atributos de la superclase o añade getters y set
  */
 
 class PersonajeEx extends Personaje {
+    @SuppressWarnings("unused")
     private int monedas = 0;
     private Item[] inventario;
     private int numItems;
