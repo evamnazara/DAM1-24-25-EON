@@ -1,19 +1,12 @@
-10/03/2025 > clase 1
+10/03/2025 > clase 1 > apuntes 
 
-1.2 Selección de atributos
-SELECT * | {[DISTINCT] columna | expresión [[AS] alias], ...}
-FROM tabla;
+=====
 
-Donde:
-    ▪ *. El asterisco significa que se seleccionan todas las columnas
-    ▪ DISTINCT. Hace que no se muestren los valores duplicados.
-    ▪ columna. Es el nombre de una columna de la tabla que se desea mostrar
-    ▪ expresión. Una expresión válida SQL
-    ▪ alias. Es un nombre que se le da a la cabecera de la columna en el resultado de esta instrucción.
-Ejemplos:
-/* Selección de todos los registros de la tabla clientes */
-SELECT * FROM Clientes;
-/* Selección de algunos campos*/
-SELECT nombre, apellido1, apellido2 FROM Clientes;
-/* Selección de las distintas localidades de los clientes*/
-SELECT DISTINCT localidad FROM Clientes; 
+12/02/2025 > notas deberes
+
+si se usa una función, no se pude poner *, se ponen todos los atributos por separado (29 p.ej)
+
+    cuando se usa el distinct :'| 
+    cuando se usa cast / cast-convert (25)
+
+=====
