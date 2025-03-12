@@ -1,6 +1,5 @@
 package ud5.apuntesinterfaces;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Socio implements Comparable { 
