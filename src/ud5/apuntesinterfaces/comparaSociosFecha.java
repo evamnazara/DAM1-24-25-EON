@@ -2,6 +2,7 @@ package ud5.apuntesinterfaces;
 
 import java.util.Comparator;
 
+@SuppressWarnings("rawtypes")
 public class comparaSociosFecha implements Comparator {
     //COMPARAR POR FECHA 
     @Override

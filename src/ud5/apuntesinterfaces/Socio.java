@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Comparator;
 
+@SuppressWarnings("rawtypes")
 public class Socio implements Comparable { 
     int id; 
     String nombre;

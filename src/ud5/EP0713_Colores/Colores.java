@@ -9,7 +9,7 @@ que devuelve una tabla con los n colores que necesitemos elegidos al azar sin re
 package ud5.EP0713_Colores;
 
 import java.util.Arrays;
-import java.util.Random;
+//import java.util.Random;
 
 public class Colores {
     String color;
@@ -34,7 +34,7 @@ public class Colores {
     
     public String elegirColores(int numColores, String color){
         String[] coloresAzar = null;
-        Random rnd = new Random();
+       // Random rnd = new Random();
 
 
         return Arrays.toString(coloresAzar);

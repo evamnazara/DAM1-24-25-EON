@@ -9,6 +9,7 @@ import java.util.Random;
 
 public class TablasAleatoriasOrdenadas {
     
+    @SuppressWarnings("rawtypes")
     static Comparator comparador = new Comparator() {
         @Override
         public int compare(Object o1, Object o2) {

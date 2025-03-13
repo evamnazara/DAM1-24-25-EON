@@ -2,7 +2,8 @@ package ud5.interfacesejercicios.EP0913_Futbolista;
 
 import java.util.Comparator;
 
-public class ComparableFutbolistas implements Comparator {
+@SuppressWarnings("rawtypes")
+public class CompFutDNI implements Comparator {
 
     @Override
     public int compare (Object o1, Object o2) {

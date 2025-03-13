@@ -2,6 +2,7 @@ package ud5.apuntesinterfaces;
 
 import java.util.Comparator;
 
+@SuppressWarnings("rawtypes")
 public class comparaSociosNombre implements Comparator {
     //COMPARAR POR NOMBRE
     @Override

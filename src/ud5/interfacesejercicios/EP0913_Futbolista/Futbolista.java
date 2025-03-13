@@ -19,7 +19,7 @@ package ud5.interfacesejercicios.EP0913_Futbolista;
 public class Futbolista {
     String dni;
     String nombre;
-    int edad;
+    Integer edad;
     int numerodeGoles;
 
 
@@ -53,6 +53,16 @@ public class Futbolista {
     public String toString() {
         return "\nDNI: " + dni + " | Nombre: " + nombre + " | Edad: " + edad + " | Goles: " + numerodeGoles;
     }
+
+    public int compareTo(Object o) {
+        Futbolista futbolista = (Futbolista) o;
+        int res = dni.compareTo(futbolista.dni);
+        if (res == 0) {
+            res = this.nombre.compareTo(futbolista.dni);
+        }
+        return res;
+    }
+    
 
     
 
