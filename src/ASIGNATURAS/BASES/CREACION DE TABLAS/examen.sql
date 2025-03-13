@@ -232,7 +232,6 @@ exec sp_helpconstraint 'RIO'
 		
 -- EJERCICIO 4 
 
-
 GO 
 IF EXISTS (SELECT * FROM SYS.tables WHERE name='PLAYAFLUVIAL')
 BEGIN
@@ -243,7 +242,6 @@ CREATE TABLE PLAYAFLUVIAL (
 	codPlaya smallint IDENTITY (1,5) not null,
 	CodRio smallint not null,
 	Numero smallint not null,
-	
 	nombrePlaya varchar (20) not null,
 	caracteristicas varchar (120) null,
 	phAgua float
@@ -252,8 +250,6 @@ CREATE TABLE PLAYAFLUVIAL (
 	
 	fechaUltimaInspeccion datetime
 		CONSTRAINT DF_PLAYAFLUVIAL_FECHAULTIMAINSPECCION DEFAULT (DATEDIFF (MONTH, GETDATE(),-2)),
-	
-	
 	CONSTRAINT PK_PLAYAFLUVIAL PRIMARY KEY (codPlaya,CodRio,Numero),
 	CONSTRAINT FK_PLAYAFLUVIAL_TRAMO FOREIGN KEY (CodRio,Numero) references TRAMO(CodRio,Numero)
 		on delete cascade

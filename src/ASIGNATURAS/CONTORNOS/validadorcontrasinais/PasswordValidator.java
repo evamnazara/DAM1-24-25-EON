@@ -1,10 +1,4 @@
 package ASIGNATURAS.CONTORNOS.validadorcontrasinais;
-/*
-    POR ENUNCIADO: 
-        Ten polo menos 8 caracteres.
-        Contén polo menos unha letra maiúscula.
-        Contén polo menos un número.
- */
 
 public class PasswordValidator {
     public static boolean isValid(String password) {

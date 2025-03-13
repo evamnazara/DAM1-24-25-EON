@@ -1,3 +1,5 @@
+package ASIGNATURAS.CONTORNOS.ejerciciospruebas.conversortemperaturas;
+
 public class MathUtils { 
     public static int factorial(int n) { 
         if (n < 0) { 
