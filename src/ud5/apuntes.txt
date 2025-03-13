@@ -1,109 +1,37 @@
-UD05.2.POO.Herencia 
-Apuntes 
-DAM1-Programación 2024-25 
+279
+
+UD05.
+============
+HERENCIA: 
+
+    aportacion de la POO > permite que las características pasen de padres a hijos. 
+    Cuando una clase hereda de otra, adquiere sus atributos y métodos visibles, permitiendo que se pueden ampliar o extender. 
  
-Herencia. Conceptos Básicos  1 
-8.1. Subclase y superclase  2 
-8.2. Modificador de acceso para herencia  3 
-8.3. Redefinición de miembros heredados  4 
-8.3.1. super y super()  6 
-8.3.2. Selección dinámica de métodos  7 
-La clase Object  11 
-Clases abstractas  16 
-Anexo. Clases Internas  20 
+clase de la que se hereda: superclase / clase padre 
+clase que hereda: subclase / clase hija
+
+===========
+SUBCLASE Y SUPERCLASE 
+
+subclase: dispone de los miembros heredados de la superclase y se 
+amplía añadiéndole nuevos atributos y métodos. 
+    aumenta funcionalidad y evita la repetición innecesaria de código.
+
+En la API la mayoría de las clases no se definen desde cero, heredan de otras. > todas las clases de Java heredan de Object
+
+
+Java solo permite herencia simple, cada clase tiene sólo una superclase, aunque tenga ella varias hijas (C++ permite múltiple, una clase herede de más de una superclase)
  
-Otras fuentes: 
-●  Programación Java: Teoría  
-○  Herencia en Java 
-○  Método abstracto 
-○  Polimorfismo. Concepto y ejemplo de Polimorfismo en Java  
-●  Universitat Politècnica de València - UPV 
-○  La herencia en Java |  | UPV  
-○  El polimorfismo en Java |  | UPV  
-●  Relaciones entre clases: Asociación y Herencia: 
-○  (Programación en Java: Fundamentos de programación y principios de 
-diseño) 
-○  Relaciones entre clases (diagramas de clases UML) 
-○  Relación de ejercicios 
-●  draw.io  
-●  Creador gratuito de diagramas UML| Lucidchart 
-●  Lucid para la Educación | Lucidchart   
-Herencia. Conceptos Básicos 
-La herencia es una de las grandes aportaciones de la POO y permite, igual que en la vida 
-real, que las características pasen de padres a hijos. Cuando una clase hereda de otra, 
-adquiere sus atributos y métodos visibles, permitiendo reutilizar el código y las 
-funcionalidades, que se pueden ampliar o extender. 
- 
-La clase de la que se hereda se denomina clase padre o superclase, y la clase que hereda 
-es conocida como clase hija o subclase.  
-  
-8.1. Subclase y superclase 
-Una subclase dispone de los miembros heredados de la superclase y, habitualmente, se 
-amplía añadiéndole nuevos atributos y métodos. Esto aumenta su funcionalidad, a la vez 
-que evita la repetición innecesaria de código. En la API, por ejemplo, la mayoría de las 
-clases no se definen desde cero. Por el contrario, se construyen heredando de otras, lo que 
-simplifica su desarrollo. En realidad, todas las clases de Java heredan de la clase 
-Object, definida también en la API. 
- 
-La forma de expresar cuál es la superclase de la que heredamos es mediante la palabra 
-reservada extends, de la forma 
- 
-class SubClase extends SuperClase ( 
- 
-} 
- 
-Veamos un ejemplo: supongamos que disponemos de la clase Persona (nombre, edad y 
-estatura) y necesitamos construir la clase Empleado. Un empleado, para nuestra 
-aplicación, será una persona con un salario.  
- 
-Vamos a definir Empleado heredando de Persona. Esto hará que adquiera todos sus 
-miembros, que no es necesario escribir de nuevo. De momento añadiremos el atributo 
-salario y un constructor. 
- 
-class Persona { 
-    String nombre; 
-    byte edad; 
-    double estatura; 
-} 
- 
-class Empleado extends Persona { 
-    double salario; 
- 
-    Empleado (String nombre, byte edad, double estatura, double salario){ 
- 
-    } 
-} 
- 
- Al crear un objeto de la clase Empleado disponemos de los atributos nombre, estatura y 
-edad, además de los métodos que se hubieran definido en Persona y de los miembros 
-propios salario y un constructor, añadidos en la definición de Empleado.  
- 
-Empleado e = new Empleado ("Sancho", 25, 1.80, 1725.49); 
- 
-System.out.println(e.nombre);  //muestra un atributo heredado 
-System.out.println(e.salario); //muestra un atributo propio 
- 
-El mecanismo de la herencia puede continuar ampliando la biblioteca de clases a partir de 
-las existentes. En nuestro ejemplo, podemos definir, a partir de Empleado, la clase Jefe, 
-que no es más que un empleado con unas propiedades añadidas. 
- 
-Existen lenguajes de programación, como C++, que permiten que una clase herede de más 
-de una superclase, lo que se conoce como herencia múltiple. Java solo permite herencia 
-simple, donde cada clase tiene como padre una única superclase, cosa que no impide que, 
-a su vez, tenga varias clases hijas. 
- 
-Los términos subclase y superclase son relativos. Una clase es subclase de otra si hereda de ella 
-por medio de la palabra clave extends en su declaración. Automáticamente esta última es 
-superclase de la primera. Una clase puede ser a la vez subclase de una clase y superclase de 
-otras. 
-8.2. Modificador de acceso para herencia 
-Una subclase hereda todos los miembros de su superclase salvo los private, que no 
-son accesibles directamente en la subclase. No obstante, se puede acceder a ellos 
-indirectamente con un método no privado. 
- 
-Con la herencia aparece un nuevo modificador de acceso, protected (que siginifica 
-«protegido»), pensado para facilitar la herencia. 
- 
+Los términos subclase y superclase son relativos. Una clase es subclase de otra si hereda de ella por medio de la palabra clave extends en su declaración. Automáticamente esta última es superclase de la primera. Una clase puede ser a la vez subclase de una clase y superclase de otras.
+
+
+8.2. MODIFICADORES DE ACCESO DE HERENCIAS 
+
+Una subclase hereda todos los miembros de su superclase salvo los private, pero se puede acceder a ellos indirectamente con un método no privado. 
+
+
+PROTECTED: modificador de acceso pensado para facilitar la herencia 
+
 Los miembros protegidos serán siempre visibles para las clases que hereden, 
 independientemente de si la superclase y la subclase son vecinas o externas, aunque en 
 este último caso habrá que importar la superclase. 

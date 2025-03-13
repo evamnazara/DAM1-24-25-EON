@@ -9,16 +9,16 @@ public class Cientifica extends MullerTraballadora implements IPioneira {
         this.descubrimento = descubrimento;
     }
 
-
+//implementan los metodos abstractosd e la clases que heredan
    @Override
    public String descricionContribucion() {
-       return getDescubrimentoOuAporte();
+
+       return nome + apelidos + " foi unha científica pioneira.";
    }
    
    @Override
    public String getDescubrimentoOuAporte() {
-       // TODO Auto-generated method stub
-       return null;
+       return descubrimento;
    }
 
 }

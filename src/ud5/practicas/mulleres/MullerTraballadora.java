@@ -1,9 +1,9 @@
 package ud5.practicas.mulleres;
 
 public abstract class MullerTraballadora {
-    String nome;
-    String apelidos;
-    int anoNacemento;
+    protected String nome;
+    protected String apelidos;
+    protected int anoNacemento;
 
 
     public MullerTraballadora(String nome, String apelidos, int anoNacemento) {

@@ -29,7 +29,7 @@ comezan polos compoñentes máis pequenos (métodos, clases, paquetes, etc.) > i
         > de sistema
         > de validación
 
-    2.1. Probas de unidade
+    2.1. PROBAS DE UNIDADE
         PRUEBAS DE CAJA NEGRA Y DE CAJA BLANCA 
 
     Comezase probando módulos individuais ou clases
@@ -39,17 +39,14 @@ comezan polos compoñentes máis pequenos (métodos, clases, paquetes, etc.) > i
     eliminar erros na interface e na lóxica interna > Utilízanse técnicas de caixa negra e caixa branca.  
     
     Fanse probas sobre: 
-    1.  A interfaz do módulo, para asegurar que a información flúe adecuadamente. 
-    2.  As estruturas de datos locais, para asegurar que manteñen a integridade durante 
-    todos os pasos do proceso. 
-    3.  As condicións límite, para asegurar que funcionan correctamente nos límites 
-    establecidos durante o proceso. 
-    4.  Todos os camiños independentes da estrutura de control, co fin de asegurar que 
-    todas as sentenzas se executan polo menos unha vez. 
+    1.  interfaz do módulo > asegura que a información flúe adecuadamente. 
+    2.  estruturas de datos locais > asegura a integridade en todos o proceso
+    3.  condicións límite > asegura que funcionan correctamente 
+    4.  camiños independentes da estrutura > todas as sentenzas se executan polo menos unha vez. 
     5.  Todos os camiños de manexo de erros. 
     
-    Existen ferramentas para automatizar probas unitarias como son: JUnit, CPPUnit, PHPUnit, 
-    PyUnit, etc. 
+    ferramentas para automatizar probas unitarias: JUnit, CPPUnit, PHPUnit, PyUnit...
+
     2.2. Probas de integración 
     ●  Pruebas de Integración: qué son, tipos y ejemplos  
     

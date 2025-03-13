@@ -1,8 +1,11 @@
 
-
+//INMOBILIARIA 1 Y 2 
 package ud5.practicas.Inmobiliaria;
 
-public class Inmobiliaria {
+import java.util.Arrays;
+
+public class AppInmobiliaria {
+   @SuppressWarnings("unchecked")
    public static void main(String[] args) {
         //Crea un piso en una 5a planta, de 100m2, 3 habitaciones y 2 baños en la dirección “Calle Curtidoira”. 
         //Establece los precios de alquiler y de Venta. 
@@ -37,6 +40,40 @@ public class Inmobiliaria {
         System.out.println(piso2.detalle()); 
         System.out.println(""); 
         System.out.println(casa2.detalle());
-   }
+
+
+
+
+      //SEGUNDA PARTE DEL EJERCICIO 
+
+        // 1.2. Lista de inmuebles 
+         System.out.println("\nTODOS LOS INMUEBLES:"); 
+         Inmueble[] inmuebles = {piso1, piso2, piso3, casa1, casa2};
+         mostrarInmuebles(inmuebles); 
+
+
+         System.out.println("\nINMUEBLES ORDENADOS ALFABETICAMENTE:");
+         CompInmAlfabeticamente comparaAlfabeticamente = new CompInmAlfabeticamente();
+         Arrays.sort(inmuebles,comparaAlfabeticamente);
+         mostrarInmuebles(inmuebles); 
+         
+
+         System.out.println("\nINMUEBLES ORDENADOS  POR m2 (ascendente):");
+         CompInmM2 comparaMetros = new CompInmM2();
+         Arrays.sort(inmuebles,comparaMetros);
+         mostrarInmuebles(inmuebles); 
+
+
+                  
+      }
+      
+      private static void mostrarInmuebles(Inmueble[] t) {
+               for (Inmueble inmueble : t ) {
+                  System.out.println(inmueble.toString());
+               }
+
+      }
+         
+      
 
 }

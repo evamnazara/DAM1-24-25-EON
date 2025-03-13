@@ -1,5 +1,6 @@
 package ud5.practicas.Inmobiliaria;
 
+
 public class Casa extends Inmueble {
     int metrosTerreno;
      
@@ -17,5 +18,6 @@ public class Casa extends Inmueble {
             return detalle;
         };
 
-
+       
+    
 }

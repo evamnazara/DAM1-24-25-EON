@@ -53,7 +53,7 @@ public class Futbolista {
     public String toString() {
         return "\nDNI: " + dni + " | Nombre: " + nombre + " | Edad: " + edad + " | Goles: " + numerodeGoles;
     }
-
+    
     public int compareTo(Object o) {
         Futbolista futbolista = (Futbolista) o;
         int res = dni.compareTo(futbolista.dni);
