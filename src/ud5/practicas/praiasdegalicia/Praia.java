@@ -1,5 +1,7 @@
 package praiasdegalicia;
 
+import java.util.Arrays;
+
 public class Praia {
     private int id;
     private String nome;
@@ -32,7 +34,7 @@ public class Praia {
     }
 
     public int getId() {
-        return id;
+        return ;
     }
 
     public void setId(int id) {
@@ -79,9 +81,18 @@ public class Praia {
         this.lon = lon;
     }
 
-    public static void imprimirLista(Praia[] praias, int i) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'imprimirLista'");
+    @Override
+    public String toString() {
+        return "\n " + id + " - " + nome + " - " + concello + " - " + provincia + " - (" + lat + ", " + lon + ")"  ;
+    }
+
+    public static void imprimirLista(Praia[] praias, int num) {
+        
+        for (int i = 0; i < num; i++) {
+            System.out.println(praias[i.toString()]);
+        }
+
+        
     }
 
     public void mostrarDetalles() {
