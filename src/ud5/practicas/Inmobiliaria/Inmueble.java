@@ -1,5 +1,8 @@
 //con ejercicio 2 
-package ud5.practicas.Inmobiliaria;
+package Inmobiliaria;
+
+import java.util.Arrays;
+import java.util.Comparator;
 
 @SuppressWarnings("rawtypes")
 public abstract class Inmueble implements Comparable {
@@ -46,12 +49,39 @@ public abstract class Inmueble implements Comparable {
     public abstract String detalle();
 
     //EJERCICIO 2 
-    
+    public static void mostrarInmuebles(Inmueble[] t) {
+        for (Inmueble inmueble : t ) {
+           System.out.println(inmueble.toString());
+        }
+
+    }
     // Ordena Inmuebles por m2 (de mayor a menor) 
-    public void sortMetrosDesc(Inmueble[] t){}; 
+    public void sortMetrosDesc(Inmueble[] t){
+        Arrays.sort(t, new CompInmM2().reversed());
+    }; 
  
     //Ordena Inmuebles por numHabitaciones y luego por m2 (de mayor a menor) 
-    public void sortHabMetrosDesc(Inmueble[] t){}; 
+    public void sortHabMetrosDesc(Inmueble[] t){
+        Comparator ComparaHabitaciones = new Comparator() {
+            @Override
+
+            public int compare(Object o1, Object o2) {
+                Inmueble inmueble1 = ((Inmueble) o1);
+                Inmueble inmueble2 = ((Inmueble) o2);
+                int res = inmueble2.numHabitaciones - inmueble1.numHabitaciones;
+
+                if (res == 0) {
+                    res = inmueble2.metrosCuadrados - inmueble1.metrosCuadrados;
+                }
+                return res;
+            }
+        };  
+
+        Arrays.sort(t,ComparaHabitaciones);
+
+        //Arrays.sort(t,ComparaHabitaciones.thenComparing(metrosCuadrados));
+
+    }; 
  
     //Ordena Inmuebles por precio Alquiler (de menor a mayor). (¿Y qué pasa con los inmuebles que no se ofrecen en alquiler?) 
     public void sortPrecioAlquilerAsc(Inmueble[] t){}; 

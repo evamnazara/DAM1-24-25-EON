@@ -1,6 +1,6 @@
 
 //INMOBILIARIA 1 Y 2 
-package ud5.practicas.Inmobiliaria;
+package Inmobiliaria;
 
 import java.util.Arrays;
 
@@ -49,30 +49,23 @@ public class AppInmobiliaria {
         // 1.2. Lista de inmuebles 
          System.out.println("\nTODOS LOS INMUEBLES:"); 
          Inmueble[] inmuebles = {piso1, piso2, piso3, casa1, casa2};
-         mostrarInmuebles(inmuebles); 
+         Inmueble.mostrarInmuebles(inmuebles); 
 
 
          System.out.println("\nINMUEBLES ORDENADOS ALFABETICAMENTE:");
          CompInmAlfabeticamente comparaAlfabeticamente = new CompInmAlfabeticamente();
          Arrays.sort(inmuebles,comparaAlfabeticamente);
-         mostrarInmuebles(inmuebles); 
+         Inmueble.mostrarInmuebles(inmuebles); 
          
 
          System.out.println("\nINMUEBLES ORDENADOS  POR m2 (ascendente):");
          CompInmM2 comparaMetros = new CompInmM2();
          Arrays.sort(inmuebles,comparaMetros);
-         mostrarInmuebles(inmuebles); 
+         Inmueble.mostrarInmuebles(inmuebles); 
 
-
-                  
       }
       
-      private static void mostrarInmuebles(Inmueble[] t) {
-               for (Inmueble inmueble : t ) {
-                  System.out.println(inmueble.toString());
-               }
-
-      }
+     
          
       
 

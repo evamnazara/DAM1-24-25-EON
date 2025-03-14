@@ -1,4 +1,4 @@
-package ud5.practicas.mulleres;
+package mulleres;
 
 
 public class Politica extends MullerTraballadora {

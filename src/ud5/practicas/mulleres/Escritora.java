@@ -1,4 +1,4 @@
-package ud5.practicas.mulleres;
+package mulleres;
 
 public class Escritora extends MullerTraballadora implements IPioneira {
 
@@ -12,6 +12,7 @@ public class Escritora extends MullerTraballadora implements IPioneira {
     //poner texto correcpondiente
     @Override
     public String getDescubrimentoOuAporte() {
+        System.out.println(obraMaestra);
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getDescubrimentoOuAporte'");
     }
