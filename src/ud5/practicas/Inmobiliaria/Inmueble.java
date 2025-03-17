@@ -56,6 +56,7 @@ public abstract class Inmueble implements Comparable {
 
     }
     // Ordena Inmuebles por m2 (de mayor a menor) 
+    @SuppressWarnings("unchecked")
     public void sortMetrosDesc(Inmueble[] t){
         Arrays.sort(t, new CompInmM2().reversed());
     }; 

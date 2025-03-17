@@ -34,7 +34,7 @@ public class Praia {
     }
 
     public int getId() {
-        return ;
+        return id;
     }
 
     public void setId(int id) {
@@ -89,7 +89,7 @@ public class Praia {
     public static void imprimirLista(Praia[] praias, int num) {
         
         for (int i = 0; i < num; i++) {
-            System.out.println(praias[i.toString()]);
+            //System.out.println(praias[i.toString()]);
         }
 
         

@@ -462,48 +462,14 @@ parénteses).
 2.  Crear o número mínimo de casos de proba que inclúan todas as clases válidas. 
 3.  Crear un caso de proba por cada clase non válida. O caso de proba debe incluír 
 unha clase non válida e todas as demais clases debe ser válidas.  
- 
- 
- 
- 
- 
- 
-Exercicio. Dada a seguinte especificación: 
-Un programa toma como entrada un ficheiro co formato de rexistro seguinte: 
- 
-Numero-alumno    Nome-alumno    Nota-obtida 
- 
-onde: 
-●  Numero-alumno é un campo de números enteiros positivos de 3 díxitos (excluído 
-o 000). 
-●  Nome-alumno é un campo alfanumérico de 10 caracteres. 
-●  Nota-obtida é un enteiro positivo entre 0 e 10. 
- 
-O programa asigna un texto (que se imprime nun listado) a cada alumno segundo a nota 
-obtida: 
-●  “Moi deficiente” a o alumnado cunha nota inferior a 3 
-●  “Insuficiente” o alumnado cunha nota maior o igual a 3 e menor que 5 
-●  “Suficiente” se o alumno ten unha nota igual a 5 e menor que 7 
-●  “Notable” se o alumno ten unha nota igual a 7 e menor que 9 
-●  “Sobresaínte” se o alumno ten unha nota maior ou igual a 9 
- 
-Desenvolve a estratexia de Clases de Equivalencia: 
-1.  Crea unha táboa de Clases de Equivalencia (as clases deberán ser numeradas) 
-na que se indiquen as seguintes columnas en cada fila: 
-●  Condición de entrada que se analiza 
-●  Clases válidas  
-●  Clases non válidas que se xeran para a condición 
-2.  Xera os casos de proba (especificando a entrada en todos os casos e a saída 
-esperada só nos casos válidos) para as clases creadas usando a técnica de 
-particións de equivalencia, indicando en cada caso as clases que cubre. 
-3.3. Análise de valores límite 
-Esta técnica baséase en que os erros teñen unha maior probabilidade de producirse nos 
-valores límite ou nos extremos dos valores de entrada. Complementa a técnica das 
-particións equivalentes pero ten algunhas diferencias: 
-1.  En lugar de seleccionar calquera elemento dentro dunha clase de equivalencia, 
-selecciónanse aquel ou aqueles que están xusto nos límites da clase. 
-2.  En lugar de centrarse unicamente nas condicións de entrada, esta técnica tamén 
-xera casos de proba tendo en conta as condicións de saída. 
+
+
+3.3. ANÁLISIS DE VALORES LÍMITE 
+
+basadada en que los errores son mas probables en los valores limites o extremos de las entradas.
+  Complementa a técnica das particións equivalentes pero ten algunhas diferencias: 
+      1.  En lugar de seleccionar calquera elemento dentro dunha clase de equivalencia, selecciónanse aquel ou aqueles que están xusto nos límites da clase. 
+      2.  En lugar de centrarse unicamente nas condicións de entrada, esta técnica tamén xera casos de proba tendo en conta as condicións de saída. 
  
  
 As regras para xerar casos de proba son as seguintes: 
@@ -544,150 +510,65 @@ datos internas (por exemplo, unha táboa ou un ficheiro secuencial)  que teñen
 límites preestablecidos (por exemplo, un array de 100 elementos), hai que deseñar 
 casos de proba que proben a estrutura de datos nos seus límites, é dicir, no primeiro 
 e último elemento. 
+
+
+================ 
+4. DOCUMENTACIÓN 
+
+conveniente para unha boa organización e para asegurar a súa reutilización. Hai que documentar tanto o deseño das probas como o resultado da súa execución. 
+
+estándar IEEE 829-1998: conxunto de documentos a producirse durante la prueba.
+  > plan de pruebas: planificación general (alcance, enfoque, recursos, calendario...) incluye tareas a realizar, responsables y riesgos
+  > especificación de pruebas
+      > especificación de casos de prueba
+      > especificación de procedimientos de prueba 
+
+  > informes de pruebas 
+    > histórico de pruebas: hechhos relevantes (fechas, contorno, elementos, resultados) 
+    > informe de incidentes: eventos producidos durante la ejecución
+    > informe resumen
+
+=======================
+  5. HERRAMIENTAS DE DEPURACIÓN 
+
+depuración: evalúan los resultados de la ejecución y comprueba que se corresponda (lo que esperaba vs lo que da)
  
-Exemplos: 
+resultados posibles:
+  1. se encuentra error > se corrige > se elimina 
+  2. no se encuentra error > se hacen pruebas y se repiten hasta encontrarlo 
+    > probas de regresión, repetición selectiva de probas para detectar fallos introducidos 
  
-  Condicións de Entrada e saída  Casos de proba 
-Código   Enteiro de 1 a 100  Valores: 0, 1, 100 e 101 
-Posto  Alfanumérico de ata 4 caracteres  Lonxitude de caracteres: 0, 1, 4, 5 
-Antigüidade   De 0 a 25 anos (Real)  Valores: 0, 25, -0.1 , 25.01 
-Horas semanais  De 0 a 60  Valores: 0, 60, -1, 61 
-Arquivo de 
-entrada 
-Ten de 1 a 100 rexistros  Para ler 0, 1, 100, 101 rexistros 
-Arquivo de saída  Poderá ter de 0 a 10 rexistros  Para xerar 0, 10 e 11 rexistros, (non se pode xerar 
--1 rexistro) 
-Array interno  De 20 cadeas de caracteres  Para o primeiro e o último elemento 
+tipos xerais de erros: erros de compilación e erros lóxicos. 
+  ●  de compilación > suele encargarse el IDE de marcarlo 
+  ●  lóxicos / bugs: no impiden que compile pero provocan resultados incorrectos 
+      > debugger: analiza el programa mientras ejecuta > pone valores a las variables y los compara 
+
+
+5.1. EJECUCION PASO A PASO 
+
+formas de depuración: 
+  ● ejecución paso a paso: liña por liña para buscar e corrixir erros lóxicos.  
+  ● ejecución paso a paso por procedementos: ejecuta un método ou función completamente. 
+    útil cando xa comprobamos que un procedemento funciona correctamente e só nos interesa o valor que devolve. 
+  ● execución ata unha instrución: depurador executa o programa > se detiene en un punto > depura a partir de ahi 
+  ● execución ata o final: no detiene en instrucciones intermedias 
+
+5.2. PUNTOS DE RUPTURA // BREAKPOINTS 
+
+nos interesa cuando no hay que probar todo si no solo un punto concreto 
+
+opcións de depuración > selecciónase a liña onde queremos que pare para a partir dela, inspeccionar variables, ou realizar unha execución paso a paso, para verificar a  corrección do código. 
+
+  
+puntos de ruptura: marcadores que poden establecerse en calquera liña de código executable
+  > pódense examinar as variables, e comprobar que os valores asignados son correctos
+  > iniciar depuración paso a paso
+
+despues de la comprobación, podemos abortar o programa, ou continuar a execución normal do mesmo. 
+
+
+5.3. EXAMINAR VARIABLES
+
+Mentres o código se analiza, se pueden ver tipos e contidos das variables según avanza o programa, y también cambiar o valor das variables
  
-4. Documentación para as probas 
-A documentación das probas é conveniente para unha boa organización e para asegurar a 
-súa reutilización. Hai que documentar tanto o deseño das probas como o resultado da súa 
-execución. O estándar IEEE 829-1998 describe o conxunto de documentos que poden 
-producirse durante o proceso de proba. Son os seguintes: 
- 
-●  Plan de probas. Recolle a planificación xeral das probas da aplicaciónq ue se está a 
-crear. Describe o alcance, o enfoque, os recursos e o calendario das actividades de 
-proba. Identifica os elementos a probar, as características que se van probar, as 
-tarefas que se van realizar, o persoal responsable de cada tarefa e os riscos 
-asociados ao plan. 
- 
-●  Especificacións de proba. Detalla o plan de probas 
-○  Especificación dos casos de proba, documenta os valores reais utilizados 
-para a entrada, xunto cos resultados esperados e as posibles dependencias 
-entre casos de proba. 
-○  Especificación dos procedementos de proba, indica os pasos para 
-executar os casos de proba especificados, incluindo o contorno necesario, o 
-persoal responsable. 
- 
- 
-●  Informes de probas.  
-○  Histórico de probas, que rexistra os feitos relavantes durante a execución 
-da proba: data e hora, contorno, elementos probados, resultados e referencia 
-ao informe de incidentes se é o caso. 
-○  Informe de incidentes, que describe calquera evento que se produce 
-durante a execución da proba que require maior investigación. 
-○  Informe resumo das actividades de proba, que inclúe resumo da avaliación 
-dos elementos probados, variacións do software como resultado das probas, 
-valoración da cobertura, etc. 
- 
-5. Ferramentas de depuración 
-O proceso de depuración comeza coa execución dun caso de proba. Avalíanse os 
-resultados da execución e froito desa avaliación compróbase que hai unha falta de 
-correspondencia entre os resultados esperados e os obtidos realmente.  
- 
-O proceso de depuración sempre ten un dos resultados seguintes: 
-1.  Atópase a causa do erro, corríxese e eliminase 
-2.  Non se atopa a causa do erro. Neste caso, a persoa encargada da depuración debe 
-sospeitar a causa, deseñar os casos de proba que axuden a confirmar as sospeitas 
-e volver a repetir as probas para identificar e corrixir os erros (probas de regresión, 
-repetición selectiva de probas para detectar fallos introducidos durante a 
-modificación). 
- 
-Ao desenvolver programas cométense dous tipos xerais de erros: erros de compilación e 
-erros lóxicos. 
-●  Os erros de compilación son doados de corrixir xa que normalmente se emprega 
-un IDE para codificar e escribir as sentenzas. O contorno proporciona información da 
-localización do erro e de como solucionalo, especialmente nas linguaxes 
-compiladas, nas que o programa non pode compilarse ata que se corrixan todos os 
-erros. 
-●  Os erros lóxicos, comunmente chamados bugs, estes non impiden que o programa 
-compile con éxito pero poden provocar que o programa devolva resultados 
-incorrectos, que non sexan os esperados, ou poden provocar que o programa 
-remate abruptamente antes de tempo ou que non remate nunca. 
- 
-Para solucionar erros lóxicos, as contornas de desenvolvemento incorporan unha 
-ferramenta coñecida como depurador ou debbuger. O depurador permite analizar todo o 
-programa, mentres este execútase. Permite suspender a execución dun programa, 
-examinar e establecer os valores das variables, comprobar os valores devoltos por un 
-determinado método, o resultado dunha comparación lóxica ou relacional etc. 
-5.1. Execución paso a paso 
-Debugger 
-●  Depuración paso a paso de entornos de desarrollo como Netbeans 
-●  Run and Debug Java in Visual Studio Code 
- 
-Para depurar un programa podemos utilizar o depurador para executar o programa de 
-diferentes formas: 
-●  A execución paso a paso permite executar un programa liña por liña para buscar e 
-corrixir erros lóxicos.  
-●  A execución paso a paso por procedementos permítenos executar un método ou 
-función completamente. É útil, cando xa comprobamos que un procedemento 
-funciona correctamente e só nos interesa o valor que devolve. 
-●  Na execución ata unha instrución, o depurador executa o programa, e detense na 
-instrución onde se atopa o cursor, a partir dese punto, podemos facer unha 
-depuración paso a paso ou por procedementos. 
-●  Na execución dun programa ata o final, executamos o resto do programa 
-completamente sen deternos nas instrucións intermedias. 
- 
-Nos distintos IDE’s, no menú de depuración, pódense seleccionar os modos de execución 
-especificados, e algúns máis. O obxectivo é poder examinar todas as partes que se 
-consideren necesarias, de maneira rápida, sinxela e o máis clara posible. 
-5.2. Puntos de ruptura (breakpoints) 
-Dentro das opcións de depuración contamos coa posibilidade de inserir puntos de ruptura 
-(breakpoint). Selecciónase a liña de código onde queremos que o programa se pare para a 
-partir dela, inspeccionar variables, ou realizar unha execución paso a paso, para verificar a 
-corrección do código. 
- 
-Durante a proba dun programa, pode ser interesante a verificación de determinadas partes 
-do código. Non nos interesa probar todo o programa, xa que delimitamos o punto concreto 
-onde inspeccionar. Para iso, utilizamos os puntos de ruptura. 
- 
- 
-Punto de ruptura en NetBeans 
- 
-Os puntos de ruptura son marcadores que poden establecerse en calquera liña de 
-código executable (non sería válido nun comentario, ou nunha liña en branco). Unha vez 
-inserido o punto de ruptura, e iniciada a depuración, o programa a avaliar executaríase ata a 
-liña marcada co punto de ruptura. Nese momento, pódense realizar diferentes labores, por 
-unha banda, pódense examinar as variables, e comprobar que os valores que teñen 
-asignados son correctos, ou pódese iniciar unha depuración paso a paso, e ir comprobando 
-o camiño que toma o programa a partir do punto de ruptura. Unha vez realizada a 
-comprobación, podemos abortar o programa, ou continuar a execución normal do mesmo. 
- 
-Dentro dunha aplicación, pódense inserir varios puntos de ruptura, e pódense eliminar coa 
-mesma facilidade coa que se inseriron. 
-5.3. Examinar variables 
-Mentres o código está sendo analizado polo depurador, podemos ver os tipos e contidos 
-das variables a medida que avanza o programa. Tamén é posible cambiar o valor das 
-variables ou avaliar expresións. 
- 
-Os examinadores de variables, forman un dos elementos máis importantes do proceso de 
-depuración dun programa. Iniciado o proceso de depuración, normalmente coa execución 
-paso a paso, o programa avanza instrución por instrución. Ao mesmo tempo, as distintas 
-variables, van tomando diferentes valores. Cos examinadores de variables, podemos 
-comprobar os distintos valores que adquiren as variables, así como o seu tipo. Esta 
-ferramenta é de gran utilidade para a detección de erros. 
- 
- 
-Examinando variables en NetBeans 
- 
-6. Probas Unitarias 
- 
-●  Probas Unitarias con JUNIT  
- 
-1.  Creación dunha clase de proba 
-2.  Preparación e execución das probas 
-3.  Anotacións 
-4.  Probas parametrizadas 
-5.  Suite de probas 
-6.  Cobertura 
- 
+examinadores de variables > inician depuración, normalmente coa execución paso a paso, o programa avanza instrución por instrución. Ao mesmo tempo, as distintas variables, van tomando diferentes valores. Cos examinadores de variables, podemos comprobar os distintos valores que adquiren as variables, así como o seu tipo. Esta ferramenta é de gran utilidade para a detección de erros. 

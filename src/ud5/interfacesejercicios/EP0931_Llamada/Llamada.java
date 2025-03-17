@@ -20,7 +20,6 @@ package ud5.interfacesejercicios.EP0931_Llamada;
 
 import java.time.LocalDateTime;
 
-import ud5.rol.inventario.Armadura;
 
 public class Llamada {
     String telefonoCliente;
