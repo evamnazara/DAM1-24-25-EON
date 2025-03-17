@@ -88,8 +88,10 @@ SELECT nome+ '' + apelido1+'' + isnull(apelido2) as 'nombre completo',
 from empregado
 
 --10. Muestra el nombre completo de los familiares que tienen un apellido (cuaquiera de los dos) de menos de 5 letras, ordenados por primer apellido y dentro de este por segundo apellido.
-select name
 
+--el distinct hay q poner lo, si no una persnq eu tenga  6 familaires saldra 6 veces repetido
+select distinct 
+'hijo' / 'hija'
 
 --11._ Mostra unha relación de departamentos (nome) y persoal (nome completo) asociados a este, ordeados por departamento e dentro deste por nome  completo en orden descendente.
 select 
@@ -108,7 +110,13 @@ select
 
 
 --15._Fai unha consulta que amose o 20% dos homes que traballan no departamento de Informática, Estadística ou Innovación.
-select 
+select top 20 percent from nomedepartamento, empregado* 
+    from deprtamento inner join empregado 
+    on --- 
+
+    where departamento in ('Informatica', 'tecnico')
+    salario between 1500 and 3000
+    and YEAR(datanacemento)< 1980
 
 
 --16._Mostra todos os datos da táboa empregado xunto co nome e número de horas dos proxectos nos que participou o empregado e salario, pero só para aqueles empregados fixos dos departamentos de Informática e Técnico que cobran entre 1500 e 3000 euros e que naceron con anterioridade ao ano 1980.

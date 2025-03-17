@@ -116,115 +116,61 @@ comezan polos compoñentes máis pequenos (métodos, clases, paquetes, etc.) > i
     
  
 3. TECNICAS DE DISEÑO DE CASOS DE PRUEBA 
-As técnicas de deseño de casos de proba son as diferentes formas en que se poden xerar 
-casos de proba para probar o software. Dependendo do enfoque que se adopte, pódese 
-aplicar un dos seguintes tipos de técnicas de deseño de casos de proba. 
+
+tipos de técnicas de deseño: 
  
-1.  Probas de caixa branca ou probas estruturais: examinan os detalles de cada 
-módulo, para o que se debe dispor do código fonte. A través de dito código, 
-próbanse os diferentes camiños, os bucles, as variables, etc. Destas probas derivan 
-casos de proba que: 
-○  Garanten que todas as rutas independentes dentro dun módulo se revisaron 
-polo menos unha vez. 
-○  Revisan todas as decisións lóxicas nos seus lados verdadeiro e falso. 
-○  Executan todos os bucles nas súas fronteiras operativas. 
-○  Revisan estruturas de datos internas para garantir a súa validez. 
+1.  Pruebas de caja blanca / pruebas estructuraleS: examinan los detalles de cada módulo > NECESARIO CODIGO 
+  con el código, se prueban caminos, bucles y varianles
+
+generan casos de proba que: 
+      > garantizan que todas las rutas posibles se revisen 
+      > revisan las decisiones logicas y sus lados verdadero y falso 
+      > todos los bucles se ejecutan 
+      > revisa y valida las estructuras de datos internas 
  
-2.  Probas de caixa negra ou probas funcionais: considérase ao software como unha 
-caixa negra que recibe unha serie de entradas e proporciona unha serie de saídas. 
-O obxectivo destas probas é validar os requisitos funcionais. Estas probas lévanse a 
-cabo sobre a interface do software, non fai falla coñecer a estrutura interna do 
-programa nin o seu funcionamento. Preténdese obter casos de proba que demostren 
-que as funcións do software son operativas, e dicir, que as saídas que devolve a 
-aplicación son as esperadas en función das entradas que se proporcionan.  
+2. pruebas de caja negra / pruebas funcionales: validan los requisitos funcionales. > NO ES NECESARIO CODIGO
+  considera el programa como una caja negra con una serie de entradas que proporciona salidas. 
+
+      > se llevan a cabo sobre la interfaz del software
+      > obtienen casos de prueba demuestren que todo va ok 
  
-É habitual empregar os dous tipos de técnicas de deseño de casos de proba, pois se poden 
-combinar e complementar perfectamente. 
+Probas de código: consiste en ejecutar un programa para encontrar errores. 
+
+3.1. PRUEBA DE CAMINO BÁSICO - caja BLANCA 
+
+Obtiene el valor de COMPLEJIDAD CICLOMÁTICA. 
+Permite diseñar todos sus caminos de ejecución y crear los casos de prueba que los recorran. 
+
+cuatro fases: 
+      > grafo de flujo
+      > cálculo de complejidad ciclomatica
+      > conjunto de caminos independientes
+      > creación de casos de prueba 
+
+3.1.1. GRAFO DE FLUJO
  
-Probas de código 
+el grafo muestra el recorrido do control lóxico do programa 
+    > nodos: cada instrucción, asignación de valores y cada parámetro + nodo inicio + nodo fin 
+    > el paso de una instruccion a otra es una arista 
  
-A proba de código consiste na execución do programa (ou parte del) co obxectivo de 
-atopar erros. Pártese para a súa execución dun conxunto de entradas e unha serie de 
-condicións de execución; obsérvanse e rexístranse os resultados e compáranse cos 
-resultados esperados. Observarase se o comportamento do programa é o previsto ou non 
-e por que. 
-3.1. Proba do camiño básico 
-Esta técnica de caixa branca, proposta inicialmente por McCabe, trata de obter un valor de 
-complexidade do módulo denominada complexidade ciclomática. Este valor permitirá 
-deseñar un conxunto básico de camiños de execución e en base a ese conxunto crearanse 
-os casos de proba que permitan recorrer todos eses camiños. 
+un nodo == rombo en psint
+
+Condiciones
+    > cada condicion es un nodo con una arista por cada opción 
+    > si son varias (and / or) se tratan como independientes y anidadas 
+
+   AND: cada operando es un nodo >> se valora en cascada si son true 
+   OR: igual, pero valora en cascada si alguno es false // si 1 true, entra // si 2 false, salta a contrario  
  
-A proba se realiza en catro fases: 
-●  Obtención do grafo de fluxo do programa. 
-●  Cálculo da complexidade ciclomática. 
-●  Obtención do conxunto básico de camiños independentes. 
-●  Creación de casos de proba. 
-3.1.1. Grafo de fluxo 
+Instruciones alternativas; dos ramas si if-else o varias si un switch
+    SWITCH: si están combinados se cuenta como uno, si no tienen break se enlazan
  
-●    Cómo crear el grafo de flujo de un programa
-●    Grafo de flujo de un programa. Ejemplo complejo.
-●    Complejidad ciclomática: cómo calcularla
-●    Pruebas de cobertura. Ejemplo práctico
-●    Prueba del camino básico. Pruebas de caja blanca
-●    Tests Funcionales. Clases de equivalencia y valores límite.
+Bucles : el flujo entra y vuelve según la condición
+    WHILE: nodo e interior conectados del segundo al primero y del primero al siguiente si no se cumple la condición 
+    DO WHILE: el primero entra al cuerpo y luego se valora la condición  
+    FOR: hay un nodo de asignación i, nodo de condicion, cuerpo y de incremento que vuele a condicion, si no, va al siguiente
  
-●    MVC: Modelo Vista Controlador
- 
-O grafo de fluxo mostra o recorrido do control lóxico do programa. Para representalo úsase 
-a seguinte notación: 
- 
- 
-Para crear un diagrama de fluxo hai que ter en conta que cada instrución conforma un nodo, 
-cada asignación de valores é un nodo e mesmo os parámetros dun método son un nodo. 
-A maiores, sempre hai un nodo inicio e un nodo fin. 
-Cada paso dunha instrución a outra é unha arista e aquelas instrucións iterativas e 
-alterativas terán distintos camiños dependendo dos valores da condición. 
- 
-Se partimos dende un organigrama, numéranse cada un dos símbolos e os finais das 
-estruturas de control. Cada nodo representa unha ou máis sentenzas procedimentais. Un 
-nodo pódese corresponder cunha sentenza de símbolos do proceso e un rombo de 
-decisión. 
- 
-Condicións 
-As condicións, xa sexa nunha instrución alterativa ou unha iterativa, conforman un nodo 
-cunha arista por cada opción posible. En caso de que unha condición estea formada por 
-varias operacións lóxicas unidas mediante AND ou OR, haberá que tratalas como 
-condicións independentes aniñadas segundo o operador que as une. 
- 
-Condición AND 
-Nunha condición AND cada un dos operandos da condición é un nodo. As condicións 
-valoranse en cascada cando dean true. Se algún de eles é false, saltarase ao caso contrario 
-directamente. Só se todos son true entrará. 
- 
- 
-Condición OR 
-Nunha condición OR, cada un dos operandos tamén é un nodo. Valóranse en cascada 
-cando algún sexa false. Se algún é true, entra no seu interior, se todos son false, saltará ao 
-caso contrario. 
- 
- 
-Instruccións alternativas 
-As instrucións alternativas terán dúas ramas se son un if-else ou múltiples se son un switch. 
-Cos switch, crearase unha rama independente por cada caso posible tendo en conta que os 
-que estean combinados tomaranse como un só e os que non teñan un break enlazaranse. 
-En caso dos if, seguirá as mesmas regras que nas condicións comentadas anteriormente. 
- 
-Bucles 
-Nos bucles, o fluxo entra no corpo e volve atrás en función da condición do bucle. 
- 
-While 
-No while, a condición é un nodo e o interior outro que estarán conectados de forma cíclica 
-do segundo ao primeiro e é o primeiro o que saltaría ao seguinte, tras o bucle, no caso de 
-que a condición non se cumpra. 
- 
-Do-while 
-O bucle do-while é similar ao while, coa salvedade de que primeiro entra no corpo, e logo 
-valora a condición. 
- 
-For 
-No bucle for, primeiro vai o nodo da asignación do valor á variable de control i, logo o 
-nodo/s da condición, logo o/os nodo/s do corpo e por último o nodo do incremento do valor 
-que volverá ao da condición. Se a condición non se cumpre, irá ó seguinte nodo tralo bucle. 
+
  
 Parámetros de entrada 
 Os propios parámetros de entrada dun método forman un nodo conxunto, xa que a 
@@ -242,11 +188,11 @@ Return
 Cada return é un nodo en si mesmo, independentemente de se devolve directamente un 
 valor ou unha variable. 
  
-3.1.2. Complexidade ciclomática 
-A complexidade ciclomática pódese calcular de 3 formas distintas: 
-1.  Complexidade = Número de rexións do grafo 
-2.  Complexidade = aristas - nodos + 2 
-3.  Complexidade = Nodos predicado + 1 
+3.1.2. COMPLEJIDAD CICLOMÁTICA
+
+1.  CC = Número de regiones del grafo
+2.  CC = aristas - nodos + 2 
+3.  CC = Nodos predicado + 1 
  
 1. Unha vez debuxado o diagrama, contar o número de áreas creadas (zonas rodeadas de 
 aristas) e sumarlle unha (exterior), deixando claro a irrelevancia dos elementos lineais. 
@@ -256,22 +202,13 @@ pechada. Tamén se considera rexión a parte externa.
  
 V(G) = número de rexións = 3 
  
-2. Outra forma de facer o cálculo, e contar o número 
-de aristas, restarlle o número de nodos e sumarlle 2. 
-Hai que ter en conta que, todos os elementos lineais, 
-é dicir, aqueles que non crean ramas, achegan 1 
-nodo e 1 arista, polo que dá igual o número deles que 
-haxa, xa que, segundo a fórmula da complexidade, a 
-cada arista se lle resta un nodo. 
-No exemplo hai 8 aristas e 7 nodos.  
- 
-V(G) = (8 - 7) + 2 = 3 
- 
-3. A complexidade pódese calcular contando os 
-nodos predicado, aqueles dos que sae máis dunha 
+2. Outra forma de facer o cálculo, e contar o número de aristas, restarlle o número de nodos e sumarlle 2. 
+Hai que ter en conta que, todos os elementos lineais, é dicir, aqueles que non crean ramas, achegan 1 
+nodo e 1 arista, polo que dá igual o número deles que haxa, xa que, segundo a fórmula da complexidade, a cada arista se lle resta un nodo. 
+
+3. A complexidade pódese calcular contando os nodos predicado, aqueles dos que sae máis dunha 
 arista, e sumarlle 1. 
-Neste caso hai 2 nodos dos que saen máis de dúas 
-aristas, nodo (2) e nodo (3,4,5).  
+Neste caso hai 2 nodos dos que saen máis de dúas aristas, nodo (2) e nodo (3,4,5).  
  
 V(G) = 2 + 1 = 3 
  
@@ -281,96 +218,18 @@ Complexidade   Avaliación do risco
 1-10  Código ben estruturado. Capacidade de testeo alta. Custo e esforzo baixo 
 11-20  Código complexo. Capacidade de testeo media. Custo e esforzo medio 
 21-50  Código moi complexo. Capacidade de testeo baixa 
->50  Non testeable. Custo e esforzo alto 
-Risco segundo a complexidade ciclomática 
+>50  Non testeable. Custo e esforzo alto Risco segundo a complexidade ciclomática 
  
 3.1.3. Camiños independentes 
-O valor de complexidade ciclomática V(G), da o número de camiños independentes do 
-conxunto básico dun programa. Un camiño independente é calquera camiño do programa 
-que introduce, polo menos, un novo conxunto de sentenzas de proceso ou unha condición.  
+O valor de complexidade ciclomática V(G), da o número de camiños independentes do conxunto básico dun programa. Un camiño independente é calquera camiño do programa que introduce, polo menos, un novo conxunto de sentenzas de proceso ou unha condición.  
  
-En termos do diagrama de fluxo, un camiño independente está constituído polo menos 
-por unha arista que non teña sido recorrida anteriormente por outro camiño.  
+En termos do diagrama de fluxo, un camiño independente está constituído polo menos por unha arista que non teña sido recorrida anteriormente por outro camiño.  
  
 Neste caso, un grupo de camiños independentes sería: 
  
 3.1.4. Obtención dos casos de proba 
-O último paso da proba do camiño básico é construír os casos de proba forzan a execución 
-de cada camiño. Co fin de comprobar cada camiño, débense escoller os casos de proba de 
-xeito que as condicións dos nodos predicado estean adecuadamente establecidas. 
-Seguindo co exemplo anterior: 
- 
-Camiño   Caso de proba  Resultado esperado 
-1  Escoller algún valor de C tal que NON cumpra a 
-condición C<>10. 
-C=10 
-Visualizar o número de 
-impares e de pares. 
-2  Escoller algún valor de C que SI cumpra a condición 
-C<>10. Escoller algún valor de N tal que NON 
-cumpra a condición N%2 =0 
-C=1, N=5 
-Contar números impares 
-3  Escoller algún valor de C que SI cumpra a condición 
-C<>10. Escoller algún valor de N tal que SI cumpra a 
-condición N%2 =0 
-C=1, N=4 
-Contar números pares 
- 
- 
-Exemplo. Dado o seguinte algoritmo: 
- 
-    1. Realiza o grafo de fluxo  
-    2. Calcula a complexidade ciclomática 
-    3. Calcula os camiños independentes 
-    4. Elabora os casos de proba 
- 
- 
-1. Grafo de Fluxo 
- 
- 
-2. Complexidade ciclomática = 4 
- 
-3. Camiños: (cada novo camiño engade polo menos unha nova arista) 
-    1) 1-2-7 
-    2) 1-2-3-4-5-6-7 
-    3) 1-2-3-5-6-7 
-    4) 1-2-3-4-5-6-3-5-6-7 
- 
-4. Casos de Proba 
- 
-Número  Camiño  cadena  letra  n 
-1  1-2-7  ""  'a'  0 
-2  1-2-3-4-5-6-7  "a"  'a'  1 
-3  1-2-3-5-6-7  "b"  'a'  0 
-4  1-2-3-4-5-6-3-5-6-7  "ab"  'a'  1 
- 
-Exercicio. Dado un algoritmo ou programa, por exemplo, o seguinte: 
- 
-  Leer NT;   // Nota_de_Teoría  
-  Leer NP;   // Nota_de_Prácticas  
-  Leer NTR;  // Nota_de_Trabajos  
-  SI NP <= 4.5 ENTONCES  
-    NF = 4;   
-  SINO   
-    SI  NT <= 4.5 ENTONCES  
-      NF=NT  
-    SINO 
-      NF = NT + NTR;  
-    FINSI  
-     
-    SI NF>10  ENTONCES 
-      NF = 10;   
-    FINSI  
-  FINSI  
-  Escribir "nota final " . NF 
- 
-    1. Realiza o grafo de fluxo  
-    2. Calcula a complexidade ciclomática 
-    3. Calcula os camiños independentes 
-    4. Elabora os casos de proba 
- 
- 
+O último paso da proba do camiño básico é construír os casos de proba forzan a execución de cada camiño. Co fin de comprobar cada camiño, débense escoller os casos de proba de xeito que as condicións dos nodos predicado estean adecuadamente establecidas. 
+
 Probas de bucles 
  
 Os bucles ou estruturas repetitivas constitúen unha estrutura de control fundamental en 
@@ -418,8 +277,7 @@ Un rango de valores  “..Valores entre 0 e 10..”
 Unha condición lóxica  Condición “..debe ser..” 
  
 As clases de equivalencia defínense segundo unha serie de directrices: 
-●  Se unha condición de entrada especifica un rango, defínese unha clase de 
-equivalencia válida e dúas non válidas. Exemplo de rango: a nota debe ter un valor 
+●  Se unha condición de entrada especifica un rango, defínese unha clase de  equivalencia válida e dúas non válidas. Exemplo de rango: a nota debe ter un valor 
 entre 1 e 10. 
 ●  Se unha condición require un valor específico, defínese unha clase equivalente 
 válida e dúas non válidas. Exemplo de valor específico: o número de departamento 
@@ -465,51 +323,24 @@ unha clase non válida e todas as demais clases debe ser válidas.
 
 
 3.3. ANÁLISIS DE VALORES LÍMITE 
+basada en que los errores son mas probables en los valores limites o extremos de las entradas.
 
-basadada en que los errores son mas probables en los valores limites o extremos de las entradas.
   Complementa a técnica das particións equivalentes pero ten algunhas diferencias: 
-      1.  En lugar de seleccionar calquera elemento dentro dunha clase de equivalencia, selecciónanse aquel ou aqueles que están xusto nos límites da clase. 
-      2.  En lugar de centrarse unicamente nas condicións de entrada, esta técnica tamén xera casos de proba tendo en conta as condicións de saída. 
+      1. no selecciona cualquier valor de la clase, si no los que están justo en los límites
+      2. no se centra solo en las de entrada, también en las de salida 
  
  
-As regras para xerar casos de proba son as seguintes: 
-1.  Se unha condición de entrada especifica un intervalo de valores, por exemplo, 
-entre -5 e 10, débense xerar casos válidos para os extremos do intervalo (-5 e 10) e 
-casos non válidos xusto por riba e por baixo dos extremos (-5,01 e 10,01, no caso de 
-que se admitan dous decimais).  
-Outro exemplo, se unha entrada require un rango de valores enteiros comprendidos 
-entre 1 e 10, hai que escribir casos de proba para os valores 1, 10, 0 e 11. 
+Reglas para generar casos de prueba: 
+  1.  condición de entrada de intervalo de valores (-5, 10) 
+        > casos válidos para los dos extremosi
+        > inválidos justo por encima (-5,01 - 10,01 // -6 - 11) 
  
-2.  Se unha condición de entrada especifica un número de valores  (entre 1 e 100), 
-débense xerar casos de proba para os valores mínimos e máximos (1 e 100), un 
-menos que o mínimo (0) e un máis que o máximo (101).  
-Outro exemplo, se o programa require de dous a dez datos de entrada, hai que 
-escribir casos de proba válidos para 2 e 10 datos de entrada, e casos non válidos 
-para 1 e 11 datos de entrada. 
+  2. condición de entrada especifica un número de valores  (entre 1 e 100)
+        > valores mínimos y máximos 
+        > uno menos que el mín - uno más del max 
  
-3.  Aplicar a regra 1 para cada condición de saída que especifica un intervalo de 
-valores. 
-Por exemplo, se o salario mínimo é de 1.200,00 € e o máximo é de 3.600,00 €, 
-deberán xerarse casos de proba que resulten en salarios de 1.200,00 €, 3.600,00 €, 
-1.199,99 € e 3.600,01 €. 
-Outro exemplo, se se debe aplicar sobre un campo de saída un desconto de entre 
-un 10% mínimo e un 50% máximo (dependendo do tipo de cliente); haberá que 
-deseñar casos de proba para o 9.99%, 10%, 50% e 50.01%.  
- 
-4.  Usar a regra 2 para cada condición de saída  que especifica un número de 
-valores.  
-Por exemplo, se o programa especifica que se poden utilizar de un a tres descontos, 
-haberá que xerar casos de proba para conseguir cero, un, tres e catro descontos. 
-Outro exemplo, se a saída dun programa é unha táboa de temperaturas de 1 a 10 
-elementos, débense deseñar casos de proba para que a saída do programa produza 
-0, 1, 10 e 11 elementos. Tanto nesta regra como na anterior, hai que ter en conta 
-que non sempre se poderán xerar resultados fora do rango de saída. 
- 
-5.  Se a entrada ou saída dun programa é un conxunto ordenado ou unha estrutura de 
-datos internas (por exemplo, unha táboa ou un ficheiro secuencial)  que teñen 
-límites preestablecidos (por exemplo, un array de 100 elementos), hai que deseñar 
-casos de proba que proben a estrutura de datos nos seus límites, é dicir, no primeiro 
-e último elemento. 
+  6.  si la E/S es un conjunto de datos ordenador con limites (array de 100 el)
+        > probar incluyendo el primer y el ultimo elemento  
 
 
 ================ 
@@ -542,8 +373,7 @@ tipos xerais de erros: erros de compilación e erros lóxicos.
   ●  de compilación > suele encargarse el IDE de marcarlo 
   ●  lóxicos / bugs: no impiden que compile pero provocan resultados incorrectos 
       > debugger: analiza el programa mientras ejecuta > pone valores a las variables y los compara 
-
-
+___________
 5.1. EJECUCION PASO A PASO 
 
 formas de depuración: 
@@ -552,7 +382,7 @@ formas de depuración:
     útil cando xa comprobamos que un procedemento funciona correctamente e só nos interesa o valor que devolve. 
   ● execución ata unha instrución: depurador executa o programa > se detiene en un punto > depura a partir de ahi 
   ● execución ata o final: no detiene en instrucciones intermedias 
-
+___________
 5.2. PUNTOS DE RUPTURA // BREAKPOINTS 
 
 nos interesa cuando no hay que probar todo si no solo un punto concreto 
@@ -565,8 +395,7 @@ puntos de ruptura: marcadores que poden establecerse en calquera liña de códig
   > iniciar depuración paso a paso
 
 despues de la comprobación, podemos abortar o programa, ou continuar a execución normal do mesmo. 
-
-
+___________
 5.3. EXAMINAR VARIABLES
 
 Mentres o código se analiza, se pueden ver tipos e contidos das variables según avanza o programa, y también cambiar o valor das variables
