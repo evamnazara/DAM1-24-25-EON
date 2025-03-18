@@ -2,8 +2,9 @@ package praiasdegalicia;
 
 import java.util.Arrays;
 
-public class Praia {
-    private int id;
+@SuppressWarnings("rawtypes")
+public class Praia implements Comparable {
+    private Integer id;
     private String nome;
     private String concello;
     private String provincia;
@@ -86,18 +87,33 @@ public class Praia {
         return "\n " + id + " - " + nome + " - " + concello + " - " + provincia + " - (" + lat + ", " + lon + ")"  ;
     }
 
+    @Override
+    public int compareTo(Object o) {
+        Praia praia = (Praia) o;
+        Integer res = nome.compareTo(praia.nome);
+        if (res == 0) {
+            res = this.id.compareTo(praia.id);
+            if (res == 0) {
+                res = this.id - praia.id;
+            }
+        }
+        return res;
+    }
+    
+
     public static void imprimirLista(Praia[] praias, int num) {
         
         for (int i = 0; i < num; i++) {
-            //System.out.println(praias[i.toString()]);
+            Arrays.sort(praias);
+            System.out.println(praias[i].toString());
         }
-
-        
     }
 
     public void mostrarDetalles() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'mostrarDetalles'");
     }
+
+
 
 }
