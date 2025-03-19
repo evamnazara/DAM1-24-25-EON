@@ -18,6 +18,28 @@ Donde:
 	5.	Camino 5: Edad ≥ 65 → “Senior”
 
 
+     (Inicio)
+        |
+        v
+   [N1] Verificar edad válida (age < 0 || age > 120)
+    /   \
+(Sí)    (No)
+ |       |
+Excepción  v
+          [N2] ¿age ≤ 12?
+         /   \
+      Sí     No
+      |       |
+"Infantil"  [N3] ¿age ≤ 17?
+          /   \
+       Sí     No
+       |       |
+"Adolescente" [N4] ¿age < 65?
+             /   \
+          Sí     No
+          |       |
+    "Adulto"   "Senior"
+
 
 2.3. Probas de caixa negra
 Clases de equivalencia
