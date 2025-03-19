@@ -1,0 +1,114 @@
+Cálculo de complexidade ciclomática
+Fórmula:
+V(G) = E - N + 2P
+	•	E (aristas) = 9
+	•	N (nodos) = 8
+	•	P (componentes conectados) = 1
+V(G) = 9 - 8 + 2(1) = 3
+Otra forma:
+V(G) = NP + S = 3 + 1 = 4
+Donde:
+	•	NP (nodos de decisión) = 3 (if-else)
+	•	S (nodos de salida) = 1
+2.2. Camiños independentes
+	1.	Camino 1: Edad inválida → excepción
+	2.	Camino 2: Edad ≤ 12 → “Infantil”
+	3.	Camino 3: Edad 13-17 → “Adolescente”
+	4.	Camino 4: Edad 18-64 → “Adulto”
+	5.	Camino 5: Edad ≥ 65 → “Senior”
+
+
+
+2.3. Probas de caixa negra
+Clases de equivalencia
+
+Condición de entrada
+Clases válidas
+Clases inválidas
+Edad negativa
+-
+-1
+Infantil (0-12)
+0, 5, 12
+-5, 13
+Adolescente (13-17)
+13, 15, 17
+12, 18
+Adulto (18-64)
+18, 30, 64
+17, 65
+Senior (≥65)
+65, 90, 120
+121, 130
+
+Edad
+Salida esperada
+-1
+Excepción
+0
+“Infantil”
+12
+“Infantil”
+13
+“Adolescente”
+17
+“Adolescente”
+18
+“Adulto”
+64
+“Adulto”
+65
+“Senior”
+120
+“Senior”
+121
+Excepción
+Probas realizadas
+	•	Probas de caixa branca:
+	•	Grafo de fluxo
+	•	Complexidade ciclomática: 4
+	•	Camiños independentes: 5
+	•	Probas de caixa negra:
+	•	Clases de equivalencia y valores límite
+
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+class AgeClassifierTest {
+
+    @Test
+    void testInfantil() {
+        assertEquals("Infantil", AgeClassifier.classify(0));
+        assertEquals("Infantil", AgeClassifier.classify(5));
+        assertEquals("Infantil", AgeClassifier.classify(12));
+    }
+
+    @Test
+    void testAdolescente() {
+        assertEquals("Adolescente", AgeClassifier.classify(13));
+        assertEquals("Adolescente", AgeClassifier.classify(15));
+        assertEquals("Adolescente", AgeClassifier.classify(17));
+    }
+
+    @Test
+    void testAdulto() {
+        assertEquals("Adulto", AgeClassifier.classify(18));
+        assertEquals("Adulto", AgeClassifier.classify(30));
+        assertEquals("Adulto", AgeClassifier.classify(64));
+    }
+
+    @Test
+    void testSenior() {
+        assertEquals("Senior", AgeClassifier.classify(65));
+        assertEquals("Senior", AgeClassifier.classify(90));
+        assertEquals("Senior", AgeClassifier.classify(120));
+    }
+
+    @Test
+    void testEdadInvalida() {
+        assertThrows(IllegalArgumentException.class, () -> AgeClassifier.classify(-1));
+        assertThrows(IllegalArgumentException.class, () -> AgeClassifier.classify(121));
+    }
+}
+
