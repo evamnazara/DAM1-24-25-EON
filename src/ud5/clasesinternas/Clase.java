@@ -11,7 +11,9 @@ public class Clase {
 
     }
     public static void main(String[] args) {
-        class ClaseInternaLocal {}
+        class ClaseInternaLocal {
+            int claseIL;
+        }
 
         Comparator claseAnonima = new Comparator() {
 

@@ -1,4 +1,4 @@
-package ASIGNATURAS.CONTORNOS.ejerciciospruebas.conversortemperaturas;
+package ejerciciospruebas.conversortemperaturas;
 
 import org.junit.jupiter.api.Test;
 
