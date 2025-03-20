@@ -1,19 +1,21 @@
+--las funciones de agregado solo van en select o en having 
+
+
 --42. ¿Cuál es la máxima altura que tienen los pisos que pertenecen a un propietario cuyo nombre empieza por M?
 SELECT MAX(p.PLANTA) AS MaxAltura
     FROM PISO p
     WHERE p.DNIPROPIETARIO IN (
         SELECT pr.DNI
-        FROM PROPIETARIO pr
-        WHERE pr.NOMBRE LIKE 'M%'
+			FROM PROPIETARIO pr
+			WHERE pr.NOMBRE LIKE 'M%'
     );
 --
 SELECT MAX(p.PLANTA) AS MaxAltura
     FROM PISO p
-    JOIN PROPIETARIO pr ON p.DNIPROPIETARIO = pr.DNI
-    WHERE pr.NOMBRE LIKE 'M%';
+		INNER JOIN PROPIETARIO pr ON p.DNIPROPIETARIO = pr.DNI
+		WHERE pr.NOMBRE LIKE 'M%';
 
 --43. Haz una consulta que devuelva el total de parques que hay en la ciudad .
-
 SELECT SUM(NUMPARQUES) AS TotalParques
     FROM ZONAURBANA;
 
@@ -35,8 +37,8 @@ SELECT MIN(METROSUTILES) AS MinTamaño, MAX(METROSUTILES) AS MaxTamaño
         AND NUMERO = 22;
 
 --47. Obtener la media de parques por zona urbana.
-
-SELECT AVG(NUMPARQUES) AS MediaParques
+	--CASTEAR PARA DECIMALES 
+SELECT AVG(cast (NUMPARQUES as float)) AS MediaParques
     FROM ZONAURBANA;
 --48. Indica cuantas viviendas unifamiliares hay en la zona Palomar o Atocha.
 
@@ -47,9 +49,12 @@ SELECT COUNT(*) AS NumViviendasUnifamiliares
 
 
 --49. ¿Cuál es el tamaño medio de una vivienda unifamiliar?.
-SELECT AVG(METROSSOLAR) AS tamanoMedio
-    FROM VIVIENDA
-    WHERE TIPOVIVIENDA = 'Casa';
+
+--xd 
+
+--SELECT cast(AVG(cast(METROSCONSTRUIDOS as float)) as decimal(0,2)) AS tamanoMedio
+ --   FROM CASAPARTICULAR;
+
 
 
 --50. ¿Cuántos bloques de pisos hay en la zona Centro o Cuatrovientos cuyo solar pasa de 300 metros cuadrados?.
@@ -62,8 +67,7 @@ SELECT COUNT(*) AS NumBloques
 
 --51. Haz una consulta que devuelva el número de personas distintas que poseen una vivienda unifamiliar.
 SELECT COUNT(DISTINCT DNIPROPIETARIO) AS NumPropietarios
-    FROM VIVIENDA
-    WHERE TIPOVIVIENDA = 'Casa';
+    FROM CASAPARTICULAR;
 
 -- 52. Haz una consulta que devuelva el número de hombres que poseen un trastero en las zonas Palomar y Centro.
 SELECT COUNT(DISTINCT h.DNIPROPIETARIO) AS NumHombres
@@ -106,34 +110,34 @@ SELECT CALLE, NUMERO
 --57. Indica cual es el tamaño mínimo y máximo (de metros útiles) de los pisos de la zona Centro.
 SELECT MIN(METROSUTILES) AS MinMetros, MAX(METROSUTILES) AS MaxMetros
     FROM PISO
-    WHERE CALLE IN (
-        SELECT CALLE 
+    WHERE CALLE+CAST(numero as varchar(4)) IN (
+        SELECT CALLE+CAST(numero as varchar(4))
             FROM VIVIENDA 
             WHERE NOMBREZONA = 'Centro'
     );
 
 
 --58. Haz una consulta que muestre cuantos huecos hay de cada tipo en cada calle, teniendo en cuenta unicamente los huecos que están asociados a algún piso.
-SELECT CALLE, TIPO, COUNT(*) AS NumHuecos
-    FROM HUECO
-    WHERE (CALLE, NUMERO, PLANTA, PUERTA) IN (
-        SELECT CALLE, NUMERO, PLANTA, PUERTA 
-        FROM PISO
-    )
 
-    GROUP BY CALLE, TIPO;
+SELECT p.CALLE, h.TIPO, COUNT(*) AS NUMEROHUECOS
+    FROM HUECO h inner join PISO p 
+    on (h.CALLE = p.CALLE 
+		and h.NUMERO = p.NUMERO 
+		and h.PLANTA = p.PLANTA)
+
+    GROUP BY p.CALLE, h.TIPO
+    order by p.calle;
 
 
 --59. ¿Cuántos bloques de pisos hay en la zona Centro o Palomar que poseen pisos de más de 3 habitaciones y que están entre 100 y 180 metros cuadrados(útiles)?
-SELECT DISTINCT CALLE, NUMERO
-    FROM PISO
-    WHERE NUMHABITACIONES > 3 AND METROSUTILES BETWEEN 100 AND 180
-    AND (CALLE, NUMERO) IN (
-        SELECT CALLE, NUMERO 
-            FROM VIVIENDA 
-            WHERE NOMBREZONA IN ('Centro', 'Palomar')
-    );
 
+SELECT COUNT(CALLE+CAST(NUMERO AS VARCHAR(20))) AS NUMERODEBLOQUES
+FROM PISO 
+WHERE CALLE+CAST(NUMERO AS VARCHAR(3)) IN 
+	(SELECT CALLE+CAST(NUMERO AS VARCHAR(3)) FROM VIVIENDA 
+		WHERE NOMBREZONA IN ('Centro', 'Palomar') )
+	AND NUMHABITACIONES > 3
+	AND METROSUTILES BETWEEN 100 AND 180
 
 --60. Indica cuantas viviendas unifamiliares de una o dos plantas hay en cada calle teniendo en cuenta unicamente aquellas calles en las que el total de metros construidos es mayor de 250.
 SELECT CALLE, COUNT(*) AS NumViviendas
@@ -153,8 +157,8 @@ SELECT CALLE, COUNT(*) AS NumViviendas
 SELECT v.NOMBREZONA, z.DESCRIPCIÓN, z.NUMPARQUES, COUNT(*) AS NumPisos
     FROM PISO p
 
-    JOIN VIVIENDA v ON p.CALLE = v.CALLE AND p.NUMERO = v.NUMERO
-    JOIN ZONAURBANA z ON v.NOMBREZONA = z.NOMBREZONA
+    INNER JOIN VIVIENDA v ON p.CALLE = v.CALLE AND p.NUMERO = v.NUMERO
+    INNER JOIN ZONAURBANA z ON v.NOMBREZONA = z.NOMBREZONA
 
     WHERE p.NUMHABITACIONES IN (3, 4)
 
@@ -163,12 +167,25 @@ SELECT v.NOMBREZONA, z.DESCRIPCIÓN, z.NUMPARQUES, COUNT(*) AS NumPisos
 
 
 --62. Haz una consulta que nos diga cuantos propietarios de pisos hay de cada sexo, indicando los valores Hombres o Mujeres en función del valor del campo sexo.
-SELECT 
-    CASE 
-        WHEN p.SEXO = 'H' THEN 'Hombres' 
-        ELSE 'Mujeres' 
-    END AS Sexo, COUNT(DISTINCT pi.DNIPROPIETARIO) AS NumPropietarios
+
+--CON SUBCONSULTS
+SELECT SEXO = CASE SEXO
+	 WHEN 'M' THEN 'Mujeres' 
+        ELSE 'Hombres' 
+    END, 
+    COUNT(*) AS NUMERO 
+    FROM PROPIETARIO 
+    WHERE  DNI IN (
+		SELECT DNI PROPIETARIO FROM PISO) 
+    GROUP BY SEXO;
     
-    FROM PISO pi
-    JOIN PROPIETARIO p ON pi.DNIPROPIETARIO = p.DNI
-    GROUP BY p.SEXO;
+--CON INNER JOIN NO FUCNIONA , TE COGE TODAS LAS VECES QUE UNA PERSONA APARECE 
+SELECT SEXO =
+    CASE SEXO
+        WHEN 'M' THEN 'Mujeres' 
+        ELSE 'Hombres' 
+    END, 
+    COUNT(*) AS NUMERO 
+    
+    FROM PROPIETARIO PR INNER JOIN PISO PIS ON DNI = DNIPROPIETARIO
+    GROUP BY SEXO;

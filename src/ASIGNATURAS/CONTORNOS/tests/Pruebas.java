@@ -1,4 +1,4 @@
-package ASIGNATURAS.CONTORNOS.tests;
+package tests;
 
 public class Pruebas {
 

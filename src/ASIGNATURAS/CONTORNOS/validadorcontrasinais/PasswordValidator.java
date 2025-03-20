@@ -1,4 +1,4 @@
-package ASIGNATURAS.CONTORNOS.validadorcontrasinais;
+package validadorcontrasinais;
 
 public class PasswordValidator {
     public static boolean isValid(String password) {

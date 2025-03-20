@@ -1,4 +1,4 @@
-package ASIGNATURAS.CONTORNOS.ejerciciospruebas.conversortemperaturas;
+package ejerciciospruebas.conversortemperaturas;
 
 public class MathUtils { 
     public static int factorial(int n) { 

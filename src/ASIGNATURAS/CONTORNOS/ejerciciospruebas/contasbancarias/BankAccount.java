@@ -1,4 +1,4 @@
-package ASIGNATURAS.CONTORNOS.ejerciciospruebas.contasbancarias;
+package ejerciciospruebas.contasbancarias;
 
 public class BankAccount {
     private double balance;

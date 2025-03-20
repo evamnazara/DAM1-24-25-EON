@@ -1,4 +1,4 @@
-package ASIGNATURAS.CONTORNOS.tests;
+package tests;
 
 import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
