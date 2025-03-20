@@ -1,0 +1,400 @@
+1. Sobre la herencia en Java, es correcto afirmar que:
+
+a) Java permite la herencia múltiple de clases.
+b) Una subclase hereda todos los miembros de la superclase, incluyendo los privados.
+c) Todas las clases en Java heredan, directa o indirectamente, de Object.
+d) La herencia en Java se usa solo para compartir atributos, pero no métodos.
+
+⸻
+
+2. ¿Qué palabra clave en Java se usa para referenciar los miembros de la superclase?
+
+a) this
+b) parent
+c) super
+d) extends
+
+⸻
+
+3. ¿Cuál de los siguientes métodos pertenece a la clase Object?
+
+a) compareTo()
+b) clone()
+c) setName()
+d) notifyAll()
+
+⸻
+
+4. ¿Cuál de las siguientes afirmaciones sobre el método equals() es verdadera?
+
+a) Se usa para comparar dos objetos por su referencia en memoria.
+b) No se puede sobrescribir.
+c) Compara dos objetos basándose en su contenido si se sobrescribe adecuadamente.
+d) Solo se puede usar con tipos primitivos.
+
+⸻
+
+5. ¿Cuál de los siguientes es un modificador de acceso en herencia que permite el acceso a las subclases pero no a otras clases externas?
+
+a) private
+b) public
+c) protected
+d) default
+
+⸻
+
+6. ¿Cuál es la función de la palabra clave abstract en una clase?
+
+a) Indica que la clase no puede tener métodos.
+b) Permite instanciar directamente la clase.
+c) Indica que la clase puede contener métodos sin implementación.
+d) Evita que la clase herede de otra.
+
+⸻
+
+7. ¿Qué es una interfaz en Java?
+
+a) Una clase que no puede tener atributos.
+b) Una forma de definir métodos comunes que deben ser implementados en varias clases.
+c) Un tipo de herencia múltiple en Java.
+d) Una clase que puede ser instanciada sin necesidad de implementación.
+
+⸻
+
+8. ¿Cuál de las siguientes afirmaciones sobre las interfaces es correcta?
+
+a) Una clase puede implementar múltiples interfaces.
+b) Una interfaz puede contener atributos privados.
+c) Los métodos de una interfaz deben tener implementación obligatoriamente.
+d) No se pueden usar en programación funcional.
+
+⸻
+
+9. ¿Cuál es la diferencia principal entre Comparable y Comparator?
+
+a) Comparable se usa para ordenar elementos siguiendo un criterio específico, mientras que Comparator es para ordenar elementos con un criterio natural.
+b) Comparable permite definir un criterio de ordenación dentro de la propia clase, mientras que Comparator se define en una clase externa.
+c) Comparator es una clase abstracta y Comparable es una interfaz.
+d) Comparable solo se usa para números y Comparator para cadenas de texto.
+
+⸻
+
+10. ¿Qué tipo de clase interna permite definir un objeto sin necesidad de crear una clase con nombre?
+
+a) Clases internas miembro
+b) Clases internas locales
+c) Clases anónimas
+d) Clases estáticas internas
+
+⸻
+
+
+
+11. ¿Qué método de la clase Object permite obtener el nombre de la clase a la que pertenece un objeto?
+
+a) getClass()
+b) getName()
+c) getType()
+d) classInfo()
+
+⸻
+
+12. ¿Para qué se usa la palabra clave instanceof en Java?
+
+a) Para definir una nueva instancia de una clase.
+b) Para comprobar si un objeto es una instancia de una clase o una interfaz.
+c) Para forzar la conversión de un tipo de dato.
+d) Para invocar el constructor de una superclase.
+
+⸻
+
+13. ¿Cuál de las siguientes afirmaciones sobre clases abstractas es correcta?
+
+a) Pueden contener métodos implementados.
+b) Pueden ser instanciadas directamente.
+c) No pueden tener atributos.
+d) Solo pueden contener métodos estáticos.
+
+⸻
+
+14. ¿Qué ocurre si una subclase no implementa todos los métodos abstractos de su superclase?
+
+a) Se produce un error de compilación.
+b) La subclase se convierte en una clase abstracta.
+c) La subclase hereda los métodos como si estuvieran implementados.
+d) La subclase se convierte automáticamente en una interfaz.
+
+⸻
+
+15. ¿Qué ocurre si se intenta instanciar una interfaz directamente?
+
+a) Se produce un error de compilación.
+b) Se crea un objeto de tipo Object.
+c) Se genera un objeto nulo.
+d) Se permite si la interfaz tiene métodos estáticos.
+
+⸻
+
+16. ¿Qué tipo de métodos pueden tener las interfaces en Java a partir de Java 8?
+
+a) Solo métodos abstractos.
+b) Métodos abstractos y métodos default.
+c) Solo métodos privados.
+d) Métodos abstractos y métodos final.
+
+⸻
+
+17. ¿Qué diferencia hay entre una clase interna estática y una clase interna miembro?
+
+a) Una clase interna estática puede acceder a los miembros no estáticos de la clase contenedora.
+b) Una clase interna miembro puede existir sin una instancia de la clase contenedora.
+c) Una clase interna estática no requiere una instancia de la clase contenedora para ser utilizada.
+d) No hay diferencia, ambas se comportan igual.
+
+⸻
+
+18. ¿Cuál es una característica principal de las clases internas locales?
+
+a) Pueden ser declaradas con cualquier modificador de acceso.
+b) No pueden acceder a las variables locales del método en el que están definidas.
+c) Solo son accesibles dentro del bloque de código donde se declaran.
+d) Se pueden instanciar desde cualquier otra clase.
+
+⸻
+
+19. ¿Cuál es una limitación de las clases anónimas?
+
+a) No pueden extender clases abstractas.
+b) No pueden tener métodos.
+c) No pueden definir constructores explícitos.
+d) No pueden implementar interfaces.
+
+⸻
+
+20. ¿Cuál de las siguientes afirmaciones sobre la herencia es correcta?
+
+a) Una subclase puede acceder directamente a los atributos privados de su superclase.
+b) Una subclase puede sobrescribir métodos de su superclase usando @Override.
+c) Una superclase no puede tener métodos abstractos.
+d) Java permite herencia múltiple de clases.
+
+⸻
+21. ¿Cuál es la principal ventaja de usar la palabra clave super en Java?
+
+a) Permite acceder a métodos privados de la superclase.
+b) Permite llamar a constructores y métodos de la superclase.
+c) Obliga a una subclase a sobrescribir métodos de la superclase.
+d) Se usa para referenciar el objeto actual de la subclase.
+
+⸻
+
+22. ¿Cuál de las siguientes afirmaciones sobre toString() es correcta?
+
+a) Se usa para convertir un objeto en un número.
+b) Debe ser sobrescrito si queremos mostrar información personalizada del objeto.
+c) Solo se puede usar en clases que implementen la interfaz Serializable.
+d) No se puede sobrescribir.
+
+⸻
+
+23. ¿Cómo se diferencia == de equals() en Java cuando se comparan objetos?
+
+a) == compara referencias de memoria, mientras que equals() puede ser sobrescrito para comparar valores.
+b) == y equals() siempre devuelven el mismo resultado.
+c) equals() compara direcciones de memoria y == compara contenido.
+d) == solo funciona con tipos primitivos.
+
+⸻
+
+24. ¿Cuál es la forma correcta de sobrescribir el método equals()?
+
+a) public boolean equals(MyClass obj) { return this == obj; }
+b) public boolean equals(Object obj) { return this == obj; }
+c) public boolean equals(Object obj) { return obj instanceof MyClass && this.someField == ((MyClass) obj).someField; }
+d) public boolean equals(MyClass obj) { return obj.someField == this.someField; }
+
+⸻
+
+25. ¿Qué ocurre si no se llama explícitamente a super() en un constructor de una subclase?
+
+a) Se produce un error de compilación siempre.
+b) Se llama automáticamente al constructor por defecto de la superclase.
+c) El compilador genera un constructor vacío en la subclase.
+d) La subclase no podrá instanciarse.
+
+⸻
+
+26. ¿Cuál de estas afirmaciones sobre las clases abstractas es falsa?
+
+a) Una clase abstracta puede tener métodos concretos (implementados).
+b) Una clase abstracta puede contener atributos y métodos estáticos.
+c) No se pueden crear instancias de una clase abstracta.
+d) Una clase abstracta debe implementar obligatoriamente todos sus métodos abstractos.
+
+⸻
+
+27. ¿Cuál es la principal diferencia entre extends e implements en Java?
+
+a) extends se usa para la herencia de clases e implements para la implementación de interfaces.
+b) implements permite heredar atributos, mientras que extends solo permite heredar métodos.
+c) extends permite herencia múltiple en Java, mientras que implements no.
+d) No hay diferencia, ambas palabras clave tienen el mismo uso.
+
+⸻
+
+28. ¿Cuál es la forma correcta de definir una interfaz en Java?
+
+a) interface MiInterfaz { void miMetodo(); }
+b) class MiInterfaz { abstract void miMetodo(); }
+c) abstract class MiInterfaz { void miMetodo(); }
+d) public MiInterfaz { void miMetodo(); }
+
+⸻
+
+29. ¿Qué sucede si una clase implementa una interfaz pero no proporciona implementación a todos sus métodos?
+
+a) Se genera un error de compilación.
+b) La clase se convierte en una clase abstracta.
+c) Los métodos de la interfaz se convierten en métodos estáticos de la clase.
+d) La clase ignora los métodos de la interfaz.
+
+⸻
+
+30. ¿Cuál de las siguientes afirmaciones sobre Comparator es correcta?
+
+a) Se usa cuando se necesita definir un criterio de comparación fuera de la clase que se ordena.
+b) Solo puede ser utilizado con tipos de datos primitivos.
+c) Se usa únicamente para comparar cadenas de texto.
+d) No puede ser implementado por clases anónimas.
+
+⸻
+
+31. ¿Qué sucede si una clase interna intenta acceder a una variable local de un método externo?
+
+a) No puede acceder a variables locales del método.
+b) Puede acceder solo si la variable es final o effectively final.
+c) Solo puede acceder si la variable es pública.
+d) No hay restricciones para acceder a variables locales.
+
+⸻
+
+32. ¿Cuál es una característica de las clases anónimas?
+
+a) Deben implementar al menos dos interfaces.
+b) No pueden ser instanciadas.
+c) Solo pueden ser usadas dentro de métodos estáticos.
+d) No pueden tener constructores explícitos.
+
+⸻
+
+33. ¿Cuál de las siguientes afirmaciones sobre las clases internas miembro es incorrecta?
+
+a) No pueden ser static.
+b) Tienen acceso a todos los miembros de la clase contenedora, incluyendo los privados.
+c) Se pueden instanciar sin una instancia de la clase contenedora.
+d) Pueden definir métodos y atributos como cualquier otra clase.
+
+⸻
+
+34. ¿Cómo se accede a un método de la clase contenedora desde una clase interna miembro?
+
+a) this.metodo();
+b) super.metodo();
+c) ClaseContenedora.this.metodo();
+d) metodo();
+
+⸻
+
+35. ¿Cuál de las siguientes afirmaciones sobre default en interfaces es verdadera?
+
+a) Los métodos default en interfaces deben ser sobrescritos obligatoriamente.
+b) Un método default en una interfaz puede ser llamado directamente desde una instancia de una clase que la implemente.
+c) Los métodos default deben ser privados.
+d) No se pueden definir métodos default en interfaces.
+36. ¿Qué es la selección dinámica de métodos en Java?
+
+a) La resolución de llamadas a métodos se realiza en tiempo de compilación.
+b) La llamada a un método se determina en tiempo de ejecución según el tipo real del objeto.
+c) Permite llamar siempre al método definido en la superclase, sin importar la instancia.
+d) Es un proceso que solo se aplica a métodos estáticos.
+
+⸻
+
+37. ¿Cuál es la definición correcta de sobrescritura (overriding) de un método?
+
+a) Definir un nuevo método con el mismo nombre, pero con diferente número o tipo de parámetros.
+b) Proveer una nueva implementación para un método heredado de la superclase, manteniendo la misma firma.
+c) Ocultar el método original de la superclase declarándolo static en la subclase.
+d) Invocar el método de la superclase mediante la palabra clave super sin modificar su comportamiento.
+
+⸻
+
+38. En el contexto de ocultación de atributos, ¿cuál es el comportamiento correcto si una subclase define un atributo con el mismo nombre que uno de la superclase?
+
+a) El atributo de la subclase reemplaza al de la superclase, sin posibilidad de acceder al original.
+b) Los dos atributos coexisten y el que se utiliza depende del tipo de la referencia.
+c) Se produce un error de compilación por conflicto de nombres.
+d) Siempre se accede al atributo de la superclase, ignorando el de la subclase.
+
+⸻
+
+39. ¿Cuál de las siguientes afirmaciones sobre las clases anónimas es correcta?
+
+a) Se pueden definir constructores explícitos en una clase anónima.
+b) Se definen dentro de una expresión y solo permiten crear un único objeto.
+c) Pueden reutilizarse en distintos puntos del código, como cualquier clase nombrada.
+d) Son obligatoriamente declaradas con la palabra clave static.
+
+⸻
+
+40. ¿Qué restricción se aplica a las clases internas locales en Java?
+
+a) Pueden declarar miembros static sin restricciones.
+b) Pueden tener modificadores de acceso (public, private, etc.) que controlen su visibilidad.
+c) Solo pueden acceder a variables locales del método si estas son finales o “effectively final”.
+d) Pueden definirse fuera de cualquier método o bloque de código.
+
+
+______ 
+
+RESPUESTAS
+	1.	c) Todas las clases en Java heredan, directa o indirectamente, de Object.
+	2.	c) super
+	3.	d) notifyAll()
+	4.	c) Compara dos objetos basándose en su contenido si se sobrescribe adecuadamente.
+	5.	c) protected
+	6.	c) Indica que la clase puede contener métodos sin implementación.
+	7.	b) Una forma de definir métodos comunes que deben ser implementados en varias clases.
+	8.	a) Una clase puede implementar múltiples interfaces.
+	9.	b) Comparable permite definir un criterio de ordenación dentro de la propia clase, mientras que Comparator se define en una clase externa.
+	10.	c) Clases anónimas
+	11.	a) getClass()
+	12.	b) Para comprobar si un objeto es una instancia de una clase o una interfaz.
+	13.	a) Pueden contener métodos implementados.
+	14.	b) La subclase se convierte en una clase abstracta.
+	15.	a) Se produce un error de compilación.
+	16.	b) Métodos abstractos y métodos default.
+	17.	c) Una clase interna estática no requiere una instancia de la clase contenedora para ser utilizada.
+	18.	c) Solo son accesibles dentro del bloque de código donde se declaran.
+	19.	c) No pueden definir constructores explícitos.
+	20.	b) Una subclase puede sobrescribir métodos de su superclase usando @Override.
+	21.	b) Permite llamar a constructores y métodos de la superclase.
+	22.	b) Debe ser sobrescrito si queremos mostrar información personalizada del objeto.
+	23.	a) == compara referencias de memoria, mientras que equals() puede ser sobrescrito para comparar valores.
+	24.	c) public boolean equals(Object obj) { return obj instanceof MyClass && this.someField == ((MyClass) obj).someField; }
+	25.	b) Se llama automáticamente al constructor por defecto de la superclase.
+	26.	d) Una clase abstracta debe implementar obligatoriamente todos sus métodos abstractos.
+	27.	a) extends se usa para la herencia de clases e implements para la implementación de interfaces.
+	28.	a) interface MiInterfaz { void miMetodo(); }
+	29.	b) La clase se convierte en una clase abstracta.
+	30.	a) Se usa cuando se necesita definir un criterio de comparación fuera de la clase que se ordena.
+	31.	b) Puede acceder solo si la variable es final o effectively final.
+	32.	d) No pueden tener constructores explícitos.
+	33.	c) Se pueden instanciar sin una instancia de la clase contenedora.
+	34.	c) ClaseContenedora.this.metodo();
+	35.	b) Un método default en una interfaz puede ser llamado directamente desde una instancia de una clase que la implemente.
+	36.	b) La llamada a un método se determina en tiempo de ejecución según el tipo real del objeto.
+	37.	b) Proveer una nueva implementación para un método heredado de la superclase, manteniendo la misma firma.
+	38.	b) Los dos atributos coexisten y el que se utiliza depende del tipo de la referencia.
+	39.	b) Se definen dentro de una expresión y solo permiten crear un único objeto.
+	40.	c) Solo pueden acceder a variables locales del método si estas son finales o “effectively final”.
