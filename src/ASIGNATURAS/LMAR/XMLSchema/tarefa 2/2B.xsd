@@ -4,51 +4,61 @@
   <xs:element name="modulo">
     <xs:complexType>
       <xs:sequence>
-          <xs:element name="duracion" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
-          <xs:element name="mome" type="xs:string" minOccurs="1" maxOccurs="1"/>
-          <xs:element name="ciclo" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
-          <xs:element name="contidos" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+          <xs:element name="duracion" type="DuracionTipo" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="mome" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="ciclo" type="CicloTipo" minOccurs="1" maxOccurs="unbounded"/>
+          <xs:element name="contidos" type="ContidosTipo" minOccurs="1" maxOccurs="1"/>
       </xs:sequence>
-          <xs:attribute name="codigo" type="xs:string" />
+      <xs:attribute name="codigo" type="xs:string" />
     </xs:complexType>
   </xs:element>
-  
-  <xs:element name="duracion">
-   <xs:complexType>
-         <xs:attribute name="horas" type="xs:string"/>
-         <xs:attribute name="sesions" type="xs:string"/>
-         <xs:attribute name="sesionsSemanais" type="xs:string"/>
-   </xs:complexType>
-   
-  </xs:element>
-  
-  <xs:element name="mome" type="xsdstring"/>
-  
-<xs:element name="ciclo">
-     <xs:complexType>
-         <xs:simpleContent>
-             <xs:extension base="xs:string">
-             <xs:attribute name="codigo" type="xs:string"/>
-        </xs:extension>
-         </xs:simpleContent>
-     </xs:complexType>
-</xs:element>
-  
-  <xs:complexType name="contidos">
-   <xs:sequence>
-         <xs:element name="ud" type="xs:string"/>
-    </xs:sequence>
-        <xs:attribute name="num" type="xs:string" /> 
-        <xs:attribute name="sesións" type="xs:string" /> 
-</xs:complexType>
 
-  <xs:complexType name="ud">
-   <xs:sequence>
-         <xs:element name="titulo" type="xs:string"/>
-         <xs:element name="descrición" type="xs:string"/>
-    </xs:sequence>
-</xs:complexType>
+  <xs:simpleType name="tipoNomeLongo">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="150"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="CodigoModulo">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="MP\d{4}"/>
+    </xs:restriction>
+  </xs:simpleType>
 
+  <xs:complexType name="DuracionTipo">
+    <xs:attribute name="horas" type="xs:int"/>
+    <xs:attribute name="sesions" type="xs:int"/>
+    <xs:attribute name="sesionsSemanais" type="xs:int"/>
+  </xs:complexType>
+
+  <xs:complexType name="CicloTipo">
+    <xs:simpleContent>
+      <xs:extension base="tipoNomeLongo">
+        <xs:attribute name="codigo" type="CodigoCiclo"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="CodigoCiclo">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="C[S|M][A-Z]{3}\d{2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ContidosTipo">
+    <xs:sequence>
+      <xs:element name="UD" type="UDTipo" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UDTipo">
+    <xs:sequence>
+      <xs:element name="titulo" type="tipoNomeLongo"/>
+      <xs:element name="descrición" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="num" type="xs:int"/>
+    <xs:attribute name="sesions" type="xs:int"/>
+  </xs:complexType>
 
 
 </xs:schema>
