@@ -1,0 +1,56 @@
+1 c) Todas las clases en Java heredan, directa o indirectamente, de Object.
+2 c) super
+3 a) compareTo()
+4 c) Compara dos objetos basándose en su contenido si se sobrescribe adecuadamente.
+5 c) protected
+6 c) Indica que la clase puede contener métodos sin implementación.
+7 d) Una clase que puede ser instanciada sin necesidad de implementación. 
+8 a) Una clase puede implementar múltiples interfaces.
+9 b) Comparable permite definir un criterio de ordenación dentro de la propia clase, mientras que Comparator se define en una clase externa.
+10 c) Clases anónimas
+11 a) getClass()
+12 b) Para comprobar si un objeto es una instancia de una clase o una interfaz.
+13 a) Pueden contener métodos implementados.
+ ?
+14 a) Se produce un error de compilación.
+15 a) Se produce un error de compilación.
+16 b) Métodos abstractos y métodos default.
+17 ???
+18 c) Solo son accesibles dentro del bloque de código donde se declaran.
+19 c) No pueden definir constructores explícitos. ??
+20 b) Una subclase puede sobrescribir métodos de su superclase usando @Override.
+21 b) Permite llamar a constructores y métodos de la superclase.
+22 b) Debe ser sobrescrito si queremos mostrar información personalizada del objeto.
+23 d) == solo funciona con tipos primitivos.
+
+24 b) public boolean equals(Object obj) { return this == obj; }
+
+25 b) Se llama automáticamente al constructor por defecto de la superclase.
+ ??
+26 a) Una clase abstracta puede tener métodos concretos (implementados).
+ ??
+27 a) extends se usa para la herencia de clases e implements para la implementación de interfaces.
+28 a) interface MiInterfaz { void miMetodo(); }
+
+29 a) Se genera un error de compilación.
+
+30 a) Se usa cuando se necesita definir un criterio de comparación fuera de la clase que se ordena.
+
+31 d) No hay restricciones para acceder a variables locales.
+    ??
+32 d) No pueden tener constructores explícitos.
+    ??
+33 
+34 c) ClaseContenedora.this.metodo();
+
+35 b) Un método default en una interfaz puede ser llamado directamente desde una instancia de una clase que la implemente.
+
+36 b) La llamada a un método se determina en tiempo de ejecución según el tipo real del objeto.
+
+37 b) Proveer una nueva implementación para un método heredado de la superclase, manteniendo la misma firma.
+
+38 b) Los dos atributos coexisten y el que se utiliza depende del tipo de la referencia.
+
+39 b) Se definen dentro de una expresión y solo permiten crear un único objeto.
+
+40 

@@ -88,8 +88,6 @@ d) Clases estáticas internas
 
 ⸻
 
-
-
 11. ¿Qué método de la clase Object permite obtener el nombre de la clase a la que pertenece un objeto?
 
 a) getClass()
@@ -311,6 +309,8 @@ a) Los métodos default en interfaces deben ser sobrescritos obligatoriamente.
 b) Un método default en una interfaz puede ser llamado directamente desde una instancia de una clase que la implemente.
 c) Los métodos default deben ser privados.
 d) No se pueden definir métodos default en interfaces.
+_____
+
 36. ¿Qué es la selección dinámica de métodos en Java?
 
 a) La resolución de llamadas a métodos se realiza en tiempo de compilación.

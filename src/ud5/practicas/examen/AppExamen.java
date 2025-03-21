@@ -7,6 +7,7 @@ public class AppExamen {
                                     "respuesta 3", 
                                     "respuesta 4"
                                 };
+                                
         Pregunta p1 = new Pregunta("ENUNCIADO PREGUNTA 1", respuestasP1, 1);
         
         String[] respuestasP2 = {   "respuesta 1", 
@@ -24,5 +25,7 @@ public class AppExamen {
 
         System.out.println("PRIMERA PREGUNTA: " + p1.corregir(4)); // true
         System.out.println("SEGUNDA PREGUNTA: " + p2.corregir(0)); // false
+
+
     }
 }

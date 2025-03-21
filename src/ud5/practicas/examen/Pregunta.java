@@ -17,6 +17,17 @@ public class Pregunta {
         this.respuestaCorrecta = respuestaCorrecta;
     }
 
+    public Pregunta(String enunciado) {
+        this.enunciado = enunciado;
+    }
+
+    public Pregunta(String[] respuestas, int respuestaCorrecta) {
+        this.respuestas = respuestas;
+        this.respuestaCorrecta = respuestaCorrecta;
+    }
+
+
+
 
     public boolean corregir(int opcionElegida) {
         return opcionElegida == respuestaCorrecta;
