@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<instituto>
+    <alumno numExpedente="111" 
+            nome="Alumno" 
+            apelido1="Numero" 
+            apelido2="Uno con ñ">alumno 1 </alumno>
+    <alumno numExpedente="2222" 
+            nome="Alumno" 
+            apelido1="Numero" 
+            apelido2="Dos">alumno 2 </alumno>
+    
+    <profesor NRP="123A123" 
+            nome="Profe" 
+            apelido1="Numero" 
+            apelido2="Uno">profe 1 </profesor>
+    <profesor NRP="1234B123" 
+            nome="Profe" 
+            apelido1="Numero" 
+            apelido2="Dos con ñ">profe 2</profesor>
+</instituto>
