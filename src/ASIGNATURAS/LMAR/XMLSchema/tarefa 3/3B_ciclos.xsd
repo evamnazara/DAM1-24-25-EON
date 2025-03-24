@@ -21,7 +21,7 @@
 
   <xs:simpleType name="CodigoModulo">
     <xs:restriction base="xs:string">
-      <xs:pattern value="MP\d{4}"/>
+      <xs:pattern value="MP[0-9]{4}"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -62,7 +62,7 @@
 
   <xs:simpleType name="CodigoCiclo">
     <xs:restriction base="xs:string">
-      <xs:pattern value="C[S|M][A-Z]{3}\d{2}"/>
+      <xs:pattern value="C[SM][A-Z]{3}\d{2}"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -84,9 +84,9 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="sesions">
+    <xs:attribute name="sesións">
       <xs:simpleType>
-        <xs:restriction base="xs:int">
+        <xs:restriction base="xs:unsignedByte">
           <xs:minInclusive value="1"/>
           <xs:maxInclusive value="21"/>
         </xs:restriction>

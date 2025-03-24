@@ -1,11 +1,13 @@
 <garderia xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:noNamespaceSchemaLocation="esquemaGarderia.xsd">
+       xsi:noNamespaceSchemaLocation="3B_garderia.xsd">
   <neno  numeroExpedente="1" sexo="M" codigoNeno="P44-100">
       <nome>Andrea</nome>
       <dataNacemento>2022-01-30</dataNacemento>
       <peso>10.2</peso>
       <altura>35</altura>
       <vacunas>true</vacunas>
+      <contacto parentesco="nai" telefono="666555444"></contacto>
+      <idade anos="2" meses="1"/>
   </neno>
 </garderia>
 <!--

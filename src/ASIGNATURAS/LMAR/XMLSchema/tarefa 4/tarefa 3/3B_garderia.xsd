@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
    <xs:element name="garderia">
@@ -12,12 +12,12 @@
    </xs:element>
       <xs:complexType name="tipoNeno">
     <xs:sequence>
-            <xs:element name="nome" type="nome"/>
+            <xs:element name="nome" type="tiponome"/>
             <xs:element name="dataNacemento" type="date"/>
             <xs:element name="peso" type="peso"/>
             <xs:element name="altura" type="xs:unsignedByte"/>
             <xs:element name="vacunas" type="xs:boolean"/>
-            <xs:element name="contacto" minOccurs="0" maxOccurs="4" type="contacto"/>
+            <xs:element name="contacto" minOccurs="1" maxOccurs="4" type="tipocontacto"/>
             <xs:element name="idade" type="idade"/>
     </xs:sequence>
             <xs:attribute name="numeroExpedente" type="xs:unsignedShort"/>
@@ -27,19 +27,19 @@
    
    <xs:simpleType name="sexo">
        <xs:restriction base="xs:string">
-           <xs:pattern value="[H|M]">  
-           </xs:pattern>
+           <xs:enumeration value="H"/>  
+            <xs:enumeration value="M"/>  
        </xs:restriction> 
    </xs:simpleType>
    
-   <xs:element name="nome"> 
-    <xs:simpleType name="nome">
+
+    <xs:simpleType name="tiponome">
         <xs:restriction base="xs:string">
             <xs:minInclusive value="3"/>
             <xs:maxInclusive value="80"/>
         </xs:restriction>
     </xs:simpleType>
-   </xs:element>
+
    
     <xs:simpleType name="peso">
        <xs:restriction base="xs:string">
@@ -53,24 +53,30 @@
        </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="telefono">
+    <xs:complexType name="tipocontacto">
+        <xs:simpleContent> 
+            <xs:extension base="tipotelefono">
+                <xs:attribute name="relacion" type="relacion"/>
+            </xs:extension>
+        </xs:simpleContent>
+        
+    </xs:complexType>
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+               <xs:pattern value="\d{9}"/>
+           </xs:restriction>
+        </xs:simpleType>
+    <xs:simpleType name="relacion">
        <xs:restriction base="xs:string">
-           <xs:pattern value="\d{9}"/>
-       </xs:restriction>
+           <xs:enumeration value="Nai"/>  
+           <xs:enumeration value="Pai"/>  
+           <xs:enumeration value="Abuelo"/>  
+       </xs:restriction> 
    </xs:simpleType>
 
-    <xs:complexType name="contacto">
-      <xs:sequence>
-         <xs:element name="telefono" type="xs:string"/>
-      </xs:sequence>
-      <xs:attribute name="relacion" type="relacion"/>
-   </xs:complexType>
-
     <xs:complexType name="idade">
-      <xs:sequence>
-         <xs:element name="anos" type="xs:unsignedByte"/>
-         <xs:element name="meses" type="xs:unsignedByte"/>
-      </xs:sequence>
+         <xs:attribute name="anos" type="xs:unsignedByte"/>
+         <xs:attribute name="meses" type="xs:unsignedByte"/>
    </xs:complexType>
 
     <xs:simpleType name="anos">
