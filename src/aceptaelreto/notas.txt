@@ -1,0 +1,10 @@
+STRINGS:
+
+- APROBAR QUIMICA: dificil
+    recorrer dos arrays, compararlos y concatenar cadenas 
+
+- De nuevo en el bar de Javier
+    Cálculo de cajas (maximos, minimos, empates)
+
+- Las cartas del abuelo 
+
