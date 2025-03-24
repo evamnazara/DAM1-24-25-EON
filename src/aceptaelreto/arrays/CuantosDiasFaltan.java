@@ -6,7 +6,6 @@ public class CuantosDiasFaltan {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // Leer el número de casos de prueba
         int numCasos = sc.nextInt();
 
         // Array con los días acumulados al inicio de cada mes en un año no bisiesto
@@ -21,10 +20,10 @@ public class CuantosDiasFaltan {
             int diaDelAnio = diasAcumulados[mes - 1] + dia;
 
             // Calcular los días faltantes hasta el 31 de diciembre
-            int diasFaltantes = 365 - diaDelAnio;
+            int diasRestantes = 365 - diaDelAnio;
 
             // Imprimir el resultado
-            System.out.println(diasFaltantes);
+            System.out.println(diasRestantes);
         }
 
         sc.close();
@@ -34,7 +33,6 @@ public class CuantosDiasFaltan {
 
 
 /*¿Cuantos días faltan?
-Tiempo máximo: 1,000 s  Memoria máxima: 4096 KiB
 Dado un día del año, ¿sabrías decir cuantos días faltan para Nochevieja? Asumiremos que nos encontramos en un año no bisiesto.
 
 Entrada

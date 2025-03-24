@@ -3,39 +3,9 @@ package arrays;
 import java.util.Scanner;
 
 public class CartasAbuelo {
-    
-    // Función para preprocesar la cadena y construir el array de igualdad
-    public static boolean[] preprocess(String s) {
-        int n = s.length();
-        boolean[] igual = new boolean[n]; // Igual[i] será true si s[i] == s[i-1]
-        
-        for (int i = 1; i < n; i++) {
-            igual[i] = (s.charAt(i) == s.charAt(i - 1)); // Verifica si el carácter actual es igual al anterior
-        }
-        
-        return igual;
-    }
-
-    // Función para verificar si todos los caracteres entre i y j son iguales
-    public static boolean checkEqual(boolean[] igual, int i, int j) {
-        if (i == j) {
-            return true; // Si i == j, siempre son iguales
-        }
-        
-        // Comprobamos los valores de igual en el rango entre i y j
-        for (int k = i + 1; k <= j; k++) {
-            if (!igual[k]) {
-                return false; // Si encontramos una diferencia, no son iguales
-            }
-        }
-        
-        return true;
-    }
-    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
-        // Leemos casos de prueba
         while (true) {
             String cadena = sc.nextLine(); // Leer la cadena
             if (cadena.equals("0")) {
@@ -43,7 +13,7 @@ public class CartasAbuelo {
             }
             
             // Preprocesamos la cadena para obtener el array de igualdades
-            boolean[] igual = preprocess(cadena);
+            boolean[] igual = cadenaIgual(cadena);
             
             // Leemos el número de intervalos
             int n = Integer.parseInt(sc.nextLine());
@@ -73,6 +43,36 @@ public class CartasAbuelo {
         
         sc.close();
     }
+    
+    // Función para preprocesar la cadena y construir el array de igualdad
+    public static boolean[] cadenaIgual(String s) {
+        int n = s.length();
+        boolean[] igual = new boolean[n]; // Igual[i] será true si s[i] == s[i-1]
+        
+        for (int i = 1; i < n; i++) {
+            igual[i] = (s.charAt(i) == s.charAt(i - 1)); // Verifica si el carácter actual es igual al anterior
+        }
+        
+        return igual;
+    }
+
+    // Función para verificar si todos los caracteres entre i y j son iguales
+    public static boolean checkEqual(boolean[] igual, int i, int j) {
+        if (i == j) {
+            return true; // Si i == j, siempre son iguales
+        }
+        
+        // Comprobamos los valores de igual en el rango entre i y j
+        for (int k = i + 1; k <= j; k++) {
+            if (!igual[k]) {
+                return false; // Si encontramos una diferencia, no son iguales
+            }
+        }
+        
+        return true;
+    }
+    
+    
 }
 
 

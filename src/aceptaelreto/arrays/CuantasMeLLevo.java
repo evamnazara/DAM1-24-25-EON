@@ -5,25 +5,27 @@ import java.util.Scanner;
 public class CuantasMeLLevo {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         while (true) {
-            // Leer una línea con dos números
-            String num1 = scanner.next();
-            String num2 = scanner.next();
+            System.out.println("¿cuántas me llevo? ");
+            System.out.println("Número 1:");
+            String num1 = sc.nextLine();
+            System.out.println("Número 2: ");
+            String num2 = sc.nextLine();
 
-            // Caso especial: "0 0" termina la ejecución
+            // "0 0" termina la ejecución
             if (num1.equals("0") && num2.equals("0")) {
                 break;
             }
 
-            // Asegurarnos de que num1 y num2 tienen la misma longitud (rellenamos con ceros a la izquierda si es necesario)
+            // num1 y num2 tienen la misma longitud (rellenamos con ceros a la izquierda si es necesario)
             int longitudMaxima = Math.max(num1.length(), num2.length());
             while (num1.length() < longitudMaxima) {
-                num1 = "0" + num1;  // Añadir ceros a la izquierda de num1 si es necesario
+                num1 = "0" + num1;  // añade ceros a la izquierda de num1 si es necesario
             }
             while (num2.length() < longitudMaxima) {
-                num2 = "0" + num2;  // Añadir ceros a la izquierda de num2 si es necesario
+                num2 = "0" + num2;  // añade ceros a la izquierda de num2 si es necesario
             }
 
             // Contador de acarreos
@@ -48,11 +50,10 @@ public class CuantasMeLLevo {
                 }
             }
 
-            // Mostrar el número de acarreos
-            System.out.println(acarreos);
+            System.out.println("Te llevas " + acarreos);
         }
 
-        scanner.close();  // Cerrar el scanner cuando ya no se necesite
+        sc.close(); 
     }
 }
 

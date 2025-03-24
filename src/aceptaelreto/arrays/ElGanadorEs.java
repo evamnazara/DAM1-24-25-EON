@@ -6,7 +6,6 @@ public class ElGanadorEs {
         Scanner sc = new Scanner(System.in);
         
         while (true) {
-            // Leer primera línea del caso de prueba
             String primeraLinea = sc.nextLine();
             int numeroEquipos = primeraLinea.charAt(0) - '0'; // Convertimos el primer carácter a número
             int numeroGlobos = primeraLinea.charAt(2) - '0'; // Segundo número (ignora el espacio)
@@ -58,9 +57,11 @@ public class ElGanadorEs {
 Dada la lista de los globos colocados a cada equipo, ¿eres capaz de decir quién es el ganador?
 
 Entrada
-La entrada estará compuesta de múltiples casos de prueba, cada uno de ellos simulando un concurso. Cada caso de prueba comienza con una línea con dos números, el primero de ellos indicando el número de equipos participantes (entre 1 y 20) y el segundo el número de globos entregados.
+La entrada estará compuesta de múltiples casos de prueba, cada uno de ellos simulando un concurso. 
+Cada caso de prueba comienza con una línea con dos números, el primero de ellos indicando el número de equipos participantes (entre 1 y 20) y el segundo el número de globos entregados.
 
-A continuación aparecerá una línea por cada globo entregado, con el número del equipo que lo ha recibido (entre 1 y el número de equipos) y el color (una palabra de un máximo de 20 letras). Un equipo nunca recibirá dos veces el mismo color de globo.
+A continuación aparecerá una línea por cada globo entregado, con el número del equipo que lo ha recibido (entre 1 y el número de equipos) y el color (una palabra de un máximo de 20 letras). 
+Un equipo nunca recibirá dos veces el mismo color de globo.
 
 La entrada terminará cuando se llegue a un concurso sin equipos ni globos.
 
