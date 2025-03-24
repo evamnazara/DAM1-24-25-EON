@@ -1,4 +1,5 @@
-<carta>
+<carta xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="2B_C.xsd">
     <de></de>
     <para></para>
     <asunto></asunto>
