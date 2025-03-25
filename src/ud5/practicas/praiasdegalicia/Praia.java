@@ -1,10 +1,10 @@
 package praiasdegalicia;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
-@SuppressWarnings("rawtypes")
-public class Praia implements Comparable {
-    private Integer id;
+public class Praia implements Comparable<Praia> {
+    private int id;
     private String nome;
     private String concello;
     private String provincia;
@@ -84,36 +84,50 @@ public class Praia implements Comparable {
 
     @Override
     public String toString() {
-        return "\n " + id + " - " + nome + " - " + concello + " - " + provincia + " - (" + lat + ", " + lon + ")"  ;
+        return id + " - " + nome + " - " + concello + " - " + provincia + " - (" + lat + ", " + lon + ")";
     }
 
     @Override
-    public int compareTo(Object o) {
-        Praia praia = (Praia) o;
-        Integer res = nome.compareTo(praia.nome);
-        if (res == 0) {
-            res = this.id.compareTo(praia.id);
-            if (res == 0) {
-                res = this.id - praia.id;
-            }
-        }
-        return res;
-    }
-    
-
-    public static void imprimirLista(Praia[] praias, int num) {
-        
-        for (int i = 0; i < num; i++) {
-            Arrays.sort(praias);
-            System.out.println(praias[i].toString());
-        }
+    public int compareTo(Praia outra) {
+        return Integer.compare(this.id, outra.id);
     }
 
     public void mostrarDetalles() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mostrarDetalles'");
+        System.out.println(id + " - " + nome + " - " + concello + " - " + provincia + " - (" + lat + ", " + lon + ")");
     }
 
+    public static void imprimirLista(Praia[] praias, int limite) {
+        for (int i = 0; i < Math.min(limite, praias.length); i++) {
+            System.out.println(praias[i]);
+        }
+    }
+
+    /* 2. Ordenar y buscar
+        Crea en la clase Praia los siguientes métodos estáticos:
+        Praia[] sortLatitudNorteSur(Praia[] p);
+        Devuelve una copia del array con las playas ordenadas por latitud de norte a sur. Ojo! El método no debe modificar el array original.
+        Praia[] sortProvinciaConcelloNome(Praia[] p); 
+        Devuelve una copia del array con las playas ordenadas provincia, concello y nombre de playa.
+
+        Usando estos métodos implementa el programa AppOrden.java que muestre los siguientes listados: 
+
+        Las 10 playas más al norte
 
 
+        Todas las playas ordenadas por Provincia, Concello y Nombre.
+        */
+
+    public static Praia[] sortLatitudNorteSur(Praia[] p) {
+        Praia[] copia = Arrays.copyOf(p, p.length);
+        Arrays.sort(copia, Comparator.comparingDouble(Praia::getLat).reversed());
+        return copia;
+    }
+
+    public static Praia[] sortProvinciaConcelloNome(Praia[] p) {
+        Praia[] copia = Arrays.copyOf(p, p.length);
+        Arrays.sort(copia, Comparator.comparing(Praia::getProvincia)
+                .thenComparing(Praia::getConcello)
+                .thenComparing(Praia::getNome));
+        return copia;
+    }
 }

@@ -18,75 +18,90 @@ EP0931_Llamada. En una compañía de telecomunicaciones se desean registrar los 
 
 package ud5.interfacesejercicios.EP0931_Llamada;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
-
-public class Llamada {
+public class Llamada implements Comparable<Llamada> {
     String telefonoCliente;
     String telefonoInterlocutor;
     boolean saliente;
     LocalDateTime fechaInicioLlamada;
     LocalDateTime fechaFinLlamada;
+    
     enum ZonaInterlocutor {ZONA1, ZONA2, ZONA3, ZONA4, ZONA5}
     ZonaInterlocutor zona;
-
-    //constructores 
+    
+    static final double tarifaZona1 = 0.01;
+    static final double tarifaZona2 = 0.02;
+    static final double tarifaZona3 = 0.03;
+    static final double tarifaZona4 = 0.04;
+    static final double tarifaZona5 = 0.05;
+    
     public Llamada(String telefonoCliente, String telefonoInterlocutor, boolean saliente, LocalDateTime fechaInicioLlamada, LocalDateTime fechaFinLlamada, ZonaInterlocutor zona) {
-            this.telefonoCliente = telefonoCliente;
-            this.telefonoInterlocutor = telefonoInterlocutor;
-            this.saliente = saliente;
-            this.fechaInicioLlamada = fechaInicioLlamada;
-            this.fechaFinLlamada = fechaFinLlamada;
-            this.zona = zona;
-    };
-
-    public ZonaInterlocutor getZona() {
-        return zona;
-    }
-
-    public LocalDateTime getFechaInicioLlamada() {
-        return fechaInicioLlamada;
-    }
-
-    public LocalDateTime getFechaFinLlamada() {
-        return fechaFinLlamada;
-    }
-    public void minutosLlamada(){
-        int minutosLlamada;
-
-        minutosLlamada =  fechaFinLlamada.getMinute() - fechaInicioLlamada.getMinute();
-        System.out.println(minutosLlamada);
-    }
-    public void setTarifaCliente(ZonaInterlocutor zona) {
-        double tarifaZona1 = 0.01;
-        double tarifaZona2 = 0.02;
-        double tarifaZona3 = 0.03;
-        double tarifaZona4 = 0.04;
-        double tarifaZona5 = 0.05;
-
-        double tarifaCliente;
-        /*switch (Llamada.getZona()) {
-            case ZONA1:
-                tarifaCliente = Llamada.minutosLlamada() * tarifaZona1;
-                break;
-            case ZONA2:
-                tarifaCliente = Llamada.minutosLlamada() * tarifaZona2;
-                break;
-            case ZONA3:
-                tarifaCliente = Llamada.minutosLlamada() * tarifaZona3;
-                break;
-            case ZONA4:
-                tarifaCliente = Llamada.minutosLlamada() * tarifaZona4;
-                break;
-            case ZONA5:
-                tarifaCliente = Llamada.minutosLlamada() * tarifaZona5;
-                break;
-            default:
-                System.out.println("Zona inválida");
-                break;
-        }
-        */
-
+        this.telefonoCliente = telefonoCliente;
+        this.telefonoInterlocutor = telefonoInterlocutor;
+        this.saliente = saliente;
+        this.fechaInicioLlamada = fechaInicioLlamada;
+        this.fechaFinLlamada = fechaFinLlamada;
+        this.zona = zona;
     }
     
+    public long getDuracionMinutos() {
+        return Duration.between(fechaInicioLlamada, fechaFinLlamada).toMinutes();
+    }
+    
+    public double setTarifaCliente() {
+        if (!saliente) return 0.0;
+        double tarifaCliente = 0.0;
+        switch (zona) {
+            case ZONA1:
+                tarifaCliente = getDuracionMinutos() * tarifaZona1;
+                break;
+            case ZONA2:
+                tarifaCliente = getDuracionMinutos() * tarifaZona2;
+                break;
+            case ZONA3:
+                tarifaCliente = getDuracionMinutos() * tarifaZona3;
+                break;
+            case ZONA4:
+                tarifaCliente = getDuracionMinutos() * tarifaZona4;
+                break;
+            case ZONA5:
+                tarifaCliente = getDuracionMinutos() * tarifaZona5;
+                break;
+        }
+        System.out.println("Tarifa: " + tarifaCliente);
+        return tarifaCliente;
+    }
+    
+    @Override
+    public String toString() {
+        return "Llamada de " + telefonoCliente + " a " + telefonoInterlocutor + " | Inicio: " + fechaInicioLlamada + " | Duración: " + getDuracionMinutos() + " min | Costo: " + setTarifaCliente() + "€";
+    }
+    
+    
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Llamada other = (Llamada) obj;
+        if (telefonoCliente == null) {
+            if (other.telefonoCliente != null)
+                return false;
+        } else if (!telefonoCliente.equals(other.telefonoCliente))
+            return false;
+        return true;
+    }
+
+    @Override
+    public int compareTo(Llamada otra) {
+        int comparacionTelefono = this.telefonoCliente.compareTo(otra.telefonoCliente);
+        if (comparacionTelefono != 0) return comparacionTelefono;
+        return this.fechaInicioLlamada.compareTo(otra.fechaInicioLlamada);
+    }
 }

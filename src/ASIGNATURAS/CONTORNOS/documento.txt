@@ -1,3 +1,6 @@
+si la complejidad es 3, tienes que hacer 3 caminos como minimo 
+siempre pasar por una arista nueva
+
 Cálculo de complexidade ciclomática
 Fórmula:
 V(G) = E - N + 2P

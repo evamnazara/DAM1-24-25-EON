@@ -21,8 +21,7 @@ public class AppClase {
         System.out.println("=======================");
         Praia.imprimirLista(praias, 10);
 
-        
-
+    
         System.out.print("\nDetalles: ");
         praias[pos].mostrarDetalles();
 

@@ -62,6 +62,7 @@ public abstract class Inmueble implements Comparable {
     }; 
  
     //Ordena Inmuebles por numHabitaciones y luego por m2 (de mayor a menor) 
+    @SuppressWarnings("unchecked")
     public void sortHabMetrosDesc(Inmueble[] t){
         Comparator ComparaHabitaciones = new Comparator() {
             @Override

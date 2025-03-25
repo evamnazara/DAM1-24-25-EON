@@ -21,6 +21,7 @@ class ContenedorO {
         ContenedorO c = new ContenedorO(); 
         c.guardar (7);  
         c.guardar ("roca");  
+        @SuppressWarnings("unused")
         Double x = (Double) c.extraer(); //error de ejecución     
     } 
 } 

@@ -28,7 +28,6 @@ public class Pregunta {
 
 
 
-
     public boolean corregir(int opcionElegida) {
         return opcionElegida == respuestaCorrecta;
     }
