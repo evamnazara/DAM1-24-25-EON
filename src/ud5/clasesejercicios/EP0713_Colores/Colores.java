@@ -6,7 +6,7 @@ Diseña la clase Colores, que alberga por defecto una serie de colores (mediante
 cadena), aunque es posible añadir tantos como necesitemos. La clase tendrá un método 
 que devuelve una tabla con los n colores que necesitemos elegidos al azar sin repeticiones. 
 */ 
-package ud5.EP0713_Colores;
+package ud5.clasesejercicios.EP0713_Colores;
 
 import java.util.Arrays;
 //import java.util.Random;

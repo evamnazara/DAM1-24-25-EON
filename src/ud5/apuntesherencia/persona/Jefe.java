@@ -1,4 +1,4 @@
-package ud5.apuntesherencia;
+package ud5.apuntesherencia.persona;
 
 public class Jefe extends Empleado {
         public static void main(String[] args) {

@@ -7,7 +7,7 @@ consola las notas musicales según las interprete. Utilizar enumerados para defi
 notas musicales. 
 //instrumentos  > añade melodias a todos y haz que se reproduzcan  
 */
-package ud5.apuntesherencia.abstractas.E0804;
+package ud5.apuntesherencia.abstractas.E0804_Instrumentos;
 import java.util.Arrays;
 
 public abstract class Instrumento {

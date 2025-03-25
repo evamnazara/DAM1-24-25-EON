@@ -1,5 +1,5 @@
 
-package ud5.apuntesherencia.abstractas.E0804;
+package ud5.apuntesherencia.abstractas.E0804_Instrumentos;
 
 import java.util.Arrays;
 

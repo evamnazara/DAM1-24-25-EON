@@ -1,4 +1,4 @@
-package ud5.apuntesherencia;
+package ud5.apuntesherencia.persona;
 
 public class Empleado extends Persona {
 

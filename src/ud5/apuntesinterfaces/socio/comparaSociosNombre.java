@@ -1,4 +1,4 @@
-package ud5.apuntesinterfaces;
+package ud5.apuntesinterfaces.socio;
 
 import java.util.Comparator;
 
