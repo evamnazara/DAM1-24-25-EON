@@ -30,7 +30,7 @@ public class CuelloPiloto {
             // Direcciones de movimiento: {derecha, abajo, izquierda, arriba}
             int[] movFila = {0, 1, 0, -1};
             int[] movColumna = {1, 0, -1, 0};
-            String[] direcciones = {"DERECHA", "ABAJO", "IZQUIERDA", "ARRIBA"};
+           // String[] direcciones = {"DERECHA", "ABAJO", "IZQUIERDA", "ARRIBA"};
 
             // Encontrar la dirección inicial (buscando un '#')
             int dirActual = -1;

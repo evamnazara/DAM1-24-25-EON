@@ -5,7 +5,6 @@ public class CodigoMorse {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Tabla de código Morse según la primera letra
         String[] morseAlfabeto = {
             ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---",
             "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-",

@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class CadenasADN {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        while (scanner.hasNextLine()) {
+        while (sc.hasNextLine()) {
             // Leer el número de cadenas de ADN
-            String primeraLinea = scanner.nextLine();
+            String primeraLinea = sc.nextLine();
             int cantidadCadenas = convertirAEntero(primeraLinea);
 
             if (cantidadCadenas == 0) {
@@ -18,7 +18,7 @@ public class CadenasADN {
             // Leer las cadenas de ADN
             String[] cadenasADN = new String[cantidadCadenas];
             for (int i = 0; i < cantidadCadenas; i++) {
-                cadenasADN[i] = scanner.nextLine();
+                cadenasADN[i] = sc.nextLine();
             }
 
             // Array para contar coincidencias
@@ -44,7 +44,7 @@ public class CadenasADN {
             System.out.println(); // Nueva línea al final de cada caso
         }
 
-        scanner.close();
+        sc.close();
     }
 
     // Convierte un String numérico a entero sin usar parseInt()

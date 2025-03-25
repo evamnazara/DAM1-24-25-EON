@@ -82,7 +82,6 @@ public class CodigosDeBarras {
         sc.close();
     }
 
-    // Método para validar un código EAN-8
     static boolean esEAN8valido(String codigoEAN) {
         int suma = 0;
 
