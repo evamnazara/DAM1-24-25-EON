@@ -6,10 +6,13 @@ public class Mediana {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        // Bucle que procesará múltiples casos de prueba
         while (true) {
             // Leer la cantidad de valores
+            System.out.println("Introduce la cantidad de valores (0 para terminar):");
             int cantidad = sc.nextInt();
             if (cantidad == 0) {
+                System.out.println("Fin de los casos de prueba.");
                 break; // Termina si la cantidad es 0
             }
 
@@ -17,6 +20,7 @@ public class Mediana {
             int[] valores = new int[cantidad];
 
             // Leer los valores
+            System.out.println("Introduce los " + cantidad + " valores:");
             for (int i = 0; i < cantidad; i++) {
                 valores[i] = sc.nextInt();
             }
@@ -35,12 +39,13 @@ public class Mediana {
             }
 
             // Imprimir resultado
-            System.out.println(medianaDoble);
+            System.out.println("El doble de la mediana es: " + medianaDoble);
         }
 
         sc.close();
     }
 }
+
 
 
 

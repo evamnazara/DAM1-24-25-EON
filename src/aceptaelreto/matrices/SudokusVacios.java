@@ -7,58 +7,62 @@ import java.util.Scanner;
 
 public class SudokusVacios {
 
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            String linea = sc.nextLine().trim();  // Leer primera línea como cadena
-            char primerCaracter = linea.charAt(0);  // Tomar el primer carácter (será un número entre '1' y '9')
-            int casosDePrueba = primerCaracter - '0';  // Convertirlo a número restando '0'
-            sc.nextLine();  // Leer línea en blanco inicial
-    
-            for (int caso = 0; caso < casosDePrueba; caso++) {
-                if (caso > 0) sc.nextLine();  // Leer línea en blanco entre casos
-    
-                char[][] sudoku = new char[9][9];
-                int celdasLlenas = 0;  // Contador de celdas llenas
-    
-                // Leer el sudoku
-                for (int i = 0; i < 9; i++) {
-                    String fila = sc.nextLine();
-                    for (int j = 0; j < 9; j++) {
-                        sudoku[i][j] = fila.charAt(j);
-                        if (sudoku[i][j] != '-') {
-                            celdasLlenas++;
-                        }
+    public static void main(String[] args) {
+        // Leer la cantidad de casos de prueba
+        Scanner sc = new Scanner(System.in);
+        String linea = sc.nextLine().trim();  // Leer el primer número (cantidad de casos)
+        int casosDePrueba = linea.charAt(0) - '0';  // Convertir el primer carácter a número
+        sc.nextLine();  // Leer la línea en blanco inicial
+        
+        // Procesar cada caso de prueba
+        for (int caso = 0; caso < casosDePrueba; caso++) {
+            if (caso > 0) sc.nextLine();  // Leer línea en blanco entre casos
+
+            // Crear una matriz para representar el Sudoku
+            char[][] sudoku = new char[9][9];
+            int celdasLlenas = 0;  // Contador de celdas llenas
+
+            // Leer el tablero del Sudoku
+            System.out.println("Procesando el caso de prueba #" + (caso + 1));
+            for (int i = 0; i < 9; i++) {
+                String fila = sc.nextLine();
+                for (int j = 0; j < 9; j++) {
+                    sudoku[i][j] = fila.charAt(j);  // Rellenar la matriz
+                    if (sudoku[i][j] != '-') {
+                        celdasLlenas++;  // Contar las celdas llenas
                     }
-                }
-    
-                // Verificar simetría rotacional
-                boolean cumpleSimetria = true;
-                for (int i = 0; i < 9 && cumpleSimetria; i++) {
-                    for (int j = 0; j < 9; j++) {
-                        if ((sudoku[i][j] != '-') != (sudoku[8 - i][8 - j] != '-')) {
-                            cumpleSimetria = false;
-                            break;
-                        }
-                    }
-                }
-    
-                // Evaluar condiciones e imprimir resultado
-                if (celdasLlenas <= 32 && cumpleSimetria) {
-                    System.out.println("SI");
-                } else {
-                    System.out.println("NO");
                 }
             }
-    
-            sc.close();
+
+            // Verificar si el Sudoku tiene simetría rotacional
+            boolean cumpleSimetria = true;
+            for (int i = 0; i < 9 && cumpleSimetria; i++) {
+                for (int j = 0; j < 9; j++) {
+                    // Compara la casilla con su posición simétrica
+                    if ((sudoku[i][j] != '-') != (sudoku[8 - i][8 - j] != '-')) {
+                        cumpleSimetria = false;
+                        break;
+                    }
+                }
+            }
+
+            // Evaluar las condiciones y mostrar el resultado
+            if (celdasLlenas <= 32 && cumpleSimetria) {
+                System.out.println("SI");  // El Sudoku cumple con las condiciones
+            } else {
+                System.out.println("NO");  // El Sudoku no cumple con las condiciones
+            }
         }
+
+        sc.close();
     }
+}
+
     
     
 
 /*
  * Sudokus vacíos
-Tiempo máximo: 1,000-3,000 s  Memoria máxima: 2048 KiB
 Un sudoku es un tipo de pasatiempo numérico que se popularizó en Japón en 1986 e internacionalmente en 2005, aunque sus raíces alcanzan hasta el propio Leonhard Euler, en el siglo XVIII. Consiste en una tabla de 9 × 9 celdas, en la que se distinguen 9 "regiones" de 3 × 3.
 
 En cada una de las celdas se debe escribir un dígito entre 1 y 9. Inicialmente se proporcionan algunas de las celdas ya rellenas, y se deja al jugador la responsabilidad de completar las demás, sabiendo que cada fila, cada columna y cada región de 3 × 3 debe contener todos los dígitos del 1 al 9 una única vez.

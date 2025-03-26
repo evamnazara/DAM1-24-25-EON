@@ -1,36 +1,32 @@
-/*
- * El código sigue este enfoque:
-Leer la entrada y almacenar la información sobre la flota y el tablero.
-Buscar barcos en el tablero, identificando sus tamaños y posiciones.
-Verificar que los barcos detectados coincidan con los especificados.
-Confirmar que no hay barcos adyacentes (ni en diagonal).
-Imprimir "SI" si el tablero es correcto, o "NO" si no lo es.
-*/
 package matrices;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
+public class HundirLaFlota {
 
-public class hundirlaflota {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);  // Asegúrate de cerrar este Scanner al final.
 
         while (true) {
             // PASO 1: Leer el número de barcos
+            System.out.print("Ingrese el número de barcos: ");
             int numBarcos = sc.nextInt();
-            if (numBarcos == 0) break; // Terminar si no hay barcos
+            if (numBarcos == 0) break;  // Terminar si no hay barcos
 
             // PASO 2: Leer los tamaños esperados de los barcos
+            System.out.println("Ingrese los tamaños de los barcos:");
             int[] tamanosEsperados = new int[numBarcos];
             for (int i = 0; i < numBarcos; i++) {
                 tamanosEsperados[i] = sc.nextInt();
             }
 
             // PASO 3: Leer el tamaño del tablero y la matriz
+            System.out.print("Ingrese el tamaño del tablero (número de filas/columnas): ");
             int n = sc.nextInt();
             int[][] tablero = new int[n][n];
 
+            System.out.println("Ingrese el tablero (0 para agua, 1 para parte de barco):");
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
                     tablero[i][j] = sc.nextInt();
@@ -38,16 +34,18 @@ public class hundirlaflota {
             }
 
             // PASO 4: Encontrar los barcos en la matriz
-            int[] barcosEncontrados = new int[numBarcos]; // Almacena los tamaños de los barcos encontrados
+            int[] barcosEncontrados = new int[numBarcos];  // Almacena los tamaños de los barcos encontrados
             int contadorBarcos = 0;
-            boolean[][] visitado = new boolean[n][n];
+            boolean[][] visitado = new boolean[n][n];  // Para marcar las celdas visitadas
 
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
+                    // Si encontramos una parte del barco y no ha sido visitada
                     if (tablero[i][j] == 1 && !visitado[i][j]) {
                         int tamano = contarBarco(tablero, visitado, i, j, n);
                         if (tamano == -1 || contadorBarcos >= numBarcos) {
                             System.out.println("NO");
+                            sc.close(); // Cerrar el scanner antes de terminar
                             return;
                         }
                         barcosEncontrados[contadorBarcos++] = tamano;
@@ -55,10 +53,11 @@ public class hundirlaflota {
                 }
             }
 
-            // PASO 5: Comparar barcos encontrados con los esperados
+            // PASO 5: Comparar barcos encontrados con los tamaños esperados
             Arrays.sort(barcosEncontrados, 0, contadorBarcos);
             Arrays.sort(tamanosEsperados);
 
+            // Verificamos que los tamaños de los barcos coincidan exactamente
             boolean esCorrecto = true;
             for (int i = 0; i < numBarcos; i++) {
                 if (barcosEncontrados[i] != tamanosEsperados[i]) {
@@ -67,6 +66,7 @@ public class hundirlaflota {
                 }
             }
 
+            // Imprimir resultado
             if (esCorrecto) {
                 System.out.println("SI");
             } else {
@@ -74,7 +74,7 @@ public class hundirlaflota {
             }
         }
 
-        sc.close();
+        sc.close();  // Asegurarse de cerrar el scanner correctamente.
     }
 
     // Función para contar el tamaño de un barco y verificar si es válido
@@ -97,7 +97,7 @@ public class hundirlaflota {
         // Contar en línea vertical
         else if (vertical) {
             while (fila < n && tablero[fila][col] == 1) {
-                if (visitado[fila][col]) return -1;
+                if (visitado[fila][col]) return -1;  // Si ya fue visitado, es incorrecto
                 visitado[fila][col] = true;
                 tamaño++;
                 fila++;

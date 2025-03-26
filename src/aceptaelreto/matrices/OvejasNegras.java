@@ -6,46 +6,49 @@ public class OvejasNegras {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            // Leer el ancho (ancho) y alto (alto) de la imagen
-            int ancho = scanner.nextInt();
-            int alto = scanner.nextInt();
+            // PASO 1: Leer las dimensiones de la imagen
+            System.out.print("Ingresa el ancho y alto de la imagen (0 0 para terminar): ");
+            int anchoImagen = scanner.nextInt();
+            int altoImagen = scanner.nextInt();
 
-            // Condición de fin de entrada
-            if (ancho == 0 && alto == 0) {
+            // Si el ancho y alto son 0, terminamos el programa
+            if (anchoImagen == 0 && altoImagen == 0) {
+                System.out.println("Fin del programa.");
                 break;
             }
 
-            // Crear una matriz para la imagen
-            char[][] imagen = new char[alto][ancho];
+            // PASO 2: Crear la matriz para almacenar la imagen
+            char[][] imagen = new char[altoImagen][anchoImagen];
 
             // Leer la imagen
-            for (int i = 0; i < alto; i++) {
+            System.out.println("Ingresa la imagen:");
+            for (int i = 0; i < altoImagen; i++) {
                 imagen[i] = scanner.next().toCharArray();
             }
 
-            // Variable para saber si encontramos alguna oveja blanca
-            boolean ovejaBlanca = false;
+            // PASO 3: Variable para detectar si encontramos alguna oveja blanca
+            boolean ovejaBlancaEncontrada = false;
 
-            // Recorrer la imagen buscando ovejas blancas
-            for (int i = 1; i < alto - 1; i++) {  // Comenzamos en 1 y terminamos en alto-1 porque las ovejas no tocan los bordes
-                for (int j = 1; j < ancho - 1; j++) {  // Lo mismo para las columnas
-                    // Si encontramos una parte de una oveja negra
+            // PASO 4: Recorrer la imagen buscando ovejas blancas
+            for (int i = 1; i < altoImagen - 1; i++) {  // Empezamos en 1 y terminamos en altoImagen-1 porque las ovejas no tocan los bordes
+                for (int j = 1; j < anchoImagen - 1; j++) {  // Lo mismo para las columnas
+                    // Si encontramos una parte de una oveja negra ('X')
                     if (imagen[i][j] == 'X') {
                         // Verificamos si esta parte de la oveja tiene un espacio blanco dentro
                         // Comprobamos las 4 direcciones alrededor de la 'X'
                         if (imagen[i-1][j] == '.' || imagen[i+1][j] == '.' || imagen[i][j-1] == '.' || imagen[i][j+1] == '.') {
-                            ovejaBlanca = true;
+                            ovejaBlancaEncontrada = true;
                             break;
                         }
                     }
                 }
-                if (ovejaBlanca) {
+                if (ovejaBlancaEncontrada) {
                     break;
                 }
             }
 
-            // Si encontramos alguna oveja blanca, imprimimos "SI", de lo contrario "NO"
-            if (ovejaBlanca) {
+            // PASO 5: Imprimir el resultado
+            if (ovejaBlancaEncontrada) {
                 System.out.println("SI");
             } else {
                 System.out.println("NO");
@@ -55,6 +58,7 @@ public class OvejasNegras {
         scanner.close();
     }
 }
+
 
 /*OVEJAS NEGRAS
 

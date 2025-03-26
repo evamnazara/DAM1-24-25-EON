@@ -8,12 +8,14 @@ public class panEnBodas {
 
         while (true) {
             // Leer el número de sillas
+            System.out.println("Introduce el número de sillas (0 para terminar):");
             int numSillas = sc.nextInt();
             if (numSillas == 0) {
                 break; // Si es 0, terminamos
             }
 
             // Leer la configuración de la mesa como una cadena
+            System.out.println("Introduce la configuración de la mesa (I, D, o . para cada silla):");
             String mesa = sc.next();
 
             // Array para marcar qué panes han sido tomados

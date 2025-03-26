@@ -2,8 +2,9 @@ package matrices;
 
 import java.util.Scanner;
 
-public class marcadoresSegmentos {
-        public static void main(String[] args) {
+public class MarcadoresSegmentos {
+
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         // Representación de los números del 0 al 9 en un marcador de 7 segmentos
@@ -22,7 +23,8 @@ public class marcadoresSegmentos {
         };
 
         while (true) {
-            // Leer una secuencia de números
+            // Leer la secuencia de números para el marcador
+            System.out.println("Ingresa una secuencia de números para el marcador (termina con -1):");
             String input = sc.nextLine();
             String[] numeros = input.split(" ");
 
@@ -31,19 +33,19 @@ public class marcadoresSegmentos {
                 break;
             }
 
-            // Convertir los números en enteros
-            int[] mensaje = new int[numeros.length - 1];  // Excluimos el -1
+            // Convertir los números en enteros, excluyendo el -1
+            int[] mensaje = new int[numeros.length - 1];
             for (int i = 0; i < mensaje.length; i++) {
                 mensaje[i] = Integer.parseInt(numeros[i]);
             }
 
-            // Inicializar las variables para contar los cambios
+            // Inicializar las variables para contar los cambios de luz
             int cambios = 0;
             int[] estadoActual = new int[mensaje.length];  // Estado inicial de todos los dígitos (todos apagados)
 
             // Procesar cada dígito que entra y sale
             for (int i = 0; i < mensaje.length; i++) {
-                // Número que entra
+                // Obtener el número que entra (el nuevo estado)
                 int nuevoEstado = segmentos[mensaje[i]];
 
                 // Contar los cambios de encendido y apagado para este dígito
@@ -58,13 +60,14 @@ public class marcadoresSegmentos {
                 estadoActual[i] = nuevoEstado;
             }
 
-            // Imprimir el número total de cambios de luz
-            System.out.println(cambios);
+            // Imprimir el número total de cambios de luz para este mensaje
+            System.out.println("Número total de cambios de luces: " + cambios);
         }
 
         sc.close();
     }
 }
+
 
 /*Marcadores de 7 segmentos
 Tiempo máximo: 1,000-5,000 s  Memoria máxima: 4096 KiB

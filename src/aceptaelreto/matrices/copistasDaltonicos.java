@@ -1,65 +1,66 @@
 package matrices;
+
 import java.util.Scanner;
 
-public class copistasDaltonicos {
+public class CopistasDaltonicos {
+
     public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-    
-            while (true) {
-                // PASO 1: Leer el tamaño del cuadro (filas y columnas)
-                int filas = sc.nextInt();
-                int columnas = sc.nextInt();
-                sc.nextLine(); // Consumir salto de línea
-                
-                // Si encontramos "0 0", terminamos el programa
-                if (filas == 0 && columnas == 0) break;
-    
-                // PASO 2: Leer la matriz del cuadro
-                char[][] cuadro = new char[filas][columnas];
-    
-                for (int i = 0; i < filas; i++) {
-                    String linea = sc.nextLine();
-                    for (int j = 0; j < columnas; j++) {
-                        cuadro[i][j] = linea.charAt(j);
-                    }
-                }
-    
-                // PASO 3: Leer la cantidad de copistas daltónicos
-                int numCopistas = sc.nextInt();
-                sc.nextLine(); // Consumir salto de línea
-    
-                // PASO 4: Aplicar cada transformación
-                for (int k = 0; k < numCopistas; k++) {
-                    String transformacion = sc.nextLine();
-                    char colorOriginal = transformacion.charAt(0);
-                    char colorNuevo = transformacion.charAt(2);
-    
-                    // Recorrer la matriz y reemplazar el color original por el nuevo
-                    for (int i = 0; i < filas; i++) {
-                        for (int j = 0; j < columnas; j++) {
-                            if (cuadro[i][j] == colorOriginal) {
-                                cuadro[i][j] = colorNuevo;
-                            }
+        Scanner sc = new Scanner(System.in);
+        
+        while (true) {
+            // Leer tamaño del cuadro (filas y columnas)
+            System.out.println("Introduce el tamaño del cuadro.");
+            System.out.println("Filas:");
+            int filas = sc.nextInt();
+            System.out.println("Columnas:");
+            int columnas = sc.nextInt();
+            
+            // Caso de fin de entrada (0 0)
+            if (filas == 0 && columnas == 0) {
+                break; // No procesamos este caso
+            }
+
+            // Leer el cuadro original
+            char[][] cuadro = new char[filas][columnas];
+            System.out.println("Introduce el cuadro original:");
+            sc.nextLine(); // Consumir el salto de línea
+            for (int i = 0; i < filas; i++) {
+                cuadro[i] = sc.nextLine().toCharArray();
+            }
+
+            // Leer el número de copistas daltónicos
+            System.out.println("Introduce el número de copistas:");
+            int numCopistas = sc.nextInt();
+            
+            // Procesar cada copista
+            for (int i = 0; i < numCopistas; i++) {
+                System.out.println("Introduce la transformación del copista #" + (i + 1) + ":");
+                char colorNoDistinguido = sc.next().charAt(0); // El color que no distingue
+                char colorSustituido = sc.next().charAt(0); // El color por el que lo sustituye
+
+                // Aplicar la transformación en todo el cuadro
+                for (int fila = 0; fila < filas; fila++) {
+                    for (int col = 0; col < columnas; col++) {
+                        // Si el copista no distingue el color, lo sustituimos
+                        if (cuadro[fila][col] == colorNoDistinguido) {
+                            cuadro[fila][col] = colorSustituido;
                         }
                     }
                 }
-    
-                // PASO 5: Imprimir el cuadro transformado
-                for (int i = 0; i < filas; i++) {
-                    for (int j = 0; j < columnas; j++) {
-                        System.out.print(cuadro[i][j]);
-                    }
-                    System.out.println();
-                }
-                System.out.println(); // Separación entre casos de prueba
             }
-    
-            sc.close();
-        }
-    }
 
-/* Copistas daltónicos
-Tiempo máximo: 1,000-5,000 s  Memoria máxima: 4096 KiB
+            // Imprimir el cuadro final después de todos los copistas
+            System.out.println("Resultado final del cuadro:");
+            for (int i = 0; i < filas; i++) {
+                System.out.println(cuadro[i]);
+            }
+        }
+
+        sc.close(); // Cerrar el escáner
+    }
+}
+
+/*Copistas daltónicos
 El daltonismo es un transtorno hereditario que ocasiona dificultad para distinguir ciertos colores. Hay distintos tipos de daltonismo que hacen que los colores que esas personas no distinguen varíen. Lo habitual, no obstante, es no distinguir algunos matices de verde y rojo.
 
 Aunque el defecto genético no suele suponer ningún problema en la vida diaria de los afectados, la realidad es que les imposibilita para realizar algunos trabajos puntuales, como militares de carrera o pilotos.
@@ -111,4 +112,5 @@ YYGBYGBYY
 YYYYYYYYY
 YYYYYYYYY
 YYYYYYYYY
-YYYYYYYYY */
+YYYYYYYYY
+*/

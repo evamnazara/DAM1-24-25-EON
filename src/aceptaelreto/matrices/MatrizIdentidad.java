@@ -1,51 +1,61 @@
+
 package matrices;
 
 import java.util.Scanner;
 
 public class MatrizIdentidad {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         // Leer casos de prueba hasta que se ingrese una matriz de 0 filas
         while (true) {
-            int n = sc.nextInt();  // Número de filas (y columnas)
+            System.out.print("Ingresa el número de filas (y columnas) de la matriz (0 para terminar): ");
+            int tamañoMatriz = scanner.nextInt();  // Número de filas (y columnas)
 
-            if (n == 0) {
+            // Si el tamaño de la matriz es 0, terminamos el programa
+            if (tamañoMatriz == 0) {
+                System.out.println("Programa terminado.");
                 break;  // Si es 0, terminamos la entrada
             }
 
-            // Leer la matriz y verificar si es identidad
-            boolean esIdentidad = true;  // Suponemos que es identidad
-            int[][] matriz = new int[n][n];
+            // Crear la matriz
+            int[][] matriz = new int[tamañoMatriz][tamañoMatriz];
+            boolean esMatrizIdentidad = true;  // Suponemos que es una matriz identidad
+
+            System.out.println("Ingresa los elementos de la matriz:");
 
             // Leer los elementos de la matriz
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    matriz[i][j] = sc.nextInt();
+            for (int i = 0; i < tamañoMatriz; i++) {
+                for (int j = 0; j < tamañoMatriz; j++) {
+                    matriz[i][j] = scanner.nextInt();
                 }
             }
 
-            // Comprobar si es una matriz identidad
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
+            // Comprobar si la matriz es identidad
+            for (int i = 0; i < tamañoMatriz; i++) {
+                for (int j = 0; j < tamañoMatriz; j++) {
+                    // Si estamos en la diagonal principal (i == j), debe ser 1
+                    // Si no estamos en la diagonal principal (i != j), debe ser 0
                     if ((i == j && matriz[i][j] != 1) || (i != j && matriz[i][j] != 0)) {
-                        esIdentidad = false;
+                        esMatrizIdentidad = false;
                         break;
                     }
                 }
-                if (!esIdentidad) break;
+                if (!esMatrizIdentidad) {
+                    break;
+                }
             }
 
             // Imprimir el resultado para este caso de prueba
-            if (esIdentidad) {
-                System.out.println("SI");
+            if (esMatrizIdentidad) {
+                System.out.println("La matriz es identidad: SI");
             } else {
-                System.out.println("NO");
+                System.out.println("La matriz es identidad: NO");
             }
         }
 
         // Cerrar el scanner
-        sc.close();
+        scanner.close();
     }
 }
 

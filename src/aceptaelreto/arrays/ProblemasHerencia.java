@@ -19,18 +19,21 @@ public class ProblemasHerencia {
 
         while (true) {
             // Leer el grado del polinomio
+            System.out.print("Introduce el grado del polinomio (o 20 para terminar): ");
             int grado = sc.nextInt();
             if (grado == 20) {
                 break;  // Finaliza el programa si el grado es 20
             }
 
             // Leer los coeficientes del polinomio
+            System.out.print("Introduce los coeficientes del polinomio (de mayor a menor grado): ");
             int[] coef = new int[grado + 1];
             for (int i = 0; i <= grado; i++) {
                 coef[i] = sc.nextInt();
             }
 
             // Leer el número de rectángulos
+            System.out.print("Introduce el número de rectángulos para la aproximación: ");
             int n = sc.nextInt();
 
             // Aproximación del área bajo la curva usando la suma de Riemann
@@ -59,14 +62,20 @@ public class ProblemasHerencia {
             // Calcular la diferencia de áreas
             double diferencia = Math.abs(areaCain - areaAbel);
 
+            // Mostrar los resultados de las áreas
+            System.out.println("Área de Caín: " + areaCain);
+            System.out.println("Área de Abel: " + areaAbel);
+            System.out.println("Diferencia entre áreas: " + diferencia);
+
             // Determinar el resultado
             if (diferencia <= 0.001) {
-                System.out.println("JUSTO");
+                System.out.println("El reparto es JUSTO.");
             } else if (areaCain > areaAbel) {
-                System.out.println("CAIN");
+                System.out.println("CAIN tiene más terreno.");
             } else {
-                System.out.println("ABEL");
+                System.out.println("ABEL tiene más terreno.");
             }
+            System.out.println();  // Línea en blanco para separar los casos
         }
 
         sc.close();

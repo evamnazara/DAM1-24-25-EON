@@ -2,32 +2,40 @@ package arrays;
 import java.util.Scanner;
 
 public class ManiasTenemosTodos {
+
+    // Array para representar los días de la semana
+    static char[] diasSemana = {'L', 'M', 'X', 'J', 'V', 'S', 'D'};
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
-        // Array para representar los días de la semana
-        char[] diasSemana = {'L', 'M', 'X', 'J', 'V', 'S', 'D'};
-
-        // Leer el número de casos de prueba
+        // Leemos el número de casos de prueba
+        System.out.println("Introduce el número de casos de prueba:");
         int casos = sc.nextInt();
         sc.nextLine(); // Consumimos el salto de línea
 
-        // Procesar cada caso de prueba
+        // Procesamos cada caso de prueba
         for (int caso = 0; caso < casos; caso++) {
-            int semanas = sc.nextInt(); // Leer cantidad de semanas almacenadas
+            // Leemos la cantidad de semanas almacenadas
+            System.out.println("Introduce la cantidad de semanas almacenadas:");
+            int semanas = sc.nextInt();
             sc.nextLine(); // Consumimos el salto de línea
 
             // Array para almacenar las pastillas de cada semana
             char[][] pastillas = new char[semanas][7];
 
-            // Leer las semanas de pastillas
+            // Leemos las semanas de pastillas
+            System.out.println("Introduce el estado de las pastillas por semana (7 caracteres, * o -):");
             for (int i = 0; i < semanas; i++) {
                 pastillas[i] = sc.nextLine().toCharArray(); // Guardamos cada línea como array de caracteres
             }
 
-            // Simulación del consumo de pastillas desde el lunes
+            // Simulamos el consumo de pastillas
             int semanaActual = 0;
             boolean necesitaComprar = false;
+
+            // Mostramos el estado inicial
+            System.out.println("Simulando el consumo de pastillas...");
 
             while (!necesitaComprar) {
                 for (int dia = 0; dia < 7; dia++) { // Recorrer de lunes a domingo
@@ -44,7 +52,7 @@ public class ManiasTenemosTodos {
 
                     // Si no hay pastillas para este día, se termina la simulación
                     if (!pastillaTomada) {
-                        System.out.println(diasSemana[dia] + " " + (semanaActual + 1));
+                        System.out.println("No hay pastillas para el día " + diasSemana[dia] + " en la semana " + (semanaActual + 1));
                         necesitaComprar = true;
                         break;
                     }
@@ -58,9 +66,8 @@ public class ManiasTenemosTodos {
 }
 
 
+
 /*Manías tenemos todos
-Tiempo máximo: 2,000-3,000 s  Memoria máxima: 4096 KiB
-Blister de pastillas
 Blister de pastillas de Mayte
 Todos dicen que Mayte es una maniática… y ella no entiende por qué. Al fin y al cabo todos tenemos nuestras rarezas…
 

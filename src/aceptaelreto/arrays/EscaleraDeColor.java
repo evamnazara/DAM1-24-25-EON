@@ -1,19 +1,19 @@
 package arrays;
 
+import java.util.Scanner;
 
-//import java.util.*;
-/* 
 public class EscaleraDeColor {
-    
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
+
         while (true) {
             // Leer el primer número (si es 0, terminar el programa)
+            System.out.print("Introduce las cartas (0 para terminar): ");
             String carta1 = sc.next();
-            
+
             if (carta1.equals("0")) {
-                break;
+                break; // Si es 0, terminamos el programa
             }
 
             // Leer las 4 cartas de la mano
@@ -22,19 +22,19 @@ public class EscaleraDeColor {
             cartas[1] = sc.next() + " " + sc.next(); // Carta 2
             cartas[2] = sc.next() + " " + sc.next(); // Carta 3
             cartas[3] = sc.next() + " " + sc.next(); // Carta 4
-            
+
             // Determinar el palo y los valores de las cartas
             String palo = cartas[0].split(" ")[1]; // El palo es el mismo en todas las cartas
             int[] valores = new int[4];
-            
+
             for (int i = 0; i < 4; i++) {
                 String valor = cartas[i].split(" ")[0];
                 valores[i] = getValorCarta(valor); // Obtener el valor numérico de la carta
             }
-            
+
             // Ordenar los valores para analizar la secuencia
-            Arrays.sort(valores);
-            
+            sortArray(valores);
+
             // Verificar si las cartas son del mismo palo
             boolean mismoPalo = true;
             for (int i = 1; i < 4; i++) {
@@ -43,20 +43,20 @@ public class EscaleraDeColor {
                     break;
                 }
             }
-            
+
             if (!mismoPalo) {
                 System.out.println("NADA");
                 continue;
             }
-            
+
             // Verificar si falta una carta para completar la escalera
             String resultado = verificarEscalera(valores, palo);
             System.out.println(resultado);
         }
-        
+
         sc.close();
     }
-    
+
     // Función que convierte el valor de la carta a un número
     public static int getValorCarta(String valor) {
         switch (valor) {
@@ -67,18 +67,32 @@ public class EscaleraDeColor {
             default: return Integer.parseInt(valor);
         }
     }
-    
+
+    // Función para ordenar el array de valores (implementación simple de burbuja)
+    public static void sortArray(int[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[i] > array[j]) {
+                    // Intercambiar los valores
+                    int temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+    }
+
     // Función que verifica si es posible formar una escalera de color
     public static String verificarEscalera(int[] valores, String palo) {
         // Si ya son consecutivos, devolver "NADA"
         if (valores[3] - valores[0] == 3) {
             return "NADA";
         }
-        
+
         // Si hay una carta faltante, devolver el valor de la carta
         if (valores[3] - valores[0] == 4) {
             for (int i = valores[0]; i <= valores[3]; i++) {
-                if (!Arrays.stream(valores).anyMatch(x -> x == i)) {
+                if (!contains(valores, i)) {
                     String cartaFaltante = getCartaValor(i) + " " + palo;
                     return cartaFaltante;
                 }
@@ -87,7 +101,17 @@ public class EscaleraDeColor {
 
         return "NADA";
     }
-    
+
+    // Función para verificar si un valor está en el array de valores (sin utilizar Arrays.stream)
+    public static boolean contains(int[] array, int value) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == value) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     // Función para obtener la carta a partir de su valor numérico
     public static String getCartaValor(int valor) {
         switch (valor) {
@@ -100,10 +124,8 @@ public class EscaleraDeColor {
     }
 }
 
-*/
-
 /*Escalera de color
-Tiempo máximo: 1,000 s  Memoria máxima: 4096 KiB
+
 La llamada baraja inglesa es una modificación menor de la baraja francesa. Sus similitudes son tan grandes, que es habitual considerarlas la misma. Contiene 52 cartas, distribuídas en 4 palos diferentes. Los palos se conocen con el nombre de picas (♠), diamantes (♦), tréboles (♣) y corazones (♥). De cada uno, hay trece cartas, con valores del 1 (al que se conoce como As) hasta el 10, más las tres figuras, Jack (J), Queen (Q) y King (K), que, numéricamente, serían los valores 11, 12 y 13. Las diferencias más notables entre la baraja francesa y la inglesa están en el nombre de la carta Jack (conocida en la francesa como Valet, V), y el As, nombre específico de la baraja inglesa que, además, desplaza su valor en muchos juegos del 1 al 14, convirtiéndola en una carta más poderosa que la K.
 
 La baraja inglesa se utiliza en juegos mundialmente conocidos, como el bridge, la canasta o el póquer.

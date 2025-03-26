@@ -4,57 +4,63 @@ import java.util.Scanner;
 
 public class CuelloPiloto {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        while (scanner.hasNextInt()) {
-            // Leer dimensiones del circuito
-            int ancho = scanner.nextInt();
-            int alto = scanner.nextInt();
-            scanner.nextLine(); // Consumir el salto de línea
+        // Procesamos múltiples casos de prueba
+        while (sc.hasNextInt()) {
+            // Leer las dimensiones del circuito (ancho y alto)
+            int ancho = sc.nextInt();
+            int alto = sc.nextInt();
+            sc.nextLine(); // Consumir el salto de línea restante
             
             // Leer el mapa del circuito
             char[][] circuito = new char[alto][ancho];
-            int inicioFila = -1, inicioColumna = -1;
+            int filaInicio = -1, columnaInicio = -1;
 
+            // Leer las líneas del circuito
+            System.out.println("Introduzca el circuito:");
             for (int i = 0; i < alto; i++) {
-                String linea = scanner.nextLine();
+                String linea = sc.nextLine();
                 for (int j = 0; j < ancho; j++) {
                     circuito[i][j] = linea.charAt(j);
+                    // Encontrar la posición de inicio 'O'
                     if (circuito[i][j] == 'O') {
-                        inicioFila = i;
-                        inicioColumna = j;
+                        filaInicio = i;
+                        columnaInicio = j;
                     }
                 }
             }
 
             // Direcciones de movimiento: {derecha, abajo, izquierda, arriba}
-            int[] movFila = {0, 1, 0, -1};
-            int[] movColumna = {1, 0, -1, 0};
-           // String[] direcciones = {"DERECHA", "ABAJO", "IZQUIERDA", "ARRIBA"};
+            int[] movimientoFila = {0, 1, 0, -1};
+            int[] movimientoColumna = {1, 0, -1, 0};
 
-            // Encontrar la dirección inicial (buscando un '#')
-            int dirActual = -1;
+            // Encontrar la dirección inicial (buscando el primer '#' adyacente)
+            int direccionActual = -1;
             for (int d = 0; d < 4; d++) {
-                int nuevaFila = inicioFila + movFila[d];
-                int nuevaColumna = inicioColumna + movColumna[d];
+                int nuevaFila = filaInicio + movimientoFila[d];
+                int nuevaColumna = columnaInicio + movimientoColumna[d];
 
+                // Verificamos si el lugar hacia donde queremos movernos es un '#'
                 if (nuevaFila >= 0 && nuevaFila < alto && nuevaColumna >= 0 && nuevaColumna < ancho
                         && circuito[nuevaFila][nuevaColumna] == '#') {
-                    dirActual = d;
+                    direccionActual = d;
                     break;
                 }
             }
 
-            // Recorrer el circuito
+            // Inicializamos los contadores de curvas
             int curvasIzquierda = 0;
             int curvasDerecha = 0;
-            int fila = inicioFila, columna = inicioColumna;
+            int fila = filaInicio, columna = columnaInicio;
 
+            // Empezamos a recorrer el circuito
             do {
-                // Intentar seguir recto
-                int nuevaFila = fila + movFila[dirActual];
-                int nuevaColumna = columna + movColumna[dirActual];
+                // Intentamos seguir recto en la dirección actual
+                int nuevaFila = fila + movimientoFila[direccionActual];
+                int nuevaColumna = columna + movimientoColumna[direccionActual];
 
+                // Si podemos seguir recto, avanzamos
                 if (nuevaFila >= 0 && nuevaFila < alto && nuevaColumna >= 0 && nuevaColumna < ancho
                         && circuito[nuevaFila][nuevaColumna] == '#') {
                     fila = nuevaFila;
@@ -62,44 +68,46 @@ public class CuelloPiloto {
                     continue;
                 }
 
-                // Si no se puede seguir recto, buscar nueva dirección
-                int nuevaDir = -1;
-                for (int i = 1; i <= 3; i++) { // Girar en sentido horario
-                    int d = (dirActual + i) % 4;
-                    nuevaFila = fila + movFila[d];
-                    nuevaColumna = columna + movColumna[d];
+                // Si no se puede seguir recto, buscamos nueva dirección (sentido horario)
+                int nuevaDireccion = -1;
+                for (int i = 1; i <= 3; i++) { // Giramos en sentido horario
+                    int d = (direccionActual + i) % 4;
+                    nuevaFila = fila + movimientoFila[d];
+                    nuevaColumna = columna + movimientoColumna[d];
 
+                    // Si encontramos una nueva dirección válida, la adoptamos
                     if (nuevaFila >= 0 && nuevaFila < alto && nuevaColumna >= 0 && nuevaColumna < ancho
                             && circuito[nuevaFila][nuevaColumna] == '#') {
-                        nuevaDir = d;
+                        nuevaDireccion = d;
                         break;
                     }
                 }
 
-                // Contar curva
-                if (nuevaDir != -1) {
-                    if ((dirActual == 0 && nuevaDir == 1) || (dirActual == 1 && nuevaDir == 2) ||
-                        (dirActual == 2 && nuevaDir == 3) || (dirActual == 3 && nuevaDir == 0)) {
+                // Si encontramos una nueva dirección válida, contamos la curva
+                if (nuevaDireccion != -1) {
+                    // Determinamos si fue una curva a la izquierda o a la derecha
+                    if ((direccionActual == 0 && nuevaDireccion == 1) || (direccionActual == 1 && nuevaDireccion == 2) ||
+                        (direccionActual == 2 && nuevaDireccion == 3) || (direccionActual == 3 && nuevaDireccion == 0)) {
                         curvasDerecha++;
                     } else {
                         curvasIzquierda++;
                     }
 
-                    dirActual = nuevaDir;
-                    fila += movFila[dirActual];
-                    columna += movColumna[dirActual];
+                    // Actualizamos la dirección y la posición
+                    direccionActual = nuevaDireccion;
+                    fila += movimientoFila[direccionActual];
+                    columna += movimientoColumna[direccionActual];
                 }
 
-            } while (fila != inicioFila || columna != inicioColumna); // Termina cuando vuelve al inicio
+            } while (fila != filaInicio || columna != columnaInicio); // El circuito termina cuando volvemos al inicio
 
-            // Imprimir resultado
-            System.out.println(curvasIzquierda + " " + curvasDerecha);
+            // Imprimir el resultado de las curvas a la izquierda y a la derecha
+            System.out.println("Curvas a la izquierda: " + curvasIzquierda + ", Curvas a la derecha: " + curvasDerecha);
         }
 
-        scanner.close();
+        sc.close(); // Cerramos el scanner
     }
 }
-
 
 /*
  * EL CUELLO DE LOS PILOTOS

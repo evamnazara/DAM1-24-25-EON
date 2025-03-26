@@ -1,4 +1,5 @@
 package matrices;
+
 import java.util.Scanner;
 
 public class AlturaFinalTetris {
@@ -7,55 +8,71 @@ public class AlturaFinalTetris {
 
         while (true) {
             // Leer el número de columnas y el número de piezas
-            int C = scanner.nextInt();  // número de columnas
-            int N = scanner.nextInt();  // número de piezas
-            if (C == 0 && N == 0) break; // Fin de la entrada
+            System.out.println("Ingrese el número de columnas y piezas:");
+            int numColumnas = scanner.nextInt();  // número de columnas
+            int numPiezas = scanner.nextInt();  // número de piezas
+
+            // Si ambos valores son 0, terminamos la entrada
+            if (numColumnas == 0 && numPiezas == 0) break; 
 
             // Inicializar el tablero con 0 en cada columna
-            int[] altura = new int[C];  // Esta array guardará la altura de cada columna
+            int[] alturasColumnas = new int[numColumnas];  // Esta array guardará la altura de cada columna
+            System.out.println("Tablero inicial de alturas:");
+            for (int h : alturasColumnas) {
+                System.out.print(h + " ");
+            }
+            System.out.println();
 
             // Procesar cada pieza
-            for (int i = 0; i < N; i++) {
-                int I = scanner.nextInt();  // Identificador de la pieza (1-7)
-                int R = scanner.nextInt();  // Rotación (0, 90, 180, 270)
-                int P = scanner.nextInt() - 1;  // Posición de la pieza (1-indexed, la pasamos a 0-indexed)
+            for (int i = 0; i < numPiezas; i++) {
+                System.out.println("Ingrese los datos de la pieza (Identificador, Rotación, Posición):");
+                int tipoPieza = scanner.nextInt();  // Identificador de la pieza (1-7)
+                int rotacion = scanner.nextInt();  // Rotación (0, 90, 180, 270)
+                int posicionPieza = scanner.nextInt() - 1;  // Posición de la pieza (1-indexed, la pasamos a 0-indexed)
 
-                // Definir la pieza según su identificador
-                int[][] pieza = obtenerPieza(I, R);
+                // Definir la pieza según su identificador y rotación
+                int[][] pieza = obtenerPieza(tipoPieza, rotacion);
 
                 // Encontrar la altura máxima donde puede caer la pieza
-                int maxAltura = 0;
+                int alturaMaxima = 0;
                 for (int j = 0; j < pieza[0].length; j++) {
-                    int columna = P + j;
-                    if (columna >= 0 && columna < C) {
-                        maxAltura = Math.max(maxAltura, altura[columna] + pieza[1][j]);
+                    int columna = posicionPieza + j;
+                    if (columna >= 0 && columna < numColumnas) {
+                        alturaMaxima = Math.max(alturaMaxima, alturasColumnas[columna] + pieza[1][j]);
                     }
                 }
 
-                // Colocar la pieza en el tablero
+                // Colocar la pieza en el tablero y actualizar las alturas
                 for (int j = 0; j < pieza[0].length; j++) {
-                    int columna = P + j;
-                    if (columna >= 0 && columna < C) {
-                        altura[columna] = Math.max(altura[columna], maxAltura + pieza[0][j]);
+                    int columna = posicionPieza + j;
+                    if (columna >= 0 && columna < numColumnas) {
+                        alturasColumnas[columna] = Math.max(alturasColumnas[columna], alturaMaxima + pieza[0][j]);
                     }
                 }
+
+                System.out.println("Estado del tablero después de la pieza " + (i + 1) + ":");
+                for (int h : alturasColumnas) {
+                    System.out.print(h + " ");
+                }
+                System.out.println();
             }
 
             // Imprimir las alturas finales
-            for (int h : altura) {
+            System.out.println("Alturas finales de las columnas:");
+            for (int h : alturasColumnas) {
                 System.out.print(h + " ");
             }
             System.out.println();
         }
 
-        scanner.close();
+        scanner.close();  // Cerrar el scanner después de la lectura
     }
 
     // Función para obtener la forma de la pieza con base en su rotación
-    public static int[][] obtenerPieza(int tipo, int rotacion) {
+    public static int[][] obtenerPieza(int tipoPieza, int rotacion) {
         int[][] pieza = new int[2][4];  // Para almacenar la forma de la pieza
         // Definir la pieza por tipo
-        switch (tipo) {
+        switch (tipoPieza) {
             case 1: // I
                 pieza[0] = new int[] { 1, 1, 1, 1 };  // Línea horizontal
                 pieza[1] = new int[] { 1, 1, 1, 1 };
@@ -109,7 +126,6 @@ public class AlturaFinalTetris {
         return nuevaPieza;
     }
 }
-
 
 /*
 Altura final en Tetris

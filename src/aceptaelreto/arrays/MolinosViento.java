@@ -15,43 +15,51 @@ public class MolinosViento {
         
         while (true) {
             // Leer el número de molinos
+            System.out.println("Introduce el número de molinos (0 para finalizar):");
             int numeroMolinos = sc.nextInt();
             
             // Caso de terminación
             if (numeroMolinos == 0) {
-                break;
+                break; // Termina si no hay más molinos
             }
 
             // Array para almacenar la energía de cada molino
             int[] energiaMolinos = new int[numeroMolinos];
-
+            
             // Leer la energía de cada molino
+            System.out.println("Introduce la cantidad de energía producida por cada molino:");
             for (int i = 0; i < numeroMolinos; i++) {
                 energiaMolinos[i] = sc.nextInt();
             }
 
+            // Crear el arreglo de prefijos para sumar rangos de manera eficiente
+            int[] prefijos = new int[numeroMolinos + 1];
+            prefijos[0] = 0; // Base para que las sumas empiecen en 1 correctamente
+            for (int i = 1; i <= numeroMolinos; i++) {
+                prefijos[i] = prefijos[i - 1] + energiaMolinos[i - 1];
+            }
+
             // Leer el número de consultas
+            System.out.println("Introduce el número de consultas:");
             int numeroConsultas = sc.nextInt();
 
             // Procesar cada consulta
+            System.out.println("Introduce las consultas (inicio y fin del intervalo):");
             for (int i = 0; i < numeroConsultas; i++) {
-                int inicio = sc.nextInt() - 1; // Restamos 1 para convertirlo en índice de array
-                int fin = sc.nextInt() - 1; 
-
-                int sumaEnergia = 0;
+                int inicio = sc.nextInt(); // Molino inicial
+                int fin = sc.nextInt(); // Molino final
                 
-                // Sumar la energía en el rango indicado
-                for (int j = inicio; j <= fin; j++) {
-                    sumaEnergia += energiaMolinos[j];
-                }
+                // La suma de energía en el intervalo se calcula usando prefijos
+                int sumaEnergia = prefijos[fin] - prefijos[inicio - 1];
 
                 // Imprimir la energía total en el intervalo
-                System.out.println(sumaEnergia);
+                System.out.println("Energía total entre los molinos " + inicio + " y " + fin + ": " + sumaEnergia);
             }
         }
         sc.close();
     }
 }
+
 
 
 

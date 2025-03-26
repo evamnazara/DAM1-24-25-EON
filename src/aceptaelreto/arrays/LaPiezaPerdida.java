@@ -4,40 +4,46 @@ import java.util.Scanner;
 
 public class LaPiezaPerdida {
     public static void main(String[] args) {
+        // Crear el scanner para leer la entrada
         Scanner sc = new Scanner(System.in);
 
-    while (true) {
-        // Leer el número total de piezas del puzzle
-        int numPiezas = sc.nextInt();
-        if (numPiezas == 0) {
-            break; // Si es 0, terminamos el programa
-        }
+        // Iniciar el ciclo para procesar múltiples casos de prueba
+        while (true) {
+            // Leer el número total de piezas del puzzle
+            System.out.print("Introduce el número total de piezas del puzzle (0 para terminar): ");
+            int numPiezas = sc.nextInt();
 
-        // Array para saber qué piezas están en la bolsa
-        boolean[] presente = new boolean[numPiezas + 1]; // Índices de 1 a N
-
-        // Leer los números de las piezas en la bolsa
-        for (int i = 1; i < numPiezas; i++) {
-            int pieza = sc.nextInt();
-            presente[pieza] = true; // Marcar la pieza como presente
-        }
-
-        // Encontrar la pieza que falta
-        int piezaFaltante = 0;
-        for (int i = 1; i <= numPiezas; i++) {
-            if (!presente[i]) { // Si la pieza no está en la bolsa, es la que falta
-                piezaFaltante = i;
-                break;
+            // Si el número de piezas es 0, terminamos el programa
+            if (numPiezas == 0) {
+                break; // Caso de salida
             }
+
+            // Array para saber qué piezas están en la bolsa
+            boolean[] presente = new boolean[numPiezas + 1]; // Usamos índices de 1 a N, por eso numPiezas + 1
+
+            // Leer los números de las piezas presentes en la bolsa
+            System.out.println("Introduce los números de las piezas presentes en la bolsa: ");
+            for (int i = 1; i < numPiezas; i++) {
+                int pieza = sc.nextInt();
+                presente[pieza] = true; // Marcar la pieza como presente
+            }
+
+            // Buscar la pieza faltante
+            int piezaFaltante = 0;
+            for (int i = 1; i <= numPiezas; i++) {
+                if (!presente[i]) { // Si la pieza no está en la bolsa, es la que falta
+                    piezaFaltante = i;
+                    break;
+                }
+            }
+
+            // Imprimir la pieza que falta
+            System.out.println("La pieza que falta es: " + piezaFaltante);
         }
 
-        // Imprimir la pieza que falta
-        System.out.println(piezaFaltante);
+        // Cerrar el scanner al final
+        sc.close();
     }
-
-    sc.close();
-    }
-    
 }
 
 

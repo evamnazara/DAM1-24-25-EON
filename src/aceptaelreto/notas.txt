@@ -1,4 +1,7 @@
 Para este programa en java, revisa el enunciado, corrige algo si ves que hay un error (sin utilizar funciones complicadas como ArrayList, Map, matrices... sólo arrays simples), y añade souts donde sea necesario apra darle sentido al programa y hacerlo amigables con el usuario: 
+
+Resuelve este problema en Java como si fueses un desarrollador novato. Respeta el enunciado, incluye souts que hagan agradable la experiencia de usuario, y no añadas funciones como ArrayList, has, Map, paseo de ningún tipo y utiliza sólo tipos de datos primitivos.
+
 ARRAYS:
 
 - APROBAR QUIMICA: dificil
@@ -103,3 +106,43 @@ Fase final
 Reto de polvorones
 Restaurando películas
 
+
+Para este programa de matrices en java, revisa el enunciado, reescrible variables a valores legibles, 
+corrige algo si ves que hay un error (sin utilizar funciones complicadas como ArrayList, Map... sólo arrays simples y tipos primitivos),
+añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario: 
+ 
+
+    MATRICES: 
+Cuadrados diabólicos y esotéricos	
+Marcadores de 7 segmentos	
+Hundir la flota	
+¿Es matriz identidad?	
+Matrices triangulares	
+Campo de minas	
+Las torres perezosas	
+Sudokus vacíos	
+Sombras en el camping	
+Rubik pixel art	
+El cuadrado de Rubik	
+Copistas daltónicos	
+Jugando al Buscaminas	
+La comida de los pollitos	
+Siete de un golpe	
+Sudokus correctos	
+Ovejas negras	
+Escapando de las fuerzas imperiales	
+Presupuestando semáforos	
+El cuello de los pilotos	
+El hombre sin miedo y sin radar	
+Altura final en Tetris	
+Modificación de tablas	
+Desbloqueo retro	
+Concurso de simetrías	
+Diagonal creciente	
+Snake	
+Puntos de silla	
+Pantallas de carga	
+Espiral galáctica
+
+
+    STRINGS:

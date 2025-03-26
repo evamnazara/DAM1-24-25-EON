@@ -1,6 +1,5 @@
 package matrices;
 
-
 import java.util.Scanner;
 
 public class EspiralGalactica {
@@ -9,66 +8,73 @@ public class EspiralGalactica {
         Scanner scanner = new Scanner(System.in);
         
         while (true) {
-            // Leer el tamaño N de la porción del universo
-            int N = scanner.nextInt();
+            // Leer el tamaño N de la porción del universo (número de filas y columnas de la matriz)
+            System.out.print("Ingrese el tamaño de la matriz (N) de la porción del universo: ");
+            int tamañoUniverso = scanner.nextInt();
             
             // Si N es 0, terminamos el programa
-            if (N == 0) {
+            if (tamañoUniverso == 0) {
                 break;
             }
             
             // Leer la matriz de estrellas
-            int[][] universo = new int[N][N];
-            for (int i = 0; i < N; i++) {
-                for (int j = 0; j < N; j++) {
+            int[][] universo = new int[tamañoUniverso][tamañoUniverso];
+            System.out.println("Ingrese los valores de la matriz de estrellas:");
+            for (int i = 0; i < tamañoUniverso; i++) {
+                for (int j = 0; j < tamañoUniverso; j++) {
                     universo[i][j] = scanner.nextInt();
                 }
             }
             
             // Empezar la simulación de la espiral
             int totalEstrellas = 0;
-            int x = N / 2; // Centro de la matriz
-            int y = N / 2;
+            int x = tamañoUniverso / 2; // Centro de la matriz (coordenadas iniciales)
+            int y = tamañoUniverso / 2;
             totalEstrellas += universo[x][y]; // Sumamos las estrellas del centro
 
-            // Definir las direcciones de la espiral: arriba, derecha, abajo, izquierda
-            int[] dx = {-1, 0, 1, 0}; // Movimientos en x: arriba, derecha, abajo, izquierda
-            int[] dy = {0, 1, 0, -1}; // Movimientos en y: arriba, derecha, abajo, izquierda
-            int direccion = 0; // Comenzamos con la dirección "arriba"
-            int pasos = 1; // El número de pasos a dar en una dirección
+            // Direcciones de movimiento en la espiral: arriba, derecha, abajo, izquierda
+            int[] deltaX = {-1, 0, 1, 0}; // Movimientos en el eje X: arriba, derecha, abajo, izquierda
+            int[] deltaY = {0, 1, 0, -1}; // Movimientos en el eje Y: arriba, derecha, abajo, izquierda
+            int direccion = 0; // Empezamos con la dirección "arriba"
+            int pasosPorDireccion = 1; // El número de pasos a dar en una dirección
             int pasosDados = 0; // Contador de pasos dados en una dirección
-            int ciclosCompletados = 0; // Número de ciclos de 4 direcciones
+            int ciclosCompletados = 0; // Número de ciclos completos de 4 direcciones
 
             // Recorremos la espiral
-            while (ciclosCompletados < N) {
-                // Recorremos cada dirección
-                for (int i = 0; i < pasos; i++) {
-                    x += dx[direccion];
-                    y += dy[direccion];
-                    totalEstrellas += universo[x][y]; // Sumamos las estrellas en la casilla
+            while (ciclosCompletados < tamañoUniverso - 1) {
+                // Recorremos cada dirección en el ciclo
+                for (int i = 0; i < pasosPorDireccion; i++) {
+                    // Actualizamos la posición del movimiento
+                    x += deltaX[direccion];
+                    y += deltaY[direccion];
+
+                    // Sumamos las estrellas de la nueva casilla
+                    totalEstrellas += universo[x][y];
                 }
 
-                // Cambiar de dirección
+                // Cambiar de dirección en sentido horario (arriba, derecha, abajo, izquierda)
                 direccion = (direccion + 1) % 4;
 
-                // Aumentar el contador de pasos dados
+                // Aumentamos el contador de pasos dados en la dirección actual
                 pasosDados++;
 
                 // Cuando hemos dado suficientes pasos en 2 direcciones, aumentamos el número de pasos
                 if (pasosDados == 2) {
-                    pasos++;
+                    pasosPorDireccion++;
                     pasosDados = 0;
                     ciclosCompletados++;
                 }
             }
 
             // Imprimir el total de estrellas de la espiral
-            System.out.println(totalEstrellas);
+            System.out.println("Total de estrellas en la espiral: " + totalEstrellas);
         }
         
+        // Cerrar el scanner
         scanner.close();
     }
 }
+
 
 /*
  * 

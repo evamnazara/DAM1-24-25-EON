@@ -1,110 +1,101 @@
 package matrices;
 
-public class torresperezosas {
+public class TorresPerezosas {
     public static void main(String[] args) {
-       //linea  
-
-       char [][] tablero1 = {
-            {'.','.','.'},
-            {'.','.','.'},
-            {'.','.','.'}
-       };
-
-       char [][] tablero2 = {
-        {'.','.','.'},
-        {'x','.','.'},
-        {'.','.','.'}
+        // Definición de varios tableros de ejemplo
+        char[][] tablero1 = {
+            {'.', '.', '.'},
+            {'.', '.', '.'},
+            {'.', '.', '.'}
         };
-        char [][] tablero3 = {
-            {'.','.','.'},
-            {'.','x','.'},
-            {'.','.','.'}
-            };
 
-        System.out.println(caminosDistintos(tablero1));
-        System.out.println(caminosDistintos(tablero2));
-        System.out.println(caminosDistintos(tablero3));
+        char[][] tablero2 = {
+            {'.', '.', '.'},
+            {'x', '.', '.'},
+            {'.', '.', '.'}
+        };
 
-        System.out.println(caminosDistintosRecursivo(tablero1));
-        System.out.println(caminosDistintosRecursivo(tablero2));
-        System.out.println(caminosDistintosRecursivo(tablero3));
+        char[][] tablero3 = {
+            {'.', '.', '.'},
+            {'.', 'x', '.'},
+            {'.', '.', '.'}
+        };
+
+        // Llamada a la función iterativa para calcular los caminos posibles
+        System.out.println("Resultado (iterativo) para tablero 1: " + caminosDistintos(tablero1));
+        System.out.println("Resultado (iterativo) para tablero 2: " + caminosDistintos(tablero2));
+        System.out.println("Resultado (iterativo) para tablero 3: " + caminosDistintos(tablero3));
+
+        // Llamada a la función recursiva para calcular los caminos posibles
+        System.out.println("Resultado (recursivo) para tablero 1: " + caminosDistintosRecursivo(tablero1));
+        System.out.println("Resultado (recursivo) para tablero 2: " + caminosDistintosRecursivo(tablero2));
+        System.out.println("Resultado (recursivo) para tablero 3: " + caminosDistintosRecursivo(tablero3));
     }
-        
-    private static int caminosDistintos(char[][] t) {        
-        int [][] tablaResultado = new int[t.length][t.length];
 
-        //recorre columnas de derecha a izquierda
-        for (int j = 0; j < t.length; j++){
-            //recorre de la ultima casilla 
-           for (int i = tablaResultado.length - 1; i >= 0; i--) {
-            //inicializa casilla inferior izquierda 
-                if (j == 1 && i == t.length - 1) {
-                    tablaResultado[i][j] = 1;
-                } else if (t[i][j] != 'x') {
-                    //casilla izquierda + casilla inferior
+    // Función iterativa para calcular los caminos distintos
+    private static int caminosDistintos(char[][] tablero) {
+        int n = tablero.length; // Tamaño del tablero
+        int[][] tablaResultado = new int[n][n]; // Tabla para almacenar el número de caminos
 
-                    if (j > 0) {
-                        tablaResultado[i][j] = tablaResultado[i][j -1];
+        // Inicializar la casilla inicial (esquina inferior izquierda)
+        tablaResultado[n - 1][0] = 1;
 
+        // Recorrer el tablero de abajo hacia arriba y de izquierda a derecha
+        for (int fila = n - 1; fila >= 0; fila--) {
+            for (int columna = 0; columna < n; columna++) {
+                // Si la casilla es transitable (no es 'x')
+                if (tablero[fila][columna] != 'x') {
+                    // Si no estamos en la primera fila, sumar las formas de llegar desde la casilla de abajo
+                    if (fila < n - 1) {
+                        tablaResultado[fila][columna] += tablaResultado[fila + 1][columna];
                     }
-                    if (i < t.length - 2) {
-                    tablaResultado[i][j] += tablaResultado[i + 1][j];}
-                }
-           } 
-        }
 
-        //resultado en la casilla superior derecha
-        return tablaResultado[0][t.length - 1];
-        
-    }
-
-    private static int caminosDistintosRecursivo(char[][] t) {
-        return calcularCasilla(t, 0, t.length - 1);
-    }
-
-    private static int calcularCasilla(char[][] t, int i, int j) {
-        if (j == 0 && i == t.length - 1)
-            return 1;
-        else if (t[i][j] == 'X')
-            return 0;
-        else if (j == 0)
-            return calcularCasilla(t, i + 1, j);
-        else if (i == t.length - 1)
-            return calcularCasilla(t, i, j - 1);
-        else
-            return calcularCasilla(t, i, j - 1) + calcularCasilla(t, i + 1, j);
-    }
-
-
-
-}
-
-/*
- * 
- * 
-    // SOLUCIÓN ITERATIVA OSCAR
-    private static int caminosDistintos(char[][] t) {
-        int[][] tr = new int[t.length][t.length];
-
-        for (int j = 0; j < t.length; j++) {
-            for (int i = tr.length - 1; i >= 0; i--) {
-                // Inicializamos la casilla inferior izquierda
-                if (j == 0 && i == t.length - 1) {
-                    tr[i][j] = 1;
-                } else if (t[i][j] != 'X') {
-                    // sumar casillaizquierda + casillainferior
-                    if (j > 0)
-                        tr[i][j] = tr[i][j-1];
-                    if (i < t.length - 1)
-                        tr[i][j] += tr[i+1][j];
+                    // Si no estamos en la primera columna, sumar las formas de llegar desde la casilla de la izquierda
+                    if (columna > 0) {
+                        tablaResultado[fila][columna] += tablaResultado[fila][columna - 1];
+                    }
                 }
             }
         }
-        // El resultado está en la casilla superior derecha
-        return tr[0][tr.length - 1];
+
+        // El resultado estará en la casilla superior derecha
+        return tablaResultado[0][n - 1];
     }
 
- */
+    // Función recursiva para calcular los caminos distintos
+    private static int caminosDistintosRecursivo(char[][] tablero) {
+        return calcularCasilla(tablero, 0, tablero.length - 1);
+    }
+
+    // Función recursiva que calcula el número de caminos desde una casilla (i, j)
+    private static int calcularCasilla(char[][] tablero, int fila, int columna) {
+        int n = tablero.length;
+
+        // Caso base: si llegamos a la casilla destino (esquina superior derecha)
+        if (fila == 0 && columna == n - 1) {
+            return 1;
+        }
+
+        // Si la casilla es no transitable ('X'), no se puede pasar
+        if (tablero[fila][columna] == 'x') {
+            return 0;
+        }
+
+        // Si estamos en la primera fila, solo podemos movernos a la derecha
+        if (fila == 0) {
+            return calcularCasilla(tablero, fila, columna + 1);
+        }
+
+        // Si estamos en la primera columna, solo podemos movernos hacia arriba
+        if (columna == n - 1) {
+            return calcularCasilla(tablero, fila - 1, columna);
+        }
+
+        // Si no estamos en el borde, podemos movernos tanto hacia la derecha como hacia arriba
+        return calcularCasilla(tablero, fila, columna + 1) + calcularCasilla(tablero, fila - 1, columna);
+    }
+}
+
 
 /*
  * 

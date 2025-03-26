@@ -5,65 +5,69 @@ import java.util.Scanner;
 public class PresupuestandoSemaforos {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        
+        Scanner scanner = new Scanner(System.in);
+
         while (true) {
-            // Leer el ancho y el alto del pueblo
-            int ancho = sc.nextInt();
-            int alto = sc.nextInt();
-            
+            // PASO 1: Leer el ancho y el alto del pueblo
+            System.out.print("Ingresa el ancho y alto del pueblo (0 0 para terminar): ");
+            int anchoPueblo = scanner.nextInt();
+            int altoPueblo = scanner.nextInt();
+
             // Si ambos son 0, terminamos el programa
-            if (ancho == 0 && alto == 0) {
+            if (anchoPueblo == 0 && altoPueblo == 0) {
+                System.out.println("Fin del programa.");
                 break;
             }
-            
-            // Crear la cuadrícula para el plano del pueblo
-            char[][] pueblo = new char[alto][ancho];
-            sc.nextLine();  // Para leer la línea vacía que queda después de los dos enteros
-            
-            for (int i = 0; i < alto; i++) {
-                pueblo[i] = sc.nextLine().toCharArray();
+
+            // PASO 2: Crear la cuadrícula para el plano del pueblo
+            char[][] planoPueblo = new char[altoPueblo][anchoPueblo];
+            scanner.nextLine();  // Limpiar el salto de línea
+
+            System.out.println("Ingresa el plano del pueblo, donde '#' es una calle y otros caracteres son áreas libres:");
+            for (int i = 0; i < altoPueblo; i++) {
+                planoPueblo[i] = scanner.nextLine().toCharArray();
             }
-            
-            // Contar los semáforos necesarios (intersecciones)
-            int semaforos = 0;
-            
-            // Recorrer toda la cuadrícula
-            for (int i = 0; i < alto; i++) {
-                for (int j = 0; j < ancho; j++) {
-                    // Verificar si hay una intersección en (i, j)
-                    if (pueblo[i][j] == '#') {
-                        // Verificar si hay una calle horizontal (a la izquierda o a la derecha)
-                        boolean calleHorizontal = false;
-                        for (int k = 0; k < ancho; k++) {
-                            if (k != j && pueblo[i][k] == '#') {
-                                calleHorizontal = true;
+
+            // PASO 3: Contar los semáforos necesarios (intersecciones)
+            int numeroSemaforos = 0;
+
+            // PASO 4: Recorrer toda la cuadrícula y verificar intersecciones
+            for (int i = 0; i < altoPueblo; i++) {
+                for (int j = 0; j < anchoPueblo; j++) {
+                    // Verificar si hay una calle en la posición (i, j)
+                    if (planoPueblo[i][j] == '#') {
+                        // Verificar si hay una calle horizontal en la misma fila
+                        boolean hayCalleHorizontal = false;
+                        for (int k = 0; k < anchoPueblo; k++) {
+                            if (k != j && planoPueblo[i][k] == '#') {
+                                hayCalleHorizontal = true;
                                 break;
                             }
                         }
 
-                        // Verificar si hay una calle vertical (arriba o abajo)
-                        boolean calleVertical = false;
-                        for (int k = 0; k < alto; k++) {
-                            if (k != i && pueblo[k][j] == '#') {
-                                calleVertical = true;
+                        // Verificar si hay una calle vertical en la misma columna
+                        boolean hayCalleVertical = false;
+                        for (int k = 0; k < altoPueblo; k++) {
+                            if (k != i && planoPueblo[k][j] == '#') {
+                                hayCalleVertical = true;
                                 break;
                             }
                         }
 
                         // Si ambas calles están presentes (horizontal y vertical), es una intersección
-                        if (calleHorizontal && calleVertical) {
-                            semaforos++;
+                        if (hayCalleHorizontal && hayCalleVertical) {
+                            numeroSemaforos++;
                         }
                     }
                 }
             }
-            
-            // Imprimir el número de semáforos necesarios
-            System.out.println(semaforos);
+
+            // PASO 5: Imprimir el número de semáforos necesarios
+            System.out.println("Número de semáforos necesarios: " + numeroSemaforos);
         }
-        
-        sc.close();
+
+        // Cerrar el scanner
+        scanner.close();
     }
 }
 

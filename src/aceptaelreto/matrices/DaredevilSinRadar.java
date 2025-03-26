@@ -7,48 +7,52 @@ public class DaredevilSinRadar {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            // Leer filas y columnas
+            // Leer el número de filas y columnas de la sala
             int filas = scanner.nextInt();
             int columnas = scanner.nextInt();
             
             // Caso de terminación (0 0)
             if (filas == 0 && columnas == 0) {
-                break;
+                break; // Si filas y columnas son 0, terminamos el programa
             }
 
-            // Leer la sala en un arreglo bidimensional
+            // Leer la representación de la sala (matriz de caracteres)
             char[][] sala = new char[filas][columnas];
+            System.out.println("Introduzca el mapa de la sala:");
             for (int i = 0; i < filas; i++) {
-                String linea = scanner.next();
+                String linea = scanner.next(); // Cada línea de la sala
                 for (int j = 0; j < columnas; j++) {
-                    sala[i][j] = linea.charAt(j);
+                    sala[i][j] = linea.charAt(j); // Guardamos cada celda de la sala
                 }
             }
 
-            // Leer número de consultas
+            // Leer el número de consultas que se van a realizar
             int numConsultas = scanner.nextInt();
-            
+            System.out.println("Realizando consultas:");
+
             // Procesar cada consulta
             for (int i = 0; i < numConsultas; i++) {
-                int fila = scanner.nextInt() - 1; // Convertir a índice base 0
+                // Leer la posición inicial de Daredevil (ajustamos a índice base 0)
+                int fila = scanner.nextInt() - 1;
                 int columna = scanner.nextInt() - 1;
-                String direccion = scanner.next();
+                String direccion = scanner.next().toUpperCase(); // Convertimos la dirección a mayúsculas para asegurar la consistencia
 
                 // Determinar la distancia al villano más cercano
                 int distancia = buscarVillano(sala, filas, columnas, fila, columna, direccion);
                 
-                // Imprimir resultado
+                // Imprimir el resultado de la consulta
                 if (distancia == -1) {
-                    System.out.println("NINGUNO");
+                    System.out.println("NINGUNO"); // Si no hay villano, imprimir "NINGUNO"
                 } else {
-                    System.out.println(distancia);
+                    System.out.println(distancia); // Imprimir la distancia al villano
                 }
             }
 
-            // Separador entre casos
+            // Separador entre casos de prueba
             System.out.println("---");
         }
 
+        // Cerrar el scanner para liberar recursos
         scanner.close();
     }
 
@@ -60,14 +64,21 @@ public class DaredevilSinRadar {
         int incrementoFila = 0;
         int incrementoColumna = 0;
 
-        if (direccion.equals("ARRIBA")) {
-            incrementoFila = -1;
-        } else if (direccion.equals("ABAJO")) {
-            incrementoFila = 1;
-        } else if (direccion.equals("IZQUIERDA")) {
-            incrementoColumna = -1;
-        } else if (direccion.equals("DERECHA")) {
-            incrementoColumna = 1;
+        switch (direccion) {
+            case "ARRIBA":
+                incrementoFila = -1; // Moverse hacia arriba
+                break;
+            case "ABAJO":
+                incrementoFila = 1; // Moverse hacia abajo
+                break;
+            case "IZQUIERDA":
+                incrementoColumna = -1; // Moverse hacia la izquierda
+                break;
+            case "DERECHA":
+                incrementoColumna = 1; // Moverse hacia la derecha
+                break;
+            default:
+                return -1; // Dirección inválida
         }
 
         // Moverse en la dirección hasta encontrar un villano o salir del mapa
@@ -78,16 +89,17 @@ public class DaredevilSinRadar {
 
             // Verificar si se salió del mapa
             if (fila < 0 || fila >= filas || columna < 0 || columna >= columnas) {
-                return -1; // No hay villano en esta dirección
+                return -1; // Si nos salimos del mapa, no hay villano en esta dirección
             }
 
-            // Si encontramos un villano, devolver la distancia
+            // Si encontramos un villano (representado por 'X'), devolver la distancia
             if (sala[fila][columna] == 'X') {
-                return distancia;
+                return distancia; // Devolvemos la distancia al villano
             }
         }
     }
 }
+
 
 /* 
 EL HOMBRE SIN MIEDO Y SIN RADAR

@@ -25,7 +25,7 @@ public class ElGanadorEs {
             for (int i = 0; i < numeroGlobos; i++) {
                 System.out.print("Ingrese el número de equipo (1 a " + numeroEquipos + ") y el color de los globos: ");
                 int equipo = sc.nextInt();
-                String color = sc.nextLine(); // Leer el color (no se usa en el cálculo)
+                //String color = sc.nextLine(); // Leer el color (no se usa en el cálculo)
                 globosPorEquipo[equipo]++; // Incrementar el conteo de globos para ese equipo
             }
             

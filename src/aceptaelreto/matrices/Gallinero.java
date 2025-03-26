@@ -1,6 +1,86 @@
-/* Como si fueses un programador novato, resuelve este ejercicio de Java. Explica cada paso y utiliza variables explicativas. No utilices List ni funciones demasiado complicadas.
+package matrices;
 
-Los pollitos pasan todo el día picoteando el suelo del gallinero para comer los granos que van encontrando. Has estado varios días observando sus movimientos y has descubierto que todos ellos siguen un curioso patrón basado en las baldosas que hay en el suelo. Se despiertan mirando en una dirección (norte, sur, este, oeste) y comienzan a andar en esa dirección siguiendo un movimiento en espiral en el sentido de las agujas del reloj. El paseo termina cuando se cansan (cada pollito tiene un aguante distinto) o en su recorrido se topan con el borde del gallinero, momento en el que quedan aturdidos y se duermen hasta el día siguiente.
+import java.util.Scanner;
+
+public class Gallinero {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Leer el número de casos de prueba
+        int numCasosDePrueba = sc.nextInt();
+
+        // Para cada caso de prueba
+        for (int caso = 0; caso < numCasosDePrueba; caso++) {
+            // Leer las dimensiones del gallinero (filas y columnas) y el número de pollitos
+            int filasGallinero = sc.nextInt();
+            int columnasGallinero = sc.nextInt();
+            int numPollitos = sc.nextInt();
+
+            // Crear la matriz del gallinero, inicializada con 0 (sin granos)
+            int[][] gallinero = new int[filasGallinero][columnasGallinero];
+
+            // Procesar cada pollito
+            for (int i = 0; i < numPollitos; i++) {
+                // Leer la posición inicial del pollito, su dirección y el número máximo de pasos
+                int filaInicio = sc.nextInt() - 1;  // Convertimos a índice 0-basado
+                int columnaInicio = sc.nextInt() - 1;  // Convertimos a índice 0-basado
+                char direccionInicio = sc.next().charAt(0);  // Dirección: N, S, E, W
+                int pasosMaximos = sc.nextInt();
+
+                // Dirección de los movimientos en la espiral: (Norte, Este, Sur, Oeste)
+                int[] desplazamientoFila = {-1, 0, 1, 0};  // Movimiento en filas (N, E, S, O)
+                int[] desplazamientoColumna = {0, 1, 0, -1};  // Movimiento en columnas (N, E, S, O)
+
+                // Determinar la dirección inicial del pollito (N=0, E=1, S=2, O=3)
+                int direccionActual = 0;  // 0 = Norte, 1 = Este, 2 = Sur, 3 = Oeste
+                if (direccionInicio == 'S') direccionActual = 2;
+                if (direccionInicio == 'E') direccionActual = 1;
+                if (direccionInicio == 'W') direccionActual = 3;
+
+                // Empezamos el recorrido desde la posición inicial
+                int filaActual = filaInicio;
+                int columnaActual = columnaInicio;
+
+                // Colocamos el primer grano en la posición inicial
+                gallinero[filaActual][columnaActual]++;
+
+                // Realizar el movimiento en espiral
+                for (int paso = 0; paso < pasosMaximos; paso++) {
+                    // Mover a la siguiente baldosa en la dirección actual
+                    filaActual += desplazamientoFila[direccionActual];
+                    columnaActual += desplazamientoColumna[direccionActual];
+
+                    // Si el pollito se sale del gallinero, se detiene
+                    if (filaActual < 0 || filaActual >= filasGallinero || columnaActual < 0 || columnaActual >= columnasGallinero) {
+                        break;  // Salimos del ciclo si el pollito se sale del gallinero
+                    }
+
+                    // Colocar un grano en la nueva posición
+                    gallinero[filaActual][columnaActual]++;
+
+                    // Cambiar de dirección en sentido horario (espiral)
+                    direccionActual = (direccionActual + 1) % 4;
+                }
+            }
+
+            // Imprimir el resultado para este caso de prueba
+            for (int i = 0; i < filasGallinero; i++) {
+                for (int j = 0; j < columnasGallinero; j++) {
+                    System.out.print(gallinero[i][j] + " ");
+                }
+                System.out.println();  // Nueva línea después de cada fila
+            }
+
+            // Imprimir la línea separadora
+            System.out.println("---");
+        }
+
+        // Cerrar el scanner después de la lectura
+        sc.close();
+    }
+}
+
+/*Los pollitos pasan todo el día picoteando el suelo del gallinero para comer los granos que van encontrando. Has estado varios días observando sus movimientos y has descubierto que todos ellos siguen un curioso patrón basado en las baldosas que hay en el suelo. Se despiertan mirando en una dirección (norte, sur, este, oeste) y comienzan a andar en esa dirección siguiendo un movimiento en espiral en el sentido de las agujas del reloj. El paseo termina cuando se cansan (cada pollito tiene un aguante distinto) o en su recorrido se topan con el borde del gallinero, momento en el que quedan aturdidos y se duermen hasta el día siguiente.
 
 Además, en cada baldosa que pisan (incluída la que ocupan al despertarse) miran si hay pienso y si lo hay, comen un grano antes de dar el siguiente paso. Si no hay, simplemente siguen avanzando. Como son pequeños, cuando coinciden en un punto comen al mismo tiempo sin molestarse y a veces incluso duermen en el mismo sitio.
 
@@ -36,86 +116,6 @@ Salida de ejemplo
 1 1 0
 1 1 0
 --- */
-
-package matrices;
-
-import java.util.Scanner;
-
-public class Gallinero {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        // Leer el número de casos de prueba
-        int t = sc.nextInt();
-
-        // Para cada caso de prueba
-        for (int test = 0; test < t; test++) {
-            // Leer las dimensiones del gallinero y el número de pollitos
-            int f = sc.nextInt();
-            int c = sc.nextInt();
-            int n = sc.nextInt();
-
-            // Crear la matriz del gallinero, inicialmente con 0 granos
-            int[][] gallinero = new int[f][c];
-
-            // Procesar cada pollito
-            for (int i = 0; i < n; i++) {
-                // Leer la posición inicial del pollito, su dirección y su número de pasos
-                int v = sc.nextInt() - 1;  // Convertimos a índice 0-basado
-                int h = sc.nextInt() - 1;  // Convertimos a índice 0-basado
-                char dir = sc.next().charAt(0);  // Dirección: N, S, E, W
-                int pasos = sc.nextInt();
-
-                // Dirección de los movimientos en la espiral: (Norte, Este, Sur, Oeste)
-                int[] dx = {-1, 0, 1, 0};  // Movimiento en filas (N, E, S, W)
-                int[] dy = {0, 1, 0, -1};  // Movimiento en columnas (N, E, S, W)
-
-                // Determinar la dirección inicial del pollito
-                int direccion = 0;  // 0 = Norte, 1 = Este, 2 = Sur, 3 = Oeste
-                if (dir == 'S') direccion = 2;
-                if (dir == 'E') direccion = 1;
-                if (dir == 'W') direccion = 3;
-
-                // Empezamos el recorrido desde la posición inicial
-                int x = v;
-                int y = h;
-
-                // Colocamos el primer grano en la posición inicial
-                gallinero[x][y]++;
-
-                // Realizar el movimiento en espiral
-                for (int p = 0; p < pasos; p++) {
-                    // Mover a la siguiente baldosa en la dirección actual
-                    x += dx[direccion];
-                    y += dy[direccion];
-
-                    // Si el pollito se sale del gallinero, se detiene
-                    if (x < 0 || x >= f || y < 0 || y >= c) break;
-
-                    // Colocar un grano en la nueva posición
-                    gallinero[x][y]++;
-
-                    // Cambiar de dirección en sentido horario (espiral)
-                    direccion = (direccion + 1) % 4;
-                }
-            }
-
-            // Imprimir el resultado para este caso de prueba
-            for (int i = 0; i < f; i++) {
-                for (int j = 0; j < c; j++) {
-                    System.out.print(gallinero[i][j] + " ");
-                }
-                System.out.println();
-            }
-
-            // Imprimir la línea separadora
-            System.out.println("---");
-        }
-
-        // Cerrar el scanner
-        sc.close();
-    }
-}
 
 /*Explicación del código:
 Entrada de datos:

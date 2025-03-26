@@ -1,5 +1,73 @@
 package matrices;
+
 import java.util.Scanner;
+
+public class SombrasCamping {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Procesar múltiples casos de prueba
+        while (true) {
+            // PASO 1: Leer el tamaño del camping (columnas y filas) y el número de árboles
+            System.out.print("Ingresa el número de columnas, filas y árboles (0 0 0 para terminar): ");
+            int numeroColumnas = scanner.nextInt();
+            int numeroFilas = scanner.nextInt();
+            int numeroArboles = scanner.nextInt();
+
+            // Si es "0 0 0", terminamos el programa
+            if (numeroColumnas == 0 && numeroFilas == 0 && numeroArboles == 0) {
+                System.out.println("Fin del programa.");
+                break;
+            }
+
+            // PASO 2: Crear la matriz que representa el camping
+            int[][] camping = new int[numeroFilas][numeroColumnas];
+
+            // PASO 3: Leer las posiciones de los árboles y marcarlos en la matriz
+            System.out.println("Ingresa las posiciones de los árboles (columna fila):");
+            for (int i = 0; i < numeroArboles; i++) {
+                int columnaArbol = scanner.nextInt() - 1; // Convertimos a índice base 0
+                int filaArbol = scanner.nextInt() - 1;
+
+                // Marcar el árbol en la matriz
+                camping[filaArbol][columnaArbol] = 1;
+
+                // PASO 4: Marcar la sombra en las 8 direcciones alrededor del árbol
+                for (int dx = -1; dx <= 1; dx++) {
+                    for (int dy = -1; dy <= 1; dy++) {
+                        int nuevaFila = filaArbol + dx;
+                        int nuevaColumna = columnaArbol + dy;
+
+                        // Comprobar si la nueva posición está dentro de los límites de la matriz
+                        if (nuevaFila >= 0 && nuevaFila < numeroFilas && nuevaColumna >= 0 && nuevaColumna < numeroColumnas) {
+                            // Si la casilla no es un árbol (valor 0), marcamos la sombra
+                            if (camping[nuevaFila][nuevaColumna] == 0) {
+                                camping[nuevaFila][nuevaColumna] = 2;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // PASO 5: Contar las parcelas con sombra (valor 2 en la matriz)
+            int parcelasConSombra = 0;
+            for (int i = 0; i < numeroFilas; i++) {
+                for (int j = 0; j < numeroColumnas; j++) {
+                    if (camping[i][j] == 2) {
+                        parcelasConSombra++;
+                    }
+                }
+            }
+
+            // PASO 6: Imprimir el número de parcelas con sombra
+            System.out.println("Número de parcelas con sombra: " + parcelasConSombra);
+        }
+
+        // Cerrar el scanner
+        scanner.close();
+    }
+}
+
 
 /*Se acerca el verano y los aficionados a la naturaleza pasarán buena parte de él en campings, disfrutando del aire libre.
 
@@ -30,59 +98,3 @@ Entrada de ejemplo
 Salida de ejemplo
 22
 8 */
-
-public class sombrasCamping {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        while (true) {
-            // PASO 1: Leer el tamaño del camping (columnas y filas)
-            int columnas = sc.nextInt();
-            int filas = sc.nextInt();
-            int numArboles = sc.nextInt();
-
-            // Si es "0 0 0", terminamos
-            if (columnas == 0 && filas == 0 && numArboles == 0) break;
-
-            // PASO 2: Crear la matriz del camping
-            int[][] terreno = new int[filas][columnas];
-
-            // PASO 3: Leer la posición de los árboles y marcarlos en la matriz
-            for (int i = 0; i < numArboles; i++) {
-                int colArbol = sc.nextInt() - 1; // Convertimos a índice base 0
-                int filaArbol = sc.nextInt() - 1;
-                terreno[filaArbol][colArbol] = 1; // Marcar el árbol en la matriz
-
-                // PASO 4: Marcar la sombra en las 8 direcciones alrededor del árbol
-                for (int dx = -1; dx <= 1; dx++) {
-                    for (int dy = -1; dy <= 1; dy++) {
-                        int nuevaFila = filaArbol + dx;
-                        int nuevaColumna = colArbol + dy;
-
-                        if (nuevaFila >= 0 && nuevaFila < filas && nuevaColumna >= 0 && nuevaColumna < columnas) {
-                            if (terreno[nuevaFila][nuevaColumna] == 0) { // Si no es un árbol
-                                terreno[nuevaFila][nuevaColumna] = 2; // Marcar como sombra
-                            }
-                        }
-                    }
-                }
-            }
-
-            // PASO 5: Contar las parcelas con sombra
-            int parcelasConSombra = 0;
-            for (int i = 0; i < filas; i++) {
-                for (int j = 0; j < columnas; j++) {
-                    if (terreno[i][j] == 2) {
-                        parcelasConSombra++;
-                    }
-                }
-            }
-
-            // PASO 6: Imprimir el resultado
-            System.out.println(parcelasConSombra);
-        }
-
-        sc.close();
-    }
-}
-

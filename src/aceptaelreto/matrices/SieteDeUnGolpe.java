@@ -1,6 +1,5 @@
 package matrices;
 
-
 import java.util.Scanner;
 
 public class SieteDeUnGolpe {
@@ -8,59 +7,65 @@ public class SieteDeUnGolpe {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
+        // Inicia un ciclo para leer múltiples casos de prueba
         while (true) {
-            // Leer los parámetros de entrada
-            int tx = scanner.nextInt(); // número de columnas
-            int ty = scanner.nextInt(); // número de filas
-            int mx = scanner.nextInt(); // tamaño del matamoscas en horizontal
-            int my = scanner.nextInt(); // tamaño del matamoscas en vertical
+            // Leer las dimensiones de la mesa y del matamoscas
+            System.out.println("Ingresa las dimensiones de la mesa (tx ty) y las dimensiones del matamoscas (mx my):");
+            int numeroColumnas = scanner.nextInt(); // número de columnas de la mesa
+            int numeroFilas = scanner.nextInt(); // número de filas de la mesa
+            int tamanoMatamoscasHorizontal = scanner.nextInt(); // tamaño horizontal del matamoscas
+            int tamanoMatamoscasVertical = scanner.nextInt(); // tamaño vertical del matamoscas
 
-            // Si encontramos una línea con 0 0 0 0, terminamos
-            if (tx == 0 && ty == 0 && mx == 0 && my == 0) {
+            // Si encontramos una línea con 0 0 0 0, terminamos el programa
+            if (numeroColumnas == 0 && numeroFilas == 0 && tamanoMatamoscasHorizontal == 0 && tamanoMatamoscasVertical == 0) {
                 break;
             }
 
-            // Leer la mesa
-            char[][] mesa = new char[ty][tx];
-            for (int i = 0; i < ty; i++) {
+            // Leer la mesa (mapa de moscas)
+            System.out.println("Ingresa el mapa de la mesa (con 'X' para moscas y '.' para espacios vacíos):");
+            char[][] mesa = new char[numeroFilas][numeroColumnas];
+            for (int i = 0; i < numeroFilas; i++) {
                 mesa[i] = scanner.next().toCharArray();
             }
 
-            // Crear un array para contar cuántas posiciones matan 0, 1, ..., 7 o más moscas
-            int[] conteo = new int[8]; // conteo[0] -> 0 moscas, conteo[1] -> 1 mosca, ..., conteo[7] -> 7 o más moscas
+            // Inicializar un array para contar cuántas posiciones matan 0, 1, ..., 7 o más moscas
+            int[] conteoMoscas = new int[8]; // conteoMoscas[0] -> 0 moscas, conteoMoscas[1] -> 1 mosca, ..., conteoMoscas[7] -> 7 o más moscas
 
-            // Recorremos las posibles posiciones donde se puede colocar el matamoscas
-            for (int i = 0; i <= ty - my; i++) {  // Filas donde puede entrar el matamoscas
-                for (int j = 0; j <= tx - mx; j++) {  // Columnas donde puede entrar el matamoscas
-                    // Contamos las moscas en el área cubierta por el matamoscas
+            // Recorremos las posibles posiciones donde podemos colocar el matamoscas
+            for (int fila = 0; fila <= numeroFilas - tamanoMatamoscasVertical; fila++) {  // Filas donde puede entrar el matamoscas
+                for (int columna = 0; columna <= numeroColumnas - tamanoMatamoscasHorizontal; columna++) {  // Columnas donde puede entrar el matamoscas
+                    // Contamos cuántas moscas están en el área cubierta por el matamoscas
                     int moscasMuertas = 0;
-                    for (int y = 0; y < my; y++) {  // Recorremos las filas del matamoscas
-                        for (int x = 0; x < mx; x++) {  // Recorremos las columnas del matamoscas
-                            if (mesa[i + y][j + x] == 'X') {
+                    for (int y = 0; y < tamanoMatamoscasVertical; y++) {  // Recorremos las filas del matamoscas
+                        for (int x = 0; x < tamanoMatamoscasHorizontal; x++) {  // Recorremos las columnas del matamoscas
+                            if (mesa[fila + y][columna + x] == 'X') {
                                 moscasMuertas++;
                             }
                         }
                     }
+
                     // Clasificamos el número de moscas muertas en la posición correspondiente
                     if (moscasMuertas > 7) {
-                        conteo[7]++;  // Si mata más de 7, lo contamos como 7 o más
+                        conteoMoscas[7]++;  // Si mata más de 7 moscas, lo contamos en la posición de 7 o más
                     } else {
-                        conteo[moscasMuertas]++;  // Si mata entre 0 y 7 moscas, lo contamos en su posición
+                        conteoMoscas[moscasMuertas]++;  // Si mata entre 0 y 7 moscas, lo contamos en la posición correspondiente
                     }
                 }
             }
 
-            // Imprimimos los resultados
+            // Imprimimos los resultados del conteo de moscas muertas para este caso de prueba
+            System.out.println("Resultado del conteo de posiciones con moscas muertas:");
             for (int k = 0; k < 8; k++) {
-                System.out.print(conteo[k] + " ");
+                System.out.print(conteoMoscas[k] + " ");
             }
-            System.out.println();
+            System.out.println(); // Para hacer un salto de línea después de la salida
 
         }
         
         scanner.close();
     }
 }
+
 
 /*
 ===========

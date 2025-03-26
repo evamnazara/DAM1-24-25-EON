@@ -5,23 +5,27 @@ import java.util.Scanner;
 public class Moda {
 
     public static void main(String[] args) {
-        // Crear un scanner para leer la entrada.
+        // Crear un scanner para leer la entrada
         Scanner sc = new Scanner(System.in);
 
-        // Empezamos a procesar cada caso de prueba.
+        // Empezamos a procesar cada caso de prueba
         while (true) {
-            // Leer el número de elementos en el conjunto.
+            // Leer el número de elementos en el conjunto
+            System.out.println("Introduce el número de elementos del conjunto (0 para terminar):");
             int n = sc.nextInt();
 
-            // Si el número de elementos es 0, terminamos el programa.
+            // Si el número de elementos es 0, terminamos el programa
             if (n == 0) {
                 break;
             }
 
-            // Creamos un arreglo para contar las frecuencias de los números
-            int[] frecuencias = new int[100001];  // El tamaño 100001 es suficiente para cubrir números de 0 a 100000 (no hay números negativos según el problema)
+            // Crear un arreglo para contar las frecuencias de los números
+            // El tamaño de 100001 es suficiente para cubrir números de 0 a 100000
+            int[] frecuencias = new int[100001];
 
-            // Leer los números del conjunto y contar su frecuencia.
+            System.out.println("Introduce los " + n + " números:");
+
+            // Leer los números del conjunto y contar su frecuencia
             for (int i = 0; i < n; i++) {
                 int numero = sc.nextInt();
                 frecuencias[numero]++;  // Incrementamos la frecuencia del número leído
@@ -40,13 +44,14 @@ public class Moda {
             }
 
             // Imprimir la moda para este caso de prueba
-            System.out.println(moda);
+            System.out.println("La moda de este conjunto es: " + moda);
         }
 
         // Cerrar el scanner
         sc.close();
     }
 }
+
 
 
 
