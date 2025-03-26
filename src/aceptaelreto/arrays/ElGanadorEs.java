@@ -6,49 +6,54 @@ public class ElGanadorEs {
         Scanner sc = new Scanner(System.in);
         
         while (true) {
-            String primeraLinea = sc.nextLine();
-            int numeroEquipos = primeraLinea.charAt(0) - '0'; // Convertimos el primer carácter a número
-            int numeroGlobos = primeraLinea.charAt(2) - '0'; // Segundo número (ignora el espacio)
-
-            // Caso de terminación
+            System.out.println("Número de equipos:");
+            int numeroEquipos = sc.nextInt();
+            System.out.println("Número de globos entregados:");
+            int numeroGlobos = sc.nextInt();
+            sc.nextLine(); //bufer
+            
             if (numeroEquipos == 0 && numeroGlobos == 0) {
+                System.out.println("¡Fin del concurso!");
                 break;
             }
-
+            
             int[] globosPorEquipo = new int[numeroEquipos + 1]; // Índices 1 a numeroEquipos
-
-            // Leer cada globo asignado
+            
+            // Pedir los globos entregados a cada equipo
+            System.out.println("\n Introduce los datos de globos entregados:");
+            System.out.println("Por ejemplo: 3 Rojo");
             for (int i = 0; i < numeroGlobos; i++) {
-                String linea = sc.nextLine();
-                int equipo = linea.charAt(0) - '0'; // Convertir primer número (equipo) a int
-                globosPorEquipo[equipo]++; // Aumentar conteo de globos para ese equipo
+                System.out.print("Ingrese el número de equipo (1 a " + numeroEquipos + ") y el color de los globos: ");
+                int equipo = sc.nextInt();
+                String color = sc.nextLine(); // Leer el color (no se usa en el cálculo)
+                globosPorEquipo[equipo]++; // Incrementar el conteo de globos para ese equipo
             }
-
-            // Determinar el equipo con más globos
+            
             int maxGlobos = 0;
             int equipoGanador = -1;
             boolean hayEmpate = false;
-
+            
             for (int i = 1; i <= numeroEquipos; i++) {
                 if (globosPorEquipo[i] > maxGlobos) {
                     maxGlobos = globosPorEquipo[i];
                     equipoGanador = i;
-                    hayEmpate = false;
+                    hayEmpate = false; // Si un equipo tiene más globos, no hay empate
                 } else if (globosPorEquipo[i] == maxGlobos) {
-                    hayEmpate = true;
+                    hayEmpate = true; // Si hay un empate en la cantidad de globos
                 }
             }
-
-            // Imprimir resultado
+            
             if (hayEmpate) {
                 System.out.println("EMPATE");
             } else {
-                System.out.println(equipoGanador);
+                System.out.println("El equipo ganador es el: " + equipoGanador);
             }
         }
+        
         sc.close();
     }
 }
+
 
 
 

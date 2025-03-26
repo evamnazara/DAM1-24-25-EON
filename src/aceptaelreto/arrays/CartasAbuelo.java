@@ -7,6 +7,7 @@ public class CartasAbuelo {
         Scanner sc = new Scanner(System.in);
         
         while (true) {
+            System.out.println("Introduce la cadena escrita por el abuelo (o '0' para terminar):");
             String cadena = sc.nextLine(); // Leer la cadena
             if (cadena.equals("0")) {
                 break; // Si la cadena es "0", terminamos la entrada
@@ -15,10 +16,16 @@ public class CartasAbuelo {
             // Preprocesamos la cadena para obtener el array de igualdades
             boolean[] igual = cadenaIgual(cadena);
             
-            // Leemos el número de intervalos
-            int n = Integer.parseInt(sc.nextLine());
+            System.out.println("¿Cuántos intervalos quieres verificar?");
+            int n = Integer.parseInt(sc.nextLine()); // Leer número de intervalos
+            if (n == 0) {
+                System.out.println("No hay intervalos que verificar. Fin del caso de prueba.");
+                continue;
+            }
+
+            // Procesamos los intervalos
             for (int i = 0; i < n; i++) {
-                // Leemos los índices de los intervalos
+                System.out.println("Introduce el intervalo " + (i + 1) + " (dos índices separados por espacio):");
                 String[] interval = sc.nextLine().split(" ");
                 int iPos = Integer.parseInt(interval[0]);
                 int jPos = Integer.parseInt(interval[1]);
@@ -71,9 +78,8 @@ public class CartasAbuelo {
         
         return true;
     }
-    
-    
 }
+
 
 
 

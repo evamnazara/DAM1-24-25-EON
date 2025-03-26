@@ -6,6 +6,9 @@ public class CuantosDiasFaltan {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        // Solicitar el número de casos de prueba
+        System.out.println("¡Bienvenido al programa que calcula los días restantes hasta Nochevieja!");
+        System.out.print("Introduce el número de casos de prueba: ");
         int numCasos = sc.nextInt();
 
         // Array con los días acumulados al inicio de cada mes en un año no bisiesto
@@ -13,7 +16,12 @@ public class CuantosDiasFaltan {
 
         // Procesamos cada caso
         for (int i = 0; i < numCasos; i++) {
+            System.out.println("\nCaso de prueba " + (i + 1) + ":");
+            
+            // Pedir al usuario el día y mes
+            System.out.print("Introduce el día: ");
             int dia = sc.nextInt(); // Día dado
+            System.out.print("Introduce el mes: ");
             int mes = sc.nextInt(); // Mes dado
 
             // Convertir la fecha en el número de día en el año
@@ -23,13 +31,69 @@ public class CuantosDiasFaltan {
             int diasRestantes = 365 - diaDelAnio;
 
             // Imprimir el resultado
-            System.out.println(diasRestantes);
+            System.out.println("Faltan " + diasRestantes + " días hasta Nochevieja.");
         }
 
-        sc.close();
+        // Mensaje final para el usuario
+        System.out.println("\n¡Gracias por usar el programa! ¡Felices fiestas!");
+        sc.close(); // Cerrar el scanner
     }
 }
 
+/* ALTERNATIVA: 
+ * 
+ * package arrays;
+
+import java.util.Scanner;
+
+public class CuantosDiasFaltan {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Solicitar el número de casos de prueba
+        System.out.println("¡Bienvenido al programa que calcula los días restantes hasta Nochevieja!");
+        System.out.print("Introduce el número de casos de prueba: ");
+        int numCasos = sc.nextInt();
+
+        // Array con los días de cada mes de un año no bisiesto
+        int[] diasPorMes = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+        // Procesamos cada caso
+        for (int i = 0; i < numCasos; i++) {
+            System.out.println("\nCaso de prueba " + (i + 1) + ":");
+            
+            // Pedir al usuario el día y mes
+            System.out.print("Introduce el día: ");
+            int dia = sc.nextInt(); // Día dado
+            System.out.print("Introduce el mes: ");
+            int mes = sc.nextInt(); // Mes dado
+
+            // Calcular el número de día en el año
+            int diaDelAnio = 0;
+
+            // Sumar los días de los meses anteriores al mes dado
+            for (int j = 0; j < mes - 1; j++) {
+                diaDelAnio += diasPorMes[j];
+            }
+
+            // Agregar el día del mes
+            diaDelAnio += dia;
+
+            // Calcular los días faltantes hasta el 31 de diciembre
+            int diasRestantes = 365 - diaDelAnio;
+
+            // Imprimir el resultado
+            System.out.println("Faltan " + diasRestantes + " días hasta Nochevieja.");
+        }
+
+        // Mensaje final para el usuario
+        System.out.println("\n¡Gracias por usar el programa! ¡Felices fiestas!");
+        sc.close(); // Cerrar el scanner
+    }
+}
+
+ * 
+ */
 
 
 /*¿Cuantos días faltan?

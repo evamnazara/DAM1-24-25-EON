@@ -1,34 +1,40 @@
 package arrays;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class PruebaDelNueve {
 
-    // Función que convierte un número en base 'B' a su valor decimal
+    // Función que convierte un número en base 'B' a su valor decimal de manera manual
     public static int toDecimal(String num, int base) {
         int result = 0;
-        for (int i = 0; i < num.length(); i++) {
+        int length = num.length();
+        for (int i = 0; i < length; i++) {
             char c = num.charAt(i);
-            int value;
+            int value = 0;
+            
+            // Determinamos el valor del carácter
             if (c >= '0' && c <= '9') {
-                value = c - '0';
-            } else {
-                value = c - 'A' + 10;
+                value = c - '0';  // Para '0' a '9'
+            } else if (c >= 'A' && c <= 'Z') {
+                value = c - 'A' + 10;  // Para 'A' a 'Z'
             }
+            
             result = result * base + value;
         }
         return result;
     }
 
-    // Función que calcula el resumen de un número en base 'B'
+    // Función que calcula el resumen de un número en base 'B' manualmente
     public static int resumen(int num, int base) {
         while (num >= base) {
             int sum = 0;
+            // Sumar los dígitos del número manualmente
             while (num > 0) {
                 sum += num % 10;
                 num /= 10;
             }
             num = sum;
+            // Si la suma es mayor o igual a la base, restamos base - 1
             while (num >= base) {
                 num -= base - 1;
             }
@@ -36,53 +42,93 @@ public class PruebaDelNueve {
         return num;
     }
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        
-        int n = sc.nextInt();  // Número de casos de prueba
-        sc.nextLine();  // Limpiar la nueva línea
-        
-        for (int i = 0; i < n; i++) {
-            String input = sc.nextLine();
-            String[] parts = input.split(" ");
-            
-            int base = Integer.parseInt(parts[0]);  // Base numérica
-            String dividendoStr = parts[1];  // Dividendo
-            String divisorStr = parts[2];  // Divisor
-            String cocienteStr = parts[3];  // Cociente
-            String restoStr = parts[4];  // Resto
-            
-            // Convertir todos los valores a decimal
-            int dividendo = toDecimal(dividendoStr, base);
-            int divisor = toDecimal(divisorStr, base);
-            int cociente = toDecimal(cocienteStr, base);
-            int resto = toDecimal(restoStr, base);
-            
-            // Obtener los resúmenes de todos los valores
-            int resumenDividendo = resumen(dividendo, base);
-            int resumenDivisor = resumen(divisor, base);
-            int resumenCociente = resumen(cociente, base);
-            int resumenResto = resumen(resto, base);
-            
-            // Verificar si la relación de la división se cumple con los resúmenes
-            int baseMinusOne = base - 1;
-            int check = (resumenDivisor * resumenCociente + resumenResto) % baseMinusOne;
-            
-            if (check == resumenDividendo) {
-                System.out.println("POSIBLEMENTE CORRECTO");
-            } else {
-                System.out.println("INCORRECTO");
+    // Función para validar si una cadena es un número
+    public static boolean isNumber(String str) {
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if (!(c >= '0' && c <= '9' || c >= 'A' && c <= 'Z')) {
+                return false;
             }
         }
-        
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Introduce el número de casos de prueba:");
+        String n = sc.nextLine();  // Número de casos de prueba, se toma como cadena
+
+        // Validación de entrada para el número de casos
+        if (isNumber(n)) {
+            int numCasos = toDecimal(n, 10);  // Convertimos el número de casos de prueba de cadena a decimal manualmente
+            for (int caso = 0; caso < numCasos; caso++) {  // Cambié el nombre de la variable para evitar duplicación
+                System.out.println("Introduce los datos para el caso de prueba " + (caso + 1) + ":");
+                String input = sc.nextLine();
+                String[] parts = input.split(" ");
+                
+                // Los valores están ahora en base 'base', y no usamos parseo explícito
+                String baseStr = parts[0];  // Base
+                String dividendoStr = parts[1];  // Dividendo
+                String divisorStr = parts[2];  // Divisor
+                String cocienteStr = parts[3];  // Cociente
+                String restoStr = parts[4];  // Resto
+                
+                // Convertimos todos los valores a decimal de manera manual
+                int base = 0;
+                for (int j = 0; j < baseStr.length(); j++) {  // Cambié el nombre de la variable de índice a 'j'
+                    char c = baseStr.charAt(j);
+                    int value = 0;
+                    
+                    // Valor de la base
+                    if (c >= '0' && c <= '9') {
+                        value = c - '0';
+                    } else if (c >= 'A' && c <= 'Z') {
+                        value = c - 'A' + 10;
+                    }
+                    base = base * 10 + value;
+                }
+
+                // Convertir los otros valores manualmente
+                int dividendo = toDecimal(dividendoStr, base);
+                int divisor = toDecimal(divisorStr, base);
+                int cociente = toDecimal(cocienteStr, base);
+                int resto = toDecimal(restoStr, base);
+                
+                // Obtener los resúmenes de todos los valores
+                int resumenDividendo = resumen(dividendo, base);
+                int resumenDivisor = resumen(divisor, base);
+                int resumenCociente = resumen(cociente, base);
+                int resumenResto = resumen(resto, base);
+                
+                System.out.println("Resumen Dividendo: " + resumenDividendo);
+                System.out.println("Resumen Divisor: " + resumenDivisor);
+                System.out.println("Resumen Cociente: " + resumenCociente);
+                System.out.println("Resumen Resto: " + resumenResto);
+                
+                // Verificar si la relación de la división se cumple con los resúmenes
+                int baseMinusOne = base - 1;
+                int check = (resumenDivisor * resumenCociente + resumenResto) % baseMinusOne;
+                
+                if (check == resumenDividendo) {
+                    System.out.println("POSIBLEMENTE CORRECTO");
+                } else {
+                    System.out.println("INCORRECTO");
+                }
+                System.out.println(); // Línea en blanco para separar los casos
+            }
+        } else {
+            System.out.println("Entrada inválida para el número de casos de prueba.");
+        }
+
         sc.close();
     }
 }
 
 
 
+
 /*Prueba del nueve en base N
-Tiempo máximo: 1,000-5,000 s  Memoria máxima: 12288 KiB
 La conocida como prueba del nueve es una técnica que nos permite comprobar si nos hemos equivocado al calcular el resultado de una operacion aritmética. La aplicación de la prueba del nueve requiere dos pasos. El primero es reducir (o "resumir") cada uno de los números de la operación a comprobar (operandos y resultado) a un sólo dígito, y luego repetir la operación original con esos dígitos.
 
 Hay muchas maneras diferentes de realizar el primer paso de "reducción", pero todas acaban con el mismo valor. Una de las más sencillas consiste en ir sumando cada uno de los dígitos del número a reducir a la suma de los anteriores. Cada vez que sumamos el valor de un dígito, comprobamos si la suma acumulada hasta el momento es mayor o igual que 9. Si lo es, antes de continuar sumando restaremos 9 a ese valor acumulado. El objetivo es conseguir que el "resumen" de cualquier número sea un dígito comprendido entre 0 y 8. Por ejemplo, para el número 1732:

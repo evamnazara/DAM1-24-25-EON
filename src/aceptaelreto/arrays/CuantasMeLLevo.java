@@ -7,25 +7,28 @@ public class CuantasMeLLevo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        System.out.println("¡Bienvenido al programa que cuenta cuántas veces se lleva una en la suma de dos números!");
+
         while (true) {
-            System.out.println("¿cuántas me llevo? ");
-            System.out.println("Número 1:");
-            String num1 = sc.nextLine();
-            System.out.println("Número 2: ");
-            String num2 = sc.nextLine();
+            System.out.println("\nIntroduce dos números para sumar (o '0 0' para terminar):");
+
+            System.out.print("Número 1: ");
+            String num1 = sc.nextLine(); // Primer número
+            System.out.print("Número 2: ");
+            String num2 = sc.nextLine(); // Segundo número
 
             // "0 0" termina la ejecución
             if (num1.equals("0") && num2.equals("0")) {
                 break;
             }
 
-            // num1 y num2 tienen la misma longitud (rellenamos con ceros a la izquierda si es necesario)
+            // Aseguramos que num1 y num2 tengan la misma longitud, agregando ceros a la izquierda si es necesario
             int longitudMaxima = Math.max(num1.length(), num2.length());
             while (num1.length() < longitudMaxima) {
-                num1 = "0" + num1;  // añade ceros a la izquierda de num1 si es necesario
+                num1 = "0" + num1;  // Añade ceros a la izquierda de num1
             }
             while (num2.length() < longitudMaxima) {
-                num2 = "0" + num2;  // añade ceros a la izquierda de num2 si es necesario
+                num2 = "0" + num2;  // Añade ceros a la izquierda de num2
             }
 
             // Contador de acarreos
@@ -43,17 +46,19 @@ public class CuantasMeLLevo {
 
                 // Si la suma es 10 o más, hay acarreo
                 if (suma >= 10) {
-                    acarreos++;
+                    acarreos++;  // Aumentar el contador de acarreos
                     acarreo = 1;  // El acarreo se "lleva una" al siguiente dígito
                 } else {
                     acarreo = 0;  // Si no hay acarreo, no se lleva nada
                 }
             }
 
-            System.out.println("Te llevas " + acarreos);
+            // Imprimir el número de acarreos
+            System.out.println("Número de acarreos: " + acarreos);
         }
 
-        sc.close(); 
+        System.out.println("\n¡Gracias por usar el programa! Hasta la próxima.");
+        sc.close();  // Cerrar el scanner
     }
 }
 
@@ -61,7 +66,7 @@ public class CuantasMeLLevo {
 
 /*
  * ¿Cuántas me llevo?
-Tiempo máximo: 2,000 s  Memoria máxima: 4096 KiB
+ * 
 Cuando aprendemos a sumar números pronto nos cuentan aquello de "llevarse una": cuando los dos dígitos que sumamos llegan a la decena tenemos "acarreo" que debemos sumar a los siguientes dígitos (de la izquierda).
 
 Cuando nuestros maestros nos ponían ejercicios, antes tenían que contar cuántas veces tendríamos que "llevarnos una" y en base a eso medían la dificultad del ejercicio.

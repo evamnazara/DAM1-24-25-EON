@@ -1,4 +1,5 @@
-STRINGS:
+Para este programa en java, revisa el enunciado, corrige algo si ves que hay un error (sin utilizar funciones complicadas como ArrayList, Map, matrices... sólo arrays simples), y añade souts donde sea necesario apra darle sentido al programa y hacerlo amigables con el usuario: 
+ARRAYS:
 
 - APROBAR QUIMICA: dificil
     recorrer dos arrays, compararlos y concatenar cadenas 
@@ -6,5 +7,99 @@ STRINGS:
 - De nuevo en el bar de Javier
     Cálculo de cajas (maximos, minimos, empates)
 
-- Las cartas del abuelo 
+- Y el ganador es...
+    Crear un array de enteros por teclado, contar numero de globos y decidir ganador o empate 
+
+-Palmeras en la nieve: 
+    calcula la longitud de la franja de máximo 5 palmeras  en pie después de una nevada
+
+- Las cartas del abuelo:
+    erificar si todos los caracteres entre dos posiciones en una cadena escrita por el abuelo son iguales. Para cada intervalo, el programa determina si todos los caracteres entre las posiciones especificadas son iguales o no, y devuelve "SI" o "NO"
+
+- ¿Cuantos días faltan?
+    fácil. Calcular cuantos dias quedan para nochevieja en un año no bisiesto. -- 2 MANERAS DE HACERLO 
+
+- ¿Cuántas me llevo?
+
+
+Problemas de Herencia
+Conjugar verbos
+Prueba del nueve en base N
+Escalera de color
+Va de modas...
+¿Cuál es la siguiente matrícula?
+Cálculo de la Mediana
+La pieza perdida
+Abadías pirenáicas
+El pan en las bodas
+Partido de squash
+Manías tenemos todos
+Molinos de viento
+Embarque en un transatlántico
+Salvemos al lince ibérico
+Pánico en el túnel
+Aprendiendo el código Morse
+Operación asfalto
+La lotería de la peña Atlética
+Entrando al cine
+Aprendiendo a multiplicar
+Los bocadillos de la hormiga reina
+Eligiendo caramelos
+Cuentas paralelas
+Reinas atacadas
+El desgaste de los bombines
+¿Acaso hubo búhos acá?
+Coge el sobre y corre
+Alan Smithee
+Copistas daltónicos
+Desarrollos en las bicicletas
+Palmeras en la nieve
+El teorema del punto fijo
+Teclas del piano
+Parrilla de salida
+Tira y afloja
+La abuela María
+Detectando copiones
+Reina del súper
+El hombre con seis dedos
+¡Los niños primero!
+En la cola de Papá Noel
+Repartiendo regalos en tu calle
+Siete picos
+La justicia de la lotería
+Creciente por los pelos
+El alcance de las historias
+La mejor terminación
+Colocando barcos
+Amigo invisible
+Yonge Street
+Dígitos saltarines
+Michael J. Fox y el Pato Donald
+El secreto de la bolsa
+El Pijote
+El mejor de dos dados
+Bingo infantil
+Tomas inéditas
+Entrando en pelotón
+Multiplicando mal
+El mejor peor día de tu vida
+Lucha de egos
+Conjuritis
+Senda pirenaica
+Turismo de luces
+Pequeña batalla de dados
+Houston, necesito una verificación
+El antepasado meticuloso
+La madriguera del Señor Conejo
+Repartidor de frigoríficos
+Foto con Mafalda
+Próximo tren corto
+Buscando el nivel
+Pipos
+El verdugo
+Haciendo cuentas
+Saltando al otro lado
+Fase final
+Reto de polvorones
+Restaurando películas
 
