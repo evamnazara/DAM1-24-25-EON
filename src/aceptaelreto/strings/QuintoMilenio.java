@@ -7,26 +7,30 @@ public class QuintoMilenio {
         Scanner scanner = new Scanner(System.in);
 
         // Leer el número de casos de prueba
+        System.out.print("Ingrese el número de casos de prueba: ");
         String primeraLinea = scanner.nextLine();
         int numeroCasos = convertirAEntero(primeraLinea);
 
         // Procesar cada caso de prueba
         for (int i = 0; i < numeroCasos; i++) {
+            // Leer el titular y el mensaje oculto
+            System.out.println("Ingrese el titular:");
             String titular = scanner.nextLine();
-            String mensaje = scanner.nextLine();
+            System.out.println("Ingrese el mensaje oculto a buscar:");
+            String mensajeOculto = scanner.nextLine();
 
-            // Convertir a minúsculas
+            // Convertir todo a minúsculas
             titular = convertirAMinusculas(titular);
-            mensaje = convertirAMinusculas(mensaje);
+            mensajeOculto = convertirAMinusculas(mensajeOculto);
 
             // Eliminar espacios del mensaje oculto
-            String mensajeSinEspacios = eliminarEspacios(mensaje);
+            String mensajeSinEspacios = eliminarEspacios(mensajeOculto);
 
-            // Verificar si el mensaje oculto aparece en el titular en orden
-            boolean encontrado = buscarMensajeOculto(titular, mensajeSinEspacios);
+            // Buscar si el mensaje oculto aparece en el titular
+            boolean mensajeEncontrado = buscarMensajeOculto(titular, mensajeSinEspacios);
 
-            // Imprimir el resultado
-            if (encontrado) {
+            // Mostrar el resultado
+            if (mensajeEncontrado) {
                 System.out.println("SI");
             } else {
                 System.out.println("NO");
@@ -41,7 +45,7 @@ public class QuintoMilenio {
         int resultado = 0;
         for (int i = 0; i < numero.length(); i++) {
             char digito = numero.charAt(i);
-            resultado = resultado * 10 + (digito - '0');
+            resultado = resultado * 10 + (digito - '0'); // Convertir cada caracter a número
         }
         return resultado;
     }
@@ -57,7 +61,7 @@ public class QuintoMilenio {
         return new String(caracteres);
     }
 
-    // Elimina espacios de una cadena sin usar replace()
+    // Elimina los espacios de la cadena sin usar replace()
     public static String eliminarEspacios(String texto) {
         char[] caracteres = texto.toCharArray();
         String resultado = "";
@@ -78,19 +82,20 @@ public class QuintoMilenio {
         for (int i = 0; i < titular.length(); i++) {
             if (titular.charAt(i) == mensaje.charAt(indiceMensaje)) {
                 indiceMensaje++;
+                // Si se ha encontrado todo el mensaje, devolver verdadero
                 if (indiceMensaje == longitudMensaje) {
-                    return true; // Se encontró todo el mensaje en orden
+                    return true;
                 }
             }
         }
-        return false; // No se encontró el mensaje
+        return false; // No se encontró el mensaje completo
     }
 }
+
 
 /*QUINTO MILENIO 
 
 Quinto milenio
-Tiempo máximo: 1,000-5,000 s Memoria máxima: 4096 KiB
 Túker Chiménez ve cosas escondidas en cualquier lado. Una mancha de humedad en la pared se le antoja la cara de la anterior propietaria de una casa; el sonido del viento le parece un susurro venido del más allá; una nube con forma peculiar le convence de la existencia de vida extraterrestre.
 
 Ahora le ha dado por ver mensajes ocultos en cualquier sitio. Por poner un ejemplo, si lee el siguiente titular: "El presidente del Gobierno se somete esta noche al escrutinio de varios periodistas en Televisión Española.", se las ingenia para leer un "te odio" oculto que le mantiene en vela toda la noche:

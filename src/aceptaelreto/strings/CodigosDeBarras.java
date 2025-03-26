@@ -1,3 +1,215 @@
+package strings;
+
+import java.util.Scanner;
+
+public class CodigosDeBarras {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        while (true) {
+            System.out.println("Ingrese un código de barras (0 para salir):");
+            String codigoDeBarras = scanner.nextLine().trim();
+
+            // Si el usuario ingresa "0", terminamos el programa
+            if (codigoDeBarras.equals("0")) {
+                System.out.println("Programa finalizado.");
+                break;
+            }
+
+            // Validar longitud y procesar el código
+            if (codigoDeBarras.length() < 8 || codigoDeBarras.length() > 13) {
+                System.out.println("El largo del código es inválido");
+            } else if (codigoDeBarras.length() == 8) {
+                System.out.println(validarEAN8(codigoDeBarras) ? "SI" : "NO");
+            } else if (codigoDeBarras.length() == 13) {
+                System.out.println(validarEAN13(codigoDeBarras));
+            } else {
+                System.out.println("El largo del código es inválido");
+            }
+        }
+        
+        scanner.close();
+    }
+
+    // Método para validar un código EAN-8
+    static boolean validarEAN8(String codigoEAN) {
+        int suma = 0;
+
+        // Recorrer los primeros 7 dígitos (sin contar el dígito de control)
+        for (int i = 0; i < 7; i++) {
+            int digito = Character.getNumericValue(codigoEAN.charAt(i));
+            if ((i % 2) == 0) { // Posiciones impares (desde la derecha) multiplicadas por 3
+                suma += digito * 3;
+            } else { // Posiciones pares multiplicadas por 1
+                suma += digito;
+            }
+        }
+
+        // Calcular el dígito de control esperado
+        int digitoControlCalculado = (10 - (suma % 10)) % 10;
+        int digitoControlReal = Character.getNumericValue(codigoEAN.charAt(7));
+
+        return digitoControlCalculado == digitoControlReal;
+    }
+
+    // Método para validar un código EAN-13
+    static String validarEAN13(String codigoEAN) {
+        int suma = 0;
+
+        // Recorrer los primeros 12 dígitos (sin contar el dígito de control)
+        for (int i = 0; i < 12; i++) {
+            int digito = Character.getNumericValue(codigoEAN.charAt(i));
+            if ((i % 2) == 0) { // Posiciones impares multiplicadas por 1
+                suma += digito;
+            } else { // Posiciones pares multiplicadas por 3
+                suma += digito * 3;
+            }
+        }
+
+        // Calcular el dígito de control esperado
+        int digitoControlCalculado = (10 - (suma % 10)) % 10;
+        int digitoControlReal = Character.getNumericValue(codigoEAN.charAt(12));
+
+        if (digitoControlCalculado != digitoControlReal) {
+            return "NO";
+        }
+
+        // Obtener el país a partir de los primeros dígitos (sin usar Map)
+        String codigoPais = obtenerPais(codigoEAN);
+        return "SI " + codigoPais;
+    }
+
+    // Método para determinar el país en un código EAN-13 sin usar Map
+    static String obtenerPais(String codigoEAN) {
+        // Arrays de códigos de países y sus nombres
+        String[] codigosPais = {"0", "380", "50", "539", "560", "70", "759", "850", "890"};
+        String[] paises = {"EEUU", "Bulgaria", "Inglaterra", "Irlanda", "Portugal", "Noruega", "Venezuela", "Cuba", "India"};
+
+        // Extraer los primeros 3, 2 o 1 dígitos para encontrar el país
+        for (int i = 3; i > 0; i--) {
+            String codigo = codigoEAN.substring(0, i);
+            for (int j = 0; j < codigosPais.length; j++) {
+                if (codigosPais[j].equals(codigo)) {
+                    return paises[j];
+                }
+            }
+        }
+
+        return "Desconocido";
+    }
+}
+
+//VERSION MATRICES 
+/* 
+public class CodigosDeBarras {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        while (true) {
+            System.out.println("Ingrese un código de barras (0 para salir):");
+            String codigoDeBarras = scanner.nextLine().trim();
+
+            // Si el usuario ingresa "0", terminamos el programa
+            if (codigoDeBarras.equals("0")) {
+                System.out.println("Programa finalizado.");
+                break;
+            }
+
+            // Validar longitud y procesar el código
+            if (codigoDeBarras.length() < 8 || codigoDeBarras.length() > 13) {
+                System.out.println("El largo del código es inválido");
+            } else if (codigoDeBarras.length() == 8) {
+                System.out.println(validarEAN8(codigoDeBarras) ? "SI" : "NO");
+            } else if (codigoDeBarras.length() == 13) {
+                System.out.println(validarEAN13(codigoDeBarras));
+            } else {
+                System.out.println("El largo del código es inválido");
+            }
+        }
+        
+        scanner.close();
+    }
+
+    // Método para validar un código EAN-8
+    static boolean validarEAN8(String codigoEAN) {
+        int suma = 0;
+
+        // Recorrer los primeros 7 dígitos (sin contar el dígito de control)
+        for (int i = 0; i < 7; i++) {
+            int digito = Character.getNumericValue(codigoEAN.charAt(i));
+            if ((i % 2) == 0) { // Posiciones impares (desde la derecha) multiplicadas por 3
+                suma += digito * 3;
+            } else { // Posiciones pares multiplicadas por 1
+                suma += digito;
+            }
+        }
+
+        // Calcular el dígito de control esperado
+        int digitoControlCalculado = (10 - (suma % 10)) % 10;
+        int digitoControlReal = Character.getNumericValue(codigoEAN.charAt(7));
+
+        return digitoControlCalculado == digitoControlReal;
+    }
+
+    // Método para validar un código EAN-13
+    static String validarEAN13(String codigoEAN) {
+        int suma = 0;
+
+        // Recorrer los primeros 12 dígitos (sin contar el dígito de control)
+        for (int i = 0; i < 12; i++) {
+            int digito = Character.getNumericValue(codigoEAN.charAt(i));
+            if ((i % 2) == 0) { // Posiciones impares multiplicadas por 1
+                suma += digito;
+            } else { // Posiciones pares multiplicadas por 3
+                suma += digito * 3;
+            }
+        }
+
+        // Calcular el dígito de control esperado
+        int digitoControlCalculado = (10 - (suma % 10)) % 10;
+        int digitoControlReal = Character.getNumericValue(codigoEAN.charAt(12));
+
+        if (digitoControlCalculado != digitoControlReal) {
+            return "NO";
+        }
+
+        // Obtener el país a partir de los primeros dígitos (sin usar Map)
+        String codigoPais = obtenerPais(codigoEAN);
+        return "SI " + codigoPais;
+    }
+
+    // Método para determinar el país en un código EAN-13 sin usar Map
+    static String obtenerPais(String codigoEAN) {
+        // Tabla de países con sus códigos de prefijo
+        String[][] paises = {
+            {"0", "EEUU"},
+            {"380", "Bulgaria"},
+            {"50", "Inglaterra"},
+            {"539", "Irlanda"},
+            {"560", "Portugal"},
+            {"70", "Noruega"},
+            {"759", "Venezuela"},
+            {"850", "Cuba"},
+            {"890", "India"}
+        };
+
+        // Extraer los primeros 3, 2 o 1 dígitos para encontrar el país
+        for (int i = 3; i > 0; i--) {
+            String codigo = codigoEAN.substring(0, i);
+            for (int j = 0; j < paises.length; j++) {
+                if (paises[j][0].equals(codigo)) {
+                    return paises[j][1];
+                }
+            }
+        }
+
+        return "Desconocido";
+    }
+}
+*/
+
 /*En el lejano 1952, tres norteamericanos patentaron lo que terminó llamándose código de barras. Consiste en una técnica para representar números (y, en menos ocasiones, letras) mediante una serie de líneas verticales paralelas, con diferentes grosores y separaciones entre ellas. Si bien el primer uso sirvió para identificar de manera automática los vagones de un ferrocarril, hoy los códigos de barras se utilizan en infinidad de lugares, siendo la catalogación de productos la más habitual.
 
 La manera concreta de codificar mediante barras los números y las letras puede ser muy variada, lo que ha llevado a la aparición de diferentes estándares. De todos ellos, el EAN (European Article Number) resulta ser el más extendido. De éste, hay principalmente dos formatos, que se diferencian en el ancho. Existe así el llamado EAN-8, que codifica 8 números, y el EAN-13, que, naturalmente, codifica 13.
@@ -46,111 +258,3 @@ NO
 SI Desconocido
 SI Inglaterra
 NO */
-
-package strings;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-
-public class CodigosDeBarras {
-
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        
-        while (true) {
-            System.out.println("Ingrese un código de barras (0 para salir):");
-            String codigoDeBarras = sc.nextLine().trim();
-
-            // Si el usuario ingresa "0", terminamos el programa
-            if (codigoDeBarras.equals("0")) {
-                break;
-            }
-
-            // Validar longitud y procesar el código
-            if (codigoDeBarras.length() < 8) {
-                System.out.println("El largo del código es inválido");
-            } else if (codigoDeBarras.length() <= 8) {
-                System.out.println(esEAN8valido(codigoDeBarras) ? "SI" : "NO");
-            } else if (codigoDeBarras.length() <= 13) {
-                System.out.println(esEAN13valido(codigoDeBarras));
-            } else {
-                System.out.println("El largo del código es inválido");
-            }
-        }
-        
-        sc.close();
-    }
-
-    static boolean esEAN8valido(String codigoEAN) {
-        int suma = 0;
-
-        // Recorrer los primeros 7 dígitos (sin incluir el dígito de control)
-        for (int i = 0; i < 7; i++) {
-            int digito = Character.getNumericValue(codigoEAN.charAt(i));
-            if ((i % 2) == 0) { // Posiciones impares (desde la derecha) multiplicadas por 3
-                suma += digito * 3;
-            } else { // Posiciones pares multiplicadas por 1
-                suma += digito;
-            }
-        }
-
-        // Calcular el dígito de control esperado
-        int digitoControlCalculado = (10 - (suma % 10)) % 10;
-        int digitoControlReal = Character.getNumericValue(codigoEAN.charAt(7));
-
-        return digitoControlCalculado == digitoControlReal;
-    }
-
-    // Método para validar un código EAN-13
-    static String esEAN13valido(String codigoEAN) {
-        int suma = 0;
-
-        // Recorrer los primeros 12 dígitos (sin incluir el dígito de control)
-        for (int i = 0; i < 12; i++) {
-            int digito = Character.getNumericValue(codigoEAN.charAt(i));
-            if ((i % 2) == 0) { // Posiciones impares multiplicadas por 1
-                suma += digito;
-            } else { // Posiciones pares multiplicadas por 3
-                suma += digito * 3;
-            }
-        }
-
-        // Calcular el dígito de control esperado
-        int digitoControlCalculado = (10 - (suma % 10)) % 10;
-        int digitoControlReal = Character.getNumericValue(codigoEAN.charAt(12));
-
-        if (digitoControlCalculado != digitoControlReal) {
-            return "NO";
-        }
-
-        // Obtener el país a partir de los primeros dígitos
-        String codigoPais = obtenerPais(codigoEAN);
-        return "SI " + codigoPais;
-    }
-
-    // Método para determinar el país en un código EAN-13
-    static String obtenerPais(String codigoEAN) {
-        // Tabla de países con sus códigos de prefijo
-        Map<String, String> paises = new HashMap<>();
-        paises.put("0", "EEUU");
-        paises.put("380", "Bulgaria");
-        paises.put("50", "Inglaterra");
-        paises.put("539", "Irlanda");
-        paises.put("560", "Portugal");
-        paises.put("70", "Noruega");
-        paises.put("759", "Venezuela");
-        paises.put("850", "Cuba");
-        paises.put("890", "India");
-
-        // Extraer los primeros 3, 2 o 1 dígitos para encontrar el país
-        for (int i = 3; i > 0; i--) {
-            String codigo = codigoEAN.substring(0, i);
-            if (paises.containsKey(codigo)) {
-                return paises.get(codigo);
-            }
-        }
-
-        return "Desconocido";
-    }
-}

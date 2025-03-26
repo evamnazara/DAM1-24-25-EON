@@ -1,31 +1,34 @@
 package strings;
+
 import java.util.Scanner;
 
-public class CodigoMorse {
+public class AprendiendoCodigoMorse {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        // Tabla del alfabeto en morse
         String[] morseAlfabeto = {
             ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---",
             "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-",
             "..-", "...-", ".--", "-..-", "-.--", "--.."
         };
 
+        // Procesamiento de cada línea de entrada
         while (scanner.hasNextLine()) {
-            String palabra = scanner.nextLine();
+            String palabra = scanner.nextLine().trim();
             if (palabra.isEmpty()) {
                 break;
             }
 
-            // Convertimos la palabra a código Morse siguiendo las reglas
+            // Generamos el código Morse de la palabra
             String codigoGenerado = generarCodigoMorse(palabra);
 
-            // Identificar el índice de la primera letra en el alfabeto (A-Z)
+            // Convertimos la primera letra de la palabra a su índice en el alfabeto
             char primeraLetra = Character.toUpperCase(palabra.charAt(0));
             int indice = primeraLetra - 'A';
             String codigoEsperado = morseAlfabeto[indice];
 
-            // Comparar el código generado con el esperado
+            // Comparamos el código generado con el esperado
             if (codigoGenerado.equals(codigoEsperado)) {
                 System.out.println(palabra + " OK");
             } else {
@@ -36,30 +39,31 @@ public class CodigoMorse {
         scanner.close();
     }
 
-    // Genera el código Morse según la palabra dada
+    // Genera el código Morse para una palabra dada
     public static String generarCodigoMorse(String palabra) {
-        String resultado = "";
+        String resultado = "";  // Almacenamos el resultado en un String
 
+        // Iteramos sobre cada letra de la palabra
         for (int i = 0; i < palabra.length(); i++) {
-            char letra = Character.toLowerCase(palabra.charAt(i));
+            char letra = Character.toLowerCase(palabra.charAt(i));  // Convertimos a minúscula
+
+            // Si es una vocal, asignamos el símbolo correspondiente
             if (letra == 'o') {
                 resultado += "-";  // 'o' se convierte en raya
             } else if (letra == 'a' || letra == 'e' || letra == 'i' || letra == 'u') {
-                resultado += ".";  // Otras vocales se convierten en punto
+                resultado += ".";  // Las otras vocales se convierten en punto
             }
         }
 
-        return resultado;
+        return resultado;  // Retornamos el código Morse generado
     }
 }
-
 
 
 /* 
  * CODIGO MORSE
 
 Aprendiendo el código Morse
-Tiempo máximo: 1,000 s Memoria máxima: 4096 KiB
 Todos hemos oído hablar del código o alfabeto Morse, que antiguamente servía para transmitir mensajes de telégrafo. El código consiste en la codificación de cada letra del abecedario con una sucesión de puntos y rayas que se traducen a señales auditivas cortas (puntos) o largas (rayas), siguiendo las transformaciones que se indican en la tabla.
 
 Letra	Código		Letra	Código

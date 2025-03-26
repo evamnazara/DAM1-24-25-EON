@@ -2,38 +2,42 @@ package strings;
 import java.util.Scanner;
 
 public class FiestaAburrida {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Leer el número de personas que Tinín no conoce
+        // Leemos la cantidad de personas que Tinín no conoce
+        System.out.println("Introduce el número de personas que Tinín no conoce:");
         String primeraLinea = scanner.nextLine();
-        int cantidadPersonas = convertirAEntero(primeraLinea); 
+        int cantidadPersonas = convertirAEntero(primeraLinea);
 
-        // Procesar cada presentación
+        // Procesamos cada presentación
+        System.out.println("Ahora, cada persona se presentará diciendo 'Soy [nombre]':");
         for (int i = 0; i < cantidadPersonas; i++) {
-            String linea = scanner.nextLine();  // Leer la línea con "Soy [nombre]"
-            String nombre = extraerNombre(linea);  // Extraer el nombre de la persona
-            System.out.println("Hola, " + nombre + ".");  // Imprimir saludo
+            String lineaPresentacion = scanner.nextLine();  // Leemos la presentación "Soy [nombre]"
+            String nombrePersona = extraerNombre(lineaPresentacion);  // Extraemos el nombre de la persona
+            System.out.println("Hola, " + nombrePersona + ".");  // Imprimimos el saludo
         }
 
         scanner.close();
     }
 
     // Función para convertir un número en String a entero sin usar parseInt()
-    public static int convertirAEntero(String numero) {
+    public static int convertirAEntero(String numeroComoString) {
         int resultado = 0;
-        for (int i = 0; i < numero.length(); i++) {
-            char digito = numero.charAt(i);
+        for (int i = 0; i < numeroComoString.length(); i++) {
+            char digito = numeroComoString.charAt(i);
             resultado = resultado * 10 + (digito - '0');
         }
         return resultado;
     }
 
     // Función para extraer el nombre de la frase "Soy [nombre]"
-    public static String extraerNombre(String frase) {
-        return frase.substring(4);  // "Soy " tiene 4 caracteres, extraemos desde ahí
+    public static String extraerNombre(String frasePresentacion) {
+        return frasePresentacion.substring(4);  // "Soy " tiene 4 caracteres, por lo que extraemos el nombre desde ahí
     }
 }
+
 
 
 /* ===============

@@ -1,4 +1,3 @@
-/* */
 package strings;
 
 import java.util.Scanner;
@@ -7,74 +6,78 @@ public class Anelidos {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        while (scanner.hasNextLine()) {
-            // Leer la línea de entrada
-            String linea = scanner.nextLine().trim();
-            
-            // Separar número de fases y cadena inicial de anillos
-            int espacio = encontrarEspacio(linea);
-            if (espacio == -1) {
-                break; // No hay un número de fases, fin de entrada
-            }
+        // Leer la línea de entrada
+        String linea = scanner.nextLine().trim();
 
-            // Obtener número de fases sin usar parseo
-            int fases = convertirAEntero(linea.substring(0, espacio));
-            String anillos = linea.substring(espacio + 1); // Cadena de anillos con 'C' al final
-
-            // Si la cadena de anillos es solo "C", terminar
-            if (anillos.equals("C")) {
-                break;
-            }
-
-            // Simular el crecimiento
-            for (int i = 0; i < fases; i++) {
-                anillos = crecerAnelido(anillos);
-            }
-
-            // Imprimir el resultado
-            System.out.println(anillos);
+        // Buscar el primer espacio en la línea, que separa las fases del patrón de anillos
+        int espacio = encontrarEspacio(linea);
+        if (espacio == -1) {
+            System.out.println("Entrada inválida. No se encontró el número de fases.");
+            // Terminar el programa si no hay espacio
         }
+
+        // Obtener el número de fases (entero) y la cadena de anillos
+        int numeroDeFases = convertirAEntero(linea.substring(0, espacio));
+        String cadenaDeAnillos = linea.substring(espacio + 1); // La cadena de anillos
+
+        // Si la cadena de anillos es solo "C", terminamos, ya que no tiene anillos
+        if (cadenaDeAnillos.equals("C")) {
+            System.out.println("Cadena de anillos solo contiene la cabeza.");
+             // Terminar si solo hay la cabeza 'C'
+        }
+
+        // Simular el crecimiento de los anélidos por el número de fases
+        System.out.println("Configuración inicial: " + cadenaDeAnillos);
+        for (int i = 0; i < numeroDeFases; i++) {
+            cadenaDeAnillos = simularCrecimiento(cadenaDeAnillos);
+            System.out.println("Después de la fase " + (i + 1) + ": " + cadenaDeAnillos);
+        }
+
+        // Imprimir el resultado final después de las fases de crecimiento
+        System.out.println("Resultado final después de " + numeroDeFases + " fases: " + cadenaDeAnillos);
 
         scanner.close();
     }
 
-    // Encuentra el primer espacio en la línea de entrada
+    // Método para encontrar el primer espacio en la línea de entrada
     public static int encontrarEspacio(String texto) {
         for (int i = 0; i < texto.length(); i++) {
             if (texto.charAt(i) == ' ') {
-                return i;
+                return i; // Retorna la posición del primer espacio
             }
         }
-        return -1; // No se encontró espacio
+        return -1; // Si no hay espacio, retornamos -1
     }
 
-    // Convierte un número en formato String a entero sin usar parseInt()
+    // Método para convertir una cadena de caracteres a un número entero
     public static int convertirAEntero(String numero) {
         int resultado = 0;
         for (int i = 0; i < numero.length(); i++) {
             char digito = numero.charAt(i);
-            resultado = resultado * 10 + (digito - '0'); // Convertir char a número
+            resultado = resultado * 10 + (digito - '0'); // Convertir cada caracter en un número
         }
         return resultado;
     }
 
-    // Simula una fase de crecimiento del anélido
-    public static String crecerAnelido(String anillos) {
-        String nuevaCadena = "";
+    // Método para simular una fase de crecimiento de los anélidos
+    public static String simularCrecimiento(String anillos) {
+        String nuevaCadena = ""; // Cadena vacía para guardar el resultado
 
-        // Iterar sobre la cadena original sin incluir la 'C' final
+        // Iteramos sobre cada anillo en la cadena original (excepto el 'C')
         for (int i = 0; i < anillos.length() - 1; i++) {
             char anillo = anillos.charAt(i);
             if (anillo == 'A') {
-                nuevaCadena += "NA"; // 'A' se convierte en "NA"
+                nuevaCadena += "NA"; // Si el anillo es amarillo, se convierte en "NA"
             } else if (anillo == 'N') {
-                nuevaCadena += "AN"; // 'N' se convierte en "AN"
+                nuevaCadena += "AN"; // Si el anillo es negro, se convierte en "AN"
             }
         }
 
-        return nuevaCadena + "C"; // Añadir la cabeza al final
+        // Finalmente, añadimos la cabeza 'C' al final de la cadena
+        return nuevaCadena + "C";
     }
 }
+
 
 /*
 ANELIDOS 

@@ -6,13 +6,15 @@ public class CadenasADN {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        // Procesar cada caso de prueba
         while (sc.hasNextLine()) {
             // Leer el número de cadenas de ADN
             String primeraLinea = sc.nextLine();
             int cantidadCadenas = convertirAEntero(primeraLinea);
 
+            // Caso base para terminar el programa si no hay cadenas
             if (cantidadCadenas == 0) {
-                break; // Caso base para terminar
+                break;
             }
 
             // Leer las cadenas de ADN
@@ -34,7 +36,7 @@ public class CadenasADN {
                 }
             }
 
-            // Imprimir el resultado
+            // Imprimir el resultado de coincidencias para cada cadena
             for (int i = 0; i < cantidadCadenas; i++) {
                 if (i > 0) {
                     System.out.print(" ");
@@ -52,7 +54,7 @@ public class CadenasADN {
         int resultado = 0;
         for (int i = 0; i < numero.length(); i++) {
             char digito = numero.charAt(i);
-            resultado = resultado * 10 + (digito - '0');
+            resultado = resultado * 10 + (digito - '0'); // Convertir cada caracter en un número
         }
         return resultado;
     }
@@ -61,11 +63,12 @@ public class CadenasADN {
     public static boolean esPosibleCoincidencia(String adn1, String adn2) {
         int longitud = adn1.length();
 
+        // Compara los nucleótidos de ambas cadenas
         for (int i = 0; i < longitud; i++) {
             char nucleotido1 = adn1.charAt(i);
             char nucleotido2 = adn2.charAt(i);
 
-            // Si ambos tienen nucleótido definido y son distintos, no son compatibles
+            // Si ambos nucleótidos son conocidos (no guion) y no coinciden, no son compatibles
             if (nucleotido1 != '-' && nucleotido2 != '-' && nucleotido1 != nucleotido2) {
                 return false;
             }
@@ -73,6 +76,7 @@ public class CadenasADN {
         return true;
     }
 }
+
 
 /* 
  * CADENAS ADN 
