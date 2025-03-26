@@ -111,6 +111,8 @@ Para este programa de matrices en java, revisa el enunciado, reescrible variable
 corrige algo si ves que hay un error (sin utilizar funciones complicadas como ArrayList, Map... sólo arrays simples y tipos primitivos),
 añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario: 
  
+ Para este programa de matrices en java, resuelve el problema con variables legibles. No utilices funciones como ArrayList, Map... sólo arrays simples, matrices y tipos primitivos),añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario
+
 
     MATRICES: 
 Cuadrados diabólicos y esotéricos	
