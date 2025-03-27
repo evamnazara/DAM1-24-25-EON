@@ -45,7 +45,7 @@ public class HundirLaFlota {
                         int tamano = contarBarco(tablero, visitado, i, j, n);
                         if (tamano == -1 || contadorBarcos >= numBarcos) {
                             System.out.println("NO");
-                            sc.close(); // Cerrar el scanner antes de terminar
+                            sc.close(); 
                             return;
                         }
                         barcosEncontrados[contadorBarcos++] = tamano;
@@ -74,7 +74,7 @@ public class HundirLaFlota {
             }
         }
 
-        sc.close();  // Asegurarse de cerrar el scanner correctamente.
+        sc.close();  
     }
 
     // Función para contar el tamaño de un barco y verificar si es válido
