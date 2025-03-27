@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class Trifelios {
 
     public static void main(String[] args) {
-        // Crear un scanner para leer la entrada
         Scanner sc = new Scanner(System.in);
 
         // Leer el número de casos de prueba
+        System.out.println("num casos de prueba:");
         int numCasos = sc.nextInt();
         sc.nextLine(); // Para consumir el salto de línea después del número de casos
 

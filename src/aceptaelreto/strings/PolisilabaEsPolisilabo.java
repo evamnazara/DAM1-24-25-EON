@@ -5,17 +5,17 @@ import java.util.Scanner;
 public class PolisilabaEsPolisilabo {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         // Leer el número de casos
         System.out.println("Introduce el número de casos a procesar:");
-        int casos = scanner.nextInt();
-        scanner.nextLine(); // Limpiar el buffer de entrada
+        int casos = sc.nextInt();
+        sc.nextLine(); // Limpiar el buffer de entrada
         
         // Procesar cada caso
         for (int i = 0; i < casos; i++) {
             System.out.println("Introduce la frase (X es Y):");
-            String frase = scanner.nextLine().trim();
+            String frase = sc.nextLine().trim();
 
             // Verificar si la frase es una tautología
             if (esTautologia(frase)) {
@@ -25,7 +25,7 @@ public class PolisilabaEsPolisilabo {
             }
         }
 
-        scanner.close(); // Cerrar el scanner después de usarlo
+        sc.close(); // Cerrar el scanner después de usarlo
     }
 
     // Función para verificar si la frase es una tautología

@@ -5,14 +5,14 @@ import java.util.Scanner;
 public class PrimoDeRiesgo {
     
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         
         System.out.println("Introduce el número de casos de prueba:");
-        int numCasos = Integer.parseInt(scanner.nextLine().trim());
+        int numCasos = Integer.parseInt(sc.nextLine().trim());
         
         for (int i = 0; i < numCasos; i++) {
             System.out.println("Introduce una palabra:");
-            String palabra = scanner.nextLine().trim();
+            String palabra = sc.nextLine().trim();
             
             int sumaAscii = calcularSumaAscii(palabra);
             int primoInferior = encontrarPrimoInferior(sumaAscii);
@@ -20,7 +20,7 @@ public class PrimoDeRiesgo {
             System.out.println(primoInferior);
         }
         
-        scanner.close();
+        sc.close();
     }
     
     private static int calcularSumaAscii(String palabra) {

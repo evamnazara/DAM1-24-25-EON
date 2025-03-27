@@ -6,12 +6,12 @@ public class SoldadosNumerense {
     
     // Función principal que maneja la entrada y salida
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         
         // Leemos las líneas de números romanos
         System.out.println("Introduce los números romanos:");
-        while (scanner.hasNextLine()) {
-            String romano = scanner.nextLine().trim();
+        while (sc.hasNextLine()) {
+            String romano = sc.nextLine().trim();
             
             if (romano.isEmpty()) {
                 break; // Terminamos si no hay más entradas
@@ -30,7 +30,7 @@ public class SoldadosNumerense {
             System.out.println(romanoSiguiente);
         }
         
-        scanner.close();
+        sc.close();
     }
     
     // Función que convierte un número romano a decimal

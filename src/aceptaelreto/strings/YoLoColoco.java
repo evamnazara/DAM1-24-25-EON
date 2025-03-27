@@ -5,20 +5,20 @@ import java.util.Scanner;
 public class YoLoColoco {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         
         // Leemos el número de casos de prueba
         System.out.println("Introduce el número de casos:");
-        int numeroDeCasos = scanner.nextInt();
-        scanner.nextLine(); // Limpiamos el buffer para que no interfiera con la siguiente entrada
+        int numeroDeCasos = sc.nextInt();
+        sc.nextLine(); // Limpiamos el buffer para que no interfiera con la siguiente entrada
         
         // Procesamos cada caso de prueba
         for (int i = 0; i < numeroDeCasos; i++) {
             System.out.println("Introduce las dos frases para el caso " + (i+1) + ":");
             
             // Leemos las dos frases
-            String frase1 = scanner.nextLine();
-            String frase2 = scanner.nextLine();
+            String frase1 = sc.nextLine();
+            String frase2 = sc.nextLine();
             
             // Limpiamos las frases para eliminar los espacios y signos de puntuación
             String fraseLimpiada1 = limpiarFrase(frase1);
@@ -32,7 +32,7 @@ public class YoLoColoco {
             }
         }
         
-        scanner.close(); // Cerramos el scanner
+        sc.close(); // Cerramos el scanner
     }
 
     // Función para limpiar las frases

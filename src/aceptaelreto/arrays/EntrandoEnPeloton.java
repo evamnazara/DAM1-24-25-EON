@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class EntrandoEnPeloton {
     public static void main(String[] args) {
-        Scanner entradaUsuario = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         System.out.println("Bienvenido al programa de clasificación por pelotón.");
 
         while (true) {
             // Leer la cantidad de corredores en la etapa
             System.out.println("\nIntroduce el número de corredores:");
-            int cantidadCorredores = entradaUsuario.nextInt();
+            int cantidadCorredores = sc.nextInt();
 
             // Si el número de corredores es 0, terminamos el programa
             if (cantidadCorredores == 0) {
@@ -26,7 +26,7 @@ public class EntrandoEnPeloton {
             // Leer los tiempos de los corredores
             System.out.println("Introduce los tiempos de llegada en formato HH:MM:SS:");
             for (int i = 0; i < cantidadCorredores; i++) {
-                tiemposOriginales[i] = entradaUsuario.next(); // Guardamos el tiempo en formato original
+                tiemposOriginales[i] = sc.next(); // Guardamos el tiempo en formato original
                 tiemposEnSegundos[i] = convertirASegundos(tiemposOriginales[i]); // Convertimos a segundos
             }
 
@@ -47,7 +47,7 @@ public class EntrandoEnPeloton {
             System.out.println("---"); // Separador entre casos de prueba
         }
 
-        entradaUsuario.close();
+        sc.close();
     }
 
     /**

@@ -3,7 +3,6 @@ package strings;
 public class Verdugo {
     
     public static void main(String[] args) {
-        // Casos de prueba simulados para la entrada
         String[] palabras = {
             "ahorcado",
             "jazz",

@@ -5,15 +5,15 @@ import java.util.Scanner;
 public class PalindromosOcultos {
     
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         
         System.out.println("Introduce una palabra:");
-        String palabra = scanner.nextLine().trim();
+        String palabra = sc.nextLine().trim();
         
         String resultado = generarPalindromo(palabra);
         System.out.println(resultado);
         
-        scanner.close();
+        sc.close();
     }
     
     private static String generarPalindromo(String palabra) {

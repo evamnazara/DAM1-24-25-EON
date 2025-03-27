@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class TeclasDElPiano {
 
     public static void main(String[] args) {
-        // Crear un scanner para leer la entrada
         Scanner sc = new Scanner(System.in);
 
         // Mapeo de notas a índice de teclas (0 = Do, 1 = Do#, 2 = Re, ..., 11 = Si)

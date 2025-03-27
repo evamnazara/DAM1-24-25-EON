@@ -4,20 +4,20 @@ import java.util.Scanner;
 
 public class QuintoMilenio {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         // Leer el número de casos de prueba
         System.out.print("Ingrese el número de casos de prueba: ");
-        String primeraLinea = scanner.nextLine();
+        String primeraLinea = sc.nextLine();
         int numeroCasos = convertirAEntero(primeraLinea);
 
         // Procesar cada caso de prueba
         for (int i = 0; i < numeroCasos; i++) {
             // Leer el titular y el mensaje oculto
             System.out.println("Ingrese el titular:");
-            String titular = scanner.nextLine();
+            String titular = sc.nextLine();
             System.out.println("Ingrese el mensaje oculto a buscar:");
-            String mensajeOculto = scanner.nextLine();
+            String mensajeOculto = sc.nextLine();
 
             // Convertir todo a minúsculas
             titular = convertirAMinusculas(titular);
@@ -37,7 +37,7 @@ public class QuintoMilenio {
             }
         }
 
-        scanner.close();
+        sc.close();
     }
 
     // Convierte un String numérico a entero sin usar parseInt()

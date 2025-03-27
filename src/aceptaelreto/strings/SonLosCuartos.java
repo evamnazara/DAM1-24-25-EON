@@ -5,17 +5,17 @@ import java.util.Scanner;
 public class SonLosCuartos {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         
         // Leemos el número de casos de prueba
         System.out.println("Introduce el número de casos de prueba:");
-        int numCasos = Integer.parseInt(scanner.nextLine().trim());
+        int numCasos = Integer.parseInt(sc.nextLine().trim());
         
         // Procesamos cada caso de prueba
         for (int i = 0; i < numCasos; i++) {
             // Leemos los sonidos para cada caso de prueba
             System.out.println("Introduce los sonidos de las campanadas:");
-            String sonidos = scanner.nextLine().trim();
+            String sonidos = sc.nextLine().trim();
             
             // Creamos un arreglo de sonidos, separado por espacios
             String[] sonidosArray = sonidos.split(" ");
@@ -39,7 +39,7 @@ public class SonLosCuartos {
             }
         }
         
-        scanner.close();
+        sc.close();
     }
 }
 

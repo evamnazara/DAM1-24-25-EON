@@ -28,7 +28,6 @@ public class YoSoyTu {
             }
         }
 
-        // Cerrar el scanner
         sc.close();
     }
 }

@@ -5,12 +5,13 @@ import java.util.Scanner;
 public class Potitos {
     
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc
+         = new Scanner(System.in);
         
         System.out.println("Introduce los casos de prueba (0 para finalizar):");
         
         while (true) {
-            String numeroPotitos = scanner.nextLine().trim();
+            String numeroPotitos = sc.nextLine().trim();
             
             if (numeroPotitos.equals("0")) {
                 System.out.println("Fin del programa.");
@@ -22,7 +23,7 @@ public class Potitos {
             int contadorRechazados = 0;
             
             for (int i = 0; i < cantidadPotitos; i++) {
-                String linea = scanner.nextLine().trim();
+                String linea = sc.nextLine().trim();
                 
                 if (linea.startsWith("NO:")) {
                     String[] ingredientes = obtenerIngredientes(linea);
@@ -38,7 +39,7 @@ public class Potitos {
             imprimirLista(ingredientesRechazados, contadorRechazados);
         }
         
-        scanner.close();
+        sc.close();
     }
     
     private static int obtenerNumero(String texto) {
