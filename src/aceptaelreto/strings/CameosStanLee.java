@@ -97,7 +97,7 @@ Algunas veces se camuflaba más, partiendo su nombre con letras arbitrarias, com
 Los aficionados a los superhéroes releen sus comics una y otra vez buscando todos esos cameos, pero es mucho más práctico automatizar la tarea.
 
 Entrada
-La entrada comenzará con una línea con el número de casos de prueba que hay que procesar.
+La entrada comenzará con una línea con el número de casos de prueba que hay que procesar.z
 
 Cada caso de prueba es una línea de texto de hasta 10.000 letras, incluyendo mayúsculas, minúsculas y símbolos de puntuación. Por simplicidad, no aparecerán vocales acentuadas.
 
