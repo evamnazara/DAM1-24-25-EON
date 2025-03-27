@@ -1,10 +1,90 @@
 package arrays;
 
 public class TomasIneditas {
-    
-}
 
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
+    public static void main(String[] args) {
+        // Usamos el scanner para leer la entrada
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+
+        // Solicitar al usuario que ingrese la cadena con los movimientos
+        System.out.println("Ingrese la cadena de movimientos ('I' = igual, 'S' = subir, 'B' = bajar):");
+        String movimientos = scanner.nextLine(); // Leer la cadena de movimientos
+
+        // Crear un array de caracteres para representar la gráfica
+        char[] grafica = new char[movimientos.length()];
+
+        // Variables para mantener el estado de la altura actual
+        int altura = 0; // La altura inicial es 0
+
+        // Procesamos la cadena de movimientos
+        for (int i = 0; i < movimientos.length(); i++) {
+            char movimiento = movimientos.charAt(i);
+            if (movimiento == 'S') {
+                altura++;  // Subir, aumentar la altura
+                grafica[i] = '/';  // Representar con '/'
+            } else if (movimiento == 'B') {
+                altura--;  // Bajar, disminuir la altura
+                grafica[i] = '\\';  // Representar con '\'
+            } else if (movimiento == 'I') {
+                grafica[i] = '_';  // Mantener, representado por '_'
+            }
+        }
+
+        // Encontramos la altura máxima y mínima para construir el marco de la gráfica
+        int alturaMaxima = 0;
+        int alturaMinima = 0;
+        for (int i = 0; i < movimientos.length(); i++) {
+            char movimiento = movimientos.charAt(i);
+            if (movimiento == 'S') {
+                alturaMaxima = Math.max(alturaMaxima, ++altura);
+            } else if (movimiento == 'B') {
+                alturaMinima = Math.min(alturaMinima, --altura);
+            }
+        }
+
+        // La altura total de la gráfica será desde la altura mínima hasta la máxima
+        int alturaTotal = alturaMaxima - alturaMinima + 1;
+
+        // Crear la gráfica con el marco en '#'
+        char[][] pantalla = new char[alturaTotal + 2][movimientos.length() + 2];
+
+        // Inicializar el marco exterior
+        for (int i = 0; i < pantalla.length; i++) {
+            for (int j = 0; j < pantalla[i].length; j++) {
+                if (i == 0 || i == pantalla.length - 1 || j == 0 || j == pantalla[i].length - 1) {
+                    pantalla[i][j] = '#';  // Colocar el marco
+                } else {
+                    pantalla[i][j] = ' ';  // El interior comienza vacío
+                }
+            }
+        }
+
+        // Colocar los movimientos de la gráfica dentro del marco
+        int offset = -alturaMinima;  // Ajuste para que la gráfica comience en la altura correcta
+        for (int i = 0; i < movimientos.length(); i++) {
+            // Colocar el símbolo correspondiente en la pantalla en la fila correspondiente
+            int fila = alturaMaxima - (offset + 1);  // Ajuste para la fila correcta
+            if (grafica[i] == '/') {
+                pantalla[fila][i + 1] = '/';
+            } else if (grafica[i] == '\\') {
+                pantalla[fila][i + 1] = '\\';
+            } else if (grafica[i] == '_') {
+                pantalla[fila][i + 1] = '_';
+            }
+        }
+
+        // Imprimir la pantalla con el marco
+        for (int i = 0; i < pantalla.length; i++) {
+            for (int j = 0; j < pantalla[i].length; j++) {
+                System.out.print(pantalla[i][j]);
+            }
+            System.out.println();  // Nueva línea después de cada fila
+        }
+
+        // Cerrar el scanner después de usarlo
+        scanner.close();
+    }
+}
 
 /* 
 

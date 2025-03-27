@@ -2,8 +2,78 @@ package arrays;
 
 public class DesgasteBombines {
     
+    public static void main(String[] args) {
+        // Crear un scanner para leer la entrada
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        
+        System.out.println("Bienvenido al programa de desgastes de bombines. Procesaremos varios casos de prueba.");
+        
+        // Continuar procesando hasta que se encuentre un 0
+        while (true) {
+            // Leer el número de días
+            System.out.print("Introduce el número de días del periodo (0 para terminar): ");
+            int numDias = scanner.nextInt();
+            
+            // Si el número de días es 0, terminamos
+            if (numDias == 0) {
+                System.out.println("Proceso terminado. ¡Hasta luego!");
+                break;
+            }
+            
+            // Leer los desgastes para los n días
+            int[] desgastes = new int[numDias];
+            System.out.println("Introduce los desgastes para cada uno de los días (valores positivos o negativos):");
+            for (int i = 0; i < numDias; i++) {
+                desgastes[i] = scanner.nextInt();
+            }
+            
+            // Llamar a la función para calcular el día en el que se debe llamar al cerrajero
+            calcularDiaCerrajero(desgastes, numDias);
+        }
+        
+        // Cerrar el scanner
+        scanner.close();
+    }
+
+    // Función que calcula el mejor día para llamar al cerrajero
+    public static void calcularDiaCerrajero(int[] desgastes, int numDias) {
+        // Variable para el desgaste acumulado
+        long desgasteAcumulado = 0;
+        // Variable para la suma total del desgaste (al final del periodo)
+        long desgasteTotal = 0;
+        
+        // Calcular el desgaste total (suma de todos los desgastes)
+        for (int i = 0; i < numDias; i++) {
+            desgasteTotal += desgastes[i];
+        }
+        
+        // Informar al usuario del desgaste total
+        System.out.println("El desgaste total de todos los días es: " + desgasteTotal);
+        
+        // Si el desgaste total ya es 0, no necesitamos cerrajero, se puede imprimir 0 y continuar
+        if (desgasteTotal == 0) {
+            System.out.println("¡El desgaste ya está equilibrado! No es necesario llamar al cerrajero.");
+            return;
+        }
+        
+        // Recorrer los días para encontrar el punto de equilibrio
+        for (int i = 0; i < numDias; i++) {
+            desgasteAcumulado += desgastes[i];
+            
+            // Informar el desgaste acumulado hasta el día actual
+            System.out.println("Día " + (i + 1) + ": Desgaste acumulado hasta ahora es " + desgasteAcumulado);
+            
+            // Si el desgaste acumulado es igual al desgaste total / 2, entonces encontramos el día óptimo
+            if (desgasteAcumulado * 2 == desgasteTotal) {
+                System.out.println("El cerrajero debe venir el día " + (i + 1) + " para equilibrar el desgaste.");
+                return;
+            }
+        }
+        
+        // Si no se ha encontrado un punto de equilibrio, entonces no es necesario cerrajero
+        System.out.println("No es necesario llamar al cerrajero en ningún día. El desgaste ya está equilibrado.");
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
 
 /* 
 El desgaste de los bombines

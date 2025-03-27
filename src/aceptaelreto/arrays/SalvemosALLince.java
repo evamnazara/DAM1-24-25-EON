@@ -1,13 +1,52 @@
 package arrays;
 
 public class SalvemosALLince {
-    
+
+    public static void main(String[] args) {
+        // Crear un scanner para leer la entrada
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+
+        // Leer el número de casos de prueba
+        System.out.print("Introduce el número de descripciones de carreteras: ");
+        int numCasos = scanner.nextInt();
+        scanner.nextLine(); // Limpiar el buffer
+
+        // Procesar cada caso de prueba
+        for (int i = 0; i < numCasos; i++) {
+            System.out.print("Introduce la descripción de la carretera para el caso " + (i + 1) + ": ");
+            String carretera = scanner.nextLine();
+            int tuneles = calcularTuneles(carretera);
+            System.out.println("Número mínimo de túneles necesarios: " + tuneles);
+        }
+
+        // Cerrar el scanner
+        scanner.close();
+    }
+
+    // Función para calcular el número mínimo de túneles necesarios
+    public static int calcularTuneles(String carretera) {
+        int tuneles = 0;
+        int i = 0;
+        int n = carretera.length();
+
+        // Recorrer la carretera
+        while (i < n) {
+            // Si encontramos una sección sin valla ('.')
+            if (carretera.charAt(i) == '.') {
+                tuneles++; // Colocamos un túnel en esta sección
+                i += 3; // Saltamos 3 secciones (el túnel cubre esta y las dos siguientes)
+            } else {
+                i++; // Si es una sección vallada, simplemente avanzamos
+            }
+        }
+
+        return tuneles;
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
 
 /* 
 Salvemos al lince ibérico
-Tiempo máximo: 2,000 s  Memoria máxima: 4096 KiB
+
 Una señal de tráfico que recuerda la existencia de linces en las inmediaciones
 El lince ibérico (Lynx pardinus) es un animal que habita en la península ibérica. Desgraciadamente, a día de hoy quedan muy pocos individuos (no muchos más de 300) lo que hace que sea la especie de felino más amenazada del mundo.
 

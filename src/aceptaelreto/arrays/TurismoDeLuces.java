@@ -1,9 +1,54 @@
 package arrays;
 
 public class TurismoDeLuces {
-    
+    public static void main(String[] args) {
+        // Definir el objeto scanner para leer la entrada
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+
+        // Leer múltiples casos de prueba
+        while (true) {
+            // Leer los valores de N (número de calles) y K (número de calles a visitar)
+            int numCalles = scanner.nextInt();
+            int callesAVisitar = scanner.nextInt();
+
+            // Condición de salida: si ambos son 0, se termina el programa
+            if (numCalles == 0 && callesAVisitar == 0) {
+                break;
+            }
+
+            // Leer la lista de espectacularidades de las calles
+            int[] espectacularidades = new int[numCalles];
+            for (int i = 0; i < numCalles; i++) {
+                espectacularidades[i] = scanner.nextInt();
+            }
+
+            // Variable para almacenar el máximo grado de satisfacción que podemos obtener
+            int maxSatisfaccion = -1;  // Usamos -1 para indicar que aún no se ha encontrado una satisfacción
+
+            // Evaluamos todas las posibles subsecuencias de K calles consecutivas
+            for (int i = 0; i <= numCalles - callesAVisitar; i++) {
+                int gradoSatisfaccionActual = 0;
+
+                // Calculamos la diferencia de espectacularidad entre calles consecutivas en la subsecuencia
+                for (int j = i; j < i + callesAVisitar - 1; j++) {
+                    gradoSatisfaccionActual += Math.abs(espectacularidades[j] - espectacularidades[j + 1]);
+                }
+
+                // Actualizamos el máximo grado de satisfacción si es necesario
+                if (gradoSatisfaccionActual > maxSatisfaccion) {
+                    maxSatisfaccion = gradoSatisfaccionActual;
+                }
+            }
+
+            // Imprimir el resultado de este caso de prueba
+            System.out.println(maxSatisfaccion);
+        }
+
+        // Cerrar el scanner para liberar recursos
+        scanner.close();
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
+
 
 /* 
 Turismo de luces

@@ -1,10 +1,48 @@
 package arrays;
 
-public class ColocandoBarcos {
-    
-}
+import java.util.Scanner;
 
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
+public class ColocandoBarcos {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            // Leer la cantidad de posiciones ocupadas en el tablero
+            int cantidadCeldas = scanner.nextInt();
+            
+            // Condición de terminación
+            if (cantidadCeldas == 0) break;
+            
+            // Arrays para almacenar las coordenadas de las posiciones ocupadas
+            int[] filas = new int[cantidadCeldas];
+            int[] columnas = new int[cantidadCeldas];
+            
+            // Leer las coordenadas de cada celda ocupada
+            for (int i = 0; i < cantidadCeldas; i++) {
+                filas[i] = scanner.nextInt();
+                columnas[i] = scanner.nextInt();
+            }
+            
+            // Variables para encontrar las posiciones más alejadas
+            int distanciaMaxima = 0;
+            
+            // Comparar todas las combinaciones de posiciones ocupadas
+            for (int i = 0; i < cantidadCeldas; i++) {
+                for (int j = i + 1; j < cantidadCeldas; j++) {
+                    int distancia = Math.abs(filas[i] - filas[j]) + Math.abs(columnas[i] - columnas[j]);
+                    
+                    if (distancia > distanciaMaxima) {
+                        distanciaMaxima = distancia;
+                    }
+                }
+            }
+            
+            // Imprimir la mayor distancia encontrada
+            System.out.println(distanciaMaxima);
+        }
+        scanner.close();
+    }
+}
 
 /* 
 Colocando barcos

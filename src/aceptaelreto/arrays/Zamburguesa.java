@@ -2,8 +2,54 @@ package arrays;
 
 public class Zamburguesa {
     
+    public static void main(String[] args) {
+        // Scanner para leer la entrada
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        
+        // Leer el número de casos de prueba
+        System.out.print("Introduce el número de casos de prueba: ");
+        int casosPrueba = scanner.nextInt();
+        
+        // Procesar cada caso de prueba
+        for (int i = 0; i < casosPrueba; i++) {
+            // Leer el número de posiciones (piedras + orilla)
+            System.out.print("Introduce el número de posiciones para el caso de prueba " + (i + 1) + ": ");
+            int n = scanner.nextInt();
+            
+            // Leer las posiciones
+            System.out.print("Introduce las posiciones: ");
+            int[] posiciones = new int[n];
+            for (int j = 0; j < n; j++) {
+                posiciones[j] = scanner.nextInt();
+            }
+            
+            // Llamamos a la función para calcular la capacidad mínima de salto
+            int capacidadMinima = calcularCapacidadMinima(posiciones);
+            System.out.println("La capacidad mínima de salto necesaria es: " + capacidadMinima);
+        }
+        
+        // Cerrar el scanner
+        scanner.close();
+    }
+
+    // Función para calcular la capacidad mínima de salto
+    public static int calcularCapacidadMinima(int[] posiciones) {
+        int maxDistancia = 0;
+        
+        // Recorrer las posiciones y calcular las distancias entre las posiciones consecutivas
+        for (int i = 1; i < posiciones.length; i++) {
+            // Calculamos la distancia entre la posición actual y la anterior
+            int distancia = posiciones[i] - posiciones[i - 1];
+            // Guardamos la mayor distancia encontrada
+            if (distancia > maxDistancia) {
+                maxDistancia = distancia;
+            }
+        }
+        
+        // La capacidad mínima de salto es la mayor distancia entre las piedras
+        return maxDistancia;
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. 
 
 /* 
 Saltando al otro lado

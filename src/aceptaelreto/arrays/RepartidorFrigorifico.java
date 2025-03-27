@@ -2,8 +2,62 @@ package arrays;
 
 public class RepartidorFrigorifico {
     
+    public static void main(String[] args) {
+        // Crear un scanner para leer la entrada
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+
+        System.out.println("Bienvenido al programa de Repartidor de Frigoríficos!");
+        System.out.println("Este programa encuentra la ubicación óptima para el local del repartidor.");
+
+        while (true) {
+            // Leer el número de calles verticales (C), horizontales (F) y el número de frigoríficos (N)
+            System.out.println("\nIntroduzca las dimensiones de la ciudad (C, F) y el número de frigoríficos (N):");
+            int C = scanner.nextInt();
+            int F = scanner.nextInt();
+            int N = scanner.nextInt();
+
+            // Si encontramos "0 0 0", terminamos la entrada
+            if (C == 0 && F == 0 && N == 0) {
+                System.out.println("Fin de la entrada de datos. ¡Gracias por usar el programa!");
+                break;
+            }
+
+            // Mostrar las dimensiones que el usuario introdujo
+            System.out.println("\nLa ciudad tiene " + C + " calles verticales y " + F + " calles horizontales.");
+            System.out.println("Hay " + N + " frigoríficos a repartir.");
+
+            // Crear dos arreglos para almacenar las coordenadas de los sitios de reparto
+            int[] xCoordinates = new int[N];
+            int[] yCoordinates = new int[N];
+
+            // Leer las coordenadas de los sitios de reparto
+            System.out.println("Introduzca las coordenadas (x, y) de los sitios de reparto:");
+            for (int i = 0; i < N; i++) {
+                xCoordinates[i] = scanner.nextInt();
+                yCoordinates[i] = scanner.nextInt();
+                System.out.println("Reparto " + (i + 1) + ": (" + xCoordinates[i] + ", " + yCoordinates[i] + ")");
+            }
+
+            // Ordenamos las coordenadas x y y por separado
+            System.out.println("\nOrdenando las coordenadas...");
+            java.util.Arrays.sort(xCoordinates);
+            java.util.Arrays.sort(yCoordinates);
+            System.out.println("Coordenadas x ordenadas: " + java.util.Arrays.toString(xCoordinates));
+            System.out.println("Coordenadas y ordenadas: " + java.util.Arrays.toString(yCoordinates));
+
+            // El punto óptimo se encuentra en el valor mediano de x y el mediano de y
+            int optimalX = xCoordinates[(N - 1) / 2];
+            int optimalY = yCoordinates[(N - 1) / 2];
+
+            // Imprimir la posición óptima del local
+            System.out.println("\nLa ubicación óptima para el local del repartidor es:");
+            System.out.println("Coordenada óptima: (" + optimalX + ", " + optimalY + ")");
+        }
+
+        // Cerrar el scanner
+        scanner.close();
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. 
 
 /* 
 Repartidor de frigoríficos

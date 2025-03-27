@@ -1,10 +1,56 @@
 package arrays;
 
 public class BocadillosHormiga {
-    
-}
 
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
+    public static void main(String[] args) {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+
+        while (true) {
+            // Leer el número de cortezas
+            int n = scanner.nextInt();
+            
+            // Si el número de cortezas es 0, terminamos el programa
+            if (n == 0) {
+                break;
+            }
+            
+            // Leer los tamaños de los trozos de corteza
+            int[] cortezas = new int[n];
+            int total = 0; // Suma total de todos los trozos
+            for (int i = 0; i < n; i++) {
+                cortezas[i] = scanner.nextInt();
+                total += cortezas[i]; // Acumulamos el total de todos los trozos
+            }
+            
+            // Intentamos encontrar una tapa válida
+            int respuestaPosicion = -1;
+            int sumaIzquierda = 0;
+            
+            for (int i = 0; i < n; i++) {
+                sumaIzquierda += cortezas[i]; // La suma de los trozos hasta la tapa
+                
+                if (sumaIzquierda == total - sumaIzquierda) {
+                    // Si la suma de los trozos a la izquierda es igual a los trozos a la derecha
+                    respuestaPosicion = i + 1; // Posición de la tapa (1-based index)
+                    break;
+                }
+            }
+            
+            // Si se encontró una tapa válida
+            if (respuestaPosicion != -1) {
+                System.out.println("SI " + respuestaPosicion);
+            } else {
+                System.out.println("NO");
+            }
+            
+            // Imprimir tres guiones después de cada caso de prueba
+            System.out.println("---");
+        }
+        
+        // Cerrar el scanner
+        scanner.close();
+    }
+}
 
 /* 
 Los bocadillos de la hormiga reina

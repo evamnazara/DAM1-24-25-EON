@@ -1,9 +1,96 @@
 package arrays;
 
+import java.util.Scanner;
+
 public class PanicoEnElTunel {
-    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Bienvenido al sistema de ayuda en el túnel.");
+
+        while (scanner.hasNext()) {
+            // Leer la descripción del túnel
+            System.out.println("\nIntroduce la descripción del túnel:");
+            String tunel = scanner.next();
+            long longitudTunel = tunel.length();
+
+            // Leer el número de consultas
+            System.out.println("Introduce el número de consultas:");
+            long consultas = scanner.nextLong();
+
+            // Arrays para almacenar las posiciones de los teléfonos más cercanos a la izquierda y derecha
+            long[] izquierda = new long[(int) longitudTunel];
+            long[] derecha = new long[(int) longitudTunel];
+
+            // Llenar el array de distancias a los teléfonos desde la izquierda
+            long ultimaIzquierda = -1; // No hay teléfono a la izquierda inicialmente
+            for (long i = 0; i < longitudTunel; i++) {
+                if (tunel.charAt((int) i) == 'T') {
+                    ultimaIzquierda = i;
+                }
+                izquierda[(int) i] = ultimaIzquierda;
+            }
+
+            // Llenar el array de distancias a los teléfonos desde la derecha
+            long ultimaDerecha = -1; // No hay teléfono a la derecha inicialmente
+            for (long i = longitudTunel - 1; i >= 0; i--) {
+                if (tunel.charAt((int) i) == 'T') {
+                    ultimaDerecha = i;
+                }
+                derecha[(int) i] = ultimaDerecha;
+            }
+
+            // Procesar las consultas
+            System.out.println("Introduce las posiciones de los accidentados:");
+            for (long i = 0; i < consultas; i++) {
+                long posicion = scanner.nextLong() - 1; // Convertimos a índice base 0
+
+                // Si la posición actual tiene un teléfono
+                if (tunel.charAt((int) posicion) == 'T') {
+                    System.out.println("AQUI");
+                    continue;
+                }
+
+                // Obtener distancia al teléfono más cercano por la izquierda
+                long distanciaIzquierda = (izquierda[(int) posicion] == -1) ? longitudTunel : posicion - izquierda[(int) posicion];
+                // Obtener distancia al teléfono más cercano por la derecha
+                long distanciaDerecha = (derecha[(int) posicion] == -1) ? longitudTunel : derecha[(int) posicion] - posicion;
+
+                // Obtener distancia a las salidas
+                long distanciaPenínsula = posicion; // Desde la posición hasta el inicio (índice 0)
+                long distanciaIslas = longitudTunel - 1 - posicion; // Desde la posición hasta el final
+
+                // Decidir hacia dónde correr
+                if (distanciaIzquierda == longitudTunel && distanciaDerecha == longitudTunel) {
+                    // No hay teléfonos en el túnel, ir hacia la salida más cercana
+                    if (distanciaPenínsula <= distanciaIslas) {
+                        System.out.println("PENINSULA");
+                    } else {
+                        System.out.println("ISLAS");
+                    }
+                } else if (distanciaIzquierda < distanciaDerecha) {
+                    System.out.println("PENINSULA");
+                } else if (distanciaDerecha < distanciaIzquierda) {
+                    System.out.println("ISLAS");
+                } else { // Si ambas distancias son iguales
+                    // Decidir por proximidad a la salida más cercana
+                    if (distanciaPenínsula < distanciaIslas) {
+                        System.out.println("PENINSULA");
+                    } else if (distanciaIslas < distanciaPenínsula) {
+                        System.out.println("ISLAS");
+                    } else {
+                        System.out.println("PENINSULA"); // En caso de empate total, ir a la península
+                    }
+                }
+            }
+        }
+
+        // Cerrar el scanner
+        scanner.close();
+        System.out.println("Fin del programa.");
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
+
 
 /* 
 

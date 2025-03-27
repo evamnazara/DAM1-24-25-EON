@@ -1,13 +1,79 @@
 package arrays;
 
+import java.util.Scanner;
+
 public class HaciendoCuentas {
     
+    public static void main(String[] args) {
+        Scanner entradaUsuario = new Scanner(System.in);
+
+        System.out.println("Bienvenido al programa de cuentas de Diana.");
+
+        while (true) {
+            // Leer el saldo inicial y el número de movimientos
+            System.out.println("\nIntroduce el saldo inicial y el número de movimientos:");
+            int saldoInicial = entradaUsuario.nextInt();
+            int numeroMovimientos = entradaUsuario.nextInt();
+            
+            // Si el número de movimientos es 0, terminamos el programa
+            if (numeroMovimientos == 0) {
+                System.out.println("Fin de los casos de prueba.");
+                break;
+            }
+
+            // Crear un array para almacenar los saldos de cada mes
+            int[] saldoPorMes = new int[12];
+            
+            // Inicializar los saldos con el saldo inicial
+            for (int i = 0; i < 12; i++) {
+                saldoPorMes[i] = saldoInicial;
+            }
+
+            // Leer los movimientos y actualizar el saldo
+            System.out.println("Introduce los movimientos (fecha + cantidad + concepto):");
+            entradaUsuario.nextLine();  // Limpiar el buffer de la línea anterior
+            for (int i = 0; i < numeroMovimientos; i++) {
+                // Leer cada movimiento (fecha, cantidad y concepto)
+                String movimiento = entradaUsuario.nextLine(); 
+
+                // Analizar la fecha, la cantidad y el concepto del movimiento
+                int dia = (movimiento.charAt(0) - '0') * 10 + (movimiento.charAt(1) - '0'); // Día del movimiento
+                int mes = (movimiento.charAt(3) - '0') * 10 + (movimiento.charAt(4) - '0'); // Mes del movimiento
+                int cantidad = 0;
+
+                // Revisar si es ingreso (+) o gasto (-)
+                if (movimiento.charAt(6) == '+') {
+                    cantidad = 0; // Ingreso, inicialmente el valor será positivo
+                    for (int j = 7; j < movimiento.length() && movimiento.charAt(j) != ' '; j++) {
+                        cantidad = cantidad * 10 + (movimiento.charAt(j) - '0');
+                    }
+                } else {
+                    cantidad = 0; // Gasto, inicialmente el valor será negativo
+                    for (int j = 7; j < movimiento.length() && movimiento.charAt(j) != ' '; j++) {
+                        cantidad = cantidad * 10 + (movimiento.charAt(j) - '0');
+                    }
+                    cantidad = -cantidad;  // Convertimos a negativo si es gasto
+                }
+
+                // Actualizamos el saldo en el mes correspondiente
+                saldoPorMes[mes - 1] += cantidad; // Restamos 1 porque los meses en el array son 0-indexados
+            }
+
+            // Mostrar el saldo estimado al finalizar cada mes
+            System.out.println("Saldo estimado al final de cada mes:");
+            for (int i = 0; i < 12; i++) {
+                System.out.print(saldoPorMes[i] + " ");
+            }
+            System.out.println("\n---"); // Separador entre casos de prueba
+        }
+
+        entradaUsuario.close();
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. 
+
 
 /* 
 Haciendo cuentas
-Tiempo máximo: 1,000-2,000 s  Memoria máxima: 4096 KiB
 Hucha con forma de cerdito, con monedas al lado
 Diana es una chica muy organizada y cada Navidad analiza sus cuentas para el año siguiente. Aprovechando las vacaciones escolares, dedica algunos ratos a anotar en un cuaderno los ingresos y gastos que cree que tendrá durante el año que está a punto de empezar (ir al cine, cenar un día con sus amigos, su paga mensual, el dinero que su tío le da,…).
 

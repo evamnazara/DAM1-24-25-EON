@@ -1,9 +1,81 @@
 package arrays;
 
+import java.util.Scanner;
+
 public class ProximoTrenCorto {
-    
+    public static void main(String[] args) {
+        Scanner entradaUsuario = new Scanner(System.in);
+
+        System.out.println("Bienvenido al programa para calcular la mejor parada del tren.");
+
+        while (true) {
+            // Leer la longitud del tren y el tamaño del andén como enteros
+            System.out.println("\nIntroduce la longitud del tren y el tamaño del andén (T, E):");
+            int longitudTren = entradaUsuario.nextInt();
+            int tamañoAnden = entradaUsuario.nextInt();
+
+            // Si encontramos "0 0", terminamos la entrada
+            if (longitudTren == 0 && tamañoAnden == 0) {
+                System.out.println("Fin de los casos de prueba.");
+                break;
+            }
+
+            // Crear arreglo para almacenar los pasajeros en cada posición del andén
+            int[] pasajerosEnCadaPosicion = new int[tamañoAnden];
+
+            // Leer el número de pasajeros en cada posición del andén
+            System.out.println("Introduce el número de pasajeros en cada posición del andén:");
+            for (int posicion = 0; posicion < tamañoAnden; posicion++) {
+                pasajerosEnCadaPosicion[posicion] = entradaUsuario.nextInt();
+            }
+
+            // Mostrar los pasajeros en cada posición
+            System.out.print("Pasajeros en cada posición del andén: ");
+            for (int i = 0; i < tamañoAnden; i++) {
+                System.out.print(pasajerosEnCadaPosicion[i] + " ");
+            }
+            System.out.println();
+
+            // Inicializar la menor distancia con un valor grande (1,000,000,000)
+            int menorDistanciaAcumulada = 1000000000;
+
+            // Calcular la mejor posición del tren en el andén
+            for (int posicionInicioTren = 0; posicionInicioTren <= tamañoAnden - longitudTren; posicionInicioTren++) {
+                int distanciaTotal = 0;
+
+                for (int ventanaTren = 0; ventanaTren < longitudTren; ventanaTren++) {
+                    int pasajerosEnPosicionActual = pasajerosEnCadaPosicion[posicionInicioTren + ventanaTren];
+
+                    // Calcular distancia acumulada con base en la posición central del tren
+                    int posicionCentral = posicionInicioTren + longitudTren / 2;
+                    int distanciaDesdeCentro = posicionInicioTren + ventanaTren - posicionCentral;
+                    if (distanciaDesdeCentro < 0) {
+                        distanciaDesdeCentro = -distanciaDesdeCentro;
+                    }
+
+                    // Multiplicar cantidad de pasajeros por distancia
+                    distanciaTotal += pasajerosEnPosicionActual * distanciaDesdeCentro;
+                }
+
+                // Comparar si esta distancia es menor
+                if (distanciaTotal < menorDistanciaAcumulada) {
+                    menorDistanciaAcumulada = distanciaTotal;
+                }
+
+                // Mostrar información sobre la posición evaluada
+                System.out.println("Posición inicial del tren: " + (posicionInicioTren + 1));
+                System.out.println("Distancia total para esta posición: " + distanciaTotal);
+            }
+
+            // Imprimir el resultado para el caso de prueba
+            System.out.println("\nLa menor distancia total acumulada es: " + menorDistanciaAcumulada);
+        }
+
+        // Cerrar el scanner
+        entradaUsuario.close();
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. 
+
 
 /* 
 Próximo tren corto

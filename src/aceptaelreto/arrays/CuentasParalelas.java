@@ -2,9 +2,69 @@ package arrays;
 
 public class CuentasParalelas {
     
-}
+    public static void main(String[] args) {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        
+        while (true) {
+            // Leer el número de movimientos
+            int n = scanner.nextInt();
+            
+            // Si el número de movimientos es 0, terminamos el proceso
+            if (n == 0) {
+                break;
+            }
+            
+            // Leer los movimientos de la cuenta
+            int[] movimientos = new int[n];
+            for (int i = 0; i < n; i++) {
+                movimientos[i] = scanner.nextInt();
+            }
+            
+            // Llamar a la función para calcular los puntos de singularidad
+            encontrarSingularidades(movimientos);
+        }
+        
+        // Cerrar el scanner
+        scanner.close();
+    }
 
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
+    // Función para encontrar los puntos de singularidad
+    public static void encontrarSingularidades(int[] movimientos) {
+        // Calcular la suma total de los movimientos
+        int sumaTotal = 0;
+        for (int i = 0; i < movimientos.length; i++) {
+            sumaTotal += movimientos[i];
+        }
+        
+        // Si la suma total es impar, no puede haber puntos de singularidad
+        if (sumaTotal % 2 != 0) {
+            System.out.println(0);
+            return;
+        }
+
+        // La mitad de la suma total
+        int mitadSumaTotal = sumaTotal / 2;
+
+        // Variable para el saldo acumulado
+        int saldoAcumulado = 0;
+
+        // Contador para los puntos de singularidad
+        int singularidades = 0;
+
+        // Recorrer los movimientos y verificar si en algún punto el saldo acumulado es igual a la mitad de la suma total
+        for (int i = 0; i < movimientos.length; i++) {
+            saldoAcumulado += movimientos[i];
+            
+            // Verificar si el saldo acumulado es igual a la mitad de la suma total
+            if (saldoAcumulado == mitadSumaTotal) {
+                singularidades++;
+            }
+        }
+
+        // Imprimir el número de puntos de singularidad encontrados
+        System.out.println(singularidades);
+    }
+}
 
 /* 
 Cuentas paralelas

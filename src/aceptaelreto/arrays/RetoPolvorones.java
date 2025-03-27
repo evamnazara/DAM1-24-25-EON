@@ -2,8 +2,69 @@ package arrays;
 
 public class RetoPolvorones {
     
+    public static void main(String[] args) {
+        // Crear un scanner para leer la entrada
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+
+        while (true) {
+            // Leer el límite máximo de polvorones y el número de tipos de polvorones
+            System.out.print("Introduce el límite máximo de polvorones y el número de tipos: ");
+            int limiteMaximo = scanner.nextInt();
+            int numTipos = scanner.nextInt();
+            
+            // Si los dos son cero, se termina la entrada
+            if (limiteMaximo == 0 && numTipos == 0) {
+                break;
+            }
+
+            // Leer la cantidad máxima de polvorones que puede comer Paul por tipo
+            int[] maxPorTipo = new int[numTipos];
+            System.out.print("Introduce la cantidad máxima por tipo: ");
+            for (int i = 0; i < numTipos; i++) {
+                maxPorTipo[i] = scanner.nextInt();
+            }
+
+            // Leer la cantidad de polvorones por tipo que hay en la bandeja
+            int[] cantidadBandeja = new int[numTipos];
+            System.out.print("Introduce la cantidad de polvorones por tipo en la bandeja: ");
+            for (int i = 0; i < numTipos; i++) {
+                cantidadBandeja[i] = scanner.nextInt();
+            }
+
+            // Llamar a la función que verifica si puede aceptar el reto
+            if (puedeAceptarReto(limiteMaximo, maxPorTipo, cantidadBandeja)) {
+                System.out.println("SI");
+            } else {
+                System.out.println("NO");
+            }
+        }
+
+        // Cerrar el scanner
+        scanner.close();
+    }
+
+    // Función que verifica si Paul puede aceptar el reto
+    public static boolean puedeAceptarReto(int limiteMaximo, int[] maxPorTipo, int[] cantidadBandeja) {
+        int totalPolvorones = 0;
+
+        // Recorrer todos los tipos de polvorones y comprobar las condiciones
+        for (int i = 0; i < maxPorTipo.length; i++) {
+            if (cantidadBandeja[i] > maxPorTipo[i]) {
+                // Si hay más polvorones de un tipo de los que Paul puede comer, devuelve NO
+                return false;
+            }
+            totalPolvorones += cantidadBandeja[i];
+        }
+
+        // Si el total de polvorones excede el límite máximo, devolver NO
+        if (totalPolvorones > limiteMaximo) {
+            return false;
+        }
+
+        // Si no se superan los límites, devolver SI
+        return true;
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. 
 
 /* 
 Reto de polvorones

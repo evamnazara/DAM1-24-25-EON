@@ -1,9 +1,68 @@
 package arrays;
 
 public class Conjuritis {
-    
+
+    public static void main(String[] args) {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        
+        while (true) {
+            // Leer el número de hechizos
+            int n = scanner.nextInt();
+            
+            // Si el número de hechizos es 0, terminamos el proceso
+            if (n == 0) {
+                break;
+            }
+            
+            // Leer los daños a priori de los hechizos
+            int[] hechizos = new int[n];
+            for (int i = 0; i < n; i++) {
+                hechizos[i] = scanner.nextInt();
+            }
+            
+            // Leer el daño total real
+            int dañoTotalReal = scanner.nextInt();
+            
+            // Llamar a la función para encontrar los dos hechizos que fallaron
+            encontrarConjurosFallidos(hechizos, dañoTotalReal);
+        }
+        
+        // Cerrar el scanner
+        scanner.close();
+    }
+
+    // Función para encontrar los dos hechizos que fallaron
+    public static void encontrarConjurosFallidos(int[] hechizos, int dañoTotalReal) {
+        // Calcular la suma total de los daños a priori
+        int sumaTotal = 0;
+        for (int i = 0; i < hechizos.length; i++) {
+            sumaTotal += hechizos[i];
+        }
+
+        // La diferencia entre la suma total a priori y el daño real es la suma de los dos hechizos fallidos
+        int diferencia = sumaTotal - dañoTotalReal;
+
+        // Usar dos punteros para buscar la pareja que haga esa diferencia
+        int izquierda = 0;
+        int derecha = hechizos.length - 1;
+
+        while (izquierda < derecha) {
+            int suma = hechizos[izquierda] + hechizos[derecha];
+            
+            if (suma == diferencia) {
+                // Si encontramos la pareja, la imprimimos
+                System.out.println(hechizos[izquierda] + " " + hechizos[derecha]);
+                return;
+            } else if (suma < diferencia) {
+                // Si la suma es menor, mover el puntero izquierdo hacia la derecha
+                izquierda++;
+            } else {
+                // Si la suma es mayor, mover el puntero derecho hacia la izquierda
+                derecha--;
+            }
+        }
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
 
 /* 
 Conjuritis

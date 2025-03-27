@@ -1,14 +1,127 @@
 package arrays;
 
+import java.util.Scanner;
+
 public class MadrigueraConejo {
     
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        
+        // Bucle para procesar cada caso de prueba
+        while (true) {
+            // Pedimos al usuario el número de conejos y agujeros
+            System.out.println("--------------------------------------------------------");
+            System.out.print("Introduce el número de conejos y agujeros (0 para finalizar): ");
+            int N = entrada.nextInt();
+            
+            // Si N es 0, terminamos el programa
+            if (N == 0) {
+                System.out.println("Fin del programa.");
+                break;
+            }
+            
+            // Pedimos al usuario los diámetros de los agujeros
+            System.out.print("Introduce los diámetros de los agujeros, separados por espacios: ");
+            int[] agujeros = new int[N];
+            for (int i = 0; i < N; i++) {
+                agujeros[i] = entrada.nextInt();
+            }
+            
+            // Variable para llevar la cuenta de la distancia total recorrida por todos los conejos
+            int distanciaTotal = 0;
+            
+            // Recorremos cada conejo (cada agujero por el que entra)
+            System.out.println("Procesando los movimientos de los conejos...");
+            for (int i = 0; i < N; i++) {
+                // Cada conejo entra por el agujero agujeros[i], y tiene que buscar el primer agujero más grande
+                // que se encuentra a la derecha de su entrada.
+                for (int j = i + 1; j < N; j++) {
+                    // Si encontramos un agujero más grande, el conejo puede salir por él
+                    if (agujeros[j] > agujeros[i]) {
+                        // Sumar la distancia recorrida por este conejo
+                        distanciaTotal += (j - i);
+                        System.out.println("El conejo en el agujero " + (i + 1) + " ha recorrido una distancia de " + (j - i) + " unidades.");
+                        break;  // Este conejo ya salió, así que salimos del bucle
+                    }
+                }
+            }
+            
+            // Mostrar la distancia total recorrida por todos los conejos
+            System.out.println("La distancia total recorrida por los conejos es: " + distanciaTotal);
+            System.out.println("--------------------------------------------------------");
+        }
+        
+        // Cerrar el scanner
+        entrada.close();
+    }
 }
 
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. 
+/* VERSION VALORES UNO A UNO 
+ * package arrays;
+
+import java.util.Scanner;
+
+public class MadrigueraConejo {
+    
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        
+        // Bucle para procesar cada caso de prueba
+        while (true) {
+            // Pedimos al usuario el número de conejos y agujeros
+            System.out.println("--------------------------------------------------------");
+            System.out.print("Introduce el número de conejos y agujeros (0 para finalizar): ");
+            int N = entrada.nextInt();
+            
+            // Si N es 0, terminamos el programa
+            if (N == 0) {
+                System.out.println("Fin del programa.");
+                break;
+            }
+            
+            // Inicializamos el arreglo para los diámetros de los agujeros
+            int[] agujeros = new int[N];
+            
+            // Pedimos al usuario que ingrese el diámetro de cada agujero uno por uno
+            System.out.println("Introduce los diámetros de los " + N + " agujeros uno por uno:");
+            for (int i = 0; i < N; i++) {
+                System.out.print("Diámetro del agujero " + (i + 1) + ": ");
+                agujeros[i] = entrada.nextInt();
+            }
+            
+            // Variable para llevar la cuenta de la distancia total recorrida por todos los conejos
+            int distanciaTotal = 0;
+            
+            // Recorremos cada conejo (cada agujero por el que entra)
+            System.out.println("Procesando los movimientos de los conejos...");
+            for (int i = 0; i < N; i++) {
+                // Cada conejo entra por el agujero agujeros[i], y tiene que buscar el primer agujero más grande
+                // que se encuentra a la derecha de su entrada.
+                for (int j = i + 1; j < N; j++) {
+                    // Si encontramos un agujero más grande, el conejo puede salir por él
+                    if (agujeros[j] > agujeros[i]) {
+                        // Sumar la distancia recorrida por este conejo
+                        distanciaTotal += (j - i);
+                        System.out.println("El conejo en el agujero " + (i + 1) + " ha recorrido una distancia de " + (j - i) + " unidades.");
+                        break;  // Este conejo ya salió, así que salimos del bucle
+                    }
+                }
+            }
+            
+            // Mostrar la distancia total recorrida por todos los conejos
+            System.out.println("La distancia total recorrida por los conejos es: " + distanciaTotal);
+            System.out.println("--------------------------------------------------------");
+        }
+        
+        // Cerrar el scanner
+        entrada.close();
+    }
+}
+
+ */
 
 /* 
 La madriguera del Señor Conejo
-Tiempo máximo: 1,000-3,000 s  Memoria máxima: 32768 KiB
 Dos conejos europeos juntos
 El Señor Conejo y su familia tienen una madriguera muy particular. Para poder refugiarse rápidamente cuando aparece el señor Zorro, cada conejo entra en la madriguera por un agujero distinto. Estos agujeros están situados a lo largo de una línea recta y, por supuesto, están hechos a la medida exacta de cada conejo. Tanto es así que cuando celebran una fiesta y comen más de la cuenta, los conejos no son capaces de salir por el agujero que les corresponde. En estas situaciones cada conejo tiene que buscar un agujero más grande que el suyo para poder salir, y normalmente se arma un follón considerable.
 

@@ -1,9 +1,69 @@
 package arrays;
 
+import java.util.Scanner;
+
 public class EntrandoAlCine {
     
+    public static void main(String[] args) {
+        Scanner entradaUsuario = new Scanner(System.in);
+
+        // Leer el número de casos de prueba
+        System.out.println("Bienvenido al programa de organización de cola en el cine.");
+        int casosPrueba = entradaUsuario.nextInt();
+
+        // Procesar cada caso de prueba
+        for (int i = 0; i < casosPrueba; i++) {
+            // Leer el número de vecinos esperando
+            System.out.println("\nIntroduce el número de personas en la cola:");
+            int numPersonas = entradaUsuario.nextInt();
+            
+            // Leer los números de las butacas que les corresponden
+            System.out.println("Introduce los números de las butacas:");
+            int[] butacas = new int[numPersonas];
+            for (int j = 0; j < numPersonas; j++) {
+                butacas[j] = entradaUsuario.nextInt();
+            }
+
+            // Llamar a la función que resuelve si se puede abrir la segunda puerta
+            String resultado = verificarSegundaPuerta(butacas);
+            System.out.println(resultado);
+        }
+
+        entradaUsuario.close();
+    }
+
+    /**
+     * Esta función verifica si la condición impuesta por Ramiro se cumple.
+     * La condición es que todos los vecinos con butacas impares deben estar al final de la cola.
+     * Si se cumple, retorna "SI" seguido del número de personas que se quedarán en la puerta.
+     * Si no se cumple, retorna "NO".
+     *
+     * @param butacas Arreglo con los números de las butacas que tienen los vecinos.
+     * @return Un string con la respuesta: "SI n" o "NO".
+     */
+    public static String verificarSegundaPuerta(int[] butacas) {
+        int totalPersonas = butacas.length;
+        int cantidadImpares = 0;
+
+        // Contar cuántos números impares hay en la fila y verificar si están al final
+        for (int i = 0; i < totalPersonas; i++) {
+            if (butacas[i] % 2 != 0) {  // Si la butaca es impar
+                cantidadImpares++;
+            } else {
+                // Si encontramos una butaca par antes de que termine la fila de impares
+                for (int j = i + 1; j < totalPersonas; j++) {
+                    if (butacas[j] % 2 != 0) {
+                        // Si encontramos una butaca impar después de una butaca par
+                        return "NO";
+                    }
+                }
+            }
+        }
+
+        // Si no se encontró ninguna infracción, se puede abrir la segunda puerta
+        return "SI " + cantidadImpares;
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
 
 /* 
 Entrando al cine

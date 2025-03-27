@@ -2,9 +2,80 @@ package arrays;
 
 public class RestaurandoPeliculas {
     
-}
+    public static void main(String[] args) {
+        // Crear un scanner para leer la entrada
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
 
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. 
+        while (true) {
+            // Leer el número total de fotogramas y la cantidad de copias disponibles
+            int totalFotogramas = scanner.nextInt();
+            int numCopias = scanner.nextInt();
+
+            // Si encontramos un caso con 0 0, terminamos la entrada
+            if (totalFotogramas == 0 && numCopias == 0) {
+                break;
+            }
+
+            // Arreglo para almacenar todos los intervalos de fotogramas
+            int[][] secuencias = new int[100000][2];
+            int secuenciasIndex = 0;
+
+            // Leer las secuencias de fotogramas de cada copia
+            for (int i = 0; i < numCopias; i++) {
+                int numSecuencias = scanner.nextInt();
+                for (int j = 0; j < numSecuencias; j++) {
+                    // Leer el intervalo de fotogramas (inicial, final) sin parseo
+                    int inicio = scanner.nextInt();
+                    int fin = scanner.nextInt();
+
+                    // Guardamos la secuencia en el arreglo
+                    secuencias[secuenciasIndex][0] = inicio;
+                    secuencias[secuenciasIndex][1] = fin;
+                    secuenciasIndex++;
+                }
+            }
+
+            // Llamar a la función que verifica si podemos reconstruir la película completa
+            if (puedeReconstituirPelícula(totalFotogramas, secuencias, secuenciasIndex)) {
+                System.out.println("SI");
+            } else {
+                System.out.println("NO");
+            }
+        }
+
+        // Cerrar el scanner
+        scanner.close();
+    }
+
+    // Función que verifica si podemos reconstruir la película completa
+    public static boolean puedeReconstituirPelícula(int totalFotogramas, int[][] secuencias, int numSecuencias) {
+        // Ordenamos las secuencias por el fotograma de inicio
+        java.util.Arrays.sort(secuencias, 0, numSecuencias, (a, b) -> Integer.compare(a[0], b[0]));
+
+        // Verificamos si cubrimos todos los fotogramas desde 1 hasta totalFotogramas
+        int ultimoCubierto = 0;  // Último fotograma cubierto
+        for (int i = 0; i < numSecuencias; i++) {
+            int inicio = secuencias[i][0];
+            int fin = secuencias[i][1];
+
+            // Si el intervalo comienza después del fotograma que tenemos cubierto, hay un hueco
+            if (inicio > ultimoCubierto + 1) {
+                return false;
+            }
+
+            // Actualizamos el último fotograma cubierto
+            ultimoCubierto = Math.max(ultimoCubierto, fin);
+
+            // Si ya hemos cubierto todos los fotogramas, podemos terminar
+            if (ultimoCubierto >= totalFotogramas) {
+                return true;
+            }
+        }
+
+        // Si no hemos cubierto todos los fotogramas, devolvemos NO
+        return false;
+    }
+}
 
 /* 
 Restaurando películas

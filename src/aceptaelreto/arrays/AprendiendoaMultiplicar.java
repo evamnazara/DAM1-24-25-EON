@@ -1,9 +1,80 @@
 package arrays;
 
 public class AprendiendoaMultiplicar {
-    
+
+    public static void main(String[] args) {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        
+        // Leer la cantidad de secuencias
+        int t = scanner.nextInt();
+
+        // Procesar cada secuencia
+        for (int i = 0; i < t; i++) {
+            int n = scanner.nextInt();  // Longitud de la secuencia
+            int[] secuencia = new int[n];
+            
+            // Leer la secuencia de números
+            for (int j = 0; j < n; j++) {
+                secuencia[j] = scanner.nextInt();
+            }
+
+            // Llamar a la función que procesa la secuencia
+            procesarSecuencia(secuencia);
+        }
+        
+        // Cerrar el scanner
+        scanner.close();
+    }
+
+    // Función que procesa la secuencia para encontrar el segmento más grande
+    public static void procesarSecuencia(int[] secuencia) {
+        int maxProducto = 0;
+        int mejorInicio = -1;
+        int mejorFin = -1;
+        int maxLongitud = 0;
+
+        int inicio = 0;
+        int productoActual = 1;
+
+        for (int i = 0; i < secuencia.length; i++) {
+            if (secuencia[i] == 0) {
+                // Si encontramos un cero, se termina el segmento actual
+                if (productoActual != 1) {
+                    // Comprobar si el segmento actual tiene un producto mayor
+                    if (productoActual > maxProducto || (productoActual == maxProducto && (i - inicio > maxLongitud))) {
+                        maxProducto = productoActual;
+                        mejorInicio = inicio;
+                        mejorFin = i - 1;
+                        maxLongitud = i - inicio;
+                    }
+                }
+                // Reiniciar el segmento para el siguiente bloque
+                productoActual = 1;
+                inicio = i + 1;
+            } else {
+                // Multiplicar el número actual
+                productoActual *= secuencia[i];
+            }
+        }
+
+        // Comprobar al final si el último segmento fue el mejor
+        if (productoActual != 1) {
+            if (productoActual > maxProducto || (productoActual == maxProducto && (secuencia.length - inicio > maxLongitud))) {
+                maxProducto = productoActual;
+                mejorInicio = inicio;
+                mejorFin = secuencia.length - 1;
+                maxLongitud = secuencia.length - inicio;
+            }
+        }
+
+        // Imprimir el resultado
+        if (maxProducto == 0) {
+            System.out.println("SIGUE BUSCANDO");
+        } else {
+            System.out.println(maxLongitud + " -> [" + mejorInicio + "," + mejorFin + "]");
+        }
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
 
 /* 
 Aprendiendo a multiplicar

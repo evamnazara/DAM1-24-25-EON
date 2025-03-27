@@ -1,14 +1,51 @@
 package arrays;
 
+import java.util.Scanner;
+
 public class LoteriaAtletica {
     
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        
+        // Pedir el número de casos de prueba
+        System.out.print("Introduce el número de casos de prueba: ");
+        int t = entrada.nextInt();
+        
+        // Procesar cada caso de prueba
+        for (int i = 0; i < t; i++) {
+            System.out.println("\nProcesando el caso de prueba #" + (i + 1));
+            
+            // Leer el número de décimos disponibles en esta administración
+            System.out.print("Introduce el número de décimos disponibles: ");
+            int n = entrada.nextInt();
+            
+            // Leer los décimos en un array
+            System.out.println("Introduce los números de los décimos:");
+            int[] decimos = new int[n];
+            for (int j = 0; j < n; j++) {
+                decimos[j] = entrada.nextInt();
+            }
+            
+            // Contar cuántos números son pares
+            int countPares = 0;
+            for (int j = 0; j < n; j++) {
+                if (decimos[j] % 2 == 0) {
+                    countPares++;
+                }
+            }
+            
+            // Mostrar el resultado para este caso
+            System.out.println("La peña atlética puede comprar " + countPares + " décimos.");
+        }
+        
+        // Cerrar el scanner
+        entrada.close();
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
 
 /* 
 
 La lotería de la peña Atlética
-Tiempo máximo: 1,000-3,000 s  Memoria máxima: 8192 KiB
 El Atlético de Madrid es un conocido equipo de fútbol español, muy famoso por su incondicional afición que llega a autodenominarse la mejor del mundo pues, dicen, no decae ni siquiera cuando el rendimiento del equipo es bajo.
 
 La historia del Atlético de Madrid en Europa es curiosa: todas sus finales han sido en años pares. En los años 1974 y 2014 llegaron a la final de la UEFA Champion League (eso sí, en ninguna de las dos ocasiones pudieron ganarla), mientras que a la final de la UEFA Europa League llegaron (y ganaron) en 2010 y 2012.

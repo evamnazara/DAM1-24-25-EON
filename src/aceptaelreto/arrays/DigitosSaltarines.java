@@ -2,8 +2,67 @@ package arrays;
 
 public class DigitosSaltarines {
     
+    public static void main(String[] args) {
+        // Scanner para leer la entrada
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        
+        // Leer el número de casos de prueba
+        System.out.print("Introduce la cantidad de casos de prueba: ");
+        int n = scanner.nextInt();
+        
+        // Procesar cada caso de prueba
+        for (int i = 0; i < n; i++) {
+            // Leer el número como una cadena de caracteres
+            System.out.print("Introduce el número para el caso de prueba " + (i + 1) + ": ");
+            String numero = scanner.next();
+            
+            // Llamamos a la función para verificar si el número tiene dígitos saltarines
+            if (esSaltarines(numero)) {
+                System.out.println("SALTARINES");
+            } else {
+                System.out.println("NORMALES");
+            }
+        }
+        
+        // Cerrar el scanner
+        scanner.close();
+    }
+
+    // Función para verificar si un número tiene dígitos saltarines
+    public static boolean esSaltarines(String numero) {
+        // Convertimos el número a un arreglo de dígitos
+        int[] digitos = new int[numero.length()];
+        
+        // Llenar el arreglo de dígitos con los valores numéricos de la cadena
+        for (int i = 0; i < numero.length(); i++) {
+            digitos[i] = Character.getNumericValue(numero.charAt(i));
+        }
+        
+        // Creamos un arreglo para marcar los dígitos que hemos visitado
+        boolean[] visitado = new boolean[numero.length()];
+        
+        // Empezamos en el primer dígito
+        int indice = 0;
+        
+        // Hacemos el recorrido
+        for (int pasos = 0; pasos < numero.length(); pasos++) {
+            // Si ya hemos visitado este índice, el número no es saltarín
+            if (visitado[indice]) {
+                return false;
+            }
+            
+            // Marcamos este dígito como visitado
+            visitado[indice] = true;
+            
+            // Saltamos tantas posiciones como indique el valor del dígito
+            indice = (indice + digitos[indice]) % numero.length();
+        }
+        
+        // Si hemos visitado todos los dígitos y volvemos al principio, es saltarín
+        return indice == 0;
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. 
+
 
 /* 
 Dígitos saltarines

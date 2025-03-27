@@ -2,8 +2,68 @@ package arrays;
 
 public class BuscandoElNivel {
     
+    public static void main(String[] args) {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        
+        while (true) {
+            // Leemos el número de niveles
+            int n = scanner.nextInt();
+            
+            // Si el número de niveles es 0, terminamos el programa
+            if (n == 0) {
+                break;
+            }
+            
+            // Leemos los tamaños de los niveles en la cinta
+            int[] niveles = new int[n];
+            for (int i = 0; i < n; i++) {
+                niveles[i] = scanner.nextInt();
+            }
+            
+            // Leemos el número de consultas
+            int q = scanner.nextInt();
+            
+            // Procesamos cada consulta
+            for (int i = 0; i < q; i++) {
+                int a = scanner.nextInt(); // Último nivel cargado
+                int b = scanner.nextInt(); // Siguiente nivel a cargar
+                
+                // Calculamos el desplazamiento, recordando que los niveles están indexados desde 1
+                int desplazamiento = sum(niveles, a, b);
+                
+                // Mostramos el resultado para esta consulta
+                System.out.println(desplazamiento);
+            }
+            
+            // Imprimimos los tres guiones al final de cada caso
+            System.out.println("---");
+        }
+        
+        // Cerramos el scanner
+        scanner.close();
+    }
+    
+    // Función para calcular el desplazamiento entre los niveles
+    public static int sum(int[] niveles, int a, int b) {
+        // El nivel `a` y el nivel `b` están indexados desde 1, pero los arreglos en Java son desde 0
+        int desplazamiento = 0;
+        
+        // Sumamos los tamaños de los niveles entre `a` y `b`
+        if (a < b) {
+            // Avanzamos hacia adelante
+            for (int i = a; i < b; i++) {
+                desplazamiento += niveles[i];
+            }
+        } else {
+            // Retrocedemos hacia atrás
+            for (int i = a - 2; i >= b - 1; i--) {
+                desplazamiento -= niveles[i];
+            }
+        }
+        
+        return desplazamiento;
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. 
 
 /* 
 Buscando el nivel

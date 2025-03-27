@@ -1,14 +1,113 @@
 package arrays;
 
+import java.util.Scanner;
+
 public class LuchaDeEgos {
     
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+
+        // Continuar procesando casos de prueba hasta que se ingrese un 0
+        System.out.println("Bienvenido al sistema de emparejamiento de superhéroes. Procesando casos de prueba...");
+
+        while (true) {
+            // Leer el número de superhéroes
+            System.out.print("\nIntroduce el número de superhéroes: ");
+            int n = entrada.nextInt();
+
+            // Si n es 0, terminar el programa
+            if (n == 0) {
+                System.out.println("Fin del programa. ¡Gracias por usar el sistema de emparejamiento!");
+                break;
+            }
+
+            // Leer las destrezas de los superhéroes
+            System.out.println("Introduce las destrezas de los superhéroes (valores entre 1 y 5):");
+            int[] destrezas = new int[n];
+            for (int i = 0; i < n; i++) {
+                destrezas[i] = entrada.nextInt();
+            }
+
+            // Leer las preferencias de los superhéroes
+            entrada.nextLine();  // Limpiar el buffer
+            System.out.println("Introduce las preferencias de los superhéroes (en formato <N, =N, >N):");
+            String[] preferencias = new String[n];
+            for (int i = 0; i < n; i++) {
+                preferencias[i] = entrada.nextLine();
+            }
+
+            // Array para marcar si un superhéroe ya ha sido emparejado
+            boolean[] emparejado = new boolean[n];
+            boolean algunaPelea = false;
+
+            System.out.println("\nIniciando el proceso de emparejamiento de superhéroes...");
+
+            // Procesar las peleas
+            for (int i = 0; i < n; i++) {
+                // Si el superhéroe ya está emparejado, continuar
+                if (emparejado[i]) continue;
+
+                boolean peleaEncontrada = false;
+
+                // Buscar un oponente
+                for (int j = i + 1; j < n; j++) {
+                    // Si el oponente ya está emparejado, continuar
+                    if (emparejado[j]) continue;
+
+                    // Verificar si las preferencias de ambos superhéroes se cumplen
+                    if (puedenPelea(destrezas[i], preferencias[i], destrezas[j]) && 
+                        puedenPelea(destrezas[j], preferencias[j], destrezas[i])) {
+                        
+                        // Registrar la pelea
+                        emparejado[i] = true;
+                        emparejado[j] = true;
+                        System.out.println("¡Pelea emparejada! Superhéroe " + (i + 1) + " luchará contra el superhéroe " + (j + 1));
+                        algunaPelea = true;
+                        peleaEncontrada = true;
+                        break;  // Salir del ciclo interno
+                    }
+                }
+
+                // Si no se encontró pelea, el superhéroe sigue buscando
+                if (!peleaEncontrada) {
+                    continue;
+                }
+            }
+
+            // Si no hubo peleas, imprimir "NO HAY"
+            if (!algunaPelea) {
+                System.out.println("NO HAY emparejamientos posibles.");
+            }
+
+            // Imprimir el separador "---"
+            System.out.println("---");
+        }
+
+        // Cerrar el scanner
+        entrada.close();
+    }
+
+    // Función que determina si dos superhéroes pueden pelear basándose en su destreza y preferencia
+    public static boolean puedenPelea(int destreza1, String preferencia, int destreza2) {
+        if (preferencia.charAt(0) == '=') {
+            // Quiere oponentes con la misma destreza
+            return destreza1 == destreza2;
+        } else if (preferencia.charAt(0) == '>') {
+            // Quiere oponentes con destreza mayor
+            int nivel = preferencia.charAt(1) - '0';  // Convertir el número a int
+            return destreza2 > nivel;
+        } else if (preferencia.charAt(0) == '<') {
+            // Quiere oponentes con destreza menor
+            int nivel = preferencia.charAt(1) - '0';  // Convertir el número a int
+            return destreza2 < nivel;
+        }
+        return false;
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
 
 /* 
 
 Lucha de egos
-Tiempo máximo: 1,000-2,000 s  Memoria máxima: 4096 KiB
 Reunión de multitud de superhéroes creados por Stan Lee
 Se veía venir. La fila de superhéroes entrando en el despacho de Stan Lee a quejarse se divisaba desde Asgard. Y es que todos querían ser más poderosos que sus compañeros de trabajo. Que si Luke Cage decía que era más fuerte que Hulk, que si Iron Man quería ser más seductor que Daredevil, que si Jessica Jones quería ser más impertinente que la Viuda negra…
 

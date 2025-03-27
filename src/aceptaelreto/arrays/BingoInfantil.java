@@ -1,10 +1,60 @@
 package arrays;
 
 public class BingoInfantil {
-    
-}
 
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
+    public static void main(String[] args) {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+
+        while (true) {
+            // Leer el número de bolas que quedan en el bombo
+            int n = scanner.nextInt();
+            
+            // Si n es 0, terminamos el programa
+            if (n == 0) {
+                break;
+            }
+            
+            // Leer los números de las bolas
+            int[] bolas = new int[n];
+            for (int i = 0; i < n; i++) {
+                bolas[i] = scanner.nextInt();
+            }
+            
+            // Usamos un conjunto para almacenar las diferencias únicas
+            boolean[] posiblesNumeros = new boolean[2001]; // Para almacenar números del 1 al 2000
+            
+            // Generamos todas las posibles restas entre los números
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (i != j) {
+                        int resta = Math.abs(bolas[i] - bolas[j]);
+                        if (resta > 0) {
+                            posiblesNumeros[resta] = true;
+                        }
+                    }
+                }
+            }
+
+            // Imprimir los números posibles en orden ascendente
+            boolean first = true; // Para controlar el espacio entre números
+            for (int i = 1; i <= 2000; i++) {
+                if (posiblesNumeros[i]) {
+                    if (!first) {
+                        System.out.print(" "); // Separador de espacios
+                    }
+                    System.out.print(i);
+                    first = false;
+                }
+            }
+            
+            // Nueva línea después de cada caso de prueba
+            System.out.println();
+        }
+        
+        // Cerrar el scanner
+        scanner.close();
+    }
+}
 
 /* 
 Bingo infantil

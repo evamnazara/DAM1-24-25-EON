@@ -1,9 +1,103 @@
 package arrays;
 
 public class YongueStreet {
-    
+
+    public static void main(String[] args) {
+        // Usamos el scanner para leer la entrada de datos
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+
+        // Leer la primera línea (estado inicial de la calle)
+        System.out.println("Ingrese el estado de Yonge Street (ejemplo: A.|.B): ");
+        String calle = scanner.nextLine(); // Leer la situación de Yonge Street
+
+        // Leer la segunda línea (las consultas)
+        System.out.println("Ingrese el número de consultas seguido de las posiciones (ejemplo: 5 1 2 3 4 5): ");
+        String consultaLine = scanner.nextLine();
+        String[] consulta = consultaLine.split(" "); // Separar la línea de consultas
+
+        // Obtener el número de consultas (en este caso no se hace parseo explícito)
+        String numeroDeConsultasStr = consulta[0]; // El primer valor es el número de consultas
+        int numeroDeConsultas = 0;
+        
+        // Convertir el string del número de consultas a un entero de forma manual
+        for (int i = 0; i < numeroDeConsultasStr.length(); i++) {
+            numeroDeConsultas = numeroDeConsultas * 10 + (numeroDeConsultasStr.charAt(i) - '0');
+        }
+
+        // Crear un array para almacenar las posiciones de las consultas
+        int[] posicionesConsultadas = new int[numeroDeConsultas];
+        for (int i = 0; i < numeroDeConsultas; i++) {
+            String consultaPosStr = consulta[i + 1];  // Tomamos cada posición como string
+            int posicion = 0;
+            
+            // Convertir manualmente la posición a entero
+            for (int j = 0; j < consultaPosStr.length(); j++) {
+                posicion = posicion * 10 + (consultaPosStr.charAt(j) - '0');
+            }
+
+            // Almacenamos la posición ajustada a índice de array (base 0)
+            posicionesConsultadas[i] = posicion - 1;  
+        }
+
+        // Convertimos la calle a un array de caracteres para poder modificarla
+        char[] calleArray = new char[calle.length()];
+        for (int i = 0; i < calle.length(); i++) {
+            calleArray[i] = calle.charAt(i);  // Copiamos cada carácter de la calle
+        }
+
+        // Imprimir el estado inicial de la calle
+        System.out.println("Estado inicial de Yonge Street: ");
+        System.out.println(calle);
+
+        // Procesar los vehículos
+        for (int i = 0; i < calleArray.length; i++) {
+            // Si encontramos un vehículo, lo movemos hacia el semáforo más cercano
+            if (Character.isLetter(calleArray[i])) {
+                // Buscamos el semáforo más cercano hacia la derecha
+                int semaforoPos = -1;
+                for (int j = i + 1; j < calleArray.length; j++) {
+                    if (calleArray[j] == '|') {
+                        semaforoPos = j;
+                        break;
+                    }
+                }
+
+                // Si encontramos un semáforo, el vehículo se coloca delante de él
+                if (semaforoPos != -1) {
+                    for (int k = semaforoPos - 1; k >= i; k--) {
+                        // Si hay una posición libre, colocamos el vehículo allí
+                        if (calleArray[k] == '.') {
+                            calleArray[k] = calleArray[i];
+                            calleArray[i] = '.';  // El vehículo deja su posición original
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Imprimir el estado final de la calle
+        System.out.println("Estado final de Yonge Street después de que los vehículos se detengan: ");
+        StringBuilder resultado = new StringBuilder();
+        for (int i = 0; i < calleArray.length; i++) {
+            resultado.append(calleArray[i]);
+        }
+        System.out.println(resultado.toString());
+
+        // Para cada consulta, imprimimos el contenido de la posición indicada
+        System.out.println("Resultados para las consultas:");
+
+        for (int i = 0; i < numeroDeConsultas; i++) {
+            // Para cada posición consultada, mostrar lo que hay en esa posición
+            int posicion = posicionesConsultadas[i];
+            char contenido = calleArray[posicion];
+            System.out.print(contenido + " ");  // Mostrar la respuesta de la consulta
+        }
+
+        // Cerrar el scanner después de usarlo
+        scanner.close();
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. 
 
 /* 
 

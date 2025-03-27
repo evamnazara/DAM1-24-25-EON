@@ -1,10 +1,52 @@
 package arrays;
 
-public class LaMejorTerminacion {
-    
-}
+import java.util.Scanner;
 
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
+public class LaMejorTerminacion {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            // Leer el número de sorteos anteriores
+            int n = scanner.nextInt();
+            if (n == 0) break; // Si es 0, terminamos
+
+            // Array para contar las apariciones de cada terminación (0-9)
+            int[] contadorTerminaciones = new int[10];
+            
+            // Leer los números premiados
+            for (int i = 0; i < n; i++) {
+                int numeroPremiado = scanner.nextInt();
+                int ultimaCifra = numeroPremiado % 10; // Obtener la última cifra
+                contadorTerminaciones[ultimaCifra]++;
+            }
+
+            // Encontrar la terminación más repetida
+            int maxFrecuencia = 0;
+            int terminacionMasFrecuente = -1;
+            boolean varias = false;
+
+            for (int i = 0; i < 10; i++) {
+                if (contadorTerminaciones[i] > maxFrecuencia) {
+                    maxFrecuencia = contadorTerminaciones[i];
+                    terminacionMasFrecuente = i;
+                    varias = false;
+                } else if (contadorTerminaciones[i] == maxFrecuencia && maxFrecuencia > 0) {
+                    varias = true;
+                }
+            }
+
+            // Imprimir el resultado
+            if (varias) {
+                System.out.println("VARIAS");
+            } else {
+                System.out.println(terminacionMasFrecuente);
+            }
+        }
+
+        scanner.close();
+    }
+}
 
 /* 
 La mejor terminación

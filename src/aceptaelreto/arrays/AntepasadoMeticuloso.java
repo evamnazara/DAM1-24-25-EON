@@ -1,9 +1,65 @@
 package arrays;
 
+import java.util.Scanner;
+
 public class AntepasadoMeticuloso {
-    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Leer la cantidad de casos de prueba
+        int casos = scanner.nextInt();
+        
+        for (int i = 0; i < casos; i++) {
+            // Leer L (máximo número de caracteres por línea) y N (cantidad de palabras)
+            int maxLargo = scanner.nextInt();
+            int numPalabras = scanner.nextInt();
+            
+            // Array para almacenar las longitudes de las palabras
+            int[] palabras = new int[numPalabras];
+            int totalCaracteres = 0;
+            
+            // Leer las longitudes de las palabras y calcular el total de caracteres
+            for (int j = 0; j < numPalabras; j++) {
+                palabras[j] = scanner.nextInt();
+                totalCaracteres += palabras[j];
+            }
+            
+            // Determinar la mayor longitud de línea posible
+            int mejorLongitud = -1;
+            
+            for (int longitud = maxLargo; longitud >= 1; longitud--) {
+                int suma = 0;
+                int lineas = 1;
+                
+                for (int j = 0; j < numPalabras; j++) {
+                    if (suma == 0) {
+                        suma = palabras[j];
+                    } else if (suma + palabras[j] + 1 <= longitud) {
+                        suma += palabras[j] + 1; // Agregar palabra con su espacio
+                    } else {
+                        lineas++;
+                        suma = palabras[j];
+                    }
+                }
+                
+                // Verificar si es posible usar esta longitud
+                if (suma <= longitud) {
+                    mejorLongitud = longitud;
+                    break;
+                }
+            }
+            
+            // Imprimir el resultado
+            if (mejorLongitud == -1) {
+                System.out.println("IMPOSIBLE");
+            } else {
+                System.out.println(mejorLongitud);
+            }
+        }
+        
+        scanner.close();
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. 
 
 /* 
 El antepasado meticuloso

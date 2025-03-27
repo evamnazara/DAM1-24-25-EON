@@ -1,10 +1,50 @@
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
-
 package arrays;
 
 public class SietePicos {
-    
+    public static void main(String[] args) {
+        // Usamos el scanner para leer la entrada de datos
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+
+        // Leemos múltiples casos de prueba
+        while (true) {
+            // Leer el número de puntos en el recorrido
+            int numAlturas = scanner.nextInt();
+
+            // Si el número de alturas es 0, terminamos el programa
+            if (numAlturas == 0) {
+                break;
+            }
+
+            // Leer las alturas de la montaña rusa
+            int[] alturas = new int[numAlturas];
+            for (int i = 0; i < numAlturas; i++) {
+                alturas[i] = scanner.nextInt();
+            }
+
+            // Variable para contar los picos
+            int cantidadPicos = 0;
+
+            // Recorremos cada punto de la montaña rusa
+            for (int i = 0; i < numAlturas; i++) {
+                // Indices anteriores y posteriores
+                int anterior = (i - 1 + numAlturas) % numAlturas; // Circular: si es el primer elemento, anterior es el último
+                int siguiente = (i + 1) % numAlturas; // Circular: si es el último elemento, siguiente es el primero
+
+                // Si la altura actual es mayor que la anterior y la siguiente, es un pico
+                if (alturas[i] > alturas[anterior] && alturas[i] > alturas[siguiente]) {
+                    cantidadPicos++;
+                }
+            }
+
+            // Imprimir el número de picos encontrados en este caso de prueba
+            System.out.println(cantidadPicos);
+        }
+
+        // Cerrar el scanner después de usarlo
+        scanner.close();
+    }
 }
+
 
 /*Siete picos
 Tiempo máximo: 1,000 s  Memoria máxima: 4096 KiB

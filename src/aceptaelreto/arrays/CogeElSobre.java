@@ -1,10 +1,63 @@
 package arrays;
 
-public class CogeElSobre {
-    
-}
+import java.util.Scanner;
 
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
+public class CogeElSobre {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            // Leer el número total de sobres y la cantidad de sobres a seleccionar
+            int totalSobres = scanner.nextInt();
+            int sobresASeleccionar = scanner.nextInt();
+            
+            // Condición de terminación
+            if (totalSobres == 0 && sobresASeleccionar == 0) break;
+            
+            // Array para almacenar las cantidades de dinero en los sobres
+            int[] valoresSobres = new int[totalSobres];
+            
+            // Leer los valores de los sobres
+            for (int i = 0; i < totalSobres; i++) {
+                valoresSobres[i] = scanner.nextInt();
+            }
+            
+            // Array para almacenar los valores máximos de cada conjunto de sobres seleccionados
+            int[] maximosPorGrupo = new int[totalSobres - sobresASeleccionar + 1];
+            
+            // Inicializar el máximo de la primera ventana de sobres seleccionados
+            int maximoActual = valoresSobres[0];
+            for (int i = 1; i < sobresASeleccionar; i++) {
+                if (valoresSobres[i] > maximoActual) {
+                    maximoActual = valoresSobres[i];
+                }
+            }
+            maximosPorGrupo[0] = maximoActual;
+            
+            // Deslizar la ventana sobre los sobres para encontrar los máximos en cada grupo
+            for (int inicio = 1; inicio <= totalSobres - sobresASeleccionar; inicio++) {
+                // Si el máximo anterior sigue en la nueva ventana, solo comparar el nuevo elemento
+                if (valoresSobres[inicio + sobresASeleccionar - 1] > maximoActual) {
+                    maximoActual = valoresSobres[inicio + sobresASeleccionar - 1];
+                } else if (valoresSobres[inicio - 1] == maximoActual) { // Si el máximo anterior se sale, recalcular
+                    maximoActual = valoresSobres[inicio];
+                    for (int j = inicio; j < inicio + sobresASeleccionar; j++) {
+                        if (valoresSobres[j] > maximoActual) {
+                            maximoActual = valoresSobres[j];
+                        }
+                    }
+                }
+                maximosPorGrupo[inicio] = maximoActual;
+            }
+            
+            // Imprimir los valores máximos por cada conjunto de sobres seleccionados
+            for (int i = 0; i < maximosPorGrupo.length; i++) {
+                System.out.print(maximosPorGrupo[i] + (i < maximosPorGrupo.length - 1 ? " " : "\n"));
+            }
+        }
+        scanner.close();
+    }
+}
 
 /* 
 Coge el sobre y corre

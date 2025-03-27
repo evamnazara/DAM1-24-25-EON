@@ -1,9 +1,53 @@
 package arrays;
 
+import java.util.Scanner;
+
 public class ReinasAtacadas {
-    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            // Leer el tamaño del tablero y el número de reinas
+            int tamañoTablero = scanner.nextInt();
+            int numReinas = scanner.nextInt();
+
+            // Condición de salida
+            if (tamañoTablero == 0 && numReinas == 0) {
+                break;
+            }
+
+            // Arrays para almacenar las posiciones de las reinas
+            int[] x = new int[numReinas];
+            int[] y = new int[numReinas];
+
+            // Leer las coordenadas de las reinas
+            for (int i = 0; i < numReinas; i++) {
+                x[i] = scanner.nextInt();
+                y[i] = scanner.nextInt();
+            }
+
+            // Verificar si hay reinas atacadas
+            boolean atacadas = false;
+            
+            for (int i = 0; i < numReinas && !atacadas; i++) {
+                for (int j = i + 1; j < numReinas; j++) {
+                    if (x[i] == x[j] || y[i] == y[j] || Math.abs(x[i] - x[j]) == Math.abs(y[i] - y[j])) {
+                        atacadas = true;
+                        break;
+                    }
+                }
+            }
+
+            // Imprimir el resultado
+            if (atacadas) {
+                System.out.println("SI");
+            } else {
+                System.out.println("NO");
+            }
+        }
+        scanner.close();
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
 
 /* 
 Reinas atacadas

@@ -1,9 +1,42 @@
 package arrays;
 
+import java.util.Scanner;
+
 public class EligiendoCaramelos {
-    
+    // Definimos el módulo para evitar desbordamientos
+    private static final int MODULO = 1_000_000_007;
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            // Leer valores n y m
+            int n = scanner.nextInt();
+            int m = scanner.nextInt();
+            
+            // Condición de salida
+            if (n == 0 && m == 0) break;
+            
+            // Array para almacenar los coeficientes del binomio
+            int[] combinaciones = new int[m + 1];
+            combinaciones[0] = 1; // C(n,0) siempre es 1
+            
+            // Calcular los coeficientes de la expansión del binomio
+            for (int i = 1; i <= n; i++) {
+                for (int j = Math.min(i, m); j > 0; j--) {
+                    combinaciones[j] = (combinaciones[j] + combinaciones[j - 1]) % MODULO;
+                }
+            }
+            
+            // Imprimir los resultados
+            for (int i = 0; i <= m; i++) {
+                System.out.print(combinaciones[i] + (i < m ? " " : "\n"));
+            }
+        }
+        
+        scanner.close();
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
 
 /* 
 Eligiendo caramelos

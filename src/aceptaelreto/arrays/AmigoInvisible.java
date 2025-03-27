@@ -1,10 +1,57 @@
 package arrays;
 
-public class AmigoInvisible {
-    
-}
+import java.util.Scanner;
 
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. 
+public class AmigoInvisible {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            // Leer el número de participantes y el número de asignaciones conocidas
+            int participantes = scanner.nextInt();
+            int asignaciones = scanner.nextInt();
+            
+            // Si el número de participantes es 0, terminamos la ejecución
+            if (participantes == 0) break;
+            
+            // Matriz de asignaciones (-1 indica que no se conoce aún)
+            int[] regalos = new int[participantes + 1];
+            for (int i = 1; i <= participantes; i++) {
+                regalos[i] = -1;
+            }
+            
+            // Leer las asignaciones conocidas
+            for (int i = 0; i < asignaciones; i++) {
+                int quienRegala = scanner.nextInt();
+                int aQuienRegala = scanner.nextInt();
+                regalos[quienRegala] = aQuienRegala;
+            }
+            
+            // Verificar si es posible conocer todas las asignaciones
+            boolean[] recibido = new boolean[participantes + 1];
+            boolean posibleDeterminar = true;
+            
+            for (int i = 1; i <= participantes; i++) {
+                if (regalos[i] != -1) {
+                    if (recibido[regalos[i]]) {
+                        posibleDeterminar = false;
+                        break;
+                    }
+                    recibido[regalos[i]] = true;
+                }
+            }
+            
+            // Imprimir el resultado
+            if (posibleDeterminar) {
+                System.out.println("SI");
+            } else {
+                System.out.println("NO");
+            }
+        }
+        
+        scanner.close();
+    }
+}
 
 /* 
 Amigo invisible

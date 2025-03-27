@@ -1,9 +1,78 @@
 package arrays;
 
+import java.util.Scanner;
+
 public class EmbarqueEnTrasatlantico {
-    
+
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+
+        while (true) {
+            // Leer el número de pasajeros
+            System.out.print("Ingrese el número de pasajeros: ");
+            int n = entrada.nextInt();
+            if (n == 0) break;  // Si no hay pasajeros, terminamos el ciclo
+
+            // Leer las cubiertas de los pasajeros
+            int[] cubiertas = new int[n];
+            System.out.println("Ingrese las cubiertas de los " + n + " pasajeros (separadas por espacio):");
+            for (int i = 0; i < n; i++) {
+                cubiertas[i] = entrada.nextInt();
+            }
+
+            // Leer el número de acciones
+            System.out.print("Ingrese el número de acciones: ");
+            int numAcciones = entrada.nextInt();
+
+            // Procesar las acciones
+            for (int i = 0; i < numAcciones; i++) {
+                System.out.println("\nAcción #" + (i + 1) + ":");
+                String accion = entrada.next();
+
+                if (accion.equals("EMBARQUE")) {
+                    int cubierta = entrada.nextInt();
+                    System.out.println("Realizando EMBARQUE para la cubierta " + cubierta);
+
+                    // Realizamos el embarque eliminando a los pasajeros de esa cubierta
+                    int nuevosPasajeros = 0;
+                    // Contamos cuántos pasajeros quedan después del embarque
+                    for (int j = 0; j < n; j++) {
+                        if (cubiertas[j] != cubierta) {
+                            nuevosPasajeros++;
+                        }
+                    }
+
+                    // Imprimir la cantidad de pasajeros restantes
+                    System.out.println("Pasajeros restantes después del embarque: " + nuevosPasajeros);
+
+                    // Eliminamos a los pasajeros que embarcaron
+                    int[] nuevosCubiertas = new int[nuevosPasajeros];
+                    int index = 0;
+                    for (int j = 0; j < n; j++) {
+                        if (cubiertas[j] != cubierta) {
+                            nuevosCubiertas[index++] = cubiertas[j];
+                        }
+                    }
+                    // Actualizamos el arreglo de cubiertas
+                    cubiertas = nuevosCubiertas;
+                    n = nuevosPasajeros; // Actualizamos la cantidad de pasajeros restantes
+
+                } else if (accion.equals("CONSULTA")) {
+                    int pos = entrada.nextInt() - 1; // Convertir a índice base 0
+                    System.out.println("Consultando la cubierta del pasajero en la posición " + (pos + 1));
+
+                    // Mostrar la cubierta del pasajero en la posición indicada
+                    System.out.println("El pasajero en la posición " + (pos + 1) + " tiene el pasaje para la cubierta " + cubiertas[pos]);
+                }
+            }
+
+            // Separador entre casos de prueba
+            System.out.println("\n* Fin del caso de prueba *\n");
+        }
+
+        entrada.close();
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
 
 /* 
 

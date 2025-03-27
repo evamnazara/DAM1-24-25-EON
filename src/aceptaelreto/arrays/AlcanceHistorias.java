@@ -1,10 +1,46 @@
 package arrays;
 
-public class AlcanceHistorias {
-    
-}
+import java.util.Scanner;
 
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
+public class AlcanceHistorias {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Leer el número de casos de prueba
+        int casosDePrueba = scanner.nextInt();
+        
+        for (int i = 0; i < casosDePrueba; i++) {
+            // Leer el número de páginas en la secuencia
+            int numPaginas = scanner.nextInt();
+            
+            // Crear un array para almacenar la secuencia de páginas
+            int[] paginas = new int[numPaginas];
+            
+            // Leer la secuencia de páginas
+            for (int j = 0; j < numPaginas; j++) {
+                paginas[j] = scanner.nextInt();
+            }
+            
+            // Variable para almacenar el alcance máximo encontrado
+            int maxDiferencia = Integer.MIN_VALUE;
+            
+            // Buscar la mayor diferencia entre una página y cualquier otra que le siga
+            for (int j = 0; j < numPaginas - 1; j++) {
+                for (int k = j + 1; k < numPaginas; k++) {
+                    int diferencia = paginas[j] - paginas[k];
+                    if (diferencia > maxDiferencia) {
+                        maxDiferencia = diferencia;
+                    }
+                }
+            }
+            
+            // Imprimir el resultado del caso de prueba
+            System.out.println(maxDiferencia);
+        }
+        
+        scanner.close();
+    }
+}
 
 /* 
 

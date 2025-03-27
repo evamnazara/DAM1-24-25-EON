@@ -1,9 +1,77 @@
 package arrays;
 
+import java.util.Scanner;
+
 public class Pipos {
-    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Bienvenido al programa de las uvas de Nochevieja.");
+
+        while (true) {
+            // Leer el año como String
+            System.out.println("\nIntroduce el año (de 4 dígitos) o '0' para terminar:");
+            String año = scanner.nextLine();
+
+            // Si el año es "0", terminamos el programa
+            if (año.equals("0")) {
+                System.out.println("Fin de los casos de prueba.");
+                break;
+            }
+
+            // Leer las cantidades de uvas con diferentes números de pipos
+            System.out.println("Introduce el número de uvas con 0, 1, 2, ..., 9 pipos:");
+            String[] uvasStr = scanner.nextLine().split(" ");
+
+            // Almacenar las cantidades de uvas en un array
+            String[] uvas = new String[10];
+            for (int i = 0; i < 10; i++) {
+                uvas[i] = uvasStr[i];
+            }
+
+            // Mostrar el número de uvas con sus pipos
+            System.out.print("Número de uvas por cantidad de pipos: ");
+            for (int i = 0; i < 10; i++) {
+                System.out.print(uvas[i] + " ");
+            }
+            System.out.println();
+
+            // Obtener los dígitos del año
+            char[] digitosAño = año.toCharArray();
+
+            // Determinar cuántos grupos de 4 se pueden formar
+            String minPersonas = uvas[Character.getNumericValue(digitosAño[0])];
+
+            System.out.println("Dígitos del año: " + año);
+
+            // Buscar el mínimo de personas posibles
+            for (int i = 1; i < 4; i++) {
+                String cantidadUvas = uvas[Character.getNumericValue(digitosAño[i])];
+
+                if (compararStringsNumericos(cantidadUvas, minPersonas) < 0) {
+                    minPersonas = cantidadUvas;
+                }
+            }
+
+            // Mostrar resultado
+            System.out.println("Número máximo de personas a las que se les puede dar las uvas: " + minPersonas);
+        }
+
+        // Cerrar el scanner
+        scanner.close();
+    }
+
+    // Función para comparar dos Strings numéricos sin convertirlos a enteros
+    public static int compararStringsNumericos(String a, String b) {
+        if (a.length() < b.length()) {
+            return -1;
+        } else if (a.length() > b.length()) {
+            return 1;
+        } else {
+            return a.compareTo(b); // Comparación lexicográfica
+        }
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. 
 
 /* 
 Pipos

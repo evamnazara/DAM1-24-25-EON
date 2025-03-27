@@ -1,9 +1,44 @@
 package arrays;
 
 public class SendaPirenaica {
-    
+    public static void main(String[] args) {
+        // Usamos el scanner para leer la entrada de datos
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+
+        // Leemos múltiples casos de prueba
+        while (true) {
+            // Leer el número de etapas de la ruta
+            int numEtapas = scanner.nextInt();
+
+            // Si el número de etapas es 0, terminamos el programa
+            if (numEtapas == 0) {
+                break;
+            }
+
+            // Leer las distancias de cada etapa
+            int[] distancias = new int[numEtapas];
+            int sumaTotal = 0;
+            for (int i = 0; i < numEtapas; i++) {
+                distancias[i] = scanner.nextInt();
+                sumaTotal += distancias[i]; // Acumulamos la distancia total
+            }
+
+            // Variable para calcular la distancia restante
+            int distanciaRestante = sumaTotal;
+            // Imprimir las distancias restantes al comienzo de cada etapa
+            for (int i = 0; i < numEtapas; i++) {
+                distanciaRestante -= distancias[i]; // Restamos la distancia recorrida
+                System.out.print(distanciaRestante + " "); // Imprimimos la distancia restante
+            }
+
+            // Salto de línea para separar los resultados de cada caso de prueba
+            System.out.println();
+        }
+
+        // Cerrar el scanner después de usarlo
+        scanner.close();
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
 
 /* 
 

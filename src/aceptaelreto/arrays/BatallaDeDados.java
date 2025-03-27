@@ -1,10 +1,73 @@
 package arrays;
 
 public class BatallaDeDados {
-    
-}
 
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. 
+    public static void main(String[] args) {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+
+        while (true) {
+            // Leer los parámetros de la batalla
+            int td = scanner.nextInt();  // tropas del defensor
+            int ta = scanner.nextInt();  // tropas del atacante
+            int dd = scanner.nextInt();  // máximo dados del defensor
+            int da = scanner.nextInt();  // máximo dados del atacante
+            int no = scanner.nextInt();  // número de oleadas
+
+            // Si el número de tropas del defensor es 0, terminamos la entrada
+            if (td == 0 || ta == 0) {
+                break;
+            }
+
+            // Crear los arrays para las tiradas de dados
+            int[] dadosDefensor = new int[dd];
+            int[] dadosAtacante = new int[da];
+
+            // Procesar cada oleada
+            for (int i = 0; i < no; i++) {
+                // Leer las tiradas de dados de la oleada
+                for (int j = 0; j < dd && j < td && scanner.hasNextInt(); j++) {
+                    dadosDefensor[j] = scanner.nextInt();
+                }
+
+                for (int j = 0; j < da && j < ta && scanner.hasNextInt(); j++) {
+                    dadosAtacante[j] = scanner.nextInt();
+                }
+
+                // Ordenar los dados de mayor a menor
+                java.util.Arrays.sort(dadosDefensor, 0, dd);
+                java.util.Arrays.sort(dadosAtacante, 0, da);
+
+                // Contar las bajas para el defensor y el atacante
+                int bajasDefensor = 0;
+                int bajasAtacante = 0;
+
+                // Comparar los dados emparejados
+                for (int j = 0; j < Math.min(dadosDefensor.length, dadosAtacante.length); j++) {
+                    if (dadosDefensor[j] >= dadosAtacante[j]) {
+                        bajasAtacante++; // Defensor gana
+                    } else {
+                        bajasDefensor++; // Atacante gana
+                    }
+                }
+
+                // Actualizar las tropas
+                ta -= bajasAtacante;
+                td -= bajasDefensor;
+                
+                // Si ya no hay tropas de uno de los bandos, terminar la batalla
+                if (ta == 0 || td == 0) {
+                    break;
+                }
+            }
+
+            // Imprimir el resultado final
+            System.out.println(td + " " + ta);
+        }
+
+        // Cerrar el scanner
+        scanner.close();
+    }
+}
 
 /* 
 Pequeña batalla de dados

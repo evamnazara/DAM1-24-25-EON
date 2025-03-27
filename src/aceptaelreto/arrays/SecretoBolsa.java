@@ -1,10 +1,50 @@
 package arrays;
+import java.util.*;
 
 public class SecretoBolsa {
-    
-}
+    public static void main(String[] args) {
+        // Usamos el scanner para leer la entrada de datos
+        Scanner scanner = new java.util.Scanner(System.in);
 
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. 
+        // Leemos el número de casos de prueba
+        int casosDePrueba = scanner.nextInt();
+        
+        // Procesar cada caso de prueba
+        for (int i = 0; i < casosDePrueba; i++) {
+            // Leemos la suma clave
+            int sumaClave = scanner.nextInt();
+            
+            // Leemos la secuencia de dígitos
+            String secuencia = scanner.next();
+
+            // Variable para contar las veces que la suma clave aparece
+            int contador = 0;
+            
+            // Recorrer la secuencia y calcular la suma de los dígitos consecutivos
+            for (int j = 0; j <= secuencia.length() - 1; j++) {
+                int suma = 0;  // Acumulador de la suma de los dígitos consecutivos
+                // Recorrer los dígitos a partir de la posición j
+                for (int k = j; k < secuencia.length(); k++) {
+                    suma += secuencia.charAt(k) - '0';  // Convertir el carácter a número y sumar
+                    if (suma == sumaClave) {
+                        // Si la suma es igual a la suma clave, incrementamos el contador
+                        contador++;
+                    }
+                    // Si la suma es mayor que la suma clave, no necesitamos continuar con los siguientes dígitos
+                    if (suma > sumaClave) {
+                        break;
+                    }
+                }
+            }
+
+            // Imprimimos el número de veces que aparece la suma clave en la secuencia
+            System.out.println(contador);
+        }
+
+        // Cerrar el scanner después de usarlo
+        scanner.close();
+    }
+}
 
 /* 
 El secreto de la bolsa

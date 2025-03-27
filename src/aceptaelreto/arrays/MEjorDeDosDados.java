@@ -1,10 +1,84 @@
 package arrays;
 
-public class MEjorDeDosDados {
-    
-}
+import java.util.Scanner;
 
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
+public class MejorDeDosDados {
+    public static void main(String[] args) {
+        Scanner entradaUsuario = new Scanner(System.in);
+
+        System.out.println("Bienvenido al juego del mejor dado.");
+
+        while (true) {
+            // Leer el número de caras de los dados
+            System.out.println("\nIntroduce el número de caras de los dados:");
+            int numeroCaras = entradaUsuario.nextInt();
+
+            // Si el número de caras es 0, terminamos el programa
+            if (numeroCaras == 0) {
+                System.out.println("Fin de los casos de prueba.");
+                break;
+            }
+
+            // Crear arrays para almacenar los valores de cada dado
+            int[] dadoUno = new int[numeroCaras];
+            int[] dadoDos = new int[numeroCaras];
+
+            // Leer los valores del primer dado
+            System.out.println("Introduce los valores del primer dado:");
+            for (int i = 0; i < numeroCaras; i++) {
+                dadoUno[i] = entradaUsuario.nextInt();
+            }
+
+            // Leer los valores del segundo dado
+            System.out.println("Introduce los valores del segundo dado:");
+            for (int i = 0; i < numeroCaras; i++) {
+                dadoDos[i] = entradaUsuario.nextInt();
+            }
+
+            // Calcular cuántas veces gana cada dado
+            int victoriasDadoUno = calcularVictorias(dadoUno, dadoDos, numeroCaras);
+            int victoriasDadoDos = calcularVictorias(dadoDos, dadoUno, numeroCaras);
+
+            // Mostrar los resultados
+            System.out.println("\nResultados:");
+            System.out.println("Dado 1 gana en " + victoriasDadoUno + " ocasiones.");
+            System.out.println("Dado 2 gana en " + victoriasDadoDos + " ocasiones.");
+
+            // Determinar qué dado es mejor
+            if (victoriasDadoUno > victoriasDadoDos) {
+                System.out.println("PRIMERO");
+            } else if (victoriasDadoDos > victoriasDadoUno) {
+                System.out.println("SEGUNDO");
+            } else {
+                System.out.println("NO HAY DIFERENCIA");
+            }
+        }
+
+        entradaUsuario.close();
+    }
+
+    /**
+     * Calcula cuántas veces un dado gana contra el otro.
+     * 
+     * @param dadoA         Valores del dado a analizar.
+     * @param dadoB         Valores del dado contrario.
+     * @param numeroCaras   Número de caras de los dados.
+     * @return Número de veces que el dado A gana contra el dado B.
+     */
+    public static int calcularVictorias(int[] dadoA, int[] dadoB, int numeroCaras) {
+        int totalVictorias = 0;
+
+        // Comparamos cada cara de un dado con cada cara del otro
+        for (int i = 0; i < numeroCaras; i++) {
+            for (int j = 0; j < numeroCaras; j++) {
+                if (dadoA[i] > dadoB[j]) {
+                    totalVictorias++;
+                }
+            }
+        }
+        return totalVictorias;
+    }
+}
 
 /* 
 El mejor de dos dados

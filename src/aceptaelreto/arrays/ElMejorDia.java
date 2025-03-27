@@ -1,9 +1,59 @@
 package arrays;
 
+import java.util.Scanner;
+
 public class ElMejorDia {
-    
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // Leer el número de casos de prueba
+        int casosPrueba = sc.nextInt();
+
+        // Procesar cada caso de prueba
+        for (int i = 0; i < casosPrueba; i++) {
+            // Leer el número de días
+            int N = sc.nextInt();
+            
+            // Leer las valoraciones de los días
+            int[] valoraciones = new int[N];
+            for (int j = 0; j < N; j++) {
+                valoraciones[j] = sc.nextInt();
+            }
+            
+            // Llamar a la función que resuelve el problema
+            calcularMejorPeorDia(valoraciones);
+        }
+
+        sc.close();
+    }
+
+    /**
+     * Esta función calcula el valor dado por los optimistas al "mejor peor día de su vida"
+     * para cada día de la serie de días.
+     * 
+     * @param valoraciones Arreglo con las valoraciones de los días.
+     */
+    public static void calcularMejorPeorDia(int[] valoraciones) {
+        int N = valoraciones.length;
+
+        // Creamos un arreglo para almacenar el máximo desde cada día hasta el final.
+        int[] maxFuturo = new int[N];
+        
+        // Llenamos el arreglo maxFuturo desde el último día hacia atrás
+        maxFuturo[N - 1] = valoraciones[N - 1];
+        for (int i = N - 2; i >= 0; i--) {
+            maxFuturo[i] = Math.max(valoraciones[i], maxFuturo[i + 1]);
+        }
+
+        // Calculamos la diferencia para cada día
+        for (int i = 0; i < N; i++) {
+            int diferencia = maxFuturo[i] - valoraciones[i];
+            System.out.print(diferencia + " ");
+        }
+        System.out.println(); // Salto de línea después de imprimir todas las diferencias
+    }
 }
-Para este programa de Arrays en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, NO utilices parseo de ningun tipo, ni funciones como ArrayList, StringBuilder, , Map... sólo Strings y Arrays simples y tipos primitivos. Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
 
 /* 
 El mejor peor día de tu vida
