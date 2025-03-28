@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Collection;
+import java.util.Iterator;
 
 // Clase Cliente para ejemplos posteriores.
 public class Cliente implements Comparable<Cliente>{
@@ -46,6 +47,18 @@ public class Cliente implements Comparable<Cliente>{
         System.out.println(clientes.contains(new Cliente("77416510M","Pepe","20/12/2000")));
         System.out.println(clientes);
 
+        System.out.println("Iterator: ");
+        Iterator<Cliente> it = clientes.iterator();
+        while (it.hasNext()) {
+            Cliente c = it.next();
+            System.out.println(c.nombre);       
+                if (c.nombre.equals("Pepe")) {
+                    it.remove();
+                }     
+        }
+
+        System.out.println("pepen't");
+        System.out.println(clientes);
     }
 }
 
