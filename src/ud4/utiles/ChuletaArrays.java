@@ -26,7 +26,6 @@ public class ChuletaArrays {
     
     // Imprimir un array
     public static void imprimirArray(int[] array) {
-        System.out.println(Arrays.toString(array));
     }
     
     public static void desordenar(int t[]) {

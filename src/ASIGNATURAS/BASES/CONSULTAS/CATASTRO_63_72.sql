@@ -1,17 +1,6 @@
 -- 63._ Obtén una relación de pisos (calle, número, planta, puerta, número de habitaciones, metros útiles y nombre y apellidos del propietario) cuyos metros útiles superan la media de los metros construidos.
 
-SELECT 
-    P.CALLE, 
-    P.NUMERO, 
-    P.PLANTA, 
-    P.PUERTA, 
-    P.NUMHABITACIONES, 
-    P.METROSUTILES, 
-    PR.NOMBRE, 
-    PR.APELLIDO1, 
-    PR.APELLIDO2
-FROM 
-    PISO P
+SELECT * FROM PISO P
 INNER JOIN 
     PROPIETARIO PR ON P.DNIPROPIETARIO = PR.DNI
 WHERE 
