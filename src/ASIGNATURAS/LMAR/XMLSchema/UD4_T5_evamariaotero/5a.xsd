@@ -9,7 +9,7 @@
                 <xs:element name="material" type="xs:string" minOccurs="0"/>
             </xs:sequence>
             <xs:attribute name="valor" type="tipoValor" use="optional"/>
-            <xs:attribute name="alquiler" use="required">
+            <xs:attribute name="alquiler" type="alquiler" use="required">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
                         <xs:enumeration value="verdadeiro"/>
@@ -82,5 +82,15 @@
             <xs:fractionDigits value="2"/>
         </xs:restriction>
     </xs:simpleType>
+
+    <xs:attribute name="alquiler">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="verdadeiro"/>
+            <xs:enumeration value="falso"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+
     
 </xs:schema>

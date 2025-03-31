@@ -39,10 +39,12 @@
         </xs:restriction>
  </xs:simpleType>
 
- <xs:complexType name="tipoDepartamento">
-    <xs:sequence>
-        <xs:element name="nome" type="xs:string"/>
-    </xs:sequence>
-    <xs:attribute name="codigo" type="xs:string" use="required"/>
- </xs:complexType>
+ <xs:element name="TipoDepartamento" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nome" type="xs:string"/>
+              <xs:element name="xefe">
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
 </xs:schema>
