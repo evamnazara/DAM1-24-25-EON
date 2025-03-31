@@ -9,42 +9,17 @@
                 <xs:element name="material" type="xs:string" minOccurs="0"/>
             </xs:sequence>
             <xs:attribute name="valor" type="tipoValor" use="optional"/>
-            <xs:attribute name="alquiler" type="alquiler" use="required">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:enumeration value="verdadeiro"/>
-                        <xs:enumeration value="falso"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:attribute>
+            <xs:attribute name="alquiler" type="tipoAlquiler" use="required"/>
         </xs:complexType>
     </xs:element>
     
     <xs:complexType name="tipoEnderezo">
         <xs:sequence>
-
             <xs:element name="rua" type="xs:string"/>
-
-            <xs:element name="numero">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:minInclusive value="1"/>
-                        <xs:maxInclusive value="2000"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
-
+            <xs:element name="numero" type="tipoNumero"/>
             <xs:element name="poboacion" type="xs:string"/>
-
             <xs:element name="provincia" type="xs:string"/>
-            
-            <xs:element name="codigoPostal">
-                <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                        <xs:pattern value="\d{5}"/>
-                    </xs:restriction>
-                </xs:simpleType>
-            </xs:element>
+            <xs:element name="codigoPostal" type="tipoCP"/>
         </xs:sequence>
     </xs:complexType>
     
@@ -67,14 +42,7 @@
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>
-        <xs:attribute name="ano" use="required">
-            <xs:simpleType>
-                <xs:restriction base="xs:string">
-                    <xs:minInclusive value="1900"/>
-                    <xs:maxInclusive value="3000"/>
-                </xs:restriction>
-            </xs:simpleType>
-        </xs:attribute>
+        
     </xs:complexType>
     
     <xs:simpleType name="tipoValor">
@@ -83,14 +51,29 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:attribute name="alquiler">
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
+    <xs:simpleType name="tipoAlquiler">
+        <xs:restriction base="xs:string">
             <xs:enumeration value="verdadeiro"/>
             <xs:enumeration value="falso"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:attribute>
-
+        </xs:restriction>
+    </xs:simpleType>
     
+    <xs:simpleType name="tipoNumero">
+        <xs:restriction base="xs:unsignedShort">
+            <xs:maxInclusive value="2000"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="tipoCP">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{5}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="tipoAno">
+                <xs:restriction base="xs:int">
+                    <xs:minInclusive value="1900"/>
+                    <xs:maxInclusive value="3000"/>
+                </xs:restriction>
+            </xs:simpleType>
 </xs:schema>

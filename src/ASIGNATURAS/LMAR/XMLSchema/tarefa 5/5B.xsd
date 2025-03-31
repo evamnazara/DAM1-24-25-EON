@@ -3,19 +3,24 @@
     <xs:complexType>
         <xs:sequence>
             <xs:element name="empregado" type="tipoEmpregado" maxOccurs="200"/>
-            <xs:element name="departamento" type="tipoDepartamento"
-           maxOccurs="8"/>
+            <xs:element name="departamento" type="tipoDepartamento" />
         </xs:sequence>
     </xs:complexType>
-    <xs:key name="depUnico">
+    
+    <xs:keyref name="depUnico">
         <xs:selector xpath="departamento"/>
         <xs:field xpath="@codigo"/>
-    </xs:key>
+    </xs:keyref>
     
     <xs:keyref name="departamento" refer="depUnico">
         <xs:selector xpath="empregado"/>
-        <xs:field xpath="departamento"/>
-    </xs:keyref>
+        <xs:field xpath="@nss"/>
+    </xs:keyref> 
+    
+    <xs:keyref name="jefeDpto" refer="jefeDpto">
+        <xs:selector xpath="departamento"/>
+        <xs:field xpath="@director"/>
+    </xs:keyref> 
 </xs:element>
 
  <xs:complexType name="tipoEmpregado">
@@ -39,12 +44,13 @@
         </xs:restriction>
  </xs:simpleType>
 
- <xs:element name="TipoDepartamento" maxOccurs="unbounded">
+ <xs:element name="TipoDepartamento">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nome" type="xs:string"/>
-              <xs:element name="xefe">
+              <xs:element name="xefe"/>
             </xs:sequence>
+            <xs:attribute name="codigo"/>
           </xs:complexType>
-        </xs:element>
+ </xs:element>
 </xs:schema>

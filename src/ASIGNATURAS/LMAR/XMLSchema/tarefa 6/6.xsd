@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XmlSchema.xsd to edit this template
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+ <xs:element name="reinados">
+     <xs:complexType>
+         <xs:sequence>
+         <xs:element name="reinado" type="tipoReinado" maxOccurs="unbounded"/>
+         </xs:sequence>
+     </xs:complexType>
+ </xs:element>
+ <xs:complexType name="tipoReinado">
+    <xs:sequence>
+        <xs:element name="rei" type="tipoRei" minOccurs="0"/>
+        <xs:element name="raiña" type="tipoRaiña" minOccurs="0"/>
+        <xs:element name="consorte" type="tipoConsorte" minOccurs="0"/>
+    </xs:sequence>
+        <xs:attribute name="dende" type="xs:date" use="optional"/>            
+        <xs:attribute name="ata" type="xs:date" use="optional"/>
+</xs:complexType>
+ 
+ 
+</xs:schema>
