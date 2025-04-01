@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
+    <!-- fechas -->
+<xs:attributeGroup name="atributosFechas">
+        <xs:attribute name="dende" type="xs:date" use="required"/>
+        <xs:attribute name="ata" type="xs:date" use="required"/>
+    </xs:attributeGroup>
+    
 <xs:element name="reinados">
     <xs:complexType>
       <xs:sequence>
@@ -44,29 +50,27 @@
 
   </xs:element>
 
-  <!-- fechas -->
-  <xs:attributeGroup name="atributosFechas">
-    <xs:attribute name="dende" type="xs:date" use="required"/>
-    <xs:attribute name="ata" type="xs:date" use="required"/>
-  </xs:attributeGroup>
+
 
   <!-- reinado -->
 
   <xs:complexType name="tipoReinado">
     <xs:sequence>
-      <xs:element name="rei" type="tipoRei" minOccurs="0"/>
-      <xs:element name="raiña" type="tipoRaíña" minOccurs="0"/>
+        <xs:choice>
+          <xs:element name="rei" type="tipoRei" minOccurs="0"/>
+          <xs:element name="raiña" type="tipoRaíña" minOccurs="0"/>
+        </xs:choice>
       <xs:element name="consorte" type="tipoConsorte" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
     <xs:attributeGroup ref="atributosFechas"/>
   </xs:complexType>
 
   <xs:complexType name="tipoRei">
-    <xs:attribute name="codigo" type="xs:string" use="required"/>
+    <xs:attribute name="codigo" type="tipoCodigo" use="required"/>
   </xs:complexType>
 
   <xs:complexType name="tipoRaíña">
-    <xs:attribute name="codigo" type="xs:string" use="required"/>
+    <xs:attribute name="codigo" type="tipoCodigo" use="required"/>
   </xs:complexType>
 
   <xs:complexType name="tipoConsorte">
@@ -81,9 +85,9 @@
   <xs:complexType name="tipoPersoa">
     <xs:sequence>
       <xs:element name="nome" type="xs:string"/>
-      <xs:element name="apodo" type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
-      <xs:element name="pai" type="xs:string" minOccurs="0"/>
-      <xs:element name="nai" type="xs:string" minOccurs="0"/>
+      <xs:element name="apodo" type="xs:string" maxOccurs="unbounded" minOccurs="1"/>
+      <xs:element name="pai" type="tipoCodigo" minOccurs="0"/>
+      <xs:element name="nai" type="tipoCodigo" minOccurs="0"/>
       <xs:element name="casa" type="tipoCasa"/>
     </xs:sequence>
     <xs:attribute name="codigo" type="tipoCodigo" use="required"/>
