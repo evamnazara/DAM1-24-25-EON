@@ -1,4 +1,4 @@
-package contornosud3eon;
+/*package contornosud3eon;
 
 public class DiscountSystem {
     public static double applyDiscount(double amount, boolean isLoyalCustomer) {
@@ -23,3 +23,4 @@ public class DiscountSystem {
         return finalAmount;
     }
 }
+*/

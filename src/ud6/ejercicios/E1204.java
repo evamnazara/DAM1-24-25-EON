@@ -6,8 +6,8 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 /*E1204. Implementar una aplicación que pida por consola números enteros no negativos 
-hasta que se introduce un -1. Los números se irán insertando en una colección, 
-pudiéndose repetir. Al terminar, se mostrará la colección por pantalla.  
+hasta que se introduce un -1. 
+Los números se irán insertando en una colección, pudiéndose repetir. Al terminar, se mostrará la colección por pantalla.  
 A continuación, se mostrarán todos los valores pares. Por último, se eliminarán todos los 
 múltiplos de 3 y se mostrará por pantalla la colección resultante. 
 Practica el uso de iteradores y bucles for-each para recorrer la colección.  */
@@ -16,13 +16,13 @@ public class E1204 {
         Scanner sc = new Scanner(System.in);
 
         //en vez de array:
-        Collection<Integer> numero = new ArrayList<Integer>();
+        Collection<Integer> numeros = new ArrayList<Integer>();
         System.out.println("numeros enteros no negativos ");
-        int numero = sc.nextInt();
+        int num = sc.nextInt();
 
-        while (numero != -1){
-            numeros.add(numero);
-            numero = sc.nextInt();
+        while (num != -1){
+            numeros.add(num);
+            num = sc.nextInt();
         }
 
         System.out.println(numeros.toString());
