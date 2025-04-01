@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!--
+As nominacións e premios que se rexistran son mellor: 
+    Película, Director, Actor, Actriz, Actor secundario, Actriz secundaria, Lingua non inglesa.
+    
+Sempre que sexa posible deberán limitarse os valores dos elementos e atributos:
+
+Debemos validar que as nominacións de persoas fan referencia a persoas existentes no documento XML.
+A idade máxima será de 110 anos.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    <!-- Define un grupo de atributos para os atributos comúns as nominacións. -->
+    <xs:attributeGroup name="atributosNominacions">
+        <xs:attribute name="ref" type="codigoPelicula" use="required" />
+        <xs:attribute name="oscar" use="optional" /> <!-- unico valor : SI -->
+    </xs:attributeGroup>
+    
+    
+    <xs:element name="oscar">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="pelicula" type="pelicula" maxOccurs="unbounded"/>
+                <xs:element name="persona" type="persona" maxOccurs="unbounded" /> 
+            </xs:sequence>
+            <xs:attribute name="ano" type="xs:gYear" use="required" />
+        </xs:complexType>
+    </xs:element>
+    
+    <!-- pelicula -->
+    <xs:complexType name="pelicula">
+        <xs:sequence>
+            <xs:element name="titulo" type="xs:string" />
+            <xs:element name="tituloOrixinal" type="xs:string"/>
+            <xs:element name="ano" type="xs:gYear" />
+            <xs:element name="xéneros" type="xéneros" maxOccurs="3" />
+            <xs:element name="duración" type="xs:unsignedShort" />
+            <xs:element name="nominacións" type="nominacións" maxOccurs="7" />
+        </xs:sequence>
+        <xs:attribute name="codigo" type="codigoPelicula"/>
+    </xs:complexType>
+    
+    <xs:complexType name="nominacións">
+        <xs:element name="mellorPelicula" />
+        <xs:element name="mellorDirector" />
+        <xs:element name="mellorActor" />
+        <xs:element name="mellorActorSecundario" />
+        <xs:element name="mellorActriz" />
+        <xs:element name="mellorActrizSecundaria" /> 
+        <xs:element name="mellorLinguaNonInglesa" />
+    </xs:complexType>         
+
+    
+    <xs:simpleType name="xéneros">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Negro" />
+            <xs:enumeration value="Drama" />
+            <xs:enumeration value="Acción" />
+            <xs:enumeration value="Comedia" />
+            <xs:enumeration value="Thriller" />
+            <xs:enumeration value="Musical" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    
+    <!-- persona -->
+    <xs:complexType name="persona">
+        <xs:sequence>
+            <xs:element name="nome" type="xs:string" />
+            <xs:element name="idade" type="tipoIdade" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="codigo" type="xs:string" use="required" />
+        <xs:attribute name="sexo" type="xs:string" use="required"/>
+        <!-- O sexo pode tomar o valor Home ou Muller. -->
+    </xs:complexType>
+    
+    <!-- persoa: 
+    unha vogal, a continuación unha letra que non sexa vogal, un guión, unha letra e un ou dous díxitos. 
+    Todas as letras deben ser maiusculas. -->
+    
+    <xs:simpleType name="codigoPersona">
+        <xs:restriction base="xs:string">
+                <xs:pattern value="[AEIOU][^AEIOU][-][A-Z]([0-9]{1,2})" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <!-- O código de película debe comezar por dúas letras maiúsculas, un guión e a continuación pode levar 4 ou 5 díxitos.
+ -->
+    <xs:simpleType name="codigoPelicula">
+        <xs:restriction base="xs:string">
+                <xs:pattern value="[A-Z]{2}(-\d{4,5})" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoIdade">
+        <xs:restriction base="xs:unsignedShort">
+            <maxInclusive value="110" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
