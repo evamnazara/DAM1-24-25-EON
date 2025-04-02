@@ -1,9 +1,0 @@
-V(G) = numero regiones
-V(G) = A - N + 2 <- aristas - nodos
-V(G) = NP + 1 <- nodos con condiciones
-
-3
-
-
-Número de casos de prueba para probar correctamente el algoritmo 
-
