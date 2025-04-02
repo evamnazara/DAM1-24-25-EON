@@ -1,33 +1,46 @@
 -- 73._ ¿Quién es el propietario que posee más pisos de más de 2 habitaciones que no están situados en la zona centro?o?
 
 -- multitabla
-SELECT TOP 1 
-    P.DNI,
-    P.NOMBRE + ' ' + P.APELLIDO1 + ' ' + ISNULL(P.APELLIDO2, ' ') AS NombreCompleto, 
+SELECT TOP 1 with ties
+    DNI,
+    NOMBRE, APELLIDO1, APELLIDO2, 
     COUNT(*) AS NumPisos
-FROM PISO PS
-    
-    INNER JOIN PROPIETARIO P ON PS.DNIPROPIETARIO = P.DNI
-    INNER JOIN VIVIENDA V ON PS.CALLE = V.CALLE AND PS.NUMERO = V.NUMERO
+FROM PISO 
+    INNER JOIN PROPIETARIO P ON DNIPROPIETARIO = DNI
+    INNER JOIN VIVIENDA ON piso.CALLE = Vivienda.CALLE AND Piso.NUMERO = Vivienda.NUMERO
 
-WHERE PS.NUMHABITACIONES > 2 AND V.NOMBREZONA LIKE 'Centro'
-    GROUP BY P.DNI
+WHERE piso.NUMHABITACIONES > 2 AND vivienda.NOMBREZONA <> 'Centro'
+    GROUP BY DNI, nombre, APELLIDO1, APELLIDO2
     ORDER BY NumPisos DESC
 
---subconsulta
+--estandar CON variable 
+declare @maxPisosPropietario int 
+set @maxPisosPropietario=(
+	SELECT MAX(NumPisos) --tabla derivada para calcular maxim de pisos
+		from (
+		select COUNT(*) as numPisos
+		from PISO 
+			inner join PROPIETARIO on DNI = DNIPROPIETARIO
+			inner join VIVIENDA on piso.CALLE = vivienda.CALLE
+		and piso.NUMERO=vivienda.NUMERO
+		
+		where NOMBREZONA <> 'Centro' and NUMHABITACIONES > 2
+		group by dnipropietario
+		) AS tabla
+	)
 
-SELECT TOP  1 DNI, 
-            P.NOMBRE + ' ' + P.APELLIDO1 + ' ' + ISNULL(P.APELLIDO2, ' ') AS NombreCompleto, 
-            COUNT(*) AS NumPisos
-FROM (
-    SELECT P.DNI, P.NOMBRE + ' ' + P.APELLIDO1 + ' ' + ISNULL(P.APELLIDO2, ' ') AS NombreCompleto, 
-    FROM PISO PS
-        INNER JOIN VIVIENDA V ON PS.CALLE = V.CALLE AND PS.NUMERO = V.NUMERO
-        INNER JOIN PROPIETARIO P ON PS.DNIPROPIETARIO = P.DNI
-    WHERE PS.NUMHABITACIONES > 2 AND V.NOMBREZONA LIKE 'Centro'
-) AS Sub
-GROUP BY DNI, NOMBRE, APELLIDO1, APELLIDO2
-ORDER BY NumPisos DESC;
+SELECT	DNI,
+		NOMBRE, APELLIDO1, APELLIDO2, 
+		COUNT(*) AS NumPisos
+FROM PISO 
+    INNER JOIN PROPIETARIO P ON DNIPROPIETARIO = DNI
+    INNER JOIN VIVIENDA ON piso.CALLE = Vivienda.CALLE AND Piso.NUMERO = Vivienda.NUMERO
+
+WHERE piso.NUMHABITACIONES > 2 AND vivienda.NOMBREZONA <> 'Centro'
+    GROUP BY DNI, nombre, APELLIDO1, APELLIDO2
+    
+    having count(*)=@maxPisosPropietario
+	
 
 -- 74._ Indica para cada bloque de pisos (calle y número) el máximo de metros útiles y máximo de número de habitaciones, pero sólo para aquellos bloques en los que tenemos almacenados más de 3 pisos.
 
@@ -41,6 +54,15 @@ FROM BLOQUEPISOS BP
     GROUP BY BP.CALLE, BP.NUMERO
 HAVING COUNT(*) > 3;
 
+--2
+SELECT CALLE,NUMERO,
+       MAX(METROSUTILES) AS MaxMetrosUtiles,
+       MAX(NUMHABITACIONES) AS MaxHabitaciones
+FROM piso
+    
+GROUP BY CALLE, NUMERO
+HAVING COUNT(*) > 3;
+
 -- 75._ Obtén el DNI, nombre y apellidos de las personas que tenemos en nuestra base de datos. En el caso de que posean una vivienda de cualquier tipo deberá visualizarse la calle y número de la vivienda de la que son propietarios. Deberá ir ordenado por apellidos y nombre ascendentemente
 
 -- subconsulta
@@ -51,21 +73,38 @@ SELECT NOMBRE + ' ' + APELLIDO1 + ' ' + ISNULL(APELLIDO2, ' ') AS NombreCompleto
 FROM (
     SELECT P.DNI, P.NOMBRE, P.APELLIDO1, P.APELLIDO2, V.CALLE, V.NUMERO
         FROM PROPIETARIO P
-
-    INNER JOIN PISO PS ON P.DNI = PS.DNIPROPIETARIO
-    INNER JOIN VIVIENDA V ON PS.CALLE = V.CALLE AND PS.NUMERO = V.NUMERO
-        UNION
-    SELECT P.DNI, P.NOMBRE, P.APELLIDO1, P.APELLIDO2, V.CALLE, V.NUMERO
-        FROM PROPIETARIO P
-
-    INNER JOIN CASAPARTICULAR CP ON P.DNI = CP.DNIPROPIETARIO
-    INNER JOIN VIVIENDA V ON CP.CALLE = V.CALLE AND CP.NUMERO = V.NUMERO
-) AS ViviendasPropietario
+    LEFT JOIN PISO PS ON P.DNI = PS.DNIPROPIETARIO
+    LEFT JOIN CASAPARTICULAR CP ON P.DNI = CP.DNIPROPIETARIO
+    LEFT JOIN VIVIENDA V ON CP.CALLE = V.CALLE AND CP.NUMERO = V.NUMERO
+	) AS ViviendasPropietario
+	
 ORDER BY APELLIDO1, APELLIDO2, NOMBRE
 
+--CLASE
+SELECT DISTINCT DNI,NOMBRE,APELLIDO1, CALLE,NUMERO 
+	FROM PISO INNER JOIN PROPIETARIO
+		ON DNI = DNIPROPIETARIO
+		
+	UNION 
+	SELECT DISTINCT DNI,NOMBRE,APELLIDO1,calle,numero 
+	from CASAPARTICULAR inner join propietario
+		ON DNI = DNIPROPIETARIO
+	union
+	
+	select distinct dni, nombre,apellido1,null,null 
+	from PROPIETARIO
+	
+	where DNI not in (
+	SELECT DISTINCT DNIPROPIETARIO FROM PISO
+	UNION
+	SELECT DISTINCT DNIPROPIETARIO 
+	FROM CASAPARTICULAR
+	)
+	order by 3,4,2
+
 --union 
-SELECT DISTINCT
-    P.NOMBRE + ' ' + P.APELLIDO1 + ' ' + ISNULL(P.APELLIDO2, ' ') AS NombreCompleto, 
+SELECT
+    p.NOMBRE, P.APELLIDO1,P.APELLIDO2,  
     P.DNI,
     V.CALLE,
     V.NUMERO
@@ -75,8 +114,8 @@ FROM PROPIETARIO P
 
     UNION
 
-    SELECT DISTINCT
-    P.NOMBRE + ' ' + P.APELLIDO1 + ' ' + ISNULL(P.APELLIDO2, ' ') AS NombreCompleto, 
+SELECT DISTINCT
+    p.NOMBRE, P.APELLIDO1,P.APELLIDO2, 
     P.DNI,
     V.CALLE,
     V.NUMERO
@@ -112,17 +151,15 @@ INNER JOIN PROPIETARIO P ON H.DNIPROPIETARIO = P.DNI
 
 -- 77._ Obtén el nombre completo y DNI de las mujeres que tenemos en nuestra base de datos. En el caso de que posean un trastero de más de 10 metros o un garaje de menos de 13 metros deberá visualizarse la calle , número, tipo y metros de la propiedad que poseen.
 
-
-
 SELECT P.DNI, P.NOMBRE + ' ' + P.APELLIDO1 + ' ' + P.APELLIDO2 AS NombreCompleto,
        H.CALLE, H.NUMERO, H.TIPO, H.METROS
 FROM PROPIETARIO P
-INNER JOIN HUECO H ON P.DNI = H.DNIPROPIETARIO
-    WHERE P.SEXO = 'M' AND (
-        (H.TIPO = 'Trastero' AND H.METROS > 10)
-        OR 
-        (H.TIPO = 'Garaje' AND H.METROS < 13)
-    )
+	LEFT JOIN (
+		select * from HUECO 
+		where (TIPO='Trastero' AND METROS > 10)
+			or (TIPO = 'Garaje' AND METROS < 13)
+    ) as H 
+    on DNI = DNIPROPIETARIO 
 
 -- 78._ Muestra el nombre de la zona urbana que más “propiedades” posee. Entendiendo como propiedades tanto los pisos, como las viviendas unifamiliares como huecos.
 
