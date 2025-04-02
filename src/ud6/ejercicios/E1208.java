@@ -1,6 +1,7 @@
+package ud6.ejercicios;
+
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.Random;
 
 public class E1208 {

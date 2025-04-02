@@ -1,4 +1,4 @@
-package ud6.apuntes;
+package ud6.apuntesgenericos;
 
 import java.util.Arrays;
 

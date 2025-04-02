@@ -2,10 +2,12 @@ package ud5.apuntesherencia;
 
 import java.util.Scanner;
 
+@SuppressWarnings("unused")
 public class EP0822 {
     // Contador de objetos de la clase EP0822 destruidos
     static int objetosDestruidos = 0;
     
+    @SuppressWarnings("removal") //esto es para que no proteste por el finalize 
     @Override
     /**
      * Método que se ejecuta cuando el recolector de basura destruye un objeto
@@ -25,12 +27,12 @@ public class EP0822 {
         for (int i = 0; i < 100000; i++) {
             EP0822 obj = new EP0822();
         }
-        
-        // System.gc(); // Invoca explícitamente al recolector de basura, necesario para menos de un millón de objetos
+        System.gc(); // Invoca explícitamente al recolector de basura, necesario para menos de un millón de objetos
 
         // Espera a pulsar [ENTER] para finalizar
         System.out.println("Pulsa [ENTER] para finalizar");
-        new Scanner(System.in).nextLine();
+        //new Scanner(System.in).nextLine();
+
     }
     
 }

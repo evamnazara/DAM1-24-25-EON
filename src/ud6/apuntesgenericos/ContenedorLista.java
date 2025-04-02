@@ -2,9 +2,6 @@ package ud6.apuntesgenericos;
 
 import java.util.Arrays;
 
-import ud5.apuntesherencia.Persona;
-import ud5.rol.Personaje;
-
 public class ContenedorLista<T> implements Pila<T>, Cola<T> {
     T[] objetos;
 
@@ -55,7 +52,7 @@ public class ContenedorLista<T> implements Pila<T>, Cola<T> {
          * "T extends Comparable"
          */
     void ordenar() {
-        Arrays.sort(objetos,c);
+        Arrays.sort(objetos);
     }
 
     @Override
@@ -84,9 +81,9 @@ public class ContenedorLista<T> implements Pila<T>, Cola<T> {
         Cola<Integer> cola = lista;
         cola.encolar(5); // 2, 3, 5
         System.out.println(cola.desencolar()); // Saco el 2, Quedan 3, 5
-        System.out.println("Comparator natural": );
-        Comparator<Integer> comp = Comparator<Integer>().naturalOrder().reversed();
-        lista.ordenar(comp.reversed());
+        System.out.println("Comparator natural: " );
+        //Comparator<Integer> comp = Comparator<Integer>().naturalOrder().reversed();
+        //lista.ordenar(comp.reversed());
 
         /*
          * ContenedorLista<Persona> listaP = new ContenedorLista<>(new Persona[0]);

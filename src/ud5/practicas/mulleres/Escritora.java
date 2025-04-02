@@ -13,13 +13,11 @@ public class Escritora extends MullerTraballadora implements IPioneira {
     @Override
     public String getDescubrimentoOuAporte() {
         System.out.println(obraMaestra);
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getDescubrimentoOuAporte'");
     }
 
     @Override
     public String descricionContribucion() {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'descricionContribucion'");
     }
     

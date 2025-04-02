@@ -28,7 +28,6 @@ public class Colores {
 
 
     private void addColor() {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'addColor'");
     }
     
