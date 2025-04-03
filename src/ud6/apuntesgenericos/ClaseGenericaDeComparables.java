@@ -1,6 +1,4 @@
-package ud6.apuntes;
-
-import ud5.praiasdegalicia.Praia;
+package ud6.apuntesgenericos;
 
 class ClaseGenericaDeComparables<T extends Comparable> {
     T a, b, c;

@@ -9,17 +9,17 @@ import java.util.Iterator;
 import java.util.Random;
 
 public class E1208 {
-    Collection <Integer> numeros = new ArrayList<>();
+    public static void main(String[] args) {
+        Collection <Integer> numeros = new ArrayList<>();
     Random rnd = new Random();
 
     for (int i = 0; i < 20; i++) {
             numeros.add(rnd.nextInt());
         }
         System.out.println(numeros);
-        
-    Objecto[] arrayObjetos = numeros.toArray();
-    ((Numero)arrayObjetos[0]).numero
+    }
 
+}
 
        
-}
+

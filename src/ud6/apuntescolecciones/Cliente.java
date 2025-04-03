@@ -5,9 +5,8 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.TreeSet;
+
 
 // Clase Cliente para ejemplos posteriores.
 public class Cliente implements Comparable<Cliente>{

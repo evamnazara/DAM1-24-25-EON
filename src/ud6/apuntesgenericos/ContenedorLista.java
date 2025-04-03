@@ -1,9 +1,8 @@
 package ud6.apuntesgenericos;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
-import ud5.apuntesherencia.Persona;
-import ud5.rol.Personaje;
 
 public class ContenedorLista<T> implements Pila<T>, Cola<T> {
     T[] objetos;
@@ -14,7 +13,7 @@ public class ContenedorLista<T> implements Pila<T>, Cola<T> {
 
     void insertarAlPrincipio(T nuevo) {
         objetos = Arrays.copyOf(objetos, objetos.length + 1);
-        for (int i = objetos.length - 1; i > 0 ; i--) {
+        for (int i = objetos.length - 1; i > 0; i--) {
             objetos[i] = objetos[i - 1];
         }
         objetos[0] = nuevo;
@@ -44,23 +43,28 @@ public class ContenedorLista<T> implements Pila<T>, Cola<T> {
         }
         return valor;
     }
-    //ELEMTO QUE OCUPA EL LUGAR INDICE 
-    T get (int indice) {
-        return objetos[indice];
-    }
+
+    void ordenar() {
         /*
          * Generará una excepción si T no es Comparable
          * "T cannot be cast to class java.lang.Comparable"
          * Se puede arreglar indicando que T debe implementar Comparable
          * "T extends Comparable"
          */
-    void ordenar() {
-        Arrays.sort(objetos,c);
+        Arrays.sort(objetos);
     }
 
     @Override
     public String toString() {
         return Arrays.toString(objetos);
+    }
+
+    T get(int indice) {
+        return objetos[indice];
+    }
+
+    void ordenar(Comparator<T> c) {
+        Arrays.sort(objetos, c);
     }
 
     public static void main(String[] args) {
@@ -70,9 +74,15 @@ public class ContenedorLista<T> implements Pila<T>, Cola<T> {
         lista.insertarAlFinal(3);
         lista.insertarAlPrincipio(4);
         System.out.println(lista);
+        // Ordenar descendentemente
+        Comparator<Integer> comp = Comparator.naturalOrder();
+        lista.ordenar(comp.reversed());
+        System.out.println(lista);
+
+        // Ordenar ascendentemente
         lista.ordenar();
-        
-        System.out.println(lista);        
+        System.out.println(lista);
+
         System.out.println(lista.extraerDelPrincipio());
         System.out.println(lista);
         System.out.println(lista.extraerDelFinal());
@@ -84,9 +94,6 @@ public class ContenedorLista<T> implements Pila<T>, Cola<T> {
         Cola<Integer> cola = lista;
         cola.encolar(5); // 2, 3, 5
         System.out.println(cola.desencolar()); // Saco el 2, Quedan 3, 5
-        System.out.println("Comparator natural": );
-        Comparator<Integer> comp = Comparator<Integer>().naturalOrder().reversed();
-        lista.ordenar(comp.reversed());
 
         /*
          * ContenedorLista<Persona> listaP = new ContenedorLista<>(new Persona[0]);
