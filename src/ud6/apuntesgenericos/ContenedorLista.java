@@ -43,6 +43,7 @@ public class ContenedorLista<T> implements Pila<T>, Cola<T> {
         return valor;
     }
 
+
     void ordenar() {
         Arrays.sort(objetos);
     }
