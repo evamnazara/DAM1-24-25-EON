@@ -6,10 +6,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-<<<<<<< HEAD
 
-=======
->>>>>>> 24f1d8d321eea0220aea14adbecc71370f8907e8
 
 // Clase Cliente para ejemplos posteriores.
 public class Cliente implements Comparable<Cliente>{

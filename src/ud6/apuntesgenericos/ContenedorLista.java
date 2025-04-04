@@ -3,10 +3,6 @@ package ud6.apuntesgenericos;
 import java.util.Arrays;
 import java.util.Comparator;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 24f1d8d321eea0220aea14adbecc71370f8907e8
 public class ContenedorLista<T> implements Pila<T>, Cola<T> {
     T[] objetos;
 
@@ -47,17 +43,8 @@ public class ContenedorLista<T> implements Pila<T>, Cola<T> {
         return valor;
     }
 
+
     void ordenar() {
-        /*
-         * Generará una excepción si T no es Comparable
-         * "T cannot be cast to class java.lang.Comparable"
-         * Se puede arreglar indicando que T debe implementar Comparable
-         * "T extends Comparable"
-         */
-<<<<<<< HEAD
-=======
-    void ordenar() {
->>>>>>> 24f1d8d321eea0220aea14adbecc71370f8907e8
         Arrays.sort(objetos);
     }
 
@@ -101,12 +88,10 @@ public class ContenedorLista<T> implements Pila<T>, Cola<T> {
         Cola<Integer> cola = lista;
         cola.encolar(5); // 2, 3, 5
         System.out.println(cola.desencolar()); // Saco el 2, Quedan 3, 5
-<<<<<<< HEAD
-=======
         System.out.println("Comparator natural: " );
         //Comparator<Integer> comp = Comparator<Integer>().naturalOrder().reversed();
         //lista.ordenar(comp.reversed());
->>>>>>> 24f1d8d321eea0220aea14adbecc71370f8907e8
+
 
         /*
          * ContenedorLista<Persona> listaP = new ContenedorLista<>(new Persona[0]);
