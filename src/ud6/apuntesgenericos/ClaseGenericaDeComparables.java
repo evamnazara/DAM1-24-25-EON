@@ -1,5 +1,6 @@
 package ud6.apuntesgenericos;
 
+@SuppressWarnings("rawtypes")
 class ClaseGenericaDeComparables<T extends Comparable> {
     T a, b, c;
     //operaciones con a y b
@@ -11,7 +12,7 @@ class ClaseGenericaDeComparables<T extends Comparable> {
     }
 
     public static void main(String[] args) {
-        ClaseGenericaDeComparables<Integer> lista = new ClaseGenericaDeComparables<Integer>(3,2,6);
+        //ClaseGenericaDeComparables<Integer> lista = new ClaseGenericaDeComparables<Integer>(3,2,6);
 
         // ClaseGenericaDeComparables<Praia> lista2; // Error si Praia no implementa Comparable
 

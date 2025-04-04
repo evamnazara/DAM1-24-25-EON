@@ -1,4 +1,8 @@
+<<<<<<< HEAD:src/ud6/ejercicios/E1201_MetodosGenericos.java
 package ud6.ejercicios;
+=======
+package ud6.apuntesgenericos;
+>>>>>>> 24f1d8d321eea0220aea14adbecc71370f8907e8:src/ud6/apuntesgenericos/E1201_MetodosGenericos.java
 
 import java.util.Arrays;
 

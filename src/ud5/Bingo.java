@@ -12,6 +12,7 @@ public class Bingo {
     static boolean bingo = false;
 
     public static void main(String[] args) {
+        @SuppressWarnings("resource") //para que no cante que no tiene sc.close
         Scanner sc = new Scanner(System.in);
         System.out.println("\nBINGO");
         System.out.println("=====\n");
@@ -55,7 +56,6 @@ public class Bingo {
     }
 
     private static void modoAutomatico() {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'modoAutomatico'");
     }
 
@@ -68,7 +68,7 @@ public class Bingo {
             // Revisar Cartones Jugadores
             revisarCartonesJugadores();
             System.out.println("Pulsa ENTER para continuar");
-            new Scanner(System.in).nextLine();
+            //new Scanner(System.in).nextLine();
         } while (!bingo);
         
         System.out.println("Fin del programa!");
@@ -144,7 +144,6 @@ class Jugador {
 
     public Jugador(String nombre, int numCartones) {
         this.nombre = nombre;
-        // TODO Instanciar cartones
         cartones = new Carton[numCartones];
         for (int i = 0; i < cartones.length; i++) {
             cartones[i] = new Carton();
@@ -178,7 +177,6 @@ class Carton {
                 int numRandom;
                 do {
                     numRandom = rnd.nextInt(Bingo.MAX_NUM) + 1;
-                    // TODO Comprobar que el número no está repetido
                     repetido = false;
                     int ii = 0;
                     while (ii < MAX_FILAS && !repetido) {

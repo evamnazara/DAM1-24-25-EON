@@ -1,20 +1,22 @@
 package ud5.clasesinternas;
 
 import java.util.Comparator;
-
-public class Clase {
-
+public class Clase { 
     static class ClaseAnidadaEstatica {
 
     }
     class ClaseInterna{
 
     }
+    @SuppressWarnings("rawtypes")
     public static void main(String[] args) {
+        @SuppressWarnings("unused")
         class ClaseInternaLocal {
+            @SuppressWarnings("unused")
             int claseIL;
         }
 
+        @SuppressWarnings("unused")
         Comparator claseAnonima = new Comparator() {
 
             @Override

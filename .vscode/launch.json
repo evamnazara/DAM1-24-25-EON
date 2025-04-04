@@ -6,7 +6,41 @@
   "configurations": [
     {
       "type": "java",
-<<<<<<< HEAD
+      "name": "E1204",
+      "request": "launch",
+      "mainClass": "ud6.ejercicios.E1204",
+      "projectName": "DAM1-24-25-EON_deafa41c"
+    },
+    {
+      "type": "java",
+      "name": "ContenedorO",
+      "request": "launch",
+      "mainClass": "ud6.apuntesgenericos.ContenedorO",
+      "projectName": "DAM1-24-25-EON_deafa41c"
+    },
+    {
+      "type": "java",
+      "name": "Bingo",
+      "request": "launch",
+      "mainClass": "ud5.Bingo",
+      "projectName": "DAM1-24-25-EON_deafa41c"
+    },
+    {
+      "type": "java",
+      "name": "E1210",
+      "request": "launch",
+      "mainClass": "ud6.ejercicios.E1210",
+      "projectName": "DAM1-24-25-EON_deafa41c"
+    },
+    {
+      "type": "java",
+      "name": "E1208",
+      "request": "launch",
+      "mainClass": "ud6.ejercicios.E1208",
+      "projectName": "DAM1-24-25-EON_b792dbae"
+    },
+    {
+      "type": "java",
       "name": "CocheCarreras",
       "request": "launch",
       "mainClass": "ud3.oneexamen.CocheCarreras",
@@ -32,12 +66,13 @@
       "request": "launch",
       "mainClass": "ud2.EONexamenrec.EstadisticaEstaturas",
       "projectName": "DAM1-24-25-EON_b792dbae"
-=======
+    },
+    {
+      "type": "java",
       "name": "repaso",
       "request": "launch",
       "mainClass": "ud2.repaso",
       "projectName": "DAM1-24-25-EON_deafa41c"
->>>>>>> 11f33b5900b8545f1409aceacbf34e615a070d41
     },
     {
       "type": "java",
@@ -778,7 +813,7 @@
       "name": "EP0215_AreaTriangulo",
       "request": "launch",
       "mainClass": "ud2.ejercicioscondicionales.EP0215_AreaTriangulo",
-      "projectName": "DAM1-24-25-EON_b792dbae"
+      "projectName": "DAM1-24-25-EON"
     },
     {
       "type": "java",

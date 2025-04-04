@@ -41,11 +41,12 @@ public class E1204 {
         
         while (it.hasNext()) {
             Integer numero = it.next();
-            if (numero % 3 == 0) 
+            if (numero % 3 == 0) {
                 numeros.remove(numero);
+            }
         }
             
-                
+        sc.close();
             
     
         

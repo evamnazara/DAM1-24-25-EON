@@ -13,7 +13,6 @@ public class Artista extends MullerTraballadora {
 
     @Override
     public String descricionContribucion() {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'descricionContribucion'");
     }
 
