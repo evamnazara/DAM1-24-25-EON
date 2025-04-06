@@ -5,46 +5,49 @@
     
     ano="2013">
 <película codigo="FO-80001">
-<título>Argo</título>
-<ano>2012</ano>
-<xéneros>Thriller Drama</xéneros>
-<duración>120</duración>
-<nominacións>
-<mellorPelícula oscar="SI"/>
-<mellorActorSecundario ref="EF-Y10"/>
-</nominacións>
+    <título>Argo</título>
+    <ano>2012</ano>
+    <xéneros>Thriller</xéneros>
+    <xéneros>Drama</xéneros>
+    <duración>120</duración>
+    <nominacións>
+        <mellorPelícula oscar="SI"/>
+        <mellorActorSecundario ref="EF-Y10"/>
+    </nominacións>
 </película>
 <película codigo="FE-7586">
-<título>El lado bueno de las cosas</título>
-<títuloOrixinal>Happiness therapy</títuloOrixinal>
-<ano>2012</ano>
-<xéneros>Comedia Drama</xéneros>
-<duración>122</duración>
-<nominacións>
-<mellorPelícula/>
-<mellorDirector ref="EF-Y10"/>
-<mellorActriz ref="OT-A23" oscar="SI"/>
-<mellorActor ref="OH-R23"/>
-<mellorActrizSecundaria ref="EW-A99"/>
-<mellorActorSecundario ref="UR-M9"/>
-</nominacións>
+    <título>El lado bueno de las cosas</título>
+    <títuloOrixinal>Happiness therapy</títuloOrixinal>
+    <ano>2012</ano>
+    <xéneros>Comedia</xéneros>
+    <xéneros>Drama</xéneros>
+    <duración>122</duración>
+    <nominacións>
+        <mellorPelícula/>
+        <mellorDirector ref="EF-Y10"/>
+        <mellorActriz ref="OT-A23" oscar="SI"/>
+        <mellorActor ref="OH-R23"/>
+        <mellorActrizSecundaria ref="EW-A99"/>
+        <mellorActorSecundario ref="UR-M9"/>
+    </nominacións>
 </película>
 <película codigo="PO-81004">
-<título>Los miserables</título>
-<ano>2012</ano>
-<xéneros>Musical Drama</xéneros>
-<duración>152</duración>
-<nominacións>
-<mellorPelícula/>
-<mellorActor ref="UH-M77"/>
-<mellorActrizSecundaria ref="AH-R50"/>
-</nominacións>
+    <título>Los miserables</título>
+    <ano>2012</ano>
+    <xéneros>Musical</xéneros>
+    <xéneros>Drama</xéneros>
+    <duración>152</duración>
+    <nominacións>
+        <mellorPelícula/>
+        <mellorActor ref="UH-M77"/>
+        <mellorActrizSecundaria ref="AH-R50"/>
+    </nominacións>
 </película>
 <película codigo="AN-7699">
 <título>La vida de Pi</título>
 <nominacións>
-<mellorDirector ref="AL-E97" oscar="SI"/>
-<mellorPelícula/>
+    <mellorDirector ref="AL-E97" oscar="SI"/>
+    <mellorPelícula/>
 </nominacións>
 </película>
 <película codigo="LI-7989">
@@ -61,7 +64,7 @@
 <título>No</título>
 <nacionalidade>Chilena</nacionalidade>
 <nominacións>
-<mellorLinguaNonInglesa/>
+    <mellorLinguaNonInglesa/>
 </nominacións>
 </película>
 <persona codigo="EX-E5" sexo="Muller">
@@ -89,14 +92,16 @@
 <persona codigo="EW-A99" sexo="Muller">
 <nome>Jacki Weaver</nome>
 </persona>
+
 <persona codigo="UH-M77" sexo="Home">
-<nome>Hugh Jackman</nome>
-<idade>44</idade>
+    <nome>Hugh Jackman</nome>
+    <idade>44</idade>
 </persona>
+
 <persona codigo="AL-E97" sexo="Home">
-<nome>Ang Lee</nome>
+    <nome>Ang Lee</nome>
 </persona>
 <persona codigo="AA-E97" sexo="Home">
-<nome>Prueba</nome>
+    <nome>Prueba</nome>
 </persona>
 </oscar>

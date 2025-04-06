@@ -1,11 +1,41 @@
-<?xml version="1.0"?>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/XML/XmlSchema.xsd to edit this template
--->
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
 
-<xs:schema version="1.0"
-           xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           elementFormDefault="qualified">
+  <xs:include schemaLocation="7B_grupo.xsd"/>
+
+  <xs:element name="instituto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="alumno" type="alumnoType" maxOccurs="unbounded"/>
+        <xs:element name="profesor" type="profesorType" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="alumnoType">
+    <xs:sequence>
+      <xs:element name="altura" type="alturaType"/>
+    </xs:sequence>
+    <xs:attribute name="numExpedente" type="xs:string" use="required"/>
+    <xs:attributeGroup ref="grupo:nombreCompleto"/>
+  </xs:complexType>
+
+  <xs:complexType name="profesorType">
+    <xs:attribute name="NRP" type="xs:string" use="required"/>
+    <xs:attributeGroup ref="grupo:nombreCompleto"/>
+  </xs:complexType>
+
+  <!-- Tipo para altura -->
+  <xs:simpleType name="alturaType">
+    <xs:union memberTypes="xs:string alturaNumerica"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="alturaNumerica">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="20"/>
+    </xs:restriction>
+  </xs:simpleType>
 
 </xs:schema>
