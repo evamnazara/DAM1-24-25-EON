@@ -7,10 +7,10 @@
 
   <xs:element name="instituto">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element name="alumno" type="alumnoType" maxOccurs="unbounded"/>
-        <xs:element name="profesor" type="profesorType" maxOccurs="unbounded"/>
-      </xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="alumno" type="alumnoType"/>
+        <xs:element name="profesor" type="profesorType" />
+      </xs:choice>
     </xs:complexType>
   </xs:element>
 
@@ -19,17 +19,29 @@
       <xs:element name="altura" type="alturaType"/>
     </xs:sequence>
     <xs:attribute name="numExpedente" type="xs:string" use="required"/>
-    <xs:attributeGroup ref="grupo:nombreCompleto"/>
+    <xs:attributeGroup ref="nombreCompleto"/>
   </xs:complexType>
 
   <xs:complexType name="profesorType">
     <xs:attribute name="NRP" type="xs:string" use="required"/>
-    <xs:attributeGroup ref="grupo:nombreCompleto"/>
+    <xs:attributeGroup ref="nombreCompleto"/>
   </xs:complexType>
 
   <!-- Tipo para altura -->
   <xs:simpleType name="alturaType">
-    <xs:union memberTypes="xs:string alturaNumerica"/>
+      <xs:union>
+          <xs:simpleType>
+              <xs:restriction base="xs:unsignedByte">
+                  <xs:minExclusive value="21" />
+              </xs:restriction>
+          </xs:simpleType>
+          <xs:simpleType>
+              <xs:restriction base="xs:string">
+                  <xs:enumeration value="Alto"/>
+                  <xs:enumeration value="Baixo"/>
+              </xs:restriction>
+          </xs:simpleType>
+      </xs:union>
   </xs:simpleType>
 
   <xs:simpleType name="alturaNumerica">
