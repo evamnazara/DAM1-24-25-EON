@@ -41,9 +41,9 @@ where ed.Lugar in('Vigo','Pontevedra')
 			
 			where ed.Lugar in ('Vigo','Pontevedra') 
 			GROUP BY C.NOME, C.Horas,ED.Numero) AS TABLAAUX
-	)*/
+	)
 	
-GROUP BY NOME,HORAS
+GROUP BY NOME,HORAS*/
 	
 
 -- 36. ¿Cuántos empleados hay en cada provincia? Se usa los dos primeros caracteres del código postal.Si no tiene código postal, se indicará como 'Desconocida'.
@@ -73,7 +73,9 @@ FROM EMPREGADO E
         AND F.Parentesco IN ('Mujer', 'Marido');
 
 -- 38. ¿Existe algún empleado que trabaje en más de un proyecto en lugares diferentes?
-SELECT E.NSS, E.Nome, E.Apelido1, ISNULL(E.Apelido2, ' ') AS Apelido2
+SELECT E.NSS, E.Nome, E.Apelido1, ISNULL(E.Apelido2, ' ') AS Apelido2, 
+		COUNT(DISTINCT P.Lugar)as ProyectosLugaresDiferentes,
+		count(*) as TotalProyectos
 FROM EMPREGADO E
     INNER JOIN EMPREGADO_PROXECTO EP ON E.NSS = EP.NSSEmpregado
     INNER JOIN PROXECTO P ON EP.NumProxecto = P.NumProxecto
@@ -83,22 +85,33 @@ GROUP BY E.NSS, E.Nome, E.Apelido1, E.Apelido2
 
 -- 39. Generar un mote para cada empleado con las dos primeras letras de su nombre,  dos segundas de su primer apellido y la primera y última de la localidad donde reside.
 
---???
-/*
 SELECT 
-    E.NSS,
-    SUBSTRING(E.Nome, 1, 2) + SUBSTRING(E.Apelido1, 3, 2) + LEFT(E.Localidade, 1) + RIGHT(E.Localidade, 1) AS MoteEmpleado,
-    D.NomeDepartamento
-    FROM EMPREGADO E*/
---??
+    NSS, LOWER(LEFT(NOME,2) + SUBSTRING(Apelido1, 3, 4) + LEFT(Localidade, 1) + RIGHT(Localidade, 1)) AS MoteEmpleado, NOMEDEPARTAMENTO 
+    FROM EMPREGADO E 
+    INNER JOIN DEPARTAMENTO D
+    ON E.NumDepartamentoPertenece = D.NumDepartamento
+
 
 -- 40. Seleccionar empleados que viven en el mismo lugar donde se desarrolla un proyecto y que no están trabajando en ningún proyecto en la ciudad donde residen.
-
-SELECT P.NomeProxecto, E.NSS, E.Nome, E.Apelido1
+--MAL 
+/*SELECT P.NomeProxecto, E.NSS, E.Nome, E.Apelido1
 FROM EMPREGADO E
     INNER JOIN PROXECTO P ON E.Localidade = P.Lugar
     LEFT JOIN EMPREGADO_PROXECTO EP ON E.NSS = EP.NSSEmpregado
-WHERE EP.NumProxecto IS NULL;
+WHERE EP.NumProxecto IS NULL
+GROUP BY NOMEPROXECTO,NSS,NOME,APELIDO1*/
+
+
+--2
+select nomeproxecto,nss,nome,apelido1 
+FROM EMPREGADO E INNER JOIN PROXECTO P
+	ON E.Localidade = P.Lugar
+	WHERE LOCALIDADE NOT IN (
+	SELECT LUGAR
+		FROM PROXECTO P INNER JOIN EMPREGADO_PROXECTO EP
+			ON P.NumProxecto = EP.NumProxecto
+		WHERE EP.NSSEmpregado = E.NSS
+							)
 
 -- 41. Lo mismo que la consulta anterior, pero solo para empleados con más de 10 horas disponibles a la semana  (máximo 40 horas semanales).
 
@@ -109,3 +122,18 @@ FROM EMPREGADO E
     LEFT JOIN EMPREGADO_PROXECTO EP ON E.NSS = EP.NSSEmpregado
 WHERE EP.NumProxecto IS NULL 
     AND (40 - ISNULL(EP.Horas, 0)) > 10;
+
+--2
+select nomeproxecto,nss,nome,apelido1 
+FROM EMPREGADO E INNER JOIN PROXECTO P
+	ON E.Localidade = P.Lugar
+	WHERE LOCALIDADE NOT IN (
+	SELECT LUGAR
+		FROM PROXECTO P INNER JOIN EMPREGADO_PROXECTO EP
+			ON P.NumProxecto = EP.NumProxecto
+		WHERE EP.NSSEmpregado = E.NSS
+							)
+and (select (40 - SUM(HORAS)) as horasLibres
+	FROM EMPREGADO_PROXECTO 
+	where NSSEmpregado = e.NSS
+	) > 10;

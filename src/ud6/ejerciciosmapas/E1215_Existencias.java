@@ -52,8 +52,8 @@ public class E1215_Existencias {
                     String nombre=sc.nextLine();
                     System.out.println("unidades: ");
                     Integer unidades = sc.nextInt();
-                    Producto p = new Producto(codigo, nombre);
-                    stock.put(p, unidades);
+                    //Producto p = new Producto(codigo, nombre);
+                    //stock.put(p, unidades);
                     break;
             
                 case 2:
