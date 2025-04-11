@@ -1,5 +1,3 @@
-package ASIGNATURAS.CONTORNOS.ud4.malosOlores;
-
 class Nomina {
     private double salario;
 

@@ -25,6 +25,13 @@ public class Cliente extends Host {
     }
 
 
+    public int getPixeles(){
+        String[] px = resolucion.split("x");
+        int ancho = Integer.parseInt(px[0]);
+        int alto = Integer.parseInt(px[1]);
+
+        return ancho * alto;
+    }
 
 
 
@@ -39,8 +46,6 @@ public class Cliente extends Host {
 
         System.out.println("Prueba toString independiente: " );
         System.out.println(cAnd4.toString());
-
-
        
         Cliente[] clientes = { cWin1, cLin2, cMac3, cAnd4, cIos5 };
         Arrays.sort(clientes);

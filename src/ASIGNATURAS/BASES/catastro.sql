@@ -210,7 +210,8 @@ ORDER BY TOTALMETROUTILES DESC,
 
 
 
--- 10._ Modifica la consulta anterior para que además de esa información indique cuantas viviendas (pisos) hay en cada bloque (usando la tabla piso) y cuantos propietarios distintos hay en cada bloque. En este caso ordénalos de menor a mayor por el número de viviendas y dentro de este por el número de propietarios distintos.
+/*10._ Modifica la consulta anterior para que además de esa información indique cuantas viviendas (pisos) hay en cada bloque (usando la tabla piso) y cuantos propietarios distintos hay en cada bloque. En este caso ordénalos de menor a mayor por el número de viviendas y dentro de este por el número de propietarios distintos.*/
+
 SELECT V.CALLE, V.NUMERO, V.METROSSOLAR,
        COUNT(*) AS NUMPISOS,
        COUNT(DISTINCT P.DNIPROPIETARIO) AS PROPIETARIOS,
@@ -221,8 +222,8 @@ JOIN PISO P ON V.CALLE = P.CALLE AND V.NUMERO = P.NUMERO
 WHERE V.TIPOVIVIENDA = 'Bloque'
 
 GROUP BY V.CALLE, V.NUMERO, V.METROSSOLAR
-ORDER BY NUM_PISOS ASC, 
-NUM_PROPIETARIOS ASC;
+ORDER BY NUMPISOS ASC, 
+PROPIETARIOS ASC
 
 
 -- 11._ Haz una consulta que devuelva el/los propietarios (nombre completo) que más metros cuadrados poseen en Trasteros y Bodegas.
@@ -239,8 +240,10 @@ MaxMetros AS (
 )
 SELECT P.NOMBRE + ' ' + P.APELLIDO1 + ' ' + ISNULL(P.APELLIDO2, ' ') AS NombreCompleto
 FROM MetrosPorPropietario M
-    INNER JOIN MAXIMOMETROS MM ON M.TOTAL_METROS = MM.MAXMETROS
+    INNER JOIN MAXMETROS MM ON M.TOTAL_METROS = MM.MaxMetros
     INNER JOIN PROPIETARIO P ON P.DNI = M.DNIPROPIETARIO;
+
+
 
 -- 12._ ¿Cuántos metros construídos posee cada propietario? 
 --Haz una consulta que muestre el total de metros construídos que posee cada uno. En el caso de no tener ningún piso o vivienda unifamiliar debes poner 0 en la columna correspondiente.
